@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="content" ng-controller="BaiVietListController">
+    <span ng-show="isViewLoading" class="viewLoading">
+        <img src="~/Content/images/ng-loader.gif" /> loading...
+    </span>
+    <div ng-class="result">{{message}}</div>
+    <hr />
+    
+    <h2>All BaiViets</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Post_Id</th>
+                <th>Post_Title</th>
+                <th>Post_Content</th>
+                <th>Create_Date</th>
+                <th>Enable</th>
+                <th>Language</th>
+            </tr>
+        </thead>
+        <tr ng-repeat="custModel in ListBaiViet">
+            <td>{{custModel.Post_Id}}</td>
+            <td>{{custModel.Post_Title}}</td>
+            <td>{{custModel.Post_Content}}</td>
+            <td>{{custModel.Create_Date}}</td>
+            <td>{{custModel.Enable}}</td>
+            <td>{{custModel.Language}}</td>
+            
+        </tr>
+    </table>
+    <input type="button" value="Reload" ng-click="getAllData()" />
+</div>
+
+@section JavaScript{
+    <script src="~/Scripts/Controller/BaiViet/BaiVietListController.js"></script>
+}
