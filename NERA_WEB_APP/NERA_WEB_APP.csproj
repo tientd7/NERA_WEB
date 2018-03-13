@@ -153,6 +153,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\APP_AUTO_NUMBER.cs" />
+    <Compile Include="Models\APP_Dic_Domain.cs" />
+    <Compile Include="Models\APP_Email_Info.cs" />
+    <Compile Include="Models\APP_Quyen_Info.cs" />
+    <Compile Include="Models\APP_SYS_Parrams.cs" />
+    <Compile Include="Models\App_User_Info.cs" />
+    <Compile Include="Models\APP_User_Permission.cs" />
+    <Compile Include="Models\CS_ChatBox_Info.cs" />
+    <Compile Include="Models\CS_Menu_Item.cs" />
+    <Compile Include="Models\CS_Other_Slide.cs" />
+    <Compile Include="Models\CS_Posts_Info.cs" />
+    <Compile Include="Models\CS_Posts_Slides.cs" />
     <Compile Include="Models\DBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
