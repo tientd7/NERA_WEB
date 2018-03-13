@@ -149,27 +149,62 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaiVietController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\APP_AUTO_NUMBER.cs" />
+    <Compile Include="Models\APP_Dic_Domain.cs" />
+    <Compile Include="Models\APP_Email_Info.cs" />
+    <Compile Include="Models\APP_Quyen_Info.cs" />
+    <Compile Include="Models\APP_SYS_Parrams.cs" />
+    <Compile Include="Models\App_User_Info.cs" />
+    <Compile Include="Models\APP_User_Permission.cs" />
+    <Compile Include="Models\CS_ChatBox_Info.cs" />
+    <Compile Include="Models\CS_Menu_Item.cs" />
+    <Compile Include="Models\CS_Other_Slide.cs" />
+    <Compile Include="Models\CS_Posts_Info.cs" />
+    <Compile Include="Models\CS_Posts_Slides.cs" />
     <Compile Include="Models\DBContext.cs" />
+    <Compile Include="Models\Maps\App_Auto_Number_Map.cs" />
+    <Compile Include="Models\Maps\APP_Dic_Domain_Map.cs" />
+    <Compile Include="Models\Maps\APP_Email_Info_Map.cs" />
+    <Compile Include="Models\Maps\APP_Quyen_Info_Map.cs" />
+    <Compile Include="Models\Maps\APP_SYS_Parrams_Map.cs" />
+    <Compile Include="Models\Maps\APP_User_Info_Map.cs" />
+    <Compile Include="Models\Maps\APP_User_Permission_Map.cs" />
+    <Compile Include="Models\Maps\CS_ChatBox_Info_Map.cs" />
+    <Compile Include="Models\Maps\CS_Menu_Item_Map.cs" />
+    <Compile Include="Models\Maps\CS_Other_Slide_Map.cs" />
+    <Compile Include="Models\Maps\CS_Posts_Info_Map.cs" />
+    <Compile Include="Models\Maps\CS_Posts_Slides_Map.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\ng-loader.gif" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="machine.config" />
+    <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Controller\BaiViet\BaiVietListController.js" />
+    <Content Include="Scripts\Controller\Filter\CustomFilter.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -194,6 +229,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\BaiViet\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
