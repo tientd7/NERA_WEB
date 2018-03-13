@@ -26,13 +26,13 @@
             <td>{{custModel.Post_Id}}</td>
             <td>{{custModel.Post_Title}}</td>
             <td>{{custModel.Post_Content}}</td>
-            <td>{{custModel.Create_Date}}</td>
+            <td>{{custModel.Create_Date |mydate| date: 'dd-MMM-yyyy'}}</td>
             <td>{{custModel.Enable}}</td>
             <td>{{custModel.Language}}</td>
             
         </tr>
     </table>
-    <input type="button" value="Reload" ng-click="getAllData()" />
+    <input type="button" value="Reload" ng-click="getallData2()" />
 </div>
 
 @section JavaScript{

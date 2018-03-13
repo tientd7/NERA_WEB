@@ -1,5 +1,4 @@
-﻿angular.module('myFormApp', [])
-.controller('BaiVietListController', function ($scope, $http, $location, $window) {
+﻿app.controller('BaiVietListController', function ($scope, $http, $location, $window) {
     $scope.custModel = {};
     $scope.message = '';
     $scope.result = "color-default";
@@ -20,7 +19,18 @@
                 console.log($scope.message);
             });
     };
-
+    $scope.getallData2 = function() {
+        //debugger;
+        $http.get('/BaiViet/GetAllBaiViet2')
+            .success(function (data, status, headers, config) {
+                $scope.ListBaiViet = data;
+            })
+            .error(function (data, status, headers, config) {
+                $scope.message = 'Unexpected Error while loading data!!';
+                $scope.result = "color-red";
+                console.log($scope.message);
+            });
+    };
     ////******=========Get Single BaiViet=========******
     //$scope.getBaiViet = function (custModel) {
     //    $http.get('/BaiViet/GetbyID/' + custModel.Id)
