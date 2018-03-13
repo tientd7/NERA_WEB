@@ -167,6 +167,17 @@
     <Compile Include="Models\CS_Posts_Slides.cs" />
     <Compile Include="Models\DBContext.cs" />
     <Compile Include="Models\Maps\App_Auto_Number_Map.cs" />
+    <Compile Include="Models\Maps\APP_Dic_Domain_Map.cs" />
+    <Compile Include="Models\Maps\APP_Email_Info_Map.cs" />
+    <Compile Include="Models\Maps\APP_Quyen_Info_Map.cs" />
+    <Compile Include="Models\Maps\APP_SYS_Parrams_Map.cs" />
+    <Compile Include="Models\Maps\APP_User_Info_Map.cs" />
+    <Compile Include="Models\Maps\APP_User_Permission_Map.cs" />
+    <Compile Include="Models\Maps\CS_ChatBox_Info_Map.cs" />
+    <Compile Include="Models\Maps\CS_Menu_Item_Map.cs" />
+    <Compile Include="Models\Maps\CS_Other_Slide_Map.cs" />
+    <Compile Include="Models\Maps\CS_Posts_Info_Map.cs" />
+    <Compile Include="Models\Maps\CS_Posts_Slides_Map.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
