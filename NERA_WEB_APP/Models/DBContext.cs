@@ -29,7 +29,7 @@ namespace NERA_WEB_APP.Models
         public DbSet<CS_Menu_Item> CS_Menu_Item { set; get; }
         public DbSet<APP_Dic_Domain> APP_Dic_Domain { set; get; }
         public DbSet<APP_Quyen_Info> APP_Quyen_Info { set; get; }
-        public DbSet<CS_Posts_Info> CS_Posts_Info { set; get; }
+        public DbSet<CS_Post_Info> CS_Post_Info { set; get; }
         public DbSet<CS_ChatBox_Info> CS_ChatBox_Info{ set; get; }
         public DbSet<APP_SYS_Parrams> APP_SYS_Parrams { set; get; }
 

@@ -10,9 +10,9 @@ namespace NERA_WEB_APP.Controllers
     public class App_Auto_NumberController : Controller
     {
         // GET: App_Auto_Number
-        public static int GenID(String referKey)
+        DataContext db = new DataContext();
+        public int GenID(String referKey)
         {
-            DataContext db = new DataContext();
             try
             {
                 APP_AUTO_NUMBER obj = db.App_Auto_numbers.Find(referKey);

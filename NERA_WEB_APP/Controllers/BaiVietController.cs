@@ -28,39 +28,64 @@ namespace NERA_WEB_APP.Controllers
         public JsonResult GetAllBaiViet()
         {
             //Lấy ds từ db
-            var LST = (from obj in db.CS_Posts_Info select obj).ToList();
+            var LST = (from obj in db.CS_Post_Info select obj).ToList();
             return Json(LST, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult Detail(int Post_Id)
         {
-            var obj = db.CS_Posts_Info.Find(Post_Id);
+            var obj = db.CS_Post_Info.Find(Post_Id);
             return Json(obj, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
-        public JsonResult ConfirmEdit(CS_Posts_Info objInfo)
+        public JsonResult ConfirmEdit(CS_Post_Info objInfo)
         {
             String Rs = "";
             try
             {
                 if (objInfo.Post_Id > 0)
                 {
+                    objInfo.Update_By = 1;
+                    objInfo.Update_Date = DateTime.Now;
                     db.Entry(objInfo);
                     db.SaveChanges();
                 }
                 else
                 {
-                    objInfo.Post_Id = App_Auto_NumberController.GenID("CS_Posts_Info.Post_Id");
-                    objInfo.Create_By = 1;
-                    objInfo.Create_Date = DateTime.Now;
-                    db.CS_Posts_Info.Add(objInfo);
+                    CS_Post_Info newObj = new CS_Post_Info();
+                    int id = new App_Auto_NumberController().GenID("CS_Posts_Info.Post_Id");
+                    newObj.Post_Id = id;
+                    newObj.Create_By = 1;
+                    newObj.Create_Date = DateTime.Now;
+                    newObj.Update_By = 1;
+                    newObj.Update_Date = DateTime.Now;
+                    newObj.Enable = objInfo.Enable;
+                    newObj.Item_ID = objInfo.Item_ID;
+                    newObj.Language = objInfo.Language;
+                    newObj.Meta_Desc = objInfo.Meta_Desc;
+                    newObj.Meta_Key = objInfo.Meta_Key;
+                    newObj.Post_Content = objInfo.Post_Content;
+                    newObj.Post_Title = objInfo.Post_Title;
+                    db.CS_Post_Info.Add(newObj);
                     db.SaveChanges();
                 }
             }
-            catch (Exception ex)
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
             {
-                Rs = ex.StackTrace;
+                Exception raise = dbEx;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Rs = string.Format("{0}:{1}",
+                            validationErrors.Entry.Entity.ToString(),
+                            validationError.ErrorMessage);
+                        // raise a new exception nesting
+                        // the current instance as InnerException
+                        raise = new InvalidOperationException(Rs, raise);
+                    }
+                }
             }
 
             return Json(Rs);
@@ -71,8 +96,8 @@ namespace NERA_WEB_APP.Controllers
             String Rs = "";
             try
             {
-                var objInfo = db.CS_Posts_Info.Find(Post_Id);
-                db.CS_Posts_Info.Remove(objInfo);
+                var objInfo = db.CS_Post_Info.Find(Post_Id);
+                db.CS_Post_Info.Remove(objInfo);
                 db.SaveChanges();
             }
             catch (Exception ex)

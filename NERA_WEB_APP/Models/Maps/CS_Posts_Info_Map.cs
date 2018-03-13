@@ -6,12 +6,13 @@ using System.Web;
 
 namespace NERA_WEB_APP.Models.Maps
 {
-    public class CS_Posts_Info_Map: EntityTypeConfiguration<CS_Posts_Info>
+    public class CS_Posts_Info_Map: EntityTypeConfiguration<CS_Post_Info>
     {
         public  CS_Posts_Info_Map()
         {
-            this.HasKey(t => t.Post_Id);
             this.ToTable("CS_Post_Info");
+            this.HasKey(t => t.Post_Id);
+            this.Property(t => t.Post_Id).HasColumnName("Post_Id");
             this.Property(t => t.Post_Title).HasColumnName("Post_Title");
             this.Property(t => t.Post_Content).HasColumnName("Post_Content");
             this.Property(t => t.Meta_Desc).HasColumnName("Meta_Desc");
