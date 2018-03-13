@@ -166,6 +166,7 @@
     <Compile Include="Models\CS_Posts_Info.cs" />
     <Compile Include="Models\CS_Posts_Slides.cs" />
     <Compile Include="Models\DBContext.cs" />
+    <Compile Include="Models\Maps\App_Auto_Number_Map.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
