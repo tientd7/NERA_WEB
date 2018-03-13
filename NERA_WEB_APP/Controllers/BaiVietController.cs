@@ -32,9 +32,9 @@ namespace NERA_WEB_APP.Controllers
             return Json(LST, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult Detail(int Post_Id)
+        public JsonResult Detail(int id)
         {
-            var obj = db.CS_Post_Info.Find(Post_Id);
+            var obj = db.CS_Post_Info.Find(id);
             return Json(obj, JsonRequestBehavior.AllowGet);
         }
 
@@ -91,12 +91,12 @@ namespace NERA_WEB_APP.Controllers
             return Json(Rs);
         }
         [HttpPost]
-        public JsonResult ConfirmDelete(int Post_Id)
+        public JsonResult ConfirmDelete(int id)
         {
             String Rs = "";
             try
             {
-                var objInfo = db.CS_Post_Info.Find(Post_Id);
+                var objInfo = db.CS_Post_Info.Find(id);
                 db.CS_Post_Info.Remove(objInfo);
                 db.SaveChanges();
             }

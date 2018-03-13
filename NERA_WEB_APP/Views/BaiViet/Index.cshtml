@@ -32,7 +32,7 @@
             <td>{{custModel.Enable}}</td>
             <td>{{custModel.Language}}</td>
             <td><a href='/BaiViet/Create/{{custModel.Post_Id}}'>Sửa</a>&nbsp;
-            <a href="/BaiViet/ConfirmDelete/{{custModel.Post_Id}}">Xóa</a>
+            <input type="button" value="Xóa" ng-click="onDelete(custModel)" />
             </td>
         </tr>
     </table>

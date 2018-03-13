@@ -61,29 +61,34 @@
     };
 
 
-//    //******=========Delete BaiViet=========******
-//    $scope.deleteBaiViet = function (custModel) {
-//        //debugger;
-//        var IsConf = confirm('You are about to delete ' + custModel.CustName + '. Are you sure?');
-//        if (IsConf) {
-//            $http.delete('/Home/Delete/' + custModel.Id)
-//            .success(function (data, status, headers, config) {
-//                if (data.success === true) {
-//                    $scope.message = custModel.CustName + ' deleted from record!!';
-//                    $scope.result = "color-green";
-//                    getallData();
-//                    console.log(data);
-//                }
-//                else {
-//                    $scope.message = 'Error on deleting Record!';
-//                    $scope.result = "color-red";
-//                }
-//            })
-//            .error(function (data, status, headers, config) {
-//                $scope.message = 'Unexpected Error while deleting data!!';
-//                $scope.result = "color-red";
-//                console.log($scope.message);
-//            });
-//        }
-//    };
+    //******=========Delete BaiViet=========******
+    $scope.onDelete = function (custModel) {
+        //debugger;
+        var IsConf = confirm('You are about to delete ' + custModel.Post_Title + '. Are you sure?');
+        Post_Id = custModel.Post_Id;
+        if (IsConf) {
+            $http({
+                method: 'POST',
+                url: '/BaiViet/ConfirmDelete',
+                data: { 'id': Post_Id }
+            })
+            .success(function (data, status, headers, config) {
+                if (data.success === true) {
+                    $scope.message = custModel.CustName + ' deleted from record!!';
+                    $scope.result = "color-green";
+                    getallData();
+                    console.log(data);
+                }
+                else {
+                    $scope.message = 'Error on deleting Record!';
+                    $scope.result = "color-red";
+                }
+            })
+            .error(function (data, status, headers, config) {
+                $scope.message = 'Unexpected Error while deleting data!!';
+                $scope.result = "color-red";
+                console.log($scope.message);
+            });
+        }
+    };
 });
