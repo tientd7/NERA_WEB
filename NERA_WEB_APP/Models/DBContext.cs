@@ -26,20 +26,20 @@ namespace NERA_WEB_APP.Models
         public DbSet<APP_AUTO_NUMBER> App_Auto_numbers { set; get; }
         public DbSet<App_User_Info> App_User_Info { set; get; }
 
-        public DbSet<CS_Menu_Item_Map> CS_Menu_Item { set; get; }
-        public DbSet<APP_Dic_Domain_Map> APP_Dic_Domain { set; get; }
-        public DbSet<APP_Quyen_Info_Map> APP_Quyen_Info { set; get; }
-        public DbSet<CS_Posts_Info_Map> CS_Posts_Info { set; get; }
-        public DbSet<CS_ChatBox_Info_Map> CS_ChatBox_Info{ set; get; }
-        public DbSet<APP_SYS_Parrams_Map> APP_SYS_Parrams { set; get; }
+        public DbSet<CS_Menu_Item> CS_Menu_Item { set; get; }
+        public DbSet<APP_Dic_Domain> APP_Dic_Domain { set; get; }
+        public DbSet<APP_Quyen_Info> APP_Quyen_Info { set; get; }
+        public DbSet<CS_Posts_Info> CS_Posts_Info { set; get; }
+        public DbSet<CS_ChatBox_Info> CS_ChatBox_Info{ set; get; }
+        public DbSet<APP_SYS_Parrams> APP_SYS_Parrams { set; get; }
 
-        public DbSet<APP_User_Permission_Map> APP_User_Permission{ set; get; }
+        public DbSet<APP_User_Permission> APP_User_Permission{ set; get; }
 
-        public DbSet<CS_Posts_Slides_Map> CS_Posts_Slides { set; get; }
+        public DbSet<CS_Posts_Slides> CS_Posts_Slides { set; get; }
 
-        public DbSet<CS_Other_Slide_Map> CS_Other_Slide{ set; get; }
+        public DbSet<CS_Other_Slide> CS_Other_Slide{ set; get; }
 
-        public DbSet<APP_Email_Info_Map> APP_Email_Info { set; get; }
+        public DbSet<APP_Email_Info> APP_Email_Info { set; get; }
 
 
 

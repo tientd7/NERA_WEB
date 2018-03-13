@@ -9,6 +9,6 @@ namespace NERA_WEB_APP.Models
     {
         public string Parram_Key { get; set; }
         public string  Parram_Value { get; set; }
-        public int Enable { get; set; }
+        public bool Enable { get; set; }
     }
 }

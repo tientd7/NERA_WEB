@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using NERA_WEB_APP.Models;
+using System.Threading;
 
 namespace NERA_WEB_APP.Controllers
 {
@@ -15,67 +16,71 @@ namespace NERA_WEB_APP.Controllers
         {
             return View();
         }
-        public JsonResult GetAllBaiViet()
+        public ActionResult Create(int? id)
         {
-            //Tạo tạm 1 list để show ra
-            List<CS_Posts_Info> LST = new List<CS_Posts_Info>();
-            CS_Posts_Info objInfo = new CS_Posts_Info();
-            objInfo.Create_By = 1;
-            objInfo.Create_Date = DateTime.Now;
-            objInfo.Enable = '1';
-            objInfo.Item_ID = 1;
-            objInfo.Language = "EN";
-            objInfo.Meta_Desc = "DESCRIPTION";
-            objInfo.Meta_Key = "KEY";
-            objInfo.Post_Content = "abcsgajkfhKLJF";
-            objInfo.Post_Id = 1;
-            objInfo.Post_Title = "Test";
-            objInfo.Update_By = 1;
-            objInfo.Update_Date = DateTime.Now;
-
-            LST.Add(objInfo);
-
-            var s = Json(LST, JsonRequestBehavior.AllowGet);
-            return s;
+            if (id.HasValue)
+            {
+                ViewBag.Post_Id = id.Value;
+            }
+            return View();
         }
 
-        public JsonResult GetAllBaiViet2()
+        public JsonResult GetAllBaiViet()
         {
-            //Tạo tạm 1 list để show ra
-            List<CS_Posts_Info> LST = new List<CS_Posts_Info>();
-            CS_Posts_Info objInfo = new CS_Posts_Info();
-            objInfo.Create_By = 1;
-            objInfo.Create_Date = DateTime.Now;
-            objInfo.Enable = '1';
-            objInfo.Item_ID = 1;
-            objInfo.Language = "EN";
-            objInfo.Meta_Desc = "DESCRIPTION";
-            objInfo.Meta_Key = "KEY";
-            objInfo.Post_Content = "abcsgajkfhKLJF";
-            objInfo.Post_Id = 1;
-            objInfo.Post_Title = "Test";
-            objInfo.Update_By = 1;
-            objInfo.Update_Date = DateTime.Now;
+            //Lấy ds từ db
+            var LST = (from obj in db.CS_Posts_Info select obj).ToList();
+            return Json(LST, JsonRequestBehavior.AllowGet);
+        }
 
-            CS_Posts_Info objInfo2 = new CS_Posts_Info();
-            objInfo2.Create_By = 2;
-            objInfo2.Create_Date = DateTime.Now.AddDays(1);
-            objInfo2.Enable = '1';
-            objInfo2.Item_ID = 2;
-            objInfo2.Language = "VN";
-            objInfo2.Meta_Desc = "DESCRIPTION2";
-            objInfo2.Meta_Key = "KEY2";
-            objInfo2.Post_Content = "dghsfsđ";
-            objInfo2.Post_Id = 2;
-            objInfo2.Post_Title = "Test";
-            objInfo2.Update_By = 2;
-            objInfo2.Update_Date = DateTime.Now;
+        public JsonResult Detail(int Post_Id)
+        {
+            var obj = db.CS_Posts_Info.Find(Post_Id);
+            return Json(obj, JsonRequestBehavior.AllowGet);
+        }
 
-            LST.Add(objInfo);
-            LST.Add(objInfo2);
+        [HttpPost]
+        public JsonResult ConfirmEdit(CS_Posts_Info objInfo)
+        {
+            String Rs = "";
+            try
+            {
+                if (objInfo.Post_Id > 0)
+                {
+                    db.Entry(objInfo);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    objInfo.Post_Id = App_Auto_NumberController.GenID("CS_Posts_Info.Post_Id");
+                    objInfo.Create_By = 1;
+                    objInfo.Create_Date = DateTime.Now;
+                    db.CS_Posts_Info.Add(objInfo);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Rs = ex.StackTrace;
+            }
 
-            var s = Json(LST, JsonRequestBehavior.AllowGet);
-            return s;
+            return Json(Rs);
+        }
+        [HttpPost]
+        public JsonResult ConfirmDelete(int Post_Id)
+        {
+            String Rs = "";
+            try
+            {
+                var objInfo = db.CS_Posts_Info.Find(Post_Id);
+                db.CS_Posts_Info.Remove(objInfo);
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Rs = ex.StackTrace;
+            }
+
+            return Json(Rs);
         }
     }
 }

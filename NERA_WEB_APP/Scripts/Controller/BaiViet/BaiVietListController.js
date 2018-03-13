@@ -5,7 +5,9 @@
     $scope.isViewLoading = false;
     $scope.ListBaiViet = null;
     getallData();
-
+    //if (undefined !== $scope.Item.Post_Id|| $scope.Item.Post_Id >= 0) {
+    //    getDetail($scope.Item.Post_Id);
+    //}
     //******=========Get All BaiViet=========******
     function getallData() {
         //debugger;
@@ -19,90 +21,45 @@
                 console.log($scope.message);
             });
     };
-    $scope.getallData2 = function() {
-        //debugger;
-        $http.get('/BaiViet/GetAllBaiViet2')
-            .success(function (data, status, headers, config) {
-                $scope.ListBaiViet = data;
-            })
-            .error(function (data, status, headers, config) {
-                $scope.message = 'Unexpected Error while loading data!!';
-                $scope.result = "color-red";
-                console.log($scope.message);
-            });
+    $scope.ReloadData = getallData();
+    //******=========Get Single BaiViet=========******
+    function getDetail(id) {
+        $http.get('/BaiViet/Detail/' + id)
+        .success(function (data, status, headers, config) {
+            //debugger;
+            $scope.Item = data;
+            console.log(data);
+        })
+        .error(function (data/*, status, headers, config*/) {
+            $scope.message = 'Unexpected Error while loading data!!';
+            $scope.result = "color-red";
+            console.log($scope.message);
+        });
     };
-    ////******=========Get Single BaiViet=========******
-    //$scope.getBaiViet = function (custModel) {
-    //    $http.get('/BaiViet/GetbyID/' + custModel.Id)
-    //    .success(function (data/*, status, headers, config*/) {
-    //        //debugger;
-    //        $scope.custModel = data;
-    //        getallData();
-    //        console.log(data);
-    //    })
-    //    .error(function (data/*, status, headers, config*/) {
-    //        $scope.message = 'Unexpected Error while loading data!!';
-    //        $scope.result = "color-red";
-    //        console.log($scope.message);
-    //    });
-    //};
 
     //******=========Save BaiViet=========******
-//    $scope.saveBaiViet = function () {
-//        $scope.isViewLoading = true;
+    $scope.onSave = function () {
+        $scope.isViewLoading = true;
+        $http({
+            method: 'POST',
+            url: '/BaiViet/ConfirmEdit',
+            data: $scope.Item
+        }).success(function (data, status, headers, config) {
+            if (data === "") {
+                window.location.href('/BaiViet/Index');
+            }
+            else {
+                $scope.message = 'Form data not Saved!';
+                $scope.result = "color-red";
+            }
+        }).error(function (data, status, headers, config) {
+            $scope.message = 'Unexpected Error while saving data!!' + data.errors;
+            $scope.result = "color-red";
+            console.log($scope.message);
+        });
+        $scope.isViewLoading = false;
+    };
 
-//        $http({
-//            method: 'POST',
-//            url: '/Home/Insert',
-//            data: $scope.custModel
-//        }).success(function (data, status, headers, config) {
-//            if (data.success === true) {
-//                $scope.message = 'Form data Saved!';
-//                $scope.result = "color-green";
-//                getallData();
-//                $scope.custModel = {};
-//                console.log(data);
-//            }
-//            else {
-//                $scope.message = 'Form data not Saved!';
-//                $scope.result = "color-red";
-//            }
-//        }).error(function (data, status, headers, config) {
-//            $scope.message = 'Unexpected Error while saving data!!' + data.errors;
-//            $scope.result = "color-red";
-//            console.log($scope.message);
-//        });
-//        getallData();
-//        $scope.isViewLoading = false;
-//    };
-
-//    //******=========Edit BaiViet=========******
-//    $scope.updateBaiViet = function () {
-//        //debugger;
-//        $scope.isViewLoading = true;
-//        $http({
-//            method: 'POST',
-//            url: '/Home/Update',
-//            data: $scope.custModel
-//        }).success(function (data, status, headers, config) {
-//            if (data.success === true) {
-//                $scope.custModel = null;
-//                $scope.message = 'Form data Updated!';
-//                $scope.result = "color-green";
-//                getallData();
-//                console.log(data);
-//            }
-//            else {
-//                $scope.message = 'Form data not Updated!';
-//                $scope.result = "color-red";
-//            }
-//        }).error(function (data, status, headers, config) {
-//            $scope.message = 'Unexpected Error while updating data!!' + data.errors;
-//            $scope.result = "color-red";
-//            console.log($scope.message);
-//        });
-//        $scope.isViewLoading = false;
-//    };
 
 //    //******=========Delete BaiViet=========******
 //    $scope.deleteBaiViet = function (custModel) {

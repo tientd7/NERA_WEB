@@ -10,7 +10,9 @@ namespace NERA_WEB_APP.Models.Maps
     {
         public CS_Posts_Slides_Map()
         {
+            this.HasKey(t => t.Tbl_Id);
             this.ToTable("CS_Posts_Slides");
+            this.Property(t => t.Tbl_Id).HasColumnName("Tbl_Id");
             this.Property(t => t.Post_Id).HasColumnName("Post_Id");
             this.Property(t => t.Image_Title).HasColumnName("Image_Title");
             this.Property(t => t.Image_URL).HasColumnName("Image_URL");

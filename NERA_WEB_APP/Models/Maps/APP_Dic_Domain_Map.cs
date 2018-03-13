@@ -10,8 +10,11 @@ namespace NERA_WEB_APP.Models.Maps
     {
         public  void APP_Dic_Domain()
         {
+            this.HasKey(t => t.Tbl_Id);
+
             this.ToTable("APP_Dic_Domain");
             this.Property(t => t.Domain_Name).HasColumnName("Domain_Name");
+            this.Property(t => t.Tbl_Id).HasColumnName("Tbl_Id");
             this.Property(t => t.Parram_Key).HasColumnName("Parram_Key");
             this.Property(t => t.Parram_Value).HasColumnName("Parram_Value");
             this.Property(t => t.Parram_Order).HasColumnName("Parram_Order");

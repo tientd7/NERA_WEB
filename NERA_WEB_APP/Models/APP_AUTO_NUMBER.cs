@@ -10,4 +10,5 @@ namespace NERA_WEB_APP.Models
       public string Refer_Key { get; set; }
       public int  Refer_Value { get; set; }
     }
+    
 }

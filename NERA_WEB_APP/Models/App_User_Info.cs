@@ -12,7 +12,7 @@ namespace NERA_WEB_APP.Models
 
         public string Password { get; set; }
         public string Email { get; set; }
-        public int Enable { get; set; }
+        public bool Enable { get; set; }
         public string User_Full_Name { get; set; }
         public string Phone_Number { get; set; }
         public int Quyen_Id { get; set; }

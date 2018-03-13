@@ -9,8 +9,9 @@
     </span>
     <div ng-class="result">{{message}}</div>
     <hr />
-    
+
     <h2>All BaiViets</h2>
+    <a href="/BaiViet/Create">Thêm mới</a>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -20,6 +21,7 @@
                 <th>Create_Date</th>
                 <th>Enable</th>
                 <th>Language</th>
+                <th></th>
             </tr>
         </thead>
         <tr ng-repeat="custModel in ListBaiViet">
@@ -29,7 +31,9 @@
             <td>{{custModel.Create_Date |mydate| date: 'dd-MMM-yyyy'}}</td>
             <td>{{custModel.Enable}}</td>
             <td>{{custModel.Language}}</td>
-            
+            <td><a href='/BaiViet/Create/{{custModel.Post_Id}}'>Sửa</a>&nbsp;
+            <a href="/BaiViet/ConfirmDelete/{{custModel.Post_Id}}">Xóa</a>
+            </td>
         </tr>
     </table>
     <input type="button" value="Reload" ng-click="getallData2()" />

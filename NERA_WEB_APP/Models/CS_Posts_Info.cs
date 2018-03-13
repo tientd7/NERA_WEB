@@ -12,7 +12,7 @@ namespace NERA_WEB_APP.Models
         public string Post_Content { get; set; }
         public string Meta_Desc { get; set; }
         public string Meta_Key { get; set; }
-        public int Enable { get; set; }
+        public bool Enable { get; set; }
         public int Item_ID { get; set; }
         public int Create_By { get; set; }
         public DateTime Create_Date { get; set; }
