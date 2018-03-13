@@ -11,7 +11,6 @@ namespace NERA_WEB_APP.Models.Maps
         public  CS_Posts_Info_Map()
         {
             this.HasKey(t => t.Post_Id);
-
             this.ToTable("CS_Posts_Info");
             this.Property(t => t.Post_Title).HasColumnName("Post_Title");
             this.Property(t => t.Post_Content).HasColumnName("Post_Content");
@@ -27,3 +26,4 @@ namespace NERA_WEB_APP.Models.Maps
         }
     }
 }
+//
