@@ -18,7 +18,7 @@ namespace NERA_WEB_APP.Controllers
         public JsonResult GetAllBaiViet()
         {
             //Tạo tạm 1 list để show ra
-            List < CS_Posts_Info > LST = new List<CS_Posts_Info>();
+            List<CS_Posts_Info> LST = new List<CS_Posts_Info>();
             CS_Posts_Info objInfo = new CS_Posts_Info();
             objInfo.Create_By = 1;
             objInfo.Create_Date = DateTime.Now;
@@ -35,7 +35,8 @@ namespace NERA_WEB_APP.Controllers
 
             LST.Add(objInfo);
 
-            return Json(LST);
+            var s = Json(LST, JsonRequestBehavior.AllowGet);
+            return s;
         }
     }
 }

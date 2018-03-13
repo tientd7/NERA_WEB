@@ -11,10 +11,10 @@
     function getallData() {
         //debugger;
         $http.get('/BaiViet/GetAllBaiViet')
-            .success(function (data) {
+            .success(function (data, status, headers, config) {
                 $scope.ListBaiViet = data;
             })
-            .error(function (data) {
+            .error(function (data, status, headers, config) {
                 $scope.message = 'Unexpected Error while loading data!!';
                 $scope.result = "color-red";
                 console.log($scope.message);
@@ -119,7 +119,4 @@
 //            });
 //        }
 //    };
-})
-.config(function ($locationProvider) {
-    $locationProvider.html5Mode(true);
 });
