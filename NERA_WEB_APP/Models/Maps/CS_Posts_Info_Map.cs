@@ -26,4 +26,3 @@ namespace NERA_WEB_APP.Models.Maps
         }
     }
 }
-//
