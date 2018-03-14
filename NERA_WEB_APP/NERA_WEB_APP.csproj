@@ -273,15 +273,22 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\BaiViet\Index.cshtml" />
     <Content Include="Views\BaiViet\Create.cshtml" />
+    <Content Include="Views\User\user_infor.cshtml" />
+    <Content Include="Views\Product\details.cshtml" />
+    <Content Include="Views\Product\product.cshtml" />
+    <Content Include="Views\Shared\pages\action_totop\totop.cshtml" />
+    <Content Include="Views\Shared\pages\footer\footer.cshtml" />
+    <Content Include="Views\Shared\pages\header\header.cshtml" />
+    <Content Include="Views\Shared\pages\menu_off_canvas\menu_off_canvas.cshtml" />
+    <Content Include="Views\Shared\pages\page_title_section\page_title_section.cshtml" />
+    <Content Include="Views\Shared\pages\preloader\preloader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\css\" />
     <Folder Include="Content\fonts\" />
     <Folder Include="Views\App_Auto_Number\" />
-    <Folder Include="Views\Product\" />
-    <Folder Include="Views\Shared\pages\" />
-    <Folder Include="Views\User\" />
+    <Folder Include="Views\Shared\pages\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
