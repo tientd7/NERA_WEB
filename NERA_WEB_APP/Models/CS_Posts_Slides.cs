@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +8,7 @@ namespace NERA_WEB_APP.Models
 {
     public class CS_Posts_Slides
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Tbl_Id { set; get; }
         public int Post_Id { get; set; }
         public string Image_Title { get; set; }

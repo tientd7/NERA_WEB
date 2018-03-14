@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +8,7 @@ namespace NERA_WEB_APP.Models
 {
     public class App_User_Info
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int User_Id { set; get; }
         public string User_Name { set; get; }
 

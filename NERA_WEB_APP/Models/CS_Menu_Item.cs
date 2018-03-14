@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +8,7 @@ namespace NERA_WEB_APP.Models
 {
     public class CS_Menu_Item
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Item_Id { get; set; }
         public string Item_Name { get; set; }
         public bool Enable { get; set; }
