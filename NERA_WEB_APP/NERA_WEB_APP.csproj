@@ -152,6 +152,8 @@
     <Compile Include="Controllers\App_Auto_NumberController.cs" />
     <Compile Include="Controllers\BaiVietController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -191,6 +193,43 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Media\images\about-thumb.jpg" />
+    <Content Include="Media\images\client1.png" />
+    <Content Include="Media\images\client2.png" />
+    <Content Include="Media\images\client_org1_x0Z_icon.ico" />
+    <Content Include="Media\images\counterbg3.png" />
+    <Content Include="Media\images\feature-bg.png" />
+    <Content Include="Media\images\featurebg.png" />
+    <Content Include="Media\images\flags\argentina.svg" />
+    <Content Include="Media\images\flags\australia.svg" />
+    <Content Include="Media\images\flags\bangladesh.svg" />
+    <Content Include="Media\images\flags\belgium.svg" />
+    <Content Include="Media\images\flags\brazil.svg" />
+    <Content Include="Media\images\flags\canada.svg" />
+    <Content Include="Media\images\flags\denmark.svg" />
+    <Content Include="Media\images\flags\finland.svg" />
+    <Content Include="Media\images\flags\france.svg" />
+    <Content Include="Media\images\flags\germany.svg" />
+    <Content Include="Media\images\flags\italy.svg" />
+    <Content Include="Media\images\flags\japan.svg" />
+    <Content Include="Media\images\flags\new-zealand.svg" />
+    <Content Include="Media\images\flags\saudi-arabia.svg" />
+    <Content Include="Media\images\flags\singapore.svg" />
+    <Content Include="Media\images\flags\south-africa.svg" />
+    <Content Include="Media\images\flags\south-korea.svg" />
+    <Content Include="Media\images\flags\spain.svg" />
+    <Content Include="Media\images\flags\united-kingdom.svg" />
+    <Content Include="Media\images\flags\united-states.svg" />
+    <Content Include="Media\images\footer-bg.png" />
+    <Content Include="Media\images\p1.png" />
+    <Content Include="Media\images\p2.png" />
+    <Content Include="Media\images\p3.png" />
+    <Content Include="Media\images\p4.png" />
+    <Content Include="Media\images\preloder.gif" />
+    <Content Include="Media\images\slide-1.png" />
+    <Content Include="Media\images\slide-2.jpg" />
+    <Content Include="Media\images\thumb1.jpg" />
+    <Content Include="Media\images\zoomin.png" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular-route.min.js" />
@@ -237,7 +276,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\css\" />
+    <Folder Include="Content\fonts\" />
     <Folder Include="Views\App_Auto_Number\" />
+    <Folder Include="Views\Product\" />
+    <Folder Include="Views\Shared\pages\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
