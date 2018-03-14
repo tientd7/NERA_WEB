@@ -4,7 +4,7 @@
     $scope.result = "color-default";
     $scope.isViewLoading = false;
     
-    getDetail($scope.Item.Post_Id);
+    //getDetail($scope.Item.Post_Id);
     
     //******=========Get Single BaiViet=========******
     function getDetail(id) {

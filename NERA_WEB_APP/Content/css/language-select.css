@@ -58,30 +58,20 @@ div.lang-select {
 }
 
 .lang-select span.cs-placeholder[data-current="united-kingdom"]:after,
-.lang-select span.cs-placeholder[data-current="france"]:after,
-.lang-select span.cs-placeholder[data-current="spain"]:after,
-.lang-select span.cs-placeholder[data-current="bangladesh"]:after {
+.lang-select span.cs-placeholder[data-current="vietnam"]:after {
   text-indent: 1000px;
   background-size: 70%!important;
 }
 
     .lang-select span.cs-placeholder[data-current="united-kingdom"]:after {
-       
         background: url('../../Media/images/flags/united-kingdom.svg') no-repeat center;
     }
 
-    .lang-select span.cs-placeholder[data-current="france"]:after {
-        background: url('../../Media/images/flags/france.svg')  no-repeat center;
-        
+    .lang-select span.cs-placeholder[data-current="vietnam"]:after {
+        background:url('../../Media/images/flags/vietnam.svg') no-repeat center; 
     }
 
-.lang-select span.cs-placeholder[data-current="spain"]:after {
-  background: url('../../Media/images/flags/spain.svg') no-repeat center;
-}
 
-.lang-select span.cs-placeholder[data-current="bangladesh"]:after {
-  background: url('../../Media/images/flags/bangladesh.svg') no-repeat center;
-}
 
 /* Placeholder and selected option */
 

@@ -187,6 +187,22 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\language-select.css" />
+    <Content Include="Content\css\magnific-popup.css" />
+    <Content Include="Content\css\menu.css" />
+    <Content Include="Content\css\off-canvas.css" />
+    <Content Include="Content\css\owl.carousel.css" />
+    <Content Include="Content\css\responsive.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\template.css" />
+    <Content Include="Content\fonts\flaticon\flaticon.css" />
+    <Content Include="Content\fonts\flaticon\flaticon.html" />
+    <Content Include="Content\fonts\flaticon\flaticon.svg" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\ng-loader.gif" />
     <Content Include="DB\NerahomeWebDB_Script.sql" />
     <Content Include="favicon.ico" />
@@ -200,26 +216,9 @@
     <Content Include="Media\images\counterbg3.png" />
     <Content Include="Media\images\feature-bg.png" />
     <Content Include="Media\images\featurebg.png" />
-    <Content Include="Media\images\flags\argentina.svg" />
-    <Content Include="Media\images\flags\australia.svg" />
-    <Content Include="Media\images\flags\bangladesh.svg" />
-    <Content Include="Media\images\flags\belgium.svg" />
-    <Content Include="Media\images\flags\brazil.svg" />
-    <Content Include="Media\images\flags\canada.svg" />
-    <Content Include="Media\images\flags\denmark.svg" />
-    <Content Include="Media\images\flags\finland.svg" />
-    <Content Include="Media\images\flags\france.svg" />
-    <Content Include="Media\images\flags\germany.svg" />
-    <Content Include="Media\images\flags\italy.svg" />
-    <Content Include="Media\images\flags\japan.svg" />
-    <Content Include="Media\images\flags\new-zealand.svg" />
-    <Content Include="Media\images\flags\saudi-arabia.svg" />
-    <Content Include="Media\images\flags\singapore.svg" />
-    <Content Include="Media\images\flags\south-africa.svg" />
-    <Content Include="Media\images\flags\south-korea.svg" />
-    <Content Include="Media\images\flags\spain.svg" />
     <Content Include="Media\images\flags\united-kingdom.svg" />
     <Content Include="Media\images\flags\united-states.svg" />
+    <Content Include="Media\images\flags\vietnam.svg" />
     <Content Include="Media\images\footer-bg.png" />
     <Content Include="Media\images\p1.png" />
     <Content Include="Media\images\p2.png" />
@@ -243,6 +242,16 @@
     <Content Include="machine.config" />
     <Content Include="Scripts\angular-route.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Content\fonts\flaticon\flaticon.eot" />
+    <Content Include="Content\fonts\flaticon\flaticon.ttf" />
+    <Content Include="Content\fonts\flaticon\flaticon.woff" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Controller\BaiViet\BaiVietInsertUpdate.js" />
     <Content Include="Scripts\Controller\BaiViet\BaiVietListController.js" />
@@ -304,13 +313,12 @@
     <Content Include="Views\Shared\pages\menu_off_canvas\menu_off_canvas.cshtml" />
     <Content Include="Views\Shared\pages\page_title_section\page_title_section.cshtml" />
     <Content Include="Views\Shared\pages\preloader\preloader.cshtml" />
+    <Content Include="Views\Shared\pages\chat_box\chat_box.cshtml" />
+    <Content Include="Views\Home\tamnhin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\css\" />
-    <Folder Include="Content\fonts\" />
     <Folder Include="Views\App_Auto_Number\" />
-    <Folder Include="Views\Shared\pages\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -974,3 +974,56 @@ padding-top: 5px;
   padding:20px;
   outline: none;
 }
+
+
+
+/* PAGE ABOUT US*/
+
+.about-us{
+    padding:0;
+}
+
+.description-about-us-wrapper{
+    padding:20px;
+    margin-top:20px;
+    margin-bottom:20px;
+    border:1px solid #eee;
+}
+
+
+/* CHAT BOX*/
+
+.chat-box{
+    border-radius:3px;
+    width:400px;
+    position:fixed;
+    bottom:0;
+    right:10%;
+    z-index:1000;
+    background:#eee;
+}
+
+.title-chat-box{
+    height:30px;
+    display:grid;
+    grid-template-columns:50% 50%;
+    background:#1a8ae1;
+    color:#fff;
+}
+
+.content-chat-box div.form-group{
+    width:100%;
+    margin-bottom:10px;
+    
+}
+
+textarea.form-control{
+    height:60px;
+}
+
+button.btn.btn-submit-ms{
+    border-radius:20px;
+    padding:5px 20px 5px 20px;
+    background:#1a8ae1;
+    color:#fff;
+}
