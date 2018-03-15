@@ -82,7 +82,7 @@ namespace NERA_WEB_APP.Controllers
 
             return Json(er);
         }
-        public JsonResult Detail(string Id)
+        public JsonResult Detail(int? Id)
         {
             var obj = db.CS_Menu_Item.Find(Id);
             return Json(obj, JsonRequestBehavior.AllowGet);

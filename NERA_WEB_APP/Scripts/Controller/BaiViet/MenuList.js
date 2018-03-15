@@ -1,11 +1,28 @@
 ﻿app.controller('MenuList', function ($scope, $http, $location, $window) {
+
+    var url = $location.absUrl().split('/');
+    $scope.Item_Id = url[url.length-1];
     $scope.custModel = {};
     $scope.message = '';
     $scope.result = "color-default";
     $scope.isViewLoading = false;
     $scope.ListBaiViet = null;
     
+    getDetailData();
 
+    function getDetailData() {
+        $http({
+            method: 'GET',
+            url: '/Menu/Detail/' + $scope.Item_Id,
+            //data: { 'Id': $scope.Item_Id }
+        })
+            .success(function (data, status, headers, config) {
+                //debugger;
+                $scope.Item = data;
+                console.log(data);
+            })
+    }
+    
     $scope.getallData = function () {
         //debugger;
         $http.get('/Menu/GetAllMenu')

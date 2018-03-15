@@ -21,16 +21,19 @@ namespace NERA_WEB_APP.Controllers
             return View();
         }
 
-        public JsonResult addData(CS_ChatBox_Info cs)
+        public void addData(CS_ChatBox_Info cs)
         {
             CS_ChatBox_Info cscb = new CS_ChatBox_Info();
-            cscb.Chat_Id = cs.Chat_Id;
+            //cscb.Chat_Id = cs.Chat_Id; Ve sau id thi lam the nay nhe
+            int id = new App_Auto_NumberController().GenID("CS_ChatBox_Info.Chat_Id");
+            cscb.Chat_Id = id;
             cscb.Request_Name = cs.Request_Name;
             cscb.Request_Content = cs.Request_Content;
             cscb.Request_Phone = cs.Request_Phone;
+            cscb.Unread = true;
             db.CS_ChatBox_Info.Add(cscb);
             db.SaveChanges();
-            return Json(cscb);
+            //return Json(cscb);
         }
 
 
@@ -47,7 +50,12 @@ namespace NERA_WEB_APP.Controllers
                 cscb.Request_Phone = "555555";
                 db.CS_ChatBox_Info.Add(cscb);
                 db.SaveChanges();
-            //}else
+            //fix cứng à?
+            // là sao>gắn dữ liệu
+           // đang thử như thế
+           // nhưng vẫn k đc
+           // ::::k h biết tại sao
+            //}else giống của t vừa nãy mà? 
             //{
             //    cscb.Chat_Id = cscb.Chat_Id++;
             //    cscb.Request_Content = cs.Request_Content;
