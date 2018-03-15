@@ -45,17 +45,18 @@
             url: '/BaiViet/ConfirmEdit',
             data: $scope.Item
         }).success(function (data, status, headers, config) {
-            if (data === "") {
+            if (data != "") {
                 window.location.href('/BaiViet/Index');
             }
             else {
                 $scope.message = 'Form data not Saved!';
                 $scope.result = "color-red";
             }
-        }).error(function (data, status, headers, config) {
-            $scope.message = 'Unexpected Error while saving data!!' + data.errors;
-            $scope.result = "color-red";
-            console.log($scope.message);
+        })
+            //.error(function (data, status, headers, config) {
+            //$scope.message = 'Unexpected Error while saving data!!' + data.errors;
+            //$scope.result = "color-red";
+            //console.log($scope.message);
         });
         $scope.isViewLoading = false;
     };
@@ -65,6 +66,7 @@
     $scope.onDelete = function (custModel) {
         //debugger;
         var IsConf = confirm('You are about to delete ' + custModel.Post_Title + '. Are you sure?');
+        
         Post_Id = custModel.Post_Id;
         if (IsConf) {
             $http({
@@ -76,7 +78,7 @@
                 if (data.success === true) {
                     $scope.message = custModel.CustName + ' deleted from record!!';
                     $scope.result = "color-green";
-                    getallData();
+                    $scope.ReloadData();
                     console.log(data);
                 }
                 else {

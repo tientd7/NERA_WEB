@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "hienthi";
+}
+
+<div id="content" ng-controller="MenuCtrl">
+    <span  class="viewLoading">
+        @*<img src="~/Content/images/ng-loader.gif" /> loading...*@
+    </span>
+    <div ng-class="result"></div>
+    <hr />
+
+    <h2>All BaiViets</h2>
+    <a href="">Thêm mới</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Item id</th>
+                <th>Item name</th>
+                <th>Enabled</th>
+                <th>Item type</th>
+                <th>Item Des</th>
+                <th>Item Key</th>
+                <th>Language</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tr ng-repeat="item in data">
+            <th>{{item.Item_Id}}</th>
+            <th>{{item.Item_Name}}</th>
+            <th>{{item.Enable}}</th>
+            <th>{{item.Item_Type}}</th>
+            <th>{{item.Meta_Desc}}</th>
+            <th>{{item.Meta_Key}}</th>
+            <th>{{item.Language}}</th>
+            <th>
+                <a  href="/Menu/update/{{item.Item_Id}}" class="btn btn-default"/>Sửa</a>
+                <input type="button" value="xóa" ng-click="delete(item)" class="btn btn-default" />
+                </th>
+        </tr>
+    </table>
+    <input type="button" value="Reload" ng-click="showdata()" />
+</div>
+@section JavaScript{
+    
+<script src="~/Scripts/Controller/Menu/them.js"></script>
+    }

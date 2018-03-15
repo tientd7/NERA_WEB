@@ -10,7 +10,8 @@
 
     <title>NeraHome</title>
     <!-- Web Fonts -->
-   
+    
+  
     <link href="~/Content/images/client_org1_x0Z_icon.ico" rel="shortcut icon" />
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,400italic,700,700italic,900,900italic,500italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -45,30 +46,8 @@
     <link href="~/Content/css/responsive.css" rel="stylesheet">
     <script src="~/Scripts/angular.js"></script>
     <script src="~/Scripts/Controller/Filter/CustomFilter.js"></script>
-    @RenderSection("JavaScript", required: false)
+    @RenderSection("JavaScript",required:false)
     <script src="~/Scripts/js/vendor/modernizr-2.8.1.min.js"></script>
-    <script src="~/Scripts/js/jquery.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="~/Scripts/js/bootstrap.min.js"></script>
-    <!-- Scrolling Nav JavaScript -->
-    <script src="~/Scripts/js/jquery.easing.min.js"></script>
-
-    <!-- owl.carousel -->
-    <script src="~/Scripts/js/owl.carousel.min.js"></script>
-
-    <!-- Magnific-popup -->
-    <script src="~/Scripts/js/jquery.magnific-popup.min.js"></script>
-    <!-- Offcanvas Menu -->
-    <script src="~/Scripts/js/hippo-offcanvas.js"></script>
-
-    <script src="~/Scripts/js/classie.js"></script>
-    <!-- language select -->
-    <script src="~/Scripts/js/selectFx.js"></script>
-    <!-- Twitter feed -->
-    <script src="~/Scripts/js/twitterFetcher_min.js"></script>
-    <!-- Custom Script -->
-    <script src="~/Scripts/js/scripts.js"></script>
-
     <!-- HTML5 Shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via  -->
     <!--[if lt IE 9]>
@@ -84,10 +63,7 @@
             <div class="st-content">
                 
                @Html.Partial("~/Views/Shared/pages/header/header.cshtml")
-               
-                    @RenderBody()
-                
-                               
+                                @RenderBody()
                 @Html.Partial("~/Views/Shared/pages/footer/footer.cshtml")
                         
                
@@ -107,8 +83,28 @@
     <!-- to top--> 
     @Html.Partial("~/Views/Shared/pages/action_totop/totop.cshtml")
 
-    <!-- chat box-->
-    @Html.Partial("~/Views/Shared/pages/chat_box/chat_box.cshtml")
 
+
+    <script src="~/Scripts/js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+    <!-- Scrolling Nav JavaScript -->
+    <script src="~/Scripts/js/jquery.easing.min.js"></script>
+
+    <!-- owl.carousel -->
+    <script src="~/Scripts/js/owl.carousel.min.js"></script>
+
+    <!-- Magnific-popup -->
+    <script src="~/Scripts/js/jquery.magnific-popup.min.js"></script>
+    <!-- Offcanvas Menu -->
+    <script src="~/Scripts/js/hippo-offcanvas.js"></script>
+ 
+    <!-- language select -->
+    <script src="~/Scripts/js/selectFx.js"></script>
+    <!-- Twitter feed -->
+    <script src="~/Scripts/js/twitterFetcher_min.js"></script>
+    <!-- Custom Script -->
+    <script src="~/Scripts/js/scripts.js"></script>
+    
 </body>
 </html>

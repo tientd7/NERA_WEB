@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "EditMenu";
+}
+
+<h2>EditMenu</h2>
+<div id="content" ng-controller="MenuList">
+    <span ng-show="isViewLoading" class="viewLoading">
+        <img src="~/Content/images/ng-loader.gif" /> loading...
+    </span>
+    <div ng-class="result">{{message}}</div>
+    <hr />
+    <input type="hidden" ng-model="Item_Id" />
+    <input type="hidden" ng-model="Item_Name" />
+    <input type="hidden" ng-model="Enable" />
+    <input type="hidden" ng-model="Item_Type" />
+    <input type="hidden" ng-model="Meta_Desc" />
+    <input type="hidden" ng-model="Meta_Key" />
+    <input type="hidden" ng-model="Language" />
+    <h2>MENU</h2>
+    <table class="table table-striped">
+        <tr>
+            <td>ID</td>
+            <td><input type="text" ng-model="Item.Item_Id" /></td>
+            <td>Name</td>
+            <td><input type="text" ng-model="Item.Item_Name" /></td>
+        <tr>
+            <td>Enable</td>
+            <td><input type="checkbox" ng-model="Item.Enable" /></td>
+            <td>
+
+                ItemType
+            <td>
+                <select ng-model="Item.Item_Type">
+                    <option value="">chọn giá trị</option>
+                    <option value="DV">Dịch Vụ</option>
+                    <option value="SP">Sản phẩm</option>
+
+                </select>
+            </td>
+        <tr>
+            <td>Desc</td>
+            <td><input type="text" ng-model="Item.Meta_Desc" /></td>
+            <td>Key</td>
+            <td><input type="text" ng-model="Item.Meta_Key" /></td>
+
+        </tr>
+
+        <tr>
+            <td>Language</td>
+            <td><input type="text" ng-model="Item.Language" /></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+    </table>
+    <input type="button" value="Save" ng-click="onSave()" />
+</div>
+@section JavaScript{
+    <script src="~/Scripts/Controller/BaiViet/MenuList.js"></script>
+
+}

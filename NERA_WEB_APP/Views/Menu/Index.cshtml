@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<div id="content" ng-controller="MenuList">
+
+    <a href="/Menu/CreatMenu">Thêm mới</a>
+    <h1></h1>
+    <form>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Item_Id</th>
+                    <th>Item_Name</th>
+                    <th>Enable</th>
+                    <th>Item_Type</th>
+                    <th>Meta_Desc</th>
+                    <th>Meta_Key</th>
+                    <th>Language</th>
+                </tr>
+            </thead>
+            <tr ng-repeat="a in ListBaiViet">
+                <td>{{a.Item_Id}}</td>
+                <td>{{a.Item_Name}}</td>
+                <td>{{a.Enable}}</td>
+                <td>{{a.Item_Type}}</td>
+                <td>{{a.Meta_Desc}}</td>
+                <td>{{a.Meta_Key}}</td>
+                <td>{{a.Meta_Key}}</td>
+                <td><a href='/Menu/Edit/{{a.Item_Id}}'>Sửa</a>&nbsp;
+                <input type="button" value="Xóa" ng-click="delete(a)" />
+
+            </tr>
+            <tr>
+                <td>
+                  
+                    <input type="button" value="Reload" ng-click="getallData()" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+@section JavaScript{
+
+    <script src="~/Scripts/Controller/BaiViet/MenuList.js"></script>
+    }
+
+
+
+

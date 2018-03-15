@@ -3,14 +3,14 @@
     ViewBag.Title = "Index";
 }
 
-<div id="content" class="container" ng-controller="BaiVietListController">
+<div id="content" ng-controller="BaiVietListController">
     <span ng-show="isViewLoading" class="viewLoading">
         <img src="~/Content/images/ng-loader.gif" /> loading...
     </span>
     <div ng-class="result">{{message}}</div>
     <hr />
 
-    <h2>All BaiViets</h2>
+    <h2>All BaiViet</h2>
     <a href="/BaiViet/Create">Thêm mới</a>
     <table class="table table-striped">
         <thead>
@@ -36,9 +36,11 @@
             </td>
         </tr>
     </table>
-    <input type="button" value="Reload" ng-click="getallData2()" />
+    <input type="button" value="Reload" ng-click="getallData()" />
 </div>
 
 @section JavaScript{
-    <script src="~/Scripts/Controller/BaiViet/BaiVietListController.js"></script>
+<script src="~/Scripts/Controller/BaiViet/BaiVietListController.js"></script>
+
+
 }

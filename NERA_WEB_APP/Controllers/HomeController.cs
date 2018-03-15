@@ -20,11 +20,6 @@ namespace NERA_WEB_APP.Controllers
             return View();
         }
 
-        public ActionResult tamnhin()
-        {
-            return View();
-        }
-
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
