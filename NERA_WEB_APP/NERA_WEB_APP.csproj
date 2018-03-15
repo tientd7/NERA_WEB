@@ -261,6 +261,7 @@
     <Content Include="Scripts\Controller\BaiViet\BaiVietInsertUpdate.js" />
     <Content Include="Scripts\Controller\BaiViet\BaiVietListController.js" />
     <Content Include="Scripts\Controller\BaiViet\MenuList.js" />
+    <Content Include="Scripts\Controller\chatbox\chatboxCtrl.js" />
     <Content Include="Scripts\Controller\Filter\CustomFilter.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -325,6 +326,7 @@
     <Content Include="Views\Shared\pages\chat_box\chat_box.cshtml" />
     <Content Include="Views\Home\Tamnhin.cshtml" />
     <Content Include="Views\Chatbox\chat_box.cshtml" />
+    <Content Include="Views\Chatbox\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

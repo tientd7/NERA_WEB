@@ -16,6 +16,25 @@ namespace NERA_WEB_APP.Controllers
             return View();
         }
 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public JsonResult addData(CS_ChatBox_Info cs)
+        {
+            CS_ChatBox_Info cscb = new CS_ChatBox_Info();
+            cscb.Chat_Id = cs.Chat_Id;
+            cscb.Request_Name = cs.Request_Name;
+            cscb.Request_Content = cs.Request_Content;
+            cscb.Request_Phone = cs.Request_Phone;
+            db.CS_ChatBox_Info.Add(cscb);
+            db.SaveChanges();
+            return Json(cscb);
+        }
+
+
+
         [HttpPost]
         public JsonResult add(){
             String er = "";
