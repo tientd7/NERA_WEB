@@ -151,6 +151,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\App_Auto_NumberController.cs" />
     <Compile Include="Controllers\BaiVietController.cs" />
+    <Compile Include="Controllers\ChatboxController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -188,6 +189,17 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\language-select.css" />
+    <Content Include="Content\css\magnific-popup.css" />
+    <Content Include="Content\css\menu.css" />
+    <Content Include="Content\css\off-canvas.css" />
+    <Content Include="Content\css\owl.carousel.css" />
+    <Content Include="Content\css\responsive.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\template.css" />
     <Content Include="Content\images\ng-loader.gif" />
     <Content Include="DB\NerahomeWebDB_Script.sql" />
     <Content Include="favicon.ico" />
@@ -221,6 +233,7 @@
     <Content Include="Media\images\flags\spain.svg" />
     <Content Include="Media\images\flags\united-kingdom.svg" />
     <Content Include="Media\images\flags\united-states.svg" />
+    <Content Include="Media\images\flags\vietnam.svg" />
     <Content Include="Media\images\footer-bg.png" />
     <Content Include="Media\images\p1.png" />
     <Content Include="Media\images\p2.png" />
@@ -309,13 +322,14 @@
     <Content Include="Views\Menu\Index.cshtml" />
     <Content Include="Views\Menu\CreatMenu.cshtml" />
     <Content Include="Views\Menu\Edit.cshtml" />
+    <Content Include="Views\Shared\pages\chat_box\chat_box.cshtml" />
+    <Content Include="Views\Home\Tamnhin.cshtml" />
+    <Content Include="Views\Chatbox\chat_box.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\css\" />
     <Folder Include="Content\fonts\" />
     <Folder Include="Views\App_Auto_Number\" />
-    <Folder Include="Views\Shared\pages\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

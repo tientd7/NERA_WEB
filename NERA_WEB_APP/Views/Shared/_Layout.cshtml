@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="keywords" itemprop="keywords" content="">
+    <meta name="news_keywords" content="">
+    <meta http-equiv="content-language" content="vi">
 
     <title>NeraHome</title>
     <!-- Web Fonts -->
@@ -48,6 +51,25 @@
     <script src="~/Scripts/Controller/Filter/CustomFilter.js"></script>
     @RenderSection("JavaScript",required:false)
     <script src="~/Scripts/js/vendor/modernizr-2.8.1.min.js"></script>
+    <script src="~/Scripts/js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+    <!-- Scrolling Nav JavaScript -->
+    <script src="~/Scripts/js/jquery.easing.min.js"></script>
+    <!-- owl.carousel -->
+    <script src="~/Scripts/js/owl.carousel.min.js"></script>
+    <!-- Magnific-popup -->
+    <script src="~/Scripts/js/jquery.magnific-popup.min.js"></script>
+    <!-- Offcanvas Menu -->
+    <script src="~/Scripts/js/hippo-offcanvas.js"></script>
+    <script src="~/Scripts/js/classie.js"></script>
+    <script src="~/Scripts/js/jquery.stellar.js"></script>
+    <!-- language select -->
+    <script src="~/Scripts/js/selectFx.js"></script>
+    <!-- Twitter feed -->
+    <script src="~/Scripts/js/twitterFetcher_min.js"></script>
+    <!-- Custom Script -->
+    <script src="~/Scripts/js/scripts.js"></script>
     <!-- HTML5 Shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via  -->
     <!--[if lt IE 9]>
@@ -82,29 +104,10 @@
 
     <!-- to top--> 
     @Html.Partial("~/Views/Shared/pages/action_totop/totop.cshtml")
+    @Html.Partial("~/Views/Chatbox/chat_box.cshtml")
 
 
-
-    <script src="~/Scripts/js/jquery.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="~/Scripts/js/bootstrap.min.js"></script>
-    <!-- Scrolling Nav JavaScript -->
-    <script src="~/Scripts/js/jquery.easing.min.js"></script>
-
-    <!-- owl.carousel -->
-    <script src="~/Scripts/js/owl.carousel.min.js"></script>
-
-    <!-- Magnific-popup -->
-    <script src="~/Scripts/js/jquery.magnific-popup.min.js"></script>
-    <!-- Offcanvas Menu -->
-    <script src="~/Scripts/js/hippo-offcanvas.js"></script>
- 
-    <!-- language select -->
-    <script src="~/Scripts/js/selectFx.js"></script>
-    <!-- Twitter feed -->
-    <script src="~/Scripts/js/twitterFetcher_min.js"></script>
-    <!-- Custom Script -->
-    <script src="~/Scripts/js/scripts.js"></script>
+    
     
 </body>
 </html>

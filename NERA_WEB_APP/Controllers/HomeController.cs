@@ -26,5 +26,10 @@ namespace NERA_WEB_APP.Controllers
 
             return View();
         }
+
+        public ActionResult Tamnhin()
+        {
+            return View();
+        }
     }
 }

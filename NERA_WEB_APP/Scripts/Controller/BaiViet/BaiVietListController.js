@@ -57,12 +57,9 @@
             //$scope.message = 'Unexpected Error while saving data!!' + data.errors;
             //$scope.result = "color-red";
             //console.log($scope.message);
-        });
-        $scope.isViewLoading = false;
     };
-
-
-    //******=========Delete BaiViet=========******
+    
+    $scope.isViewLoading = false;
     $scope.onDelete = function (custModel) {
         //debugger;
         var IsConf = confirm('You are about to delete ' + custModel.Post_Title + '. Are you sure?');
@@ -93,4 +90,9 @@
             });
         }
     };
+   
+
+
+    //******=========Delete BaiViet=========******
+    
 });
