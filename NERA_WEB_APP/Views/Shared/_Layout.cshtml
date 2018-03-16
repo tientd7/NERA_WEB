@@ -13,8 +13,8 @@
 
     <title>NeraHome</title>
     <!-- Web Fonts -->
-    
-  
+
+
     <link href="~/Content/images/client_org1_x0Z_icon.ico" rel="shortcut icon" />
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,400italic,700,700italic,900,900italic,500italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -26,7 +26,7 @@
     <!-- font-awesome CSS -->
     <link href="~/Content/css/font-awesome.min.css" rel="stylesheet">
     <!-- Offcanvas CSS -->
-   <link href="~/Content/css/off-canvas.css" rel="stylesheet">
+    <link href="~/Content/css/off-canvas.css" rel="stylesheet">
     <!-- animate CSS -->
     <link href="~/Content/css/animate.css" rel="stylesheet">
     <!-- language CSS -->
@@ -48,10 +48,10 @@
 
     <link href="~/Content/css/responsive.css" rel="stylesheet">
     <script src="~/Scripts/angular.js"></script>
+    
     <script src="~/Scripts/Controller/Filter/CustomFilter.js"></script>
-    @RenderSection("JavaScript",required:false)
+    @RenderSection("JavaScript", required: false)
 
-    <script src="~/Scripts/Controller/Menu_Item/MenuItem.js"></script>
     <script src="~/Scripts/js/vendor/modernizr-2.8.1.min.js"></script>
     <script src="~/Scripts/js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
@@ -82,17 +82,19 @@
 
 
 <body id="page-top" ng-app="myFormApp">
+   
     <div id="st-container" class="st-container">
         <div class="st-pusher">
             <div class="st-content">
-                
-               @Html.Partial("~/Views/Shared/pages/header/header.cshtml")
-                                @RenderBody()
+
+
+                @Html.Partial("~/Views/Shared/pages/header/header.cshtml")
+                @RenderBody()
                 @Html.Partial("~/Views/Shared/pages/footer/footer.cshtml")
-                        
-               
-            </div> 
-        </div> 
+
+
+            </div>
+        </div>
 
 
         <!-- OFFCANVAS MENU -->
@@ -100,16 +102,22 @@
         <!-- Preloader -->
         @Html.Partial("~/Views/Shared/pages/preloader/preloader.cshtml")
 
-        
+
 
     </div>
 
-    <!-- to top--> 
+    <!-- to top-->
     @Html.Partial("~/Views/Shared/pages/action_totop/totop.cshtml")
     @Html.Partial("~/Views/Chatbox/chat_box.cshtml")
 
+    @* 
+        khong biet vi sao cai link vao no khong nhan
+        uk t cung k biet thieu gi k nhi!!
+        k phai thieu
+        no chi khong nhan thoi
+        thi phai co ly do no moi k nhan chu 
+        :))
+     *@
 
-    
-    
 </body>
 </html>

@@ -30,14 +30,19 @@ namespace NERA_WEB_APP.Controllers
         [HttpPost]
         public JsonResult Edit(CS_Menu_Item csitem)
         {
-            String Rs = "";
-                if (csitem.Item_Id> 0)
-                {
-                    
-                    db.Entry(csitem);
-                    db.SaveChanges();
-                }
-            return Json(Rs);
+            //String Rs = "";
+            //    if (csitem.Item_Id> 0)
+            //    {
+
+            //        db.Entry(csitem);
+            //        db.SaveChanges();
+            //    }
+            //return Json(Rs);
+
+            CS_Menu_Item cs = new CS_Menu_Item();
+            cs.Item_Id = csitem.Item_Id;
+            db.SaveChanges();
+            return Json(cs);
 
 
             }
@@ -89,10 +94,10 @@ namespace NERA_WEB_APP.Controllers
         }
 
 
-        public JsonResult showDv()
+        public JsonResult showDV()
         {
-            var showdata = (from i in db.CS_Menu_Item where i.Item_Type == "DV" select i).ToList();
-            return Json(showdata, JsonRequestBehavior.AllowGet);
+            var showdv = from i in db.CS_Menu_Item where i.Enable == false select i;
+            return Json(showdv, JsonRequestBehavior.AllowGet);
         }
     }
 }

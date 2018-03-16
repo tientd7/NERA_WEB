@@ -1,5 +1,5 @@
 ﻿app.controller('MenuList', function ($scope, $http, $location, $window) {
-
+    $scope.DV;
     var url = $location.absUrl().split('/');
     $scope.Item_Id = url[url.length-1];
     $scope.custModel = {};
@@ -37,7 +37,7 @@
             });
     };
     $scope.Create = function () {
-      //  $scope.isViewLoading = true;
+        //  $scope.isViewLoading = true;
         $http({
             method: 'POST',
             url: '/Menu/CreatMenu',
@@ -88,8 +88,26 @@
                 console.log($scope.message);
             });
     };
-    
-});
 
-
+    $scope.Item;
+    $scope.onSave = function () {
+        $http({
+            url: '/Menu/Edit',
+            method: 'GET',
+            data: $scope.Item
+        }).success(function (data, status, headers, config) {
+            console.log("success" + data + "status" + status);
+            if (data != "") {
+                window.location.href('/Menu/Index');
+            }
+            //window.location.href='/Menu/Index';
+       
+        }).error(function (error, status, headers, config) {
+            $scope.message = 'Unexpected Error while saving data!!' + data.errors;
+            $scope.result = "color-red";
+            console.log( error);
+        });
+    }
     
+
+})

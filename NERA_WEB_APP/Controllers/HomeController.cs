@@ -31,10 +31,5 @@ namespace NERA_WEB_APP.Controllers
         {
             return View();
         }
-
-        public ActionResult Nha_dau_tu()
-        {
-            return View();
-        }
     }
 }

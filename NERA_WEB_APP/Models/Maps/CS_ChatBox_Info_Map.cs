@@ -14,7 +14,7 @@ namespace NERA_WEB_APP.Models.Maps
             this.ToTable("CS_ChatBox_Info");
             this.Property(t => t.Chat_Id).HasColumnName("Chat_Id");
             this.Property(t => t.Request_Name).HasColumnName("Request_Name");
-            this.Property(t => t.Request_Phone).HasColumnName("Request_Phone");
+            this.Property(t => t.Request_Phone).HasColumnName("Request_Phonr");
             this.Property(t => t.Request_Content).HasColumnName("Request_Content");
             this.Property(t => t.Unread).HasColumnName("Unread");
         }
