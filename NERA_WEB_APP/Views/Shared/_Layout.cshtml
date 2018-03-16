@@ -48,9 +48,10 @@
 
     <link href="~/Content/css/responsive.css" rel="stylesheet">
     <script src="~/Scripts/angular.js"></script>
-    
+
     <script src="~/Scripts/Controller/Filter/CustomFilter.js"></script>
     @RenderSection("JavaScript", required: false)
+    <script src="~/Scripts/Controller/chatbox/chatboxCtrl.js"></script>
     <script src="~/Scripts/Controller/Post_Slide/AllSlide.js"></script>
     <script src="~/Scripts/Controller/Menu_Item/MenuItem.js"></script>
     <script src="~/Scripts/js/vendor/modernizr-2.8.1.min.js"></script>
@@ -83,7 +84,7 @@
 
 
 <body id="page-top" ng-app="myFormApp">
-   
+
     <div id="st-container" class="st-container">
         <div class="st-pusher">
             <div class="st-content">
@@ -111,14 +112,14 @@
     @Html.Partial("~/Views/Shared/pages/action_totop/totop.cshtml")
     @Html.Partial("~/Views/Chatbox/chat_box.cshtml")
 
-    @* 
+    @*
         khong biet vi sao cai link vao no khong nhan
         uk t cung k biet thieu gi k nhi!!
         k phai thieu
         no chi khong nhan thoi
-        thi phai co ly do no moi k nhan chu 
+        thi phai co ly do no moi k nhan chu
         :))
-     *@
+    *@
 
 </body>
 </html>

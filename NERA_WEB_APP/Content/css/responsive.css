@@ -32,6 +32,9 @@
     .breadcrumb-mb {
         display: block;
     }
+     .breadcrumb{
+        display: none;
+    }
 
     .sortby-wrapper.breadcrumb-wrapper {
         display: grid;

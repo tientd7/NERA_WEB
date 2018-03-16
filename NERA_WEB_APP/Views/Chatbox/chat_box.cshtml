@@ -1,6 +1,6 @@
 ﻿
 
-<div class="chat-box-wrapper" ng-controller="ChatBoxCtrl">
+<div class="chat-box-wrapper" ng-controller="CBCtrl">
     <div class="row">
         <div class="title-chat-box-wrapper col-sm-12">
             <div>
@@ -35,35 +35,9 @@
 
 
 <script>
-    app.controller('ChatBoxCtrl', function ($scope, $http) {
-        $scope.success = "thêm thành công";
-
-        $scope.addData = function (item) {
-            $http.post('/Chatbox/add').success(function (data,status,header) {
-                console.log("data " + data);
-                console.log("status " + status);
-                console.log("header " + header);
-                console.log($scope.success);
-            }).error(function (error, status, header) {
-                console.log(error);
-                console.log("status " + status);
-                console.log("header " + header);
-            })
-        }
-    })
-</script>
-
-
-<script>
     $('.action-box span').click(function () {
         $('.message-box').toggle(200);
     });
-
-
-
-
-
-
 </script>
 
 

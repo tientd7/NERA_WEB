@@ -35,37 +35,5 @@ namespace NERA_WEB_APP.Controllers
             db.SaveChanges();
             //return Json(cscb);
         }
-
-
-
-        [HttpPost]
-        public JsonResult add(){
-            String er = "";
-            CS_ChatBox_Info cscb = new CS_ChatBox_Info();
-            //if (cscb == null)
-            //{
-                cscb.Chat_Id = 1;
-                cscb.Request_Content = "sfđf";
-                cscb.Request_Name = "sdfdsf";
-                cscb.Request_Phone = "555555";
-                db.CS_ChatBox_Info.Add(cscb);
-                db.SaveChanges();
-            //fix cứng à?
-            // là sao>gắn dữ liệu
-           // đang thử như thế
-           // nhưng vẫn k đc
-           // ::::k h biết tại sao
-            //}else giống của t vừa nãy mà? 
-            //{
-            //    cscb.Chat_Id = cscb.Chat_Id++;
-            //    cscb.Request_Content = cs.Request_Content;
-            //    cscb.Request_Name = cs.Request_Name;
-            //    cscb.Request_Phone = cs.Request_Phone;
-            //    db.CS_ChatBox_Info.Add(cscb);
-            //    db.SaveChanges();
-            //}
-
-            return Json(er);
-       }
     }
 }

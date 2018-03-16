@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "SignIn & SignUp";
+}
+@Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
+@Html.Partial("~/Views/Shared/pages/breadcrumb/breadcrumb.cshtml")
+<div class="container">
+    <div class="row">
+
+        <!-- form sign in-->
+        <div class="col-sm-5 form-signin-user">
+            <div>
+                <h2>
+                    Đăng nhập
+                </h2>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Username" />
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Password" />
+                <div>
+                    <input type="checkbox" /> Luôn đăng nhập
+                    <span style="text-align:right; float:right;">
+                        <a href="#">Quên mật khẩu?</a>
+                    </span>
+                    
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="button" class="btn btn-signin" value="Đăng nhập"/>
+            </div>
+        </div>
+        <div class="col-sm-2" style="text-align:center; height:50px;">
+            <span style="padding:15px; background:#f8ce06; border-radius:50%; color:#fff; font-size:15px;">
+               Or
+            </span>
+        </div>
+        <!-- form sign up-->
+        <div class="col-sm-5 form-signup-user">
+            <div>
+                <h2>
+                    Đăng ký
+                </h2>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Username" />
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" />
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Re-Password" />
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Name" />
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" placeholder="Phone" />
+            </div>
+            <div class="form-group">
+                <input type="button" class="btn btn-signup" value="Đăng ký" />
+            </div>
+        </div>
+    </div>
+</div>

@@ -34,10 +34,18 @@
                             </select>
                         </div>
 
-                        <div>
-                            <a href="#">
-                                <i class="fa fa-user" aria-hidden="true" style="color: #000;font-size: 28px; float: right;"></i>
+                        <div class="user-acc-box">
+                            <a href="#" class="user-account">
+                                <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
+                            <div class="user-panel">
+                                <div class="user-links">
+                                    <a class="user-link-item" href="/User/SignIn">Đăng nhập</a>
+                                    <a class="user-link-item" href="/User/SignIn">Đăng ký</a>
+                                    <a class="user-link-item" href="/User/user_infor">Trang cá nhân</a>
+                                    <a class="user-link-item" href="#">Đăng xuất</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -72,20 +80,8 @@
                 <span class="search-button pull-right" style="display:none;"><a href="#search"><i class="fa fa-search"></i></a></span>
 
                 <ul class="nav navbar-nav hidden-sm">
-                    <li class="active"><a href="index.html">Giới thiệu</a></li>
-                    <li class="dropdown">
-                        <a href="#">Dự án <b class="caret"></b></a>
-                        <!-- submenu-wrapper -->
-                        <div class="submenu-wrapper submenu-wrapper-topbottom">
-                            <div class="submenu-inner  submenu-inner-topbottom">
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Dự án 1</a></li>
-                                    <li><a href="#">Dự án 2</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- /submenu-wrapper -->
-                    </li>
+                    <li><a href="/Home/Introduce">Giới thiệu</a></li>
+                    <li><a href="/Home/project">Dự án</a></li>
 
                     <!-- Services -->
                     <li class="dropdown">
@@ -107,7 +103,7 @@
                     <li><a href="#">Sự kiện</a></li>
                     <li><a href="/Home/Tamnhin">Tin tức </a></li>
                     <li><a href="/Home/Nha_dau_tu">Nhà đầu tư </a></li>
-                    <li><a href="#">Tuyển dụng</a></li>
+                    <li><a href="/Home/recruit">Tuyển dụng</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
 

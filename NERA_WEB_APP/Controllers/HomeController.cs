@@ -36,5 +36,20 @@ namespace NERA_WEB_APP.Controllers
         {
             return View();
         }
+
+        public ActionResult Introduce()
+        {
+            return View();
+        }
+
+        public ActionResult recruit()
+        {
+            return View();
+        }
+
+        public ActionResult project()
+        {
+            return View();
+        }
     }
 }
