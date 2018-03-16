@@ -18,5 +18,10 @@ namespace NERA_WEB_APP.Controllers
         {
             return View();
         }
+
+        public ActionResult update_user()
+        {
+            return View();
+        }
     }
 }

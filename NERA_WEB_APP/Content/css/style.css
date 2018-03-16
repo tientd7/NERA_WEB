@@ -932,8 +932,6 @@ padding-top: 5px;
   position:  absolute;
   top: 6px;
   right: 20px;
-
-
 }
 
 .ic-update-avatar-wrapper .btn-update-avatar{
@@ -959,7 +957,50 @@ padding-top: 5px;
 }
 .infor-user-intro{
   border-right: 1px solid #eee;
+  position:relative;
 }
+.btn-update-infor-wrapper{
+    position:absolute;
+    top:55px;
+    right:15px;
+}
+
+.btn-update-infor{
+    border:1px solid #eee;
+    outline:none;
+    background:#fbf9f9;
+}
+
+/*PAGE UPDATE INFOR USER*/
+
+
+ .page-update-user-wrapper .container{
+     background:#eee;
+    max-width:60%;
+}
+
+ .page-update-user-wrapper .row .form-group{
+     padding:20px;
+    border:1px solid #eee;
+    margin-top:20px;
+    margin-bottom:20px;
+ }
+ 
+ .page-update-user-wrapper .row .form-group label{
+     font-size:20px;
+ }
+
+ .btn-update-infor-user{
+    background: #1b5bf2;
+    color: #fff;
+    transition:.4s;
+}
+.btn-update-infor-user:hover{
+    background:#091be0;
+    color:#fff;
+}
+
+
 
 /* PAGE ABOUT US*/
 .about-us-wrapper{

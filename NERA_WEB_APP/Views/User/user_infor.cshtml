@@ -1,19 +1,10 @@
 ﻿
 @{
-    ViewBag.Title = "user_infor";
+    ViewBag.Title = "Thông tin cá nhân";
 }
 @Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
+@Html.Partial("~/Views/Shared/pages/breadcrumb/breadcrumb.cshtml")
 
-
-<div class="breadcrumb-wrapper">
-    <span>
-        <a href="#">Trang chủ </a>
-        &nbsp;
-        <i class="fa fa-angle-right" aria-hidden="true"></i>
-        &nbsp;
-        Thông tin cá nhân
-    </span>
-</div>
 <section id="page-infor-user">
     <div class="infor-user-wrapper container">
         <div class="row">
@@ -28,6 +19,11 @@
                 <img src="~/Media/images/about-thumb.jpg" class="img-thumbnail" alt="">
             </div>
             <div class="infor-user infor-user-intro col-sm-5">
+                <div class="btn-update-infor-wrapper">
+                    <button type="button" class="btn-update-infor">
+                        <i class="fa fa-pencil"></i>
+                    </button>
+                </div>
                 <fieldset>
                     <legend>
                         <h2>Giới thiệu</h2>
