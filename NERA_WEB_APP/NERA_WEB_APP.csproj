@@ -341,6 +341,10 @@
     <Content Include="Views\Product\addNewProduct.cshtml" />
     <Content Include="Views\Shared\pages\breadcrumb\breadcrumb.cshtml" />
     <Content Include="Views\User\update_user.cshtml" />
+    <Content Include="Views\Home\Introduce.cshtml" />
+    <Content Include="Views\Home\recruit.cshtml" />
+    <Content Include="Views\Home\project.cshtml" />
+    <Content Include="Views\Home\Nha_dau_tu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
