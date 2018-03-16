@@ -582,9 +582,51 @@ section {
   color: #1a8ae1;
 }
 
+
 .topbar-right {
-  padding: 15px 0;
+    padding: 15px 0;
+    position: relative;
 }
+
+.user-acc-box{
+    z-index:1000;
+    height:27px;
+    width:25px;
+    float:right;
+}
+
+.user-acc-box .user-account i.fa-user {
+    color: #000;
+    float: right;
+    font-size:30px;
+}
+
+.user-acc-box:hover .user-panel{
+    display:block;
+}
+
+.user-panel {
+    display:none;
+    position: absolute;
+    width: 200px;
+    top: 42px;
+    right: 30px;
+    border: 1px solid #eee;
+    z-index: 1000;
+    background:#fff;
+}
+
+.user-links {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 100%;
+    padding: 20px 30px;
+}
+
+    .user-links a {
+        text-transform: uppercase;
+        font-size: 15px;
+    }
 
 
 

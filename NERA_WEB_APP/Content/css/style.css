@@ -1042,3 +1042,49 @@ padding-top: 5px;
      background:#1c3aef;
      color:#fff;
 }
+
+
+/* PAGE ADD NEW PRODUCT*/
+
+ .page-add-product .container{
+     background:#eee;
+    max-width:800px;
+}
+
+ .page-add-product .row .form-group{
+     padding:20px;
+    border:1px solid #eee;
+    margin-top:20px;
+    margin-bottom:20px;
+ }
+ 
+ .page-add-product .row .form-group label{
+     font-size:20px;
+ }
+ .page-add-product .row .form-group textarea{
+     height:100px;
+ }
+
+/* PAGE SIGN IN & SIGN UP*/
+.form-signin-user .form-group, .form-signup-user .form-group{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.form-signin-user div h2, .form-signup-user div h2{
+    text-align:center;
+}
+.form-signin-user .form-group .form-control, .form-signup-user .form-group .form-control{
+    background:#f5f5ed;
+    font-size:1em;
+}
+.form-signin-user .form-group .btn-signin,
+.form-signup-user .form-group .btn-signup {
+    background: #1b5bf2;
+    color: #fff;
+    transition:.4s;
+}
+.form-signin-user .form-group .btn-signin:hover,
+ .form-signup-user .form-group  .btn-signup:hover{
+    background:#091be0;
+    color:#fff;
+}
