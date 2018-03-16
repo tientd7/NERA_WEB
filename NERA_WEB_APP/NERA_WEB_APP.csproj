@@ -156,6 +156,7 @@
     <Compile Include="Controllers\ChatboxController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\Post_SlideController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -265,7 +266,9 @@
     <Content Include="Scripts\Controller\BaiViet\MenuList.js" />
     <Content Include="Scripts\Controller\chatbox\chatboxCtrl.js" />
     <Content Include="Scripts\Controller\Filter\CustomFilter.js" />
-    <Content Include="Scripts\Controller\Menu_Item\MenuItem.js" />
+    <Content Include="Scripts\Controller\Post_Slide\AllSlide.js" />
+    <Content Include="Scripts\Controller\Post_Slide\ThemSlide.js" />
+    <Content Include="Scripts\Controller\Post_Slide\UpdateDeleteSlide.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -330,7 +333,9 @@
     <Content Include="Views\Home\Tamnhin.cshtml" />
     <Content Include="Views\Chatbox\chat_box.cshtml" />
     <Content Include="Views\Chatbox\Index.cshtml" />
-    <Content Include="Views\Home\Nha_dau_tu.cshtml" />
+    <Content Include="Views\Post_Slide\Index.cshtml" />
+    <Content Include="Views\Post_Slide\ThemSlide.cshtml" />
+    <Content Include="Views\Post_Slide\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

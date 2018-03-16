@@ -39,10 +39,10 @@ namespace NERA_WEB_APP.Controllers
             //    }
             //return Json(Rs);
 
-            CS_Menu_Item cs = new CS_Menu_Item();
-            cs.Item_Id = csitem.Item_Id;
+            db.Entry(csitem).State = EntityState.Modified;
+            
             db.SaveChanges();
-            return Json(cs);
+            return Json(csitem);
 
 
             }

@@ -93,7 +93,7 @@
     $scope.onSave = function () {
         $http({
             url: '/Menu/Edit',
-            method: 'GET',
+            method: 'POST',
             data: $scope.Item
         }).success(function (data, status, headers, config) {
             console.log("success" + data + "status" + status);
