@@ -1,8 +1,7 @@
 ﻿app.controller("PostSlide", function ($scope, $http, $location, $window) {
     $scope.message = '';
     $scope.ListSlide;
-    console.log('sfdsfsd');
-    
+    console.log('')
     $scope.allData = function () {
         $http.get('/Post_Slide/AllSlide')
         .success(function (data, status, headers, config) {
