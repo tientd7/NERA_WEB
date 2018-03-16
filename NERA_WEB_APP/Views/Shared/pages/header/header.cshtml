@@ -6,7 +6,10 @@
                 <div class="col-sm-3 col-xs-12">
                     <div class="call-to-action">
                         <h1>
-                            NeraHome
+                            <a href="/Home/Index">
+                                NeraHome
+                            </a>
+                           
                         </h1>
                     </div><!-- /.call-to-action -->
                 </div><!-- /.col-sm-6 -->
@@ -14,11 +17,9 @@
                 <div class="col-sm-6 col-xs-12">
                     <div class="logo text-center">
                         <h1>
-                            <a href="/Home/Index">
                                 <span>
                                     Khẩu hiệu website
                                 </span>
-                            </a>
                         </h1>
                     </div>
                 </div>
@@ -27,11 +28,9 @@
                     <div class="topbar-right">
                         <div class="lang-support pull-right">
                             <select class="lang-select">
-                            
+                           
                                 <option value="vietnam" data-class="flag-vietnam">VietNam</option>
                                 <option value="united-kingdom" data-class="flag-uk">English</option>
-                                
-                                
                             </select>
                         </div>
 
@@ -46,7 +45,7 @@
         </div>
     </nav><!-- /.top-bar -->
 
-    <div class="container mainnav">
+    <div class="container mainnav" ng-controller="MenuItemCtrl">
 
         <div class="navbar-header">
 
@@ -95,8 +94,8 @@
                         <div class="submenu-wrapper submenu-wrapper-topbottom">
                             <div class="submenu-inner  submenu-inner-topbottom">
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Dịch vụ 1</a></li>
-                                    <li><a href="#">Dịch vụ 2</a></li>
+                                    <li  ng-repeat="i in listDV"><a href="/Product/details">{{i.Item_Name}}</a></li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -107,13 +106,20 @@
                     <li><a href="#">Tiện ích</a> </li>
                     <!-- /Blog -->
                     <li><a href="#">Sự kiện</a></li>
-                    <li><a href="#">Tin tức </a></li>
-                    <li><a href="#">Nhà đầu tư </a></li>
+                    <li><a href="/Home/Tamnhin">Tin tức </a></li>
+                    <li><a href="/Home/Nha_dau_tu">Nhà đầu tư </a></li>
                     <li><a href="#">Tuyển dụng</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
 
         </nav>
-    </div><!-- /.container -->
+    </div>
+
+  
+   
+    
+    <!-- /.container -->
 </header>
+
+
 

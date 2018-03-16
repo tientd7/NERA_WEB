@@ -87,6 +87,13 @@ namespace NERA_WEB_APP.Controllers
             var obj = db.CS_Menu_Item.Find(Id);
             return Json(obj, JsonRequestBehavior.AllowGet);
         }
+
+
+        public JsonResult showDv()
+        {
+            var showdata = (from i in db.CS_Menu_Item where i.Item_Type == "DV" select i).ToList();
+            return Json(showdata, JsonRequestBehavior.AllowGet);
+        }
     }
 }
 
