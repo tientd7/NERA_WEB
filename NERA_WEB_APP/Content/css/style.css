@@ -8,9 +8,13 @@
 
 
 /*-------------------------------------
+    SLIDE - SEARCHBOX
  *  HERO SLIDER
  *-------------------------------------*/
 
+#slide-boxsearch{
+    position:relative;
+}
 .hero-slide img{
     min-width: 100%;
     }
@@ -25,6 +29,7 @@
 
 .hero-slide .carousel-caption {
     position    : relative;
+    top:-100px;
     right       : 0;
     left        : 0;
     text-align  : left;
@@ -54,12 +59,12 @@
     margin                  : 30px 0 20px;
     -webkit-animation-delay : 150ms;
     animation-delay         : 150ms;
-    color:#222;
+    color:#f50707;
     }
 
 .hero-slide .carousel-caption .lead {
     font-size               : 24px;
-    color                   : #444;
+    color                   : #ff5722;
     font-weight             : normal;
     margin-bottom           : 30px;
     -webkit-animation-delay : 200ms;
@@ -71,6 +76,8 @@
     animation-delay         : 250ms;
     background: #1a8ae1;
     color: #fff;
+    padding:10px;
+    font-size:15px;
     }
 
 .hero-slide .carousel-caption .btn:hover{
@@ -427,8 +434,9 @@ PORTFOLIO WRAP
 }
 
 .fleets-wrap .owl-item .owl-item-thumb a img {
+    height:40px;
   width: auto!important;
-  margin: 35% auto 0;
+  margin: 30% auto 0;
   opacity: 0;
 }
 
@@ -1013,7 +1021,8 @@ padding-top: 5px;
         margin-top: 20px;
         border: 1px solid #eee;
         border-radius: 10px;
-        background: url('../../Media/images/feature-bg.png') no-repeat 100%;
+        background: url('../../Media/images/ecodream1521048550-1521281656.jpg') no-repeat 100%;
+        background-size: 100% 100%;
     }
     .about-us-wrapper .row div h2{
         color:#fff;

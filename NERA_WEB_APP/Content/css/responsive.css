@@ -9,7 +9,7 @@
 /*Extra small devices (phones, less than 768px) */
 
 @media only screen and (max-width:500px) {
-/* CHAT BOX*/
+    /* CHAT BOX*/
     .chat-box-wrapper {
         width: 300px;
         position: fixed;
@@ -27,12 +27,24 @@
     #box-search {
         display: none;
     }
+
+    .hero-slide .carousel-caption {
+        position: relative;
+        top: -30px;
+        right: 0;
+        left: 0;
+        text-align: center;
+        text-shadow: none;
+        width: 100%;
+
+    }
     /* FILTER*/
 
     .breadcrumb-mb {
         display: block;
     }
-     .breadcrumb{
+
+    .breadcrumb {
         display: none;
     }
 
@@ -173,19 +185,6 @@
 @media (min-width: 1200px) {
 }
 
-@media (max-width: 1200px) {
-    #box-search {
-        float: right;
-        width: 28%;
-        position: absolute;
-        top: 280px;
-        right: 0;
-        padding: 10px;
-        padding-top: 5%;
-        z-index: 1000;
-        height: 200px;
-    }
-}
 
 @media (max-width: 800px) {
     #slideshow-maps {

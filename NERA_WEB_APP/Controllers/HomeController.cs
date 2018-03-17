@@ -51,5 +51,15 @@ namespace NERA_WEB_APP.Controllers
         {
             return View();
         }
+
+        public ActionResult Event()
+        {
+            return View();
+        }
+
+        public ActionResult Utility()
+        {
+            return View();
+        }
     }
 }
