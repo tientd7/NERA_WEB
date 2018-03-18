@@ -809,10 +809,9 @@ POPUP FEATURE
 FOOTER WIDGET SECTION
 --------------------------------------------------------------------- */
 .footer-widget-section {
-    background: url('../../Media/images/footer-bg.png') no-repeat;
-    background-size: cover;
+    background:#7b8a97;
     padding: 146px 0 130px;
-    color: #727e89;
+    color:#f8f7f7;
 }
 
 .footer-widget {

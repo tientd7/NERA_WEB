@@ -31,5 +31,17 @@ namespace NERA_WEB_APP.Controllers
         {
             return View();
         }
+
+
+
+
+
+        // Item service
+
+        public ActionResult showDV()
+        {
+            return View();
+        }
     }
+
 }
