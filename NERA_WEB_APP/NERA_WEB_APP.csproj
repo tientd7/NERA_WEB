@@ -282,6 +282,7 @@
     <Content Include="Scripts\Controller\Post_Slide\AllSlide.js" />
     <Content Include="Scripts\Controller\Post_Slide\ThemSlide.js" />
     <Content Include="Scripts\Controller\Post_Slide\UpdateDeleteSlide.js" />
+    <Content Include="Scripts\Controller\Product\addNewProduct.js" />
     <Content Include="Scripts\Controller\Product\product.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

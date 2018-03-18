@@ -53,7 +53,8 @@
         </div>
     </nav><!-- /.top-bar -->
 
-    <div class="container mainnav" ng-controller="MenuItemCtrl">
+    @* gọi controller *@
+    <div class="container mainnav" ng-controller="ProductCtrl">
 
         <div class="navbar-header">
 
@@ -90,7 +91,8 @@
                         <div class="submenu-wrapper submenu-wrapper-topbottom">
                             <div class="submenu-inner  submenu-inner-topbottom">
                                 <ul class="dropdown-menu">
-                                    <li  ng-repeat="i in listDV"><a href="/Product/details">{{i.Item_Name}}</a></li>
+                                    @* tạo vong lặp show ra *@
+                                    <li  ng-repeat="i in ItemDV"><a href="/Product/details">{{i.Item_Name}}</a></li>
                                 </ul>
                             </div>
                         </div>

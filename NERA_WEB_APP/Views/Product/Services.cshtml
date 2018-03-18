@@ -31,135 +31,44 @@
 
 </section>
 <!--  MAIN -->
-<section id="main-product">
-
-    <div class="details-product product">
-        <div class="img-product-wrapper">
-            <img src="~/Media/images/furniture.jpg" />
-        </div>
-        <div class="infor-product-wrapper">
-            <div class="inror-product">
-                <div>
-                    <span>Mã sản phẩm :</span>
-                    #{{i.Item_Id}}
-                </div>
-                <div>
-                    <h2>
-                        <span>Tên sản phẩm :</span>
-                        {{i.Item_Name}}
-                    </h2>
-
-                </div>
-                <div>
-                    <h4>
-                        <span>Mô tả:</span>
-                        {{i.Meta_Desc}}
-                    </h4>
-                </div>
-            </div>
-            @*<div class="state-product">
-                    <span>
-                        Trạng thái: Đã thuê
-                    </span>
-                </div>*@
-        </div>
-    </div>
-
-    @*<div class="details-product product">
+<section id="main-product" ng-controller="ProductCtrl">
+    
+        <div class="details-product product"  ng-repeat="i in ItemDV">
             <div class="img-product-wrapper">
-                <img src="~/Media/images/thumb1.jpg" alt="">
+                <img src="~/Media/images/furniture.jpg" />
             </div>
             <div class="infor-product-wrapper">
                 <div class="inror-product">
+
                     <div>
                         <span>Mã sản phẩm :</span>
-                        #456546456
+                        #{{i.Item_Id}}
                     </div>
                     <div>
                         <h2>
                             <span>Tên sản phẩm :</span>
-                            Tên sản phẩm
+                            {{i.Item_Name}}
                         </h2>
-
                     </div>
                     <div>
                         <h4>
                             <span>Mô tả:</span>
-                            Thông tin miêu tả sản phẩm
+                            {{i.Meta_Desc}}
                         </h4>
                     </div>
                 </div>
-                <div class="state-product">
-                    <span>
-                        Trạng thái: Còn phòng
-                    </span>
-                </div>
+                @*<div class="state-product">
+                        <span>
+                            Trạng thái: Đã thuê
+                        </span>
+                    </div>*@
             </div>
         </div>
-        <div class="details-product product">
-            <div class="img-product-wrapper">
-                <img src="~/Media/images/thumb1.jpg" alt="">
-            </div>
-            <div class="infor-product-wrapper">
-                <div class="inror-product">
-                    <div>
-                        <span>Mã sản phẩm :</span>
-                        #456546456
-                    </div>
-                    <div>
-                        <h2>
-                            <span>Tên sản phẩm :</span>
-                            Tên sản phẩm
-                        </h2>
-
-                    </div>
-                    <div>
-                        <h4>
-                            <span>Mô tả:</span>
-                            Thông tin miêu tả sản phẩm
-                        </h4>
-
-                    </div>
-                </div>
-                <div class="state-product">
-                    <span>
-                        Trạng thái: Đã thuê
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="details-product product">
-            <div class="img-product-wrapper">
-                <img src="~/Media/images/thumb1.jpg" alt="">
-            </div>
-            <div class="infor-product-wrapper">
-                <div class="inror-product">
-                    <div>
-                        <span>Mã sản phẩm :</span>
-                        #456546456
-                    </div>
-                    <div>
-                        <h2>
-                            <span>Tên sản phẩm :</span>
-                            Tên sản phẩm
-                        </h2>
-
-                    </div>
-                    <div>
-                        <h4>
-                            <span>Mô tả:</span>
-                            Thông tin miêu tả sản phẩm
-                        </h4>
-                    </div>
-                </div>
-                <div class="state-product">
-                    <span>
-                        Trạng thái: Còn phòng
-                    </span>
-                </div>
-            </div>
-        </div>*@
-
+        
 </section>
 
 
+@section JavaScript{
+
+    <script src="~/Scripts/Controller/Product/product.js"></script>
+}
