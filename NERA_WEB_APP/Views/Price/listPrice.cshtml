@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "Danh sách dịch vụ";
+}
+
+@Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
+
+<section class="sortby-wrapper breadcrumb-wrapper">
+    <div class="breadcrumb-wrapper">
+        <span>
+            <a href="#">Trang chủ </a>
+            &nbsp;
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            &nbsp;
+            @ViewBag.Title
+        </span>
+    </div>
+   
+</section>
+
+<section class="container">
+    <div class="page-list-price">
+        <div class="list-price">
+            <table class="table table-condensed table-bordered">
+                <thead>
+                    <tr>
+                        <td>Mã dịch vụ</td>
+                        <td>Tên dịch vụ</td>
+                        <td>Đơn giá</td>
+                        <td>Mô tả</td>
+                        <td>Chức năng</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#23232</td>
+                        <td>Giặt là</td>
+                        <td>500000</td>
+                        <td>Mô tả</td>
+                        <td>
+                          
+                             
+                                    <button class="btn btn-edit"><i class="fa fa-edit"></i></button>
+                               
+                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+                              
+                        
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#23233</td>
+                        <td>Ăn uống</td>
+                        <td>500000</td>
+                        <td>Mô tả</td>
+                        <td>
+                            
+                           
+                                    <button class="btn btn-edit"><i class="fa fa-edit"></i></button>
+                           
+                            
+                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+                            
+                           
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#23234</td>
+                        <td>Dịch vụ văn phòng</td>
+                        <td>500000</td>
+                        <td>Mô tả</td>
+                        <td>
+                         
+                            
+                                    <button class="btn btn-edit"><i class="fa fa-edit"></i></button>
+                               
+                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+                             
+                        
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#23235</td>
+                        <td>Dịch vụ Spa</td>
+                        <td>500000</td>
+                        <td>Mô tả</td>
+                        <td>
+                         
+                              
+                                    <button class="btn btn-edit"><i class="fa fa-edit"></i></button>
+                               
+                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+                           
+                          
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+

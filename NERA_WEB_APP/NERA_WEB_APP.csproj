@@ -158,6 +158,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\Post_SlideController.cs" />
+    <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -362,6 +363,8 @@
     <Content Include="Views\Home\Event.cshtml" />
     <Content Include="Views\Home\Utility.cshtml" />
     <Content Include="Views\Product\Services.cshtml" />
+    <Content Include="Views\Price\addNewListPrice.cshtml" />
+    <Content Include="Views\Price\listPrice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -827,6 +827,27 @@ padding-top: 5px;
   position: relative;
 }
 
+.infor-product{
+    position:relative;
+}
+
+.action-product{
+    position:absolute;
+    top:0;
+    right:0;
+    text-align:right;
+}
+
+.btn-edit, .btn-remove{
+    border-radius:0px;
+    padding: 5px;
+    font-size: 1.5em;
+    background: none;
+    outline:none;
+    border:none;
+    text-align:right;
+}
+
 .state-product{
   right: 0;
   bottom: 0;
