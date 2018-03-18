@@ -360,7 +360,7 @@
     <Content Include="Views\Home\Nha_dau_tu.cshtml" />
     <Content Include="Views\Home\Event.cshtml" />
     <Content Include="Views\Home\Utility.cshtml" />
-    <Content Include="Views\Product\showDV.cshtml" />
+    <Content Include="Views\Product\Services.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
