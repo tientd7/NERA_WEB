@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Danh sách dịch vụ";
+    ViewBag.Title = "Bảng giá";
 }
 
 @Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
@@ -15,86 +15,178 @@
             @ViewBag.Title
         </span>
     </div>
-   
+
 </section>
 
 <section class="container">
-    <div class="page-list-price">
+    <div class="page-wrapper page-list-price">
         <div class="list-price">
-            <table class="table table-condensed table-bordered">
-                <thead>
-                    <tr>
-                        <td>Mã dịch vụ</td>
-                        <td>Tên dịch vụ</td>
-                        <td>Đơn giá</td>
-                        <td>Mô tả</td>
-                        <td>Chức năng</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>#23232</td>
-                        <td>Giặt là</td>
-                        <td>500000</td>
-                        <td>Mô tả</td>
-                        <td>
-                          
-                             
-                                    <button class="btn btn-edit"><i class="fa fa-edit"></i></button>
-                               
-                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
-                              
-                        
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#23233</td>
-                        <td>Ăn uống</td>
-                        <td>500000</td>
-                        <td>Mô tả</td>
-                        <td>
-                            
-                           
-                                    <button class="btn btn-edit"><i class="fa fa-edit"></i></button>
-                           
-                            
-                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
-                            
-                           
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#23234</td>
-                        <td>Dịch vụ văn phòng</td>
-                        <td>500000</td>
-                        <td>Mô tả</td>
-                        <td>
-                         
-                            
-                                    <button class="btn btn-edit"><i class="fa fa-edit"></i></button>
-                               
-                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
-                             
-                        
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#23235</td>
-                        <td>Dịch vụ Spa</td>
-                        <td>500000</td>
-                        <td>Mô tả</td>
-                        <td>
-                         
-                              
-                                    <button class="btn btn-edit"><i class="fa fa-edit"></i></button>
-                               
-                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
-                           
-                          
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <fieldset>
+                <legend style="position:relative;">
+                    <span  style="text-align:left;">
+                        <h3>
+                            Dịch vụ
+                        </h3>
+                    </span>
+                   <span  style="text-align:right; position:absolute; right:0; bottom:0;">
+                       <h4>
+                           <a href="/Price/addNewListPrice">Thêm mới</a>
+                       </h4>
+                   </span>
+                   
+                </legend>
+                <table class="table table-condensed table-bordered">
+                    <thead>
+                        <tr>
+                            <td>STT</td>
+                            <td>Tên dịch vụ</td>
+                            <td>Đơn vị tính</td>
+                            <td>Đơn giá (VND)</td>
+                            <td>Mô tả</td>
+                            <td>Chức năng</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#23232</td>
+                            <td>Điện</td>
+                            <td>Số điện x Đơn giá</td>
+                            <td>5000</td>
+                            <td>Mô tả</td>
+                            <td>
+                               <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+
+                                <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#23233</td>
+                            <td>Nước</td>
+                            <td>Số nước x Đơn giá</td>
+                            <td>25000</td>
+                            <td>Mô tả</td>
+                            <td>
+
+                                <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+
+                                <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#23234</td>
+                            <td>Tivi</td>
+                            <td>Tính theo tháng x số ti vi</td>
+                            <td>200000</td>
+                            <td>Mô tả</td>
+                            <td>
+                                <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+
+                                <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#23235</td>
+                            <td>Thang máy</td>
+                            <td>Tính theo tháng x số người</td>
+                            <td>100000</td>
+                            <td>Mô tả</td>
+                            <td>
+
+                                <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+
+                                <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#23235</td>
+                            <td>Dịch vụ chung</td>
+                            <td>Tính theo tháng x số người</td>
+                            <td>70000</td>
+                            <td>Mô tả</td>
+                            <td>
+                                <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+
+                                <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#23235</td>
+                            <td>Gửi xe</td>
+                            <td>Tính theo tháng x số lượng xe</td>
+                            <td>100000</td>
+                            <td>Mô tả</td>
+                            <td>
+                                <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+
+                                <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#23235</td>
+                            <td>mạng</td>
+                            <td>Tính theo tháng x số người</td>
+                            <td>200000</td>
+                            <td>Mô tả</td>
+                            <td>
+                                <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+
+                                <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend style="position:relative;">
+                    <span style="text-align:left;">
+                        <h3>
+                            Phòng
+                        </h3>
+                    </span>
+                    <span style="text-align:right; position:absolute; right:0; bottom:0;">
+                        <h4>
+                            <a href="/Price/addNewListPrice">Thêm mới</a>
+                        </h4>
+                    </span>
+
+                </legend>
+                <table class="table table-condensed table-bordered">
+                    <thead>
+                        <tr>
+                            <td>STT</td>
+                            <td>Tên dịch vụ</td>
+                            <td>Đơn vị tính</td>
+                            <td>Đơn giá (VND)</td>
+                            <td style="width:200px;">Mô tả</td>
+                            <td>Chức năng</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#23232</td>
+                            <td>Tiền thuê phòng</td>
+                            <td>Tính theo tháng x số phòng</td>
+                            <td>500000</td>
+                            <td>Mô tả</td>
+                            <td>
+                                <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+
+                                <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+
+                            </td>
+                        </tr>
+                  
+                    </tbody>
+                </table>
+            </fieldset>
         </div>
     </div>
 </section>

@@ -1,0 +1,140 @@
+﻿
+@{
+    ViewBag.Title = "Chi tiết hợp đồng";
+}
+@Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
+
+<section class="sortby-wrapper breadcrumb-wrapper">
+    <div class="breadcrumb-wrapper">
+        <span>
+            <a href="/Home/Index">Trang chủ </a>
+            &nbsp;
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            &nbsp;
+            <a href="/Contract/listContract">Hợp đồng </a>
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            &nbsp;
+            @ViewBag.Title
+        </span>
+    </div>
+
+</section>
+
+<section class="container">
+    <div class="page-wrapper page-detail-contract ">
+        <div class="detail-contract">
+            <fieldset>
+                <legend style="position:relative;">
+                    <span style="text-align:left;">
+                        <h3>
+                           Chi tiết hợp đồng khách hàng
+                        </h3>
+                    </span>
+                    <span style="text-align:right; position:absolute; right:0; bottom:0;">
+                        <h4>
+                            <a href="#">Thêm mới</a>
+                        </h4>
+                    </span>
+
+                </legend>
+
+                <div class="row">
+                    <div class="col-sm-12 user-profile-detail">
+                        <img src="~/Media/images/client1.png" />
+                    </div> 
+                    <div class="col-sm-12 infor-customer-detail">
+                        <div class="item-detail-contract">
+                            <div class="col-sm-3">Họ tên </div>
+                            <div class="col-sm-8"><b>Nguyễn Văn a</b> </div>
+                        </div>
+                        <div class="item-detail-contract">
+                            <div class="col-sm-3">Ngày sinh :  </div>
+                            <div class="col-sm-8"><b>1/2/1984</b></div>
+                           
+                        </div>
+                        <div class="item-detail-contract">
+                            <div class="col-sm-3">Số chứng minh thư: </div>
+                            <div class="col-sm-8"><b>189523225</b></div>
+
+                        </div>
+                        <div class="item-detail-contract">
+                            <div class="col-sm-3">Ngày bắt đầu hợp đồng : </div>
+                            <div class="col-sm-8"><b>21/3/2018</b></div>
+                        </div>
+                        <div class="item-detail-contract">
+                            <div class="col-sm-3">Số tiền đặt cọc : </div>
+                            <div class="col-sm-8"><b>600000 (VND)</b></div>
+                        </div>
+                        <div class="item-detail-contract">
+                            <div class="col-sm-3">Số tiền đã thanh toán :  </div>
+                            <div class="col-sm-8"><b>600000 (VND)</b></div>
+                            
+                        </div>
+                        <div class="item-detail-contract">
+                            <div class="col-sm-3">Danh sách người thuê phòng :</div>
+                            <div class="col-sm-8">
+                                <div>
+                                    <b>Nguyễn Văn A</b>
+                                </div>
+                                <div>
+                                    <b>Nguyễn Văn B</b>
+                                </div>
+                                <div>
+                                    <b>Nguyễn Văn C</b>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="item-detail-contract">
+                            <div class="col-sm-3">Danh sách gửi xe :</div>
+                            <div class="col-sm-8">
+                                <div>
+                                    <b>Nguyễn Văn A</b>
+                                </div>
+                                <div>
+                                    <b>Nguyễn Văn B</b>
+                                </div>
+                                <div>
+                                    <b>Nguyễn Văn C</b>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="item-detail-contract">
+                            <div class="col-sm-3">Danh sách dịch vụ :</div>
+                            <div class="col-sm-8">
+                                <div>
+                                    <b>Dịch vụ A</b>
+                                </div>
+                                <div>
+                                    <b>Dịch vụ B</b>
+                                </div>
+                                <div>
+                                    <b>Dịch vụ C</b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-detail-contract">
+                            <div class="col-sm-3">Upload File :</div>
+                            <div class="col-sm-8">
+                                <div>
+                                    <span>File Scan Hợp đồng : </span>
+                                    <input type="file" />
+                                </div>
+                                <div>
+                                    <span>File khác (nếu có) : </span>
+                                    <input type="file" />
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            
+
+            </fieldset>
+        </div>
+    </div>
+</section>
+

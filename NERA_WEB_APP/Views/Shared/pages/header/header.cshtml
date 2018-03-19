@@ -9,7 +9,7 @@
                             <a href="/Home/Index">
                                 NeraHome
                             </a>
-                           
+
                         </h1>
                     </div><!-- /.call-to-action -->
                 </div><!-- /.col-sm-6 -->
@@ -17,9 +17,9 @@
                 <div class="col-sm-6 col-xs-12">
                     <div class="logo text-center">
                         <h1>
-                                <span>
-                                    Khẩu hiệu website
-                                </span>
+                            <span>
+                                Khẩu hiệu website
+                            </span>
                         </h1>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                     <div class="topbar-right">
                         <div class="lang-support pull-right">
                             <select class="lang-select">
-                           
+
                                 <option value="vietnam" data-class="flag-vietnam">VietNam</option>
                                 <option value="united-kingdom" data-class="flag-uk">English</option>
                             </select>
@@ -52,9 +52,8 @@
             </div>
         </div>
     </nav><!-- /.top-bar -->
-
     @* gọi controller *@
-    <div class="container mainnav" ng-controller="ProductCtrl">
+    <div class="container mainnav">
 
         <div class="navbar-header">
 
@@ -90,9 +89,11 @@
                         <!-- submenu-wrapper -->
                         <div class="submenu-wrapper submenu-wrapper-topbottom">
                             <div class="submenu-inner  submenu-inner-topbottom">
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu"  ng-controller="showMenuBarDvController">
                                     @* tạo vong lặp show ra *@
-                                    <li  ng-repeat="i in ItemDV"><a href="/Product/details">{{i.Item_Name}}</a></li>
+                                    <li><a href="/Price/listPrice">Bảng giá dịch vụ</a></li>
+                                    <li ng-repeat="i in ItemDV"><a href="/Product/details">{{i.Item_Name}}</a></li>
+                                    <li><a href="/Price/listPrice">Dịch vụ khác</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -112,9 +113,9 @@
         </nav>
     </div>
 
-  
-   
-    
+
+
+
     <!-- /.container -->
 </header>
 

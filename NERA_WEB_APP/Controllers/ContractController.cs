@@ -6,24 +6,22 @@ using System.Web.Mvc;
 
 namespace NERA_WEB_APP.Controllers
 {
-    public class PriceController : Controller
+    public class ContractController : Controller
     {
-        // GET: Price
+        // GET: Contract
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult listPrice()
+        public ActionResult listContract()
         {
             return View();
         }
 
-        public ActionResult addNewListPrice()
+        public ActionResult detailContract()
         {
             return View();
         }
-
-       
     }
 }
