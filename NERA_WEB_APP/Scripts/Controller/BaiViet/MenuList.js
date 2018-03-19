@@ -36,6 +36,8 @@
                 console.log(error);
             });
     };
+    $scope.getallData();
+
     $scope.Create = function () {
         //  $scope.isViewLoading = true;
         $http({
@@ -96,16 +98,11 @@
             method: 'POST',
             data: $scope.Item
         }).success(function (data, status, headers, config) {
-            console.log("success" + data + "status" + status);
-            if (data != "") {
-                window.location.href('/Menu/Index');
-            }
-            //window.location.href='/Menu/Index';
+            window.location.href = '/Menu/Index';
+           
        
         }).error(function (error, status, headers, config) {
             $scope.message = 'Unexpected Error while saving data!!' + data.errors;
-            $scope.result = "color-red";
-            console.log( error);
         });
     }
 
