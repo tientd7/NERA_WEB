@@ -2,11 +2,11 @@
 
     $scope.data;
 
-    $scope.addData = function () {
+    $scope.addData = function (Item) {
         $http({
             url: '/Chatbox/addData',
-            method: 'POST',
-            data: $scope.Item
+            method: 'GET',
+            data: $scope.data
         }).success(function (data, status) {
             console.log("success" + data);
         }).error(function (error) {

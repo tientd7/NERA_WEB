@@ -1,4 +1,4 @@
-﻿﻿/*
+﻿/*
 *Template Name: Unship
 *Description: HTML5 / CSS3 Multi Page
 *Version: 1.0
@@ -30,7 +30,7 @@
 
 .hero-slide .carousel-caption {
     position: relative;
-    
+    top: -100px;
     right: 0;
     left: 0;
     text-align: left;
@@ -86,13 +86,6 @@
             color: #333;
         }
 
-        .carousel-inner.slide-img{
-            height:450px;
-        }
-
-		.carousel-inner.slide-img .item img{
-            height:450px;
-        }
 /* Slider Controller */
 .hero-slide .carousel-control.left,
 .hero-slide .carousel-control.right {
@@ -164,33 +157,6 @@
         padding: 40px 0;
     }
 }
-@media only screen  and (max-width : 830px) {
-    .carousel-inner.slide-img{
-            height:400px;
-        }
-
-}
-@media only screen and (max-width : 768px) {
-    .carousel-inner.slide-img{
-            height:330px;
-        }
-
-}
-
-@media only screen and (max-width : 600px) {
-    .carousel-inner.slide-img{
-            height:280px;
-        }
-
-}
-
-@media only screen and (max-width : 435px) {
-    .carousel-inner.slide-img{
-            height:215px;
-        }
-
-}
-
 
 
 @media (max-width : 768px) {

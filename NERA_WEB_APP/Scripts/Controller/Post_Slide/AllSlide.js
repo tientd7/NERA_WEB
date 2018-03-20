@@ -1,10 +1,6 @@
 ﻿app.controller("PostSlide", function ($scope, $http, $location, $window) {
 
 
-
-    alert('ầ');
-
-
     $scope.message = '';
     $scope.ListSlide;
     $scope.Item = {};

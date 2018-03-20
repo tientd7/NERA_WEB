@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "show";
+}
+
+<div ng-controller="show">
+    <h1>ok</h1>
+</div>
+
+
+
+<script>
+
+
+
+    app.controller("show", function ($scope, $http) {
+        $scope.showdt = null;
+
+        $scope.Data = function () {
+            $http.get('/Post_Slide/showdata').success(function (data, status) {
+                console.log("success" + data);
+            }).error(function (error) {
+                console.log('error' + error);
+            })
+        }
+
+        $scope.Data();
+    })
+
+
+</script>
+
