@@ -260,6 +260,8 @@
     <Content Include="Media\images\noi_that_nerahome1.jpg" />
     <Content Include="Media\images\preloder.gif" />
     <Content Include="Media\images\th6-1518024245-69de.jpg" />
+    <Content Include="Media\images\timthumb %281%29.jpg" />
+    <Content Include="Media\images\timthumb.jpg" />
     <Content Include="Media\images\zoomin.png" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-route.js" />
