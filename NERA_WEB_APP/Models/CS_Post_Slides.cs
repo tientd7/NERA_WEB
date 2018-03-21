@@ -6,7 +6,7 @@ using System.Web;
 
 namespace NERA_WEB_APP.Models
 {
-    public class CS_Posts_Slides
+    public class CS_Post_Slides
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Post_Id { get; set; }

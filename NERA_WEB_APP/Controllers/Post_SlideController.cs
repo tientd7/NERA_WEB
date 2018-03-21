@@ -26,14 +26,14 @@ namespace NERA_WEB_APP.Controllers
         {
             db.Configuration.LazyLoadingEnabled = false;
             db.Configuration.ProxyCreationEnabled = false;
-            var dt = from i in db.CS_Posts_Slides select i;
+            var dt = from i in db.CS_Post_Slides select i;
             return new JsonResult { Data = dt, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
 
         public JsonResult AllSlide()
         {
-            var LST = from obj in db.CS_Posts_Slides select obj;
+            var LST = from obj in db.CS_Post_Slides select obj;
             return Json(LST, JsonRequestBehavior.AllowGet);
         }
         public ActionResult ThemSlide()
@@ -41,9 +41,9 @@ namespace NERA_WEB_APP.Controllers
             return View();
         }
         [HttpPost]
-        public JsonResult ThemSlide(CS_Posts_Slides Obj)
+        public JsonResult ThemSlide(CS_Post_Slides Obj)
         {
-            CS_Posts_Slides newObj = new CS_Posts_Slides();
+            CS_Post_Slides newObj = new CS_Post_Slides();
             int id = new App_Auto_NumberController().GenID("CS_Posts_Slides.Post_Id");
             newObj.Post_Id = Obj.Post_Id;
             newObj.Tbl_Id = Obj.Tbl_Id;
@@ -53,23 +53,23 @@ namespace NERA_WEB_APP.Controllers
             newObj.Image_Order = Obj.Image_Order;
             newObj.Enable = Obj.Enable;
             newObj.Language = Obj.Language;
-            db.CS_Posts_Slides.Add(newObj);
+            db.CS_Post_Slides.Add(newObj);
             db.SaveChanges();
             return Json(newObj);
 
         }
         public JsonResult Detail(int? Id)
         {
-            var obj = db.CS_Posts_Slides.Find(Id);
+            var obj = db.CS_Post_Slides.Find(Id);
             return Json(obj, JsonRequestBehavior.AllowGet);
         }
         public ActionResult Edit(int id)
         {
-            var obj = db.CS_Posts_Slides.Find(id);
+            var obj = db.CS_Post_Slides.Find(id);
             return View(obj);
         }
         [HttpPost]
-        public JsonResult Edit(CS_Posts_Slides Slide)
+        public JsonResult Edit(CS_Post_Slides Slide)
         {
            
             db.Entry(Slide).State = EntityState.Modified;
@@ -83,8 +83,8 @@ namespace NERA_WEB_APP.Controllers
             String er = "";
             try
             {
-                var de = db.CS_Posts_Slides.Find(Post_Id);
-                db.CS_Posts_Slides.Remove(de);
+                var de = db.CS_Post_Slides.Find(Post_Id);
+                db.CS_Post_Slides.Remove(de);
                 db.SaveChanges();
             }
             catch (Exception e)

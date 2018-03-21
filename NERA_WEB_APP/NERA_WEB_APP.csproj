@@ -176,7 +176,7 @@
     <Compile Include="Models\CS_Menu_Item.cs" />
     <Compile Include="Models\CS_Other_Slide.cs" />
     <Compile Include="Models\CS_Posts_Info.cs" />
-    <Compile Include="Models\CS_Posts_Slides.cs" />
+    <Compile Include="Models\CS_Post_Slides.cs" />
     <Compile Include="Models\DBContext.cs" />
     <Compile Include="Models\Maps\App_Auto_Number_Map.cs" />
     <Compile Include="Models\Maps\APP_Dic_Domain_Map.cs" />
@@ -189,7 +189,7 @@
     <Compile Include="Models\Maps\CS_Menu_Item_Map.cs" />
     <Compile Include="Models\Maps\CS_Other_Slide_Map.cs" />
     <Compile Include="Models\Maps\CS_Posts_Info_Map.cs" />
-    <Compile Include="Models\Maps\CS_Posts_Slides_Map.cs" />
+    <Compile Include="Models\Maps\CS_Post_Slides_Map.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -277,6 +277,7 @@
     <Content Include="Scripts\angular-route.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Areas\Admin\Views\web.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Controller\BaiViet\BaiVietInsertUpdate.js" />
     <Content Include="Scripts\Controller\BaiViet\BaiVietListController.js" />
@@ -412,7 +413,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>6923</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
