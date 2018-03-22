@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "product";
+    ViewBag.Title = "Sản phẩm";
 }
 
 
@@ -15,7 +15,7 @@
             &nbsp;
             <i class="fa fa-angle-right" aria-hidden="true"></i>
             &nbsp;
-            Sản phẩm
+            @ViewBag.Title 
         </span>
     </div>
     <div class="sort-by-wrapper">
@@ -63,7 +63,7 @@
                         <button class="btn btn-edit"><i class="fa fa-edit"></i></button>
                     </div>
                     <div>
-                        <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+                        <button class="btn btn-remove" ng-click="Delete(i.Item_Id)"><i class="fa fa-remove"></i></button>
                     </div>
                 </div>
             </div>

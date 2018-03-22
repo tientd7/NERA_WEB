@@ -1,10 +1,9 @@
 ﻿
-
 <div class="chat-box-wrapper" ng-controller="CBCtrl">
     <div class="row">
         <div class="title-chat-box-wrapper col-sm-12">
             <div>
-                Để lại thông tin của bạn
+               Liên hệ với chúng tôi
             </div>
             <div class="action-box" style="text-align:right;">
                 <span style="cursor:pointer;">
@@ -32,15 +31,13 @@
         </div>
     </div>
 </div>
-
-
+@section JavScript{
+<script src="~/Scripts/Controller/chatbox/chatboxCtrl.js"></script>
+}
 
 <script>
     $('.action-box span').click(function () {
         $('.message-box').toggle(200);
     });
 </script>
-
-
-
 

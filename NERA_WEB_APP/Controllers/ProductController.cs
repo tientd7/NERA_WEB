@@ -21,14 +21,14 @@ namespace NERA_WEB_APP.Controllers
         public JsonResult showSP()
         {
             var show = from i in db.CS_Menu_Item where i.Item_Type == "SP" select i;
-            return Json(show,JsonRequestBehavior.AllowGet);
+            return Json(show, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult details()
         {
             return View();
         }
-        
+
         public ActionResult addNewProduct()
         {
             return View();
@@ -41,7 +41,7 @@ namespace NERA_WEB_APP.Controllers
             int id = new App_Auto_NumberController().GenID("CS_Menu_Item.Item_Id");
             newObj.Item_Id = id;
             newObj.Item_Name = Obj.Item_Name;
-            newObj.Enable = Obj.Enable;   
+            newObj.Enable = true;
             newObj.Item_Type = Obj.Item_Type;
             newObj.Meta_Desc = Obj.Meta_Desc;
             newObj.Meta_Key = Obj.Meta_Key;
@@ -49,6 +49,13 @@ namespace NERA_WEB_APP.Controllers
             db.CS_Menu_Item.Add(newObj);
             db.SaveChanges();
             return Json(newObj);
+        }
+
+        public JsonResult delete(int Id) {
+            var dt = db.CS_Menu_Item.Find(Id);
+            db.CS_Menu_Item.Remove(dt);
+            db.SaveChanges();
+            return Json(dt);
         }
 
 
