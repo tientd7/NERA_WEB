@@ -1,4 +1,5 @@
-﻿using NERA_WEB_APP.Models;
+﻿using NERA_WEB_APP.CustomMemberShip;
+using NERA_WEB_APP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,13 +24,13 @@ namespace NERA_WEB_APP.Controllers
             return View();
         }
 
-        [AllowAnonymous]
+        [CustomAuthorize(Roles = "Admin")]
         public ActionResult SignUp()
         {
             return View(new SignUpModel());
         }
         [HttpPost]
-        [AllowAnonymous]
+        [CustomAuthorize(Roles = "Admin")]
         public ActionResult SignUp(SignUpModel model)
         {
             if (ModelState.IsValid)
@@ -39,7 +40,7 @@ namespace NERA_WEB_APP.Controllers
                 user.UserName = model.UserName;
                 user.PasswordHash = MD5_Hash(model.Password);
                 user.Email = model.Email;
-                user.RoleId = 1;
+                user.RoleId = 2;//Tạm để mặc định là mod
                 user.FirstName = "Test first name";
                 user.LastName = "Test last name";
                 user.IsEnable = true;
@@ -47,9 +48,10 @@ namespace NERA_WEB_APP.Controllers
                 {
                     db.Nera_Users.Add(user);
                     db.SaveChanges();
-                    services.SignIn(model.UserName, false);
+                    signIn(user, false);
                     return RedirectToAction("Index", "Home");
-                }catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
                 }
             }
@@ -83,15 +85,23 @@ namespace NERA_WEB_APP.Controllers
                     ViewBag.ErrMessage = message;
                     return View(new LoginViewModel());
                 }
-                services.SignIn(model.UserName, model.RememberMe);
+                //FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                signIn(user, model.RememberMe);
+                //services.SignIn(model.UserName, model.RememberMe);
                 //ViewData["Role"] = user.Role.RoleCode;
             }
 
             // If we got this far, something failed, redisplay form
             return RedirectToRoute(returnUrl);
         }
-
-        [HttpPost]
+        private void signIn(Nera_User user, bool rememberme)
+        {
+            Nera_Role role = db.Nera_Roles.Find(user.RoleId);
+            FormsAuthenticationTicket authTck = new FormsAuthenticationTicket(1, user.UserName, DateTime.Now, DateTime.Now.AddMinutes(20), rememberme, role.RoleCode);
+            var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(authTck));
+            Response.Cookies.Add(cookie);
+        }
+        //[HttpPost]
         public ActionResult LogOut()
         {
             services.LogOut();
@@ -107,7 +117,7 @@ namespace NERA_WEB_APP.Controllers
             }
             else
             {
-                if (!MD5_Hash(Password).Equals(us.First().PasswordHash)|| !us.First().IsEnable)
+                if (!MD5_Hash(Password).Equals(us.First().PasswordHash) || !us.First().IsEnable)
                     mess = "Sai mật khẩu!";
             }
             return us.First();
@@ -122,17 +132,18 @@ namespace NERA_WEB_APP.Controllers
             {
                 sBuilder.Append(data[i].ToString("x2"));
             }
+
             return sBuilder.ToString();
         }
     }
 
     public class CustomAuthenServices
     {
-        public void SignIn(String UserName, bool RemeberMe)
+        public void SignIn(String UserName, bool RemeberMe, string role_code)
         {
             if (String.IsNullOrEmpty(UserName))
                 throw new ArgumentException("Không thể để trống tên đăng nhập");
-            FormsAuthentication.SetAuthCookie(UserName, RemeberMe);
+
         }
         public void LogOut()
         {
