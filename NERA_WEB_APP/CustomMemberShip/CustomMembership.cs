@@ -259,7 +259,7 @@ namespace NERA_WEB_APP.CustomMemberShip
             UserId = user.UserId;
             FirstName = user.FirstName;
             LastName = user.LastName;
-            Roles = user.Role;
+            Roles = (from s in new AuthenContext().Nera_Roles where s.RoleId == user.RoleId select s).AsEnumerable().First();
         }
     }
 }

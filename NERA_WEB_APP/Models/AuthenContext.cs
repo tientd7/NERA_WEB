@@ -60,7 +60,7 @@ namespace NERA_WEB_APP.Models
         public int RoleId { set; get; }
 
         public bool IsEnable { set; get; }
-        public virtual Nera_Role Role { set; get; }
+        //public virtual Nera_Role Role { set; get; }
     }
     public class Nera_User_Map : EntityTypeConfiguration<Nera_User>
     {
@@ -78,7 +78,43 @@ namespace NERA_WEB_APP.Models
             this.Property(t => t.RoleId).HasColumnName("RoleId");
             this.Property(t => t.IsEnable).HasColumnName("IsEnable");
 
-            this.HasOptional(t => t.Role).WithMany(t=>t.Users).HasForeignKey(t => t.RoleId);
+            //this.HasOptional(t => t.Role).WithMany(t=>t.Users).HasForeignKey(t => t.RoleId);
         }
+    }
+    public class LoginViewModel
+    {
+        [Required]
+        [Display(Name = "User name")]
+        public string UserName { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
+        public string Password { get; set; }
+
+        [Display(Name = "Remember me?")]
+        public bool RememberMe { get; set; }
+    }
+    public class SignUpModel
+    {
+        [Required]
+        [Display(Name = "User name")]
+        public string UserName { get; set; }
+
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email address")]
+        public string Email { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
+        public string Password { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirm password")]
+        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        public string ConfirmPassword { get; set; }
     }
 }

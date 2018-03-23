@@ -378,6 +378,9 @@
     <Content Include="Views\Contract\detailContract.cshtml" />
     <Content Include="Views\Contract\listContract.cshtml" />
     <Content Include="Views\Post_Slide\show.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Account\SignUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -385,7 +388,6 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Content\fonts\" />
-    <Folder Include="Views\Account\" />
     <Folder Include="Views\App_Auto_Number\" />
   </ItemGroup>
   <ItemGroup>
