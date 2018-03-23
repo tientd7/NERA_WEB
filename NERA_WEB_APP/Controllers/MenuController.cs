@@ -94,11 +94,7 @@ namespace NERA_WEB_APP.Controllers
         }
 
 
-        public JsonResult showDV()
-        {
-            var showdv = from i in db.CS_Menu_Item where i.Item_Type=="DV" select i;
-            return Json(showdv, JsonRequestBehavior.AllowGet);
-        }
+     
     }
 }
 

@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="content" ng-controller="Orther_Slide"></div>
+<h2>Orther_Slide</h2>
+<table class="table table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Image_Title</th>r
+        <th>Image_URL</th>
+        <th>Image_Link</th>
+        <th>Image_Order</th>
+        <th>Enable</th>
+        <th>Slide_Type</th>
+        <th>Language</th>
+    </tr>
+    <tr data-ng-repeat="Item in List">
+        <td>{{Item.Tbl_Id}}</td>
+        <td>{{Item.Image_Title}}</td>
+        <td>{{Item.Image_URL}}</td>
+        <td>{{Item.Image_Link}}</td>
+        <td>{{Item.Image_Orde}}</td>
+        <td>{{Item.Enable}}</td>
+        <td>{{Item.Slide_Type}}</td>
+        <td>{{Item.Language}}</td>
+
+    </tr>
+
+</table>
+
+
+@section JavaScript{
+
+
+    <script src="~/Scripts/Controller/Orther_Slide/Orther_Slide.js"></script>
+}

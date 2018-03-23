@@ -48,7 +48,7 @@
 
     <link href="~/Content/css/responsive.css" rel="stylesheet">
     <script src="~/Scripts/angular.js"></script>
-   
+
     <script src="~/Scripts/Controller/Filter/CustomFilter.js"></script>
     <script src="~/Scripts/Controller/Product/showMenuBarDV.js"></script>
     <script src="~/Scripts/Controller/Product/addNewProduct.js"></script>
@@ -72,6 +72,8 @@
     <!-- language select -->
     <script src="~/Scripts/js/selectFx.js"></script>
     <!-- Twitter feed -->
+    <script src="~/Scripts/Controller/BaiViet/ckfinder/ckfinder.js"></script>
+    <script src="~/Scripts/Controller/BaiViet/ckeditor/ckeditor.js"></script>
     <script src="~/Scripts/js/twitterFetcher_min.js"></script>
     <!-- Custom Script -->
     <script src="~/Scripts/js/scripts.js"></script>
@@ -81,6 +83,8 @@
         <script src="js/vendor/html5shim.js"></script>
         <script src="js/vendor/respond.min.js"></script>
     <![endif]-->
+    @RenderSection("jsFooter", required: false)
+
     @RenderSection("JavaScript", required: false)
 </head>
 
@@ -113,14 +117,6 @@
     @Html.Partial("~/Views/Shared/pages/action_totop/totop.cshtml")
     @Html.Partial("~/Views/Chatbox/chat_box.cshtml")
 
-    @*
-        khong biet vi sao cai link vao no khong nhan
-        uk t cung k biet thieu gi k nhi!!
-        k phai thieu
-        no chi khong nhan thoi
-        thi phai co ly do no moi k nhan chu
-        :))
-    *@
-
+   
 </body>
 </html>
