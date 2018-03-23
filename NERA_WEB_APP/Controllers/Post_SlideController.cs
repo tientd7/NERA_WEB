@@ -17,18 +17,9 @@ namespace NERA_WEB_APP.Controllers
             return View();
         }
 
-        public ActionResult show()
-        {
-            return View();
-        }
+      
 
-        public JsonResult showdata()
-        {
-            db.Configuration.LazyLoadingEnabled = false;
-            db.Configuration.ProxyCreationEnabled = false;
-            var dt = from i in db.CS_Post_Slides select i;
-            return new JsonResult { Data = dt, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-        }
+
 
 
         public JsonResult AllSlide()
@@ -58,7 +49,8 @@ namespace NERA_WEB_APP.Controllers
             return Json(newObj);
 
         }
-        public JsonResult Detail(int? Id)
+        [HttpPost]
+        public JsonResult Detail(int Id)
         {
             var obj = db.CS_Post_Slides.Find(Id);
             return Json(obj, JsonRequestBehavior.AllowGet);

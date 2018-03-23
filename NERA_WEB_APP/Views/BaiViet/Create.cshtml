@@ -1,6 +1,31 @@
 ﻿
 @{
-    ViewBag.Title = "Create";
+                /**/
+
+                ViewBag.Title = "Create";
+}
+
+@section jsFooter{
+    <script>
+        $(document).ready(function () {
+            $('#btnselect').on('click', function () {
+
+                var finder = new CKFinder();
+
+                finder.selectActionFunction = function (url) {
+                    $('#txtPost_content').val(url);
+                };
+                finder.popup();
+
+            })
+            var editor = CKEDITOR.replace('txtContent',
+                {
+                    customConfig: '/Scripts/Controller/BaiViet/ckeditor/ckeditor.js',
+                });
+        })
+
+
+    </script>
 }
 
 <h2>Create</h2>
@@ -11,21 +36,22 @@
     <div ng-class="result">{{message}}</div>
     <hr />
     <input type="hidden" ng-model="Item.Post_Id" value="@ViewBag.Post_Id" />
-    <input type="hidden" ng-model="Item.Create_By"/>
-    <input type="hidden" ng-model="Item.Create_Date"/>
-    <input type="hidden" ng-model="Item.Update_By"/>
-    <input type="hidden" ng-model="Item.Update_Date"/>
+    <input type="hidden" ng-model="Item.Create_By" />
+    <input type="hidden" ng-model="Item.Create_Date" />
+    <input type="hidden" ng-model="Item.Update_By" />
+    <input type="hidden" ng-model="Item.Update_Date" />
     <h2>All BaiViets</h2>
     <table class="table table-striped">
         <tr>
             <td>Title</td>
             <td><input type="text" ng-model="Item.Post_Title" /></td>
             <td>Content</td>
-            <td><input type="text" ng-model="Item.Post_Content" /></td>
+            <td><input type="text" ng-model="Item.Post_Content" id="txtPost_content" /> <button id="btnselect">get anh</button></td>
+
         </tr>
         <tr>
             <td>Meta Desc</td>
-            <td><input type="text" ng-model="Item.Meta_Desc" /></td>
+            <td><input type="text" ng-model="Item.Meta_Desc"  id="txtContent"/></td>
             <td>Meta Key</td>
             <td><input type="text" ng-model="Item.Meta_Key" /></td>
         </tr>
@@ -46,7 +72,7 @@
     <input type="button" value="Save" ng-click="onSave()" />
 </div>
 @section JavaScript{
-  
-<script src="~/Scripts/Controller/BaiViet/BaiVietInsertUpdate.js"></script>
 
-    }
+    <script src="~/Scripts/Controller/BaiViet/BaiVietInsertUpdate.js"></script>
+
+}

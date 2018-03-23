@@ -3,7 +3,7 @@
 }
 
 <h2>EditSlide</h2>
-<div id="content" ng-controller="PostSlide">
+<div id="content" ng-controller="Post_Slide">
     <hr />
     <input type="hidden" ng-model="Post_Id" />
     <input type="hidden" ng-model="Tbl_Id" />
@@ -14,28 +14,30 @@
     <input type="hidden" ng-model="Enable" />
     <input type="hidden" ng-model="Language" />
     <h2>Slide</h2>
+
+    {{getSlide}}
     <table class="table table-striped">
         <tr>
             <td>Post_Id</td>
-            <td><input type="text" ng-model="Item.Post_Id" /></td>
+            <td><input type="text" ng-model="getSlide.Post_Id" /></td>
             <td>Tbl_Id</td>
-            <td><input type="text" ng-model="Item.Tbl_Id" /></td>
+            <td><input type="text" ng-model="getSlide.Tbl_Id" /></td>
         <tr>
             <td>Image_Title</td>
-            <td><input type="text" ng-model="Item.Image_Title" /></td>
+            <td><input type="text" ng-model="getSlide.Image_Title" /></td>
             <td>Image_URL</td>
-            <td><input type="text" ng-model="Item.Image_URL" /></td>
+            <td><input type="text" ng-model="getSlide.Image_URL" /></td>
         <tr>
             <td>Image_Link</td>
-            <td><input type="text" ng-model="Item.Image_Link" /></td>
+            <td><input type="text" ng-model="getSlide.Image_Link" /></td>
             <td>Image_Order</td>
             <td><input type="text" ng-model="Image_Order" /></td>
         </tr>
         <tr>
             <td>Enable</td>
-            <td><input type="checkbox" ng-model="Item.Enable" /></td>
+            <td><input type="checkbox" ng-model="getSlide.Enable" /></td>
             <td>Language</td>
-            <td><input type="text" ng-model="Item.Language" /></td>
+            <td><input type="text" ng-model="getSlide.Language" /></td>
             <td></td>
             <td></td>
         </tr>
@@ -45,7 +47,6 @@
 </div>
 @section JavaScript{
 
-    
-<script src="~/Scripts/Controller/Post_Slide/UpdateDeleteSlide.js"></script>
+<script src="~/Scripts/Controller/Post_Slide/Update.js"></script>
 
 }
