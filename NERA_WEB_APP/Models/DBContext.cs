@@ -19,7 +19,7 @@ namespace NERA_WEB_APP.Models
             modelBuilder.Configurations.Add(new CS_ChatBox_Info_Map());
             modelBuilder.Configurations.Add(new APP_SYS_Parrams_Map());
             modelBuilder.Configurations.Add(new APP_User_Permission_Map());
-            modelBuilder.Configurations.Add(new CS_Posts_Slides_Map());
+            modelBuilder.Configurations.Add(new CS_Post_Slides_Map());
             modelBuilder.Configurations.Add(new CS_Other_Slide_Map());
             modelBuilder.Configurations.Add(new APP_Email_Info_Map());
         }
@@ -35,7 +35,7 @@ namespace NERA_WEB_APP.Models
 
         public DbSet<APP_User_Permission> APP_User_Permission{ set; get; }
 
-        public DbSet<CS_Posts_Slides> CS_Posts_Slides { set; get; }
+        public DbSet<CS_Post_Slides> CS_Post_Slides { set; get; }
 
         public DbSet<CS_Other_Slide> CS_Other_Slide{ set; get; }
 

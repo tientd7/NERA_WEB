@@ -58,5 +58,18 @@
         });
 
     }
+    $scope.Delete = function (Item) {
+        $http({
+            method: "Post",
+            url: '/Product/delete',
+            data: { 'Id': Item.Item_Id }
+        }).success(function () {
+            $scope.showSP();
+            $scope.showDV();
+            console.log('delete success');
+        }).error(function (error) {
+            console.log(error);
+        })
+    }
 })
 

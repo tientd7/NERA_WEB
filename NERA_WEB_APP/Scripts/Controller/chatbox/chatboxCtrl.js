@@ -6,8 +6,9 @@
         $http({
             url: '/Chatbox/addData',
             method: 'POST',
-            data: $scope.Item
+            data: $scope.data
         }).success(function (data, status) {
+            $scope.data = data;
             console.log("success" + data);
         }).error(function (error) {
             console.log('error' + error);

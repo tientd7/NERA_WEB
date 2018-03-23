@@ -15,19 +15,27 @@ app.controller('addNewCtr', function ($scope, $http) {
             data: $scope.Item
         }).success(function (data, status, headers, config) {
             if (data != "") {
-                console.log("Thêm Thành Công");
-                window.location.href = '/Product/product';
+                alert('Added Success!');
+             if (data.Item_Type == "DV") {
+                    window.location.href = '/Product/services';
+                }  
+             else if (data.Item_Type == "SP") {
+                    window.location.href = '/Product/product';
+                } 
 
             }
             else {
                 console.log('Form data not Saved!');
 
             }
-        }).error(function (data, status, headers, config) {
+        }).error(function (error, status, headers, config) {
             $scope.message = 'Unexpected Error while saving data!!' + data.errors;
-            console.log($scope.message);
+            console.log(error);
         });
 
     }
+
+
+    
 
 });

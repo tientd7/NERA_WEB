@@ -1,20 +1,12 @@
-/*
-*Template Name: Unship
-*Description: HTML5 / CSS3 Multi Page
-*Version: 1.0
-*Author: uiCookies.
-**************************************
-*/
 
-/*Extra small devices (phones, less than 768px) */
 
-@media only screen and (max-width:500px) {
+@media only screen and (max-width:767px) {
     /* CHAT BOX*/
     .chat-box-wrapper {
         width: 300px;
         position: fixed;
         bottom: 0;
-        left: 0;
+        right: 0;
     }
 
     .title-chat-box-wrapper {
@@ -23,7 +15,61 @@
     }
 }
 
-@media only screen and (max-width : 767px) {
+.header-top-mobile {
+    display: none;
+}
+
+@media only screen and (max-width : 992px) {
+    .header-top-desktop {
+        display: none;
+    }
+
+    .header-top-mobile {
+        display: block;
+    }
+
+
+    .logo-acc-mb {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
+
+    .call-to-action {
+        text-align: center;
+    }
+
+        .call-to-action h1 {
+            font-size: 3em;
+        }
+
+    .topbar-right {
+
+    }
+
+    .user-acc-box-mb {
+        text-align:right;
+    }
+
+    .lang-support {
+        text-align:left;
+    }
+
+    div.lang-select{
+        width:85px;
+    }
+
+    .slogan-mb .slogan h1{
+        font-size:2.5em;
+    }
+}
+@media only screen and (max-width : 500px) {
+     .call-to-action h1 {
+            font-size: 2.5em;
+        }
+
+
+@media only screen and (max-width : 992px) {
     #box-search {
         display: none;
     }
@@ -36,7 +82,6 @@
         text-align: center;
         text-shadow: none;
         width: 100%;
-
     }
     /* FILTER*/
 
@@ -92,9 +137,6 @@
 
 
 
-    .call-to-action {
-        text-align: center;
-    }
 
     .footer-widget {
         margin-bottom: 50px;
@@ -122,17 +164,6 @@
     .service-wrap .service-content:first-child {
         margin-bottom: 50px;
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -177,8 +208,6 @@
     .service-wrap .slider-control {
         top: 0;
     }
-
-    ;
 }
 
 /* Large devices (large desktops) */
@@ -198,6 +227,6 @@
     }
 
     #maps {
-        padding: 40px;
+        padding: 20px;
     }
 }

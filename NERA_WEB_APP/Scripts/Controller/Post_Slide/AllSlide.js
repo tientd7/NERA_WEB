@@ -1,12 +1,8 @@
 ﻿app.controller("PostSlide", function ($scope, $http, $location, $window) {
 
 
-
-    alert('ầ');
-
-
     $scope.message = '';
-    $scope.ListSlide;
+    $scope.ListSlide = null;
     $scope.Item = {};
     console.log('')
 
@@ -26,5 +22,21 @@
     }
 
     $scope.allData();
+
+    $scope.delete = function (Post_Id) {
+        $http({
+            method: 'POST',
+            url: '/Post_Slide/delete',
+            data:Post_Id
+            
+        })
+            .success(function (data) {
+                console.log(data);
+                $scope.allData();
+            }).error(function (error) {
+                console.log(error);
+
+            })
+    };
 
 });

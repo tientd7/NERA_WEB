@@ -1,4 +1,4 @@
-﻿/*
+﻿﻿/*
 *Template Name: Unship
 *Description: HTML5 / CSS3 Multi Page
 *Version: 1.0
@@ -13,6 +13,7 @@
  *-------------------------------------*/
 
 #slide-boxsearch {
+    top:-30px;
     position: relative;
 }
 
@@ -30,7 +31,7 @@
 
 .hero-slide .carousel-caption {
     position: relative;
-    top: -100px;
+    
     right: 0;
     left: 0;
     text-align: left;
@@ -86,6 +87,13 @@
             color: #333;
         }
 
+        .carousel-inner.slide-img{
+            height:450px;
+        }
+
+		.carousel-inner.slide-img .item img{
+            height:450px;
+        }
 /* Slider Controller */
 .hero-slide .carousel-control.left,
 .hero-slide .carousel-control.right {
@@ -133,7 +141,7 @@
 
 @media (max-width : 1024px) {
     .hero-slide .carousel-caption h1 {
-        font-size: 24px;
+       font-size:3em;
         margin-top: 10px;
     }
 
@@ -157,12 +165,41 @@
         padding: 40px 0;
     }
 }
+@media only screen  and (max-width : 830px) {
+    .carousel-inner.slide-img{
+            height:400px;
+        }
+
+}
+@media only screen and (max-width : 768px) {
+    .carousel-inner.slide-img{
+            height:330px;
+        }
+
+}
+
+@media only screen and (max-width : 600px) {
+    .carousel-inner.slide-img{
+            height:280px;
+        }
+
+}
+
+@media only screen and (max-width : 435px) {
+    .carousel-inner.slide-img{
+            height:215px;
+        }
+    
+}
+
 
 
 @media (max-width : 768px) {
-
+    .hero-slide .container{
+        top:40%
+    }
     .hero-slide .carousel-caption h1 {
-        font-size: 18px;
+        font-size: 2em;
         margin-top: 10px;
     }
 
@@ -204,6 +241,11 @@
             padding: 5px 10px;
             border-width: 1px;
         }
+}
+@media (max-width : 436px) {
+    .hero-slide .container {
+        top: 30%;
+    }
 }
 
 @media (max-width : 320px) {

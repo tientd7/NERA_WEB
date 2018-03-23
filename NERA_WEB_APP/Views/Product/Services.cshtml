@@ -15,7 +15,7 @@
             &nbsp;
             <i class="fa fa-angle-right" aria-hidden="true"></i>
             &nbsp;
-            Danh sách dịch vụ
+            @ViewBag.Title 
         </span>
     </div>
     <div class="sort-by-wrapper">
@@ -55,6 +55,14 @@
                             <span>Mô tả:</span>
                             {{i.Meta_Desc}}
                         </h4>
+                    </div>
+                    <div class="action-product">
+                        <div>
+                            <button class="btn btn-edit"><i class="fa fa-edit"></i></button>
+                        </div>
+                        <div>
+                            <button class="btn btn-remove" ng-click="Delete(i)"><i class="fa fa-remove"></i></button>
+                        </div>
                     </div>
                 </div>
                 @*<div class="state-product">

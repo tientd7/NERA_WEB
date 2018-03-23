@@ -1,9 +1,13 @@
-﻿app.controller('PostSlide', function ($Scope, $http) {
+﻿
+
+
+app.controller('ThemPostSlide', function ($scope, $http) {
     $scope.message = '';
-    $Scope.listSlide = null;
+    $scope.listSlide = null;
     $scope.isViewLoading = false;
 
     $scope.Create = function () {
+
         $http({
             method: 'POST',
             url: '/Post_Slide/ThemSlide',

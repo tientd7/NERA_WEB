@@ -7,19 +7,17 @@
     $scope.result = "color-default";
     $scope.isViewLoading = false;
     $scope.ListBaiViet = null;
-    
-    getDetailData();
+    $scope.Item = null;
 
-    function getDetailData() {
-        $http({
-            method: 'GET',
-            url: '/Menu/Detail/' + $scope.Item_Id,
-            //data: { 'Id': $scope.Item_Id }
-        })
+
+    function getDetailData(Id) {
+        $http.get('/Menu/Detail/' + Id)
             .success(function (data, status, headers, config) {
                 //debugger;
                 $scope.Item = data;
-                console.log(data);
+                console.log(data.Item_Id);
+            }).error(function (error) {
+                console.log(error);
             })
     }
     
@@ -36,7 +34,7 @@
                 console.log(error);
             });
     };
-    $scope.getallData();
+    //$scope.getallData();
 
     $scope.Create = function () {
         //  $scope.isViewLoading = true;
@@ -47,8 +45,11 @@
         }).success(function (data, status, headers, config) {
             if (data != "") {
                 $scope.message="Thêm Thành Công"
-                window.location.href = '/Menu/Index';
-
+               
+                setTimeout(function () {
+                    alert("Them Thanh Cong");
+                    window.location.href = '/Menu/Index';
+                }, 500);
             }
             else {
                 $scope.message = 'Form data not Saved!';
@@ -64,19 +65,24 @@
 
     };
     $scope.delete = function (Item_Id) {
-        $http({
-            method: 'POST',
-            url: '/Menu/delete',
-            data: Item_Id
-        })
-             .success(function (data) {
-                 console.log(data);
-                 $scope.getallData();
-             }).error(function (error) {
-                 console.log(error);
+        var a = confirm("Ban co muon xoa")
+        if (a) {
+            $http({
+                method: 'POST',
+                url: '/Menu/delete',
+                data: Item_Id
+            })
+                 .success(function (data) {
+                     console.log(data);
+                     $scope.getallData();
 
-             })
-    };
+                    
+                 }).error(function (error) {
+                     console.log(error);
+
+                 })
+        };
+    }
     $scope.getDetail= function () {
         $http.get('/Menu/Detail/')
             .success(function (data, status, headers, config) {
