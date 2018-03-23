@@ -152,6 +152,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\App_Auto_NumberController.cs" />
     <Compile Include="Controllers\BaiVietController.cs" />
     <Compile Include="Controllers\ChatboxController.cs" />
@@ -162,6 +163,7 @@
     <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="CustomMemberShip\CustomMembership.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -172,6 +174,7 @@
     <Compile Include="Models\APP_SYS_Parrams.cs" />
     <Compile Include="Models\App_User_Info.cs" />
     <Compile Include="Models\APP_User_Permission.cs" />
+    <Compile Include="Models\AuthenContext.cs" />
     <Compile Include="Models\CS_ChatBox_Info.cs" />
     <Compile Include="Models\CS_Menu_Item.cs" />
     <Compile Include="Models\CS_Other_Slide.cs" />
@@ -319,7 +322,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -376,6 +381,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Content\fonts\" />
+    <Folder Include="Views\Account\" />
     <Folder Include="Views\App_Auto_Number\" />
   </ItemGroup>
   <ItemGroup>
