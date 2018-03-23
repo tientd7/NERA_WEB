@@ -81,7 +81,7 @@ namespace NERA_WEB_APP.CustomMemberShip
             {
                 string username = (from u in dbContext.Nera_Users
                                    where string.Compare(email, u.Email) == 0
-                                   select u.Username).FirstOrDefault();
+                                   select u.UserName).FirstOrDefault();
 
                 return !string.IsNullOrEmpty(username) ? username : string.Empty;
             }
