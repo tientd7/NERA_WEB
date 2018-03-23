@@ -378,7 +378,6 @@
     <Content Include="Views\Price\listPrice.cshtml" />
     <Content Include="Views\Contract\detailContract.cshtml" />
     <Content Include="Views\Contract\listContract.cshtml" />
-    <Content Include="Views\Post_Slide\show.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Account\SignUp.cshtml" />
