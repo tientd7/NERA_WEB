@@ -1,19 +1,10 @@
-﻿﻿/*
-*Template Name: Unship
-*Description: HTML5 / CSS3 Multi Page
-*Version: 1.0
-*Author: uiCookies.
-**************************************
-*/
+﻿﻿ /*
 
-
-/*-------------------------------------
     SLIDE - SEARCHBOX
  *  HERO SLIDER
  *-------------------------------------*/
-
 #slide-boxsearch {
-    top:-30px;
+    top: -30px;
     position: relative;
 }
 
@@ -31,7 +22,6 @@
 
 .hero-slide .carousel-caption {
     position: relative;
-    
     right: 0;
     left: 0;
     text-align: left;
@@ -87,13 +77,13 @@
             color: #333;
         }
 
-        .carousel-inner.slide-img{
-            height:450px;
-        }
+.carousel-inner.slide-img {
+    height: 400px;
+}
 
-		.carousel-inner.slide-img .item img{
-            height:450px;
-        }
+    .carousel-inner.slide-img .item img {
+        height: 400px;
+    }
 /* Slider Controller */
 .hero-slide .carousel-control.left,
 .hero-slide .carousel-control.right {
@@ -141,7 +131,7 @@
 
 @media (max-width : 1024px) {
     .hero-slide .carousel-caption h1 {
-       font-size:3em;
+        font-size: 3em;
         margin-top: 10px;
     }
 
@@ -165,39 +155,38 @@
         padding: 40px 0;
     }
 }
-@media only screen  and (max-width : 830px) {
-    .carousel-inner.slide-img{
-            height:400px;
-        }
 
+@media only screen and (max-width : 830px) {
+    .carousel-inner.slide-img {
+        height: 400px;
+    }
 }
-@media only screen and (max-width : 768px) {
-    .carousel-inner.slide-img{
-            height:330px;
-        }
 
+@media only screen and (max-width : 768px) {
+    .carousel-inner.slide-img {
+        height: 330px;
+    }
 }
 
 @media only screen and (max-width : 600px) {
-    .carousel-inner.slide-img{
-            height:280px;
-        }
-
+    .carousel-inner.slide-img {
+        height: 280px;
+    }
 }
 
 @media only screen and (max-width : 435px) {
-    .carousel-inner.slide-img{
-            height:215px;
-        }
-    
+    .carousel-inner.slide-img {
+        height: 215px;
+    }
 }
 
 
 
 @media (max-width : 768px) {
-    .hero-slide .container{
-        top:40%
+    .hero-slide .container {
+        top: 40%;
     }
+
     .hero-slide .carousel-caption h1 {
         font-size: 2em;
         margin-top: 10px;
@@ -242,6 +231,7 @@
             border-width: 1px;
         }
 }
+
 @media (max-width : 436px) {
     .hero-slide .container {
         top: 30%;
@@ -342,98 +332,10 @@ OUR SERVICES SECTION
         margin-left: 5px;
     }
 
-/* ------------------------------------------------------------------
-ABOUT US WRAP
---------------------------------------------------------------------- */
-/*.about-us-wrap {
-  background: url(../img/capbilities.png)no-repeat;
-  background-size: 50%;
-  background-position: right 85px;
-}
 
-.about-us-wrap .about-us-content h3 {
-  margin-bottom: 25px;
-}
-
-.about-us-wrap .about-us-content span {
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin: 0;
-  line-height: 28px;
-  color: #343434;
-}
-
-.about-us-wrap .about-us-content p {
-  margin-bottom: 0;
-}
-
-.about-us-wrap .about-us-content.capabilities {
-  background: #336cac;
-  padding: 48px 52px;
-  color: #fff;
-}
-
-.about-us-wrap .about-us-content.capabilities .about-content-block h3 {
-  margin: 0px 0 20px;
-  font-size: 36px;
-  color: #fff;
-}
-
-.about-us-wrap .about-us-content.capabilities ul li {
-  position: relative;
-  padding-left: 25px;
-  font-weight: 500;
-}
-
-.about-us-wrap .about-us-content.capabilities ul li:before {
-  position: absolute;
-  left: 0;
-  content: "\f00c";
-  font-family: FontAwesome;
-  color: #ccc;
-}*/
-
-
-/* ------------------------------------------------------------------
-Featuer Section
---------------------------------------------------------------------- */
-/*.feature-wrap {
-  background: #fff url(../img/featurebg.png) no-repeat center top fixed;
-  background-size: cover;
-  color: #fff;
-}
-
-.feature-wrap .feature-content h2 {
-  font-size: 50px;
-  color: #fff;
-  text-transform: uppercase;
-  line-height: 52px;
-  margin-bottom: 30px;
-}
-
-.feature-wrap .feature-content h2 span {
-  display: block;
-  line-height: 38px;
-  margin-top: 10px;
-  font-size: 34px;
-  font-weight: 400;
-}
-
-.feature-wrap .feature-content p {
-  font-size: 18px;
-}
-
-.feature-wrap .feature-content .quote-btn {
-  margin-top: 40px;
-}*/
-
-/* ------------------------------------------------------------------
-PORTFOLIO WRAP
---------------------------------------------------------------------- */
 
 .fleets-wrap {
-    padding-top: 75px;
+    top: -28px;
     background: #fff;
 }
 
@@ -480,9 +382,11 @@ PORTFOLIO WRAP
                 .fleets-wrap .owl-item .owl-item-thumb a img {
                     height: 40px;
                     width: auto !important;
-                    margin: 30% auto 0;
+                    margin: 25% auto 0;
                     opacity: 0;
                 }
+
+               
 
                 .fleets-wrap .owl-item .owl-item-thumb .owl-item-overlay,
                 .fleets-wrap .owl-item .owl-item-thumb a img {
@@ -519,14 +423,27 @@ PORTFOLIO WRAP
                         color: #1a8ae1;
                     }
 
-.fleet-carousel-navigation {
-    position: absolute;
-    top: -75px;
-    right: 15px;
+
+.fleets-img-control {
+    position:relative;
 }
 
-    .fleet-carousel-navigation .left {
-        margin-right: -3px;
+.fleet-carousel-navigation {
+    position: relative;
+    z-index: 1000;
+}
+
+
+    .fleet-carousel-navigation .left{
+        position:absolute;
+        left:5px;
+        top:-19.5em;
+
+    }
+      .fleet-carousel-navigation  .right{
+        position:absolute;
+        right:5px;
+        top:-19.5em;
     }
 
 
@@ -534,131 +451,16 @@ PORTFOLIO WRAP
 TESTIMONIAL
 --------------------------------------------------------------------- */
 .testimonial-wrap {
-    padding-top: 75px;
+    top: -25px;
     background: #fff;
+    margin-bottom: -52px;
 }
 
     .testimonial-wrap .section-heading {
         margin-bottom: 20px;
     }
 
-/*.testimonial-wrap .carousel {
-  overflow: hidden;
-  background: #f4f6f7;
-}
 
-.testimonial-wrap.carousel h3 {
-  position: absolute;
-  left: 38%;
-  top: 20%;
-  margin-left: -5px;
-}
-
-.testimonial-wrap .media-left {
-  width: 450px;
-  padding: 0;
-}
-
-.testimonial-wrap .item-left-thumb {
-  position: relative;
-}
-
-.testimonial-wrap .media-body {
-  vertical-align: middle;
-}
-
-.testimonial-wrap .author-info {
-  position: absolute;
-  display: block;
-  bottom: 10%;
-  width: 108%;
-  margin: 0;
-  background: rgba(255, 255, 255, 0.75);
-}
-
-.testimonial-wrap .author-info > div[class*='col-'] {
-  padding-right: 0;
-}
-
-.testimonial-wrap .author-info .author-name {
-  display: inline-block;
-  width: 100%;
-  text-align: right;
-  color: #000;
-  margin: 32px 0 26px;
-  line-height: 18px;
-}
-
-.testimonial-wrap .author-info .author-name span {
-  font-size: 18px;
-  line-height: 25px;
-  display: block;
-  font-weight: 700;
-}
-
-.testimonial-wrap .author-info .author-name small {
-  font-size: 14px;
-  line-height: 14px;
-}
-
-.testimonial-wrap .item-right-text {
-  position: relative;
-  font-size: 20px;
-  color: #7b7575;
-  padding: 40px 70px 0 70px;
-  font-weight: 300;
-  line-height: 36px;
-  font-style: italic;
-}
-
-.testimonial-wrap .item-right-text:before {
-  content: "\f10d";
-  position: absolute;
-  top: 0;
-  font-family: FontAwesome;
-  font-size: 15em;
-  color: rgba(0,0,0,.1);
-}
-
-.carousel-fade .carousel-inner .item {
-  opacity: 0;
-  -webkit-transition-property: opacity;
-  -moz-transition-property: opacity;
-  -o-transition-property: opacity;
-  transition-property: opacity;
-}
-
-.carousel-fade .carousel-inner .active {
-  opacity: 1;
-}
-
-.carousel-fade .carousel-inner .active.left,
-.carousel-fade .carousel-inner .active.right {
-  left: 0;
-  opacity: 0;
-  z-index: 1;
-}
-
-.item-left-thumb img {
-  width: 100%;
-}
-
-.carousel-fade .carousel-inner .next.left,
-.carousel-fade .carousel-inner .prev.right {
-  opacity: 1;
-}
-
-.testimonial-wrap .slider-control {
-  top: 64px;
-}*/
-
-
-/* ------------------------------------------------------------------
-PRICING
---------------------------------------------------------------------- */
-/*--------------------------------------------------------------------
-ABOUT US PAGE
---------------------------------------------------------------------- */
 
 .details-product-wrap .section-heading {
     margin-bottom: 40px;
@@ -671,121 +473,7 @@ ABOUT US PAGE
 }
 
 
-/*--------------------------------------------------------------------
-SERVICE PAGES
---------------------------------------------------------------------- */
 
-
-/*Single-service*/
-/*
-.single-service-wrap {
-  padding: 110px 0 150px;
-  background: #fff;
-}
-
-.single-service-wrap .single-service-thumb {
-  margin-bottom: 50px;
-}
-
-.single-service-wrap .single-service-thumb img {
-  width: 100%;
-}
-
-.single-service-content h2 {
-  margin-bottom: 20px;
-}
-
-.single-service-content h3 {
-  margin-bottom: 30px;
-}
-
-.widget .download-wrap {
-  position: relative;
-  margin-bottom: 10px;
-}
-
-.widget .download-wrap a {
-  position: relative;
-  display: block;
-  background-color: #e9e9e9;
-  padding: 12px 10px;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 18px;
-  text-transform: uppercase;
-  border-radius: 3px;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -ms-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.widget .download-wrap a:hover {
-  background: #666!important;
-}
-
-.widget .download-wrap.company a {
-  background: #4d62e3;
-}
-
-.widget .download-wrap.annual a {
-  background: #f7941d;
-}
-
-.widget .download-wrap.brochure a {
-  background: #7cc576;
-}
-
-.widget .download-wrap a span {
-  display: block;
-  font-weight: normal;
-  font-size: 10px;
-}
-
-.widget .download-wrap a i {
-  position: absolute;
-  top: 15%;
-  right: 8px;
-  width: 38px;
-  height: 38px;
-  line-height: 38px;
-  text-align: center;
-  color: rgba(255,255,255,0.4);
-  border: 2px solid rgba(255,255,255,0.4);
-  border-radius: 100%;
-}
-
-.widget .service-list li.active a {
-  color: #1a8ae1;
-}
-
-.widget-service-add {
-  background: url(../img/service-add.png)no-repeat;
-  background-size: cover;
-  padding: 40px 25px;
-  color: #fff;
-  border-radius: 5px;
-}
-
-.widget-service-add p {
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 22px;
-}
-
-.widget-service-add a {
-  font-size: 18px;
-  color: #ffb65e;
-  font-weight: 900;
-  margin: 20px 0 40px;
-  display: inline-block;
-  border-bottom: 2px solid;
-}
-
-.widget-service-add img {
-  opacity: 0.3;
-}*/
 
 
 /* PAGE PRODUCT*/
@@ -798,7 +486,8 @@ SERVICE PAGES
 
 .breadcrumb-wrapper {
     padding-top: 5px;
-    padding-left: 15%;
+    width:100%;
+    background-color: #f5f5f5;
 }
 
     .breadcrumb-wrapper span {
@@ -815,7 +504,7 @@ SERVICE PAGES
         padding: 5px;
         width: 30%;
         border: none;
-        border-bottom: 1px solid #000;
+        border-bottom: 1px solid #d4d2d2;
         outline: none;
         text-transform: uppercase;
         cursor: pointer;
@@ -823,6 +512,7 @@ SERVICE PAGES
 
 .breadcrumb {
     color: #888;
+    width:100%;
 }
 
 .breadcrumb-mb {
@@ -894,7 +584,7 @@ SERVICE PAGES
     outline: none;
     border: none;
     text-align: right;
-    color:#9b9696;
+    color: #9b9696;
 }
 
 .state-product {
@@ -1252,18 +942,19 @@ SERVICE PAGES
     padding: 20px;
 }
 
-.user-profile-detail img{
-    height:300px; width:300px;
+    .user-profile-detail img {
+        height: 300px;
+        width: 300px;
+    }
+
+.infor-customer-detail {
+    font-size: 16px;
 }
 
-.infor-customer-detail{
-    font-size:16px;
-}
-.item-detail-contract{
-    margin-top:20px;
-    margin-bottom:20px;
+.item-detail-contract {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.item-detail-contract .col-sm-4{
- 
-}
+    .item-detail-contract .col-sm-4 {
+    }

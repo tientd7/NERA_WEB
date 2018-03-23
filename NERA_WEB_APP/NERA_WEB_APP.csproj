@@ -281,6 +281,7 @@
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Areas\Admin\Views\web.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\nguyenhung.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Controller\BaiViet\BaiVietInsertUpdate.js" />
     <Content Include="Scripts\Controller\BaiViet\BaiVietListController.js" />
@@ -289,7 +290,7 @@
     <Content Include="Scripts\Controller\Filter\CustomFilter.js" />
     <Content Include="Scripts\Controller\Post_Slide\AllSlide.js" />
     <Content Include="Scripts\Controller\Post_Slide\ThemSlide.js" />
-    <Content Include="Scripts\Controller\Post_Slide\UpdateDeleteSlide.js" />
+    <Content Include="Scripts\Controller\Post_Slide\Update.js" />
     <Content Include="Scripts\Controller\Product\addNewProduct.js" />
     <Content Include="Scripts\Controller\Product\product.js" />
     <Content Include="Scripts\Controller\Product\showMenuBarDV.js" />
