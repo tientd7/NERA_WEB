@@ -9,6 +9,7 @@ namespace NERA_WEB_APP.Controllers
     public class AccountController : Controller
     {
         // GET: Account
+        [Authorize]
         public ActionResult Index()
         {
             return View();

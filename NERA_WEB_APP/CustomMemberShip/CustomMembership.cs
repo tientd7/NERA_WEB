@@ -241,7 +241,7 @@ namespace NERA_WEB_APP.CustomMemberShip
         {
             throw new NotImplementedException();
         }
-
+        #endregion
     }
     public class CustomMembershipUser : MembershipUser
     {
