@@ -107,6 +107,7 @@ namespace NERA_WEB_APP.Controllers
             services.LogOut();
             return RedirectToAction("LogOn");
         }
+
         private Nera_User checkUser(string UserName, string Password, ref string mess)
         {
             var us = (from s in db.Nera_Users where s.UserName == UserName select s).ToList();

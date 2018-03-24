@@ -806,44 +806,6 @@ POPUP FEATURE
     color: #fff;
 }
 
-#slideshow-maps {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 50% 50%;
-}
-
-#myCarousel {
-    height: 100%;
-}
-
-#maps {
-}
-
-#slideshow-fb {
-    position: relative;
-}
-
-    #slideshow-fb .section-heading, #maps .section-heading {
-        margin-left: 20px;
-    }
-
-.title-feedback {
-    top: 50%;
-    left: 50%;
-    text-align: center;
-    position: absolute;
-    z-index: 1000;
-    transform: translate(-50%,50%);
-    color: #fff;
-}
-
-    .title-feedback span {
-        font-size: 20px;
-        font-weight: 500;
-    }
-
-
-
 /* ------------------------------------------------------------------
 FOOTER WIDGET SECTION
 --------------------------------------------------------------------- */

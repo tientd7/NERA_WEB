@@ -1,4 +1,17 @@
 ﻿
+
+
+
+
+
+
+
+
+
+
+
+
+
 <header class="header">
     <nav class="top-bar">
         <div>
@@ -28,16 +41,11 @@
                 <div class="col-sm-3 hidden-xs">
                     <div class="topbar-right">
                         <div class="user-acc-box">
-                            <a href="/User/SignIn" class="user-account">
+                            <a href="#"  class="user-account btn-link-login">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 Đăng nhập
                             </a>
-                            <span>/</span>
-                            <a href="/User/SignIn" class="user-account">
-
-                                Đăng ký
-                            </a>
-
+                           
                         </div>
                         <div class="lang-support pull-right">
                             <div>
@@ -90,11 +98,7 @@
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                     Đăng nhập
                                 </a>
-                                <span>/</span>
-                                <a href="/User/SignIn" class="user-account">
-                                    Đăng Ký
-                                </a>
-
+                               
                             </div>
                             <div class="lang-support pull-right">
                                 <div>
@@ -164,12 +168,12 @@
                         <!-- submenu-wrapper -->
                         <div class="submenu-wrapper submenu-wrapper-topbottom">
                             <div class="submenu-inner  submenu-inner-topbottom">
-                                <ul class="dropdown-menu" ng-controller="showMenuBarDvController">
-                                    @* tạo vong lặp show ra *@
+                                @*<ul class="dropdown-menu" ng-controller="showMenuBarDvController">
+                                    
                                     <li><a href="/Price/listPrice">Bảng giá dịch vụ</a></li>
                                     <li ng-repeat="i in ItemDV"><a href="/Product/details">{{i.Item_Name}}</a></li>
                                     <li><a href="/Product/services">Dịch vụ khác</a></li>
-                                </ul>
+                                </ul>*@
                             </div>
                         </div>
                         <!-- /submenu-wrapper -->
@@ -189,5 +193,8 @@
     </div>
 </header>
 
+    <script src="~/Scripts/jq dialog/dialog.js"></script>
+
+ 
 
 
