@@ -170,10 +170,7 @@
     <Compile Include="Models\APP_AUTO_NUMBER.cs" />
     <Compile Include="Models\APP_Dic_Domain.cs" />
     <Compile Include="Models\APP_Email_Info.cs" />
-    <Compile Include="Models\APP_Quyen_Info.cs" />
     <Compile Include="Models\APP_SYS_Parrams.cs" />
-    <Compile Include="Models\App_User_Info.cs" />
-    <Compile Include="Models\APP_User_Permission.cs" />
     <Compile Include="Models\AuthenContext.cs" />
     <Compile Include="Models\CS_ChatBox_Info.cs" />
     <Compile Include="Models\CS_Menu_Item.cs" />
@@ -184,10 +181,7 @@
     <Compile Include="Models\Maps\App_Auto_Number_Map.cs" />
     <Compile Include="Models\Maps\APP_Dic_Domain_Map.cs" />
     <Compile Include="Models\Maps\APP_Email_Info_Map.cs" />
-    <Compile Include="Models\Maps\APP_Quyen_Info_Map.cs" />
     <Compile Include="Models\Maps\APP_SYS_Parrams_Map.cs" />
-    <Compile Include="Models\Maps\APP_User_Info_Map.cs" />
-    <Compile Include="Models\Maps\APP_User_Permission_Map.cs" />
     <Compile Include="Models\Maps\CS_ChatBox_Info_Map.cs" />
     <Compile Include="Models\Maps\CS_Menu_Item_Map.cs" />
     <Compile Include="Models\Maps\CS_Other_Slide_Map.cs" />

@@ -20,6 +20,7 @@ namespace NERA_WEB_APP.Models.Maps
             this.Property(t => t.Meta_Desc).HasColumnName("Meta_Desc");
             this.Property(t => t.Meta_Key).HasColumnName("Meta_Key");
             this.Property(t => t.Language).HasColumnName("Language");
+            this.Property(t => t.Item_Content).HasColumnName("Item_Content");
         }
     }
 }

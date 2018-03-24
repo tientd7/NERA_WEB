@@ -2,17 +2,6 @@ Create database NerahomeWeb
 go
 use NerahomeWeb
 
-Create table APP_User_Info(
-[User_Id] Int Primary Key
-,[Password] Varchar(255) not null
-,Email Varchar(255)
-,[Enable] bit default 1
-,User_Full_Name	NVARCHAR(100)
-,Phone_Number VARCHAR(30)
-,Quyen_Id int
-,Quyen_Name VARCHAR(100)
-)
-
 go
 Create table APP_Auto_Number(
 Refer_Key VARCHAR(150) primary key
@@ -27,23 +16,11 @@ Domain_Name	VARCHAR(150)
 ,Parram_Order int
 ,[Enable] bit default 1
 )
-go
-create table APP_Quyen_Info(
-Quyen_Id	int Primary Key
-,Quyen_Name VARCHAR(100)
-,[Enable] bit default 1
-)
+
 go
 Create table APP_SYS_Parrams(
 Parram_Key VARCHAR(150) Primary Key
 ,Parram_Value NVARCHAR(255)
-,[Enable] bit default 1
-)
-go
-Create table APP_User_Permission(
-Quyen_Id INT 
-,Tbl_Id INT PRIMARY KEY
-,Function_Name VARCHAR(150)
 ,[Enable] bit default 1
 )
 go
@@ -55,6 +32,7 @@ Item_Id int primary key
 ,Meta_Desc NVarchar(255)
 ,Meta_Key NVarchar(255)
 ,[Language] VARCHAR(2)
+,Item_Content NVARCHAR(max)
 )
 go
 Create table APP_Email_Info(
