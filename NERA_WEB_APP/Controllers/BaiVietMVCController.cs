@@ -1,6 +1,8 @@
 ﻿using NERA_WEB_APP.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -43,5 +45,73 @@ namespace NERA_WEB_APP.Controllers
             db.SaveChanges();
             return View(newObj);
         }
+        public ActionResult Edit(int id)
+        {
+            var obj = db.CS_Post_Info.Find(id);
+            return View(obj);
+        }
+        [HttpPost]
+        public ActionResult Edit(CS_Post_Info Slide)
+        {
+            
+                var obj = db.CS_Post_Info.Find(1);
+            Slide.Post_Content = Request.Unvalidated["Post_Content"];
+
+
+
+            bool saveFailed;
+                do
+                {
+                    saveFailed = false;
+
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch (DbUpdateConcurrencyException ex)
+                    {
+                        saveFailed = true;
+
+                        // Update the values of the entity that failed to save from the store 
+                        ex.Entries.Single().Reload();
+                    }
+
+                } while (saveFailed);
+            return View(Slide);
+
+            }
+        [HttpPost]
+        //public ActionResult Delete(int Post_Id)
+        //{
+        //    String er = "";
+        //    try
+        //    {
+        //        CS_Post_Info de = db.CS_Post_Info.Where(x=>x.Post_Id == Post_Id).FirstOrDefault();
+        //        db.CS_Post_Info.Remove(de);
+        //        db.SaveChanges();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        er = e.StackTrace; 
+        //    }
+
+        //    return RedirectToAction("Index", "BaiVietMVC");
+        //}
+        public ActionResult del(int Post_Id)
+        {
+            CS_Post_Info de = db.CS_Post_Info.Where(x => x.Post_Id == Post_Id).FirstOrDefault();
+            db.CS_Post_Info.Remove(de);
+            db.SaveChanges();
+            return RedirectToAction("Index", "BaiVietMVC");
+        }
+        
+        public ActionResult delete(int Post_Id)
+        {
+            CS_Post_Info de = db.CS_Post_Info.Where(x => x.Post_Id == Post_Id).FirstOrDefault();
+            db.CS_Post_Info.Remove(de);
+            db.SaveChanges();
+            return RedirectToAction("Index", "BaiVietMVC");
+        }
     }
-}
+    }
+

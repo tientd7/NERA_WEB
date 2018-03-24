@@ -1485,6 +1485,7 @@
     <Content Include="Views\Orther_Slide\Index.cshtml" />
     <Content Include="Views\BaiVietMVC\Index.cshtml" />
     <Content Include="Views\BaiVietMVC\Create.cshtml" />
+    <Content Include="Views\BaiVietMVC\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
