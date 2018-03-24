@@ -7,7 +7,7 @@ div.lang-select {
   position: relative;
   text-align: left;
   z-index: 100;
-  width: 78px;
+  width: 100px;
   max-width: 500px;
   border-radius: 30px;
   height: 25px;
@@ -25,7 +25,7 @@ div.lang-select {
 
 .lang-select span {
   display: block;
-  font-size: 8.5px;
+  font-size: 10px;
   font-weight: 300;
   position: relative;
   cursor: pointer;
@@ -34,7 +34,6 @@ div.lang-select {
   text-overflow: ellipsis;
   text-transform: uppercase;
   height: 100%;
-  
 }
 
 .lang-select span.cs-placeholder {
@@ -57,7 +56,6 @@ div.lang-select {
   color: #343434;
   font-family: FontAwesome;
 }
-
 
 .lang-select span.cs-placeholder[data-current="united-kingdom"]:after,
 .lang-select span.cs-placeholder[data-current="vietnam"]:after {
@@ -133,7 +131,7 @@ div.cs-active {
   background-repeat: no-repeat;
   background-position: 12px 48%;
   background-size: 15px auto;
-  padding: 0 0px 0 13px;
+  padding: 0 0px 0 35px;
 }
 
 .lang-select .cs-options span:hover,

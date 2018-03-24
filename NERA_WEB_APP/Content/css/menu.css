@@ -1,4 +1,10 @@
-
+/*
+*Template Name: Unship
+*Description: HTML5 / CSS3 Multi Page
+*Version: 1.0
+*Author: uiCookies.
+**************************************
+*/
 
 
 /*-----------------------------------
@@ -229,7 +235,6 @@ NAVIGATION
     }
 
     .btn-search {
-       
         display: block;
         float: right;
         margin-top: 10px;
@@ -243,7 +248,7 @@ NAVIGATION
             padding: 2px 25px 2px 5px;
             outline: none;
             border: none;
-            border-bottom: 1px solid #d8d8d8;
+            border-bottom: 1px solid #000;
             width: 100%;
             font-size: 13px;
         }

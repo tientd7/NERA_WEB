@@ -16,7 +16,6 @@ namespace NERA_WEB_APP.Models
         public string Meta_Desc { get; set; }
         public string Meta_Key { get; set; }
         public string Language { get; set; }
-        public string Item_Content { set; get; }
 
     }
 }

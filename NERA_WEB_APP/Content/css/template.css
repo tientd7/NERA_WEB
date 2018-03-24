@@ -473,7 +473,7 @@ section {
 
 .page-title-section {
     text-align: center;
-    padding: 10px 0 0px;
+    padding: 50px 0 15px;
     background: #1a8ae1;
 }
 
@@ -527,7 +527,7 @@ section {
 /*call-to-action*/
 
 .call-to-action {
-    padding: 15px 18px;
+    padding: 15px 0;
      font-family: 'Montserrat', sans-serif;
 }
 .call-to-action  h1{
@@ -593,19 +593,18 @@ section {
 
 .topbar-right {
     display: grid;
-    grid-template-columns: 70% 30%;
-    padding: 15px 18px;
+    grid-template-columns: 50% 50%;
+    padding: 15px 0;
     position: relative;
 }
 
 .user-acc-box {
-    text-align:center;
     z-index: 1000;
 }
 
 .user-account {
     color: #000;
-    font-size: 1em;
+    font-size: 1.1em;
 }
 
 .user-acc-box:hover .user-panel {
@@ -640,6 +639,7 @@ section {
 /*language-support*/
 .lang-support {
     text-align: center;
+    margin-left: 20px;
 }
 
     .lang-support .wt {
@@ -649,7 +649,7 @@ section {
 .wt {
     text-align: center;
     padding: 0 18px;
-    font-size: .88em;
+    font-size: .9em;
 }
 /*Logo*/
 .logo h1 span {
@@ -806,68 +806,174 @@ POPUP FEATURE
     color: #fff;
 }
 
+#slideshow-maps {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#myCarousel {
+    height: 100%;
+}
+
+#maps {
+}
+
+#slideshow-fb {
+    position: relative;
+}
+
+    #slideshow-fb .section-heading, #maps .section-heading {
+        margin-left: 20px;
+    }
+
+.title-feedback {
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    position: absolute;
+    z-index: 1000;
+    transform: translate(-50%,50%);
+    color: #fff;
+}
+
+    .title-feedback span {
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+
+
 /* ------------------------------------------------------------------
 FOOTER WIDGET SECTION
 --------------------------------------------------------------------- */
 .footer-widget-section {
-
-}
-.address-links-social-wrapper-footer{
-    background:#faf8eb;
-}
-
-.address-contact-footer, .social-item-footer{
-        padding: 20px;
-    
-}
-.address-contact-footer{
-    font-size:1em;
-    font-family:'Montserrat', sans-serif;
-}
-.title-contact-footer{
-    font-size:1.5em;
-    margin-bottom:10px;
+    background: #1e1e1f;
+    padding: 30px;
+    color: #f8f7f7;
 }
 
-.social-item-footer ul li{
-        display:inline-block;
+.footer-widget {
+    line-height: 28px;
 }
 
-.social-item-footer ul li a{
-    color:#9d9a86;
-    font-size:3.2em;
-    padding:20px 10px 20px 10px;
+    .footer-widget h3 {
+        margin-bottom: 25px;
+        font-size: 14px;
+        line-height: 21px;
+        font-weight: 400;
+        color: #fff;
+    }
+
+.footer-widget-section address span {
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
 }
 
-.social-item-footer ul li a:hover{
-    color:#150101;
+.footer-widget-section address strong {
+    color: #fff;
+    font-size: 18px;
 }
 
-
-.links-item-footer-wrapper{
-    background:#efefef;
-    text-align:center;
-    padding:20px 0;
+.footer-widget ul.quick-links li {
+    position: relative;
+    line-height: 32px;
+    padding-left: 10px;
 }
 
-.links-item-footer ul li{
-    display:inline-block;
-   
-}
-.links-item-footer ul li a{
-     color:#878383;
-     padding:0 14px 0 10px;
-     border-right:1px solid #c6c6c6;
-}
-.links-item-footer ul li.last a{
-    border-right:none;
+    .footer-widget ul.quick-links li a {
+        color: #fff;
+    }
+
+    .footer-widget ul.quick-links li:before {
+        content: "\f105";
+        font-family: FontAwesome;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+.footer-widget ul li a {
+    color: #7b8a97;
 }
 
-.copyright p{
-    font-size:12px;
+    .footer-widget ul li a:hover {
+        color: #1a8ae1;
+        text-decoration: none;
+    }
+
+form.newsletter-form .form-group {
+    margin: 26px 0 0;
+    position: relative;
+    font-style: italic;
 }
+
+    form.newsletter-form .form-group .form-control {
+        border: 0;
+        border-bottom: 0;
+        border-radius: 5px;
+        background: #000;
+    }
+
+        form.newsletter-form .form-group .form-control:focus {
+            border-color: #1a8ae1;
+        }
+
+    form.newsletter-form .form-group button {
+        position: absolute;
+        top: 6px;
+        right: 5px;
+        border: 0;
+        border-radius: 3px;
+        line-height: 18px;
+        color: #fff;
+        padding: 8px 16px !important;
+        background: #1a8ae1;
+        text-transform: capitalize;
+        font-weight: 400;
+        font-size: 14px !important;
+        -webkit-transition: .3s;
+        -moz-transition: .3s;
+        -ms-transition: .3s;
+        transition: .3s;
+    }
+
+        form.newsletter-form .form-group button:hover {
+            background: #fff;
+            color: #1a8ae1;
+        }
 
 /*footer social links*/
+
+.footer-widget .social-links {
+    margin: 20px 0 0;
+}
+
+    .footer-widget .social-links li {
+        margin-right: 30px;
+        padding: 0;
+    }
+
+        .footer-widget .social-links li:last-child {
+            margin-right: 0;
+        }
+
+        .footer-widget .social-links li a i {
+            color: #7b8a97;
+            font-size: 14px;
+            width: auto;
+            height: auto;
+        }
+
+        .footer-widget .social-links li a i,
+        .footer-widget .social-links li a:hover i {
+            background: transparent;
+        }
+
+        .footer-widget .social-links li a:hover i {
+            color: #1a8ae1;
+        }
 
 
 
@@ -962,16 +1068,15 @@ BOOTSTRAP CAROUSEL CONTROL
 
     .slider-control .left,
     .slider-control .right {
-        z-index:1000;
         width: 65px;
         height: 75px;
-        background: #f8f7f7 !important;
+        background: #f6f6f6 !important;
         background-image: none !important;
-        color: #343434;
+        color: #c2c2c2;
         display: inline-block;
         line-height: 75px;
         text-align: center;
-        opacity: .7;
+        opacity: 1;
         cursor: pointer;
         -webkit-transition: 0.3s;
         -moz-transition: 0.3s;
@@ -979,11 +1084,6 @@ BOOTSTRAP CAROUSEL CONTROL
         transition: 0.3s;
         filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
     }
-        .slider-control .left i,
-    .slider-control .right i{
-            font-weight:700;
-            font-size:25px;
-        }
 
         .slider-control .left:hover,
         .slider-control .right:hover {
