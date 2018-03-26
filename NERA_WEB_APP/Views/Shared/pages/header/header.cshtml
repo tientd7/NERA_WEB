@@ -1,7 +1,20 @@
 ﻿
+
+
+
+
+
+
+
+
+
+
+
+
+
 <header class="header">
     <nav class="top-bar">
-        <div class="container">
+        <div>
             <!-- desktop-->
             <div class="row header-top-desktop">
                 <div class="col-sm-3 col-xs-12">
@@ -28,22 +41,17 @@
                 <div class="col-sm-3 hidden-xs">
                     <div class="topbar-right">
                         <div class="user-acc-box">
-                            <a href="/User/SignIn" class="user-account">
+                            <a href="#"  class="user-account btn-link-login">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 Đăng nhập
                             </a>
-                            @*<div class="user-panel">
-                                <div class="user-links">
-                                    <a class="user-link-item" href="/User/SignIn">Đăng nhập</a>
-                                    <a class="user-link-item" href="/User/SignIn">Đăng ký</a>
-                                    <a class="user-link-item" href="/User/user_infor">Trang cá nhân</a>
-                                    <a class="user-link-item" href="#">Đăng xuất</a>
-                                </div>
-                            </div>*@
+                           
                         </div>
                         <div class="lang-support pull-right">
                             <div>
+
                                 <select class="lang-select">
+
                                     <option value="vietnam" data-class="flag-vietnam">VietNam</option>
                                     <option value="united-kingdom" data-class="flag-uk">English</option>
                                 </select>
@@ -95,13 +103,14 @@
                             <div class="lang-support pull-right">
                                 <div>
                                     <select class="lang-select">
+
                                         <option value="vietnam" data-class="flag-vietnam">VietNam</option>
                                         <option value="united-kingdom" data-class="flag-uk">English</option>
                                     </select>
                                 </div>
 
                             </div>
-                           
+
 
                         </div>
                         <div class="wt">
@@ -111,19 +120,19 @@
                             </span>
                         </div>
                     </div>
-                    
-                   
+
+
 
 
                 </div>
                 <div class="slogan-mb">
-                        <div class="slogan text-center col-sm-12">
-                            <h1>
-                                <span>
-                                    Khẩu hiệu website
-                                </span>
-                            </h1>
-                        </div>
+                    <div class="slogan text-center col-sm-12">
+                        <h1>
+                            <span>
+                                Khẩu hiệu website
+                            </span>
+                        </h1>
+                    </div>
                 </div>
 
 
@@ -160,7 +169,7 @@
                         <div class="submenu-wrapper submenu-wrapper-topbottom">
                             <div class="submenu-inner  submenu-inner-topbottom">
                                 <ul class="dropdown-menu" ng-controller="showMenuBarDvController">
-                                    @* tạo vong lặp show ra *@
+                                    
                                     <li><a href="/Price/listPrice">Bảng giá dịch vụ</a></li>
                                     <li ng-repeat="i in ItemDV"><a href="/Product/details">{{i.Item_Name}}</a></li>
                                     <li><a href="/Product/services">Dịch vụ khác</a></li>
@@ -184,5 +193,8 @@
     </div>
 </header>
 
+    <script src="~/Scripts/jq dialog/dialog.js"></script>
+
+ 
 
 

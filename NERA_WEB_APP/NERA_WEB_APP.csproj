@@ -733,21 +733,6 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Controller\BaiViet\BaiVietInsertUpdate.js" />
     <Content Include="Scripts\Controller\BaiViet\BaiVietListController.js" />
-    <Content Include="Scripts\Controller\BaiViet\ckfinder\bin\Debug\CKFinder.dll" />
-    <Content Include="Scripts\Controller\BaiViet\ckfinder\bin\Debug\CKFinder.pdb" />
-    <Content Include="Scripts\Controller\BaiViet\ckfinder\bin\Debug\CKFinder_FileEditor.dll" />
-    <Content Include="Scripts\Controller\BaiViet\ckfinder\bin\Debug\CKFinder_FileEditor.pdb" />
-    <Content Include="Scripts\Controller\BaiViet\ckfinder\bin\Debug\CKFinder_ImageResize.dll" />
-    <Content Include="Scripts\Controller\BaiViet\ckfinder\bin\Debug\CKFinder_ImageResize.pdb" />
-    <Content Include="Scripts\Controller\BaiViet\ckfinder\bin\Debug\CKFinder_Watermark.dll" />
-    <Content Include="Scripts\Controller\BaiViet\ckfinder\bin\Debug\CKFinder_Watermark.pdb" />
-    <Content Include="Scripts\Controller\BaiViet\ckfinder\bin\Release\CKFinder.dll" />
-    <Content Include="Scripts\Controller\BaiViet\ckfinder\bin\Release\CKFinder_FileEditor.dll" />
-    <Content Include="Scripts\Controller\BaiViet\ckfinder\bin\Release\CKFinder_FileEditor.pdb" />
-    <Content Include="Scripts\Controller\BaiViet\ckfinder\bin\Release\CKFinder_ImageResize.dll" />
-    <Content Include="Scripts\Controller\BaiViet\ckfinder\bin\Release\CKFinder_ImageResize.pdb" />
-    <Content Include="Scripts\Controller\BaiViet\ckfinder\bin\Release\CKFinder_Watermark.dll" />
-    <Content Include="Scripts\Controller\BaiViet\ckfinder\bin\Release\CKFinder_Watermark.pdb" />
     <Content Include="Scripts\Controller\BaiViet\ckfinder\changelog.txt" />
     <Content Include="Scripts\Controller\BaiViet\ckfinder\ckfinder.html" />
     <Content Include="Scripts\Controller\BaiViet\ckfinder\ckfinder.js" />
@@ -1400,6 +1385,7 @@
     <Content Include="Scripts\Controller\Product\addNewProduct.js" />
     <Content Include="Scripts\Controller\Product\product.js" />
     <Content Include="Scripts\Controller\Product\showMenuBarDV.js" />
+    <Content Include="Scripts\jq dialog\dialog.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -1486,6 +1472,7 @@
     <Content Include="Views\BaiVietMVC\Index.cshtml" />
     <Content Include="Views\BaiVietMVC\Create.cshtml" />
     <Content Include="Views\BaiVietMVC\Edit.cshtml" />
+    <Content Include="Views\Shared\pages\dialog_popup\dialog_signIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
