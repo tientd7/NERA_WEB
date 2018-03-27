@@ -130,9 +130,13 @@
         padding: 10px 0 4px 0px;
         background: #1a8ae1;
     }
+        .page-title-section .page-header {
+            margin: 10px;
+        }
 
         .page-title-section .page-header h1 {
             font-size: 25px;
+            line-height:0px;
         }
 
     .breadcrumb-mb span {
@@ -158,6 +162,7 @@
 
     .breadcrumb-mb {
         display: block;
+        margin-bottom: 10px;
     }
 
     .breadcrumb {

@@ -168,6 +168,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Bussiness\BS_App_Auto_Number.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\App_Auto_NumberController.cs" />
     <Compile Include="Controllers\BaiVietController.cs" />
     <Compile Include="Controllers\BaiVietMVCController.cs" />
@@ -180,6 +182,7 @@
     <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="CustomMemberShip\CustomMembership.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -190,6 +193,7 @@
     <Compile Include="Models\APP_SYS_Parrams.cs" />
     <Compile Include="Models\App_User_Info.cs" />
     <Compile Include="Models\APP_User_Permission.cs" />
+    <Compile Include="Models\AuthenContext.cs" />
     <Compile Include="Models\CS_ChatBox_Info.cs" />
     <Compile Include="Models\CS_Menu_Item.cs" />
     <Compile Include="Models\CS_Other_Slide.cs" />
@@ -208,6 +212,7 @@
     <Compile Include="Models\Maps\CS_Other_Slide_Map.cs" />
     <Compile Include="Models\Maps\CS_Posts_Info_Map.cs" />
     <Compile Include="Models\Maps\CS_Post_Slides_Map.cs" />
+    <Compile Include="Models\SimpleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1378,6 +1383,7 @@
     <Content Include="Scripts\Controller\BaiViet\MenuList.js" />
     <Content Include="Scripts\Controller\chatbox\chatboxCtrl.js" />
     <Content Include="Scripts\Controller\Filter\CustomFilter.js" />
+    <Content Include="Scripts\Controller\Account\Account.js" />
     <Content Include="Scripts\Controller\Orther_Slide\Orther_Slide.js" />
     <Content Include="Scripts\Controller\Post_Slide\AllSlide.js" />
     <Content Include="Scripts\Controller\Post_Slide\ThemSlide.js" />
@@ -1473,6 +1479,8 @@
     <Content Include="Views\BaiVietMVC\Create.cshtml" />
     <Content Include="Views\BaiVietMVC\Edit.cshtml" />
     <Content Include="Views\Shared\pages\dialog_popup\dialog_signIn.cshtml" />
+    <Content Include="Views\Product\popupProduct.cshtml" />
+    <Content Include="Views\BaiVietMVC\popupBaiviet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

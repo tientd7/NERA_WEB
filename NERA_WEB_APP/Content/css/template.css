@@ -442,7 +442,7 @@ Form Style
     }
 
 textarea.form-control {
-    height: 250px;
+    height: 100px;
 }
 
 
@@ -502,6 +502,7 @@ section {
             font-weight: 900;
             text-transform: uppercase;
             color: #fff;
+            font-size:40px;
         }
 
 /*--------------------------- 

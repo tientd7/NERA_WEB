@@ -440,7 +440,7 @@ OUR SERVICES SECTION
 
 
 .fleet-carousel .item {
-    border-left:1px solid #fff;
+    border-left: 1px solid #fff;
 }
 
 
@@ -945,8 +945,7 @@ TESTIMONIAL
 .page-add-product .row .form-group {
     padding: 20px;
     border: 1px solid #eee;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 0;
 }
 
     .page-add-product .row .form-group label {
@@ -956,6 +955,7 @@ TESTIMONIAL
     .page-add-product .row .form-group textarea {
         height: 100px;
     }
+
 
 /* PAGE SIGN IN & SIGN UP*/
 .form-signin-user .form-group, .form-signup-user .form-group {
@@ -990,39 +990,42 @@ TESTIMONIAL
     background: #fff;
     z-index: 1000;
     left: 50%;
-    top:-50%;
-    transform: translate(-50%,-50%);  
+    top: -50%;
+    transform: translate(-50%,-50%);
 }
 
-.active-hide{
-    display:none;
+.active-hide {
+    display: none;
 }
-.box-dialog-keyframes{
-    display:block;
+
+.box-dialog-keyframes {
+    display: block;
     opacity: 1;
-    animation:dropdown 2s ease forwards;
+    animation: dropdown 2s ease forwards;
 }
 
 /* keyframes*/
 @keyframes dropdown {
     0% {
-        opacity:0;   
-    }
-    25%{
-       opacity:.3;
-    }
-    50%{
-       opacity:.8;
+        opacity: 0;
     }
 
-    75%{
-        opacity:.9;
-        top: 55%;
-        
+    25% {
+        opacity: .3;
     }
-    100%{
-        opacity:1;
-        top:50%;
+
+    50% {
+        opacity: .8;
+    }
+
+    75% {
+        opacity: .9;
+        top: 55%;
+    }
+
+    100% {
+        opacity: 1;
+        top: 50%;
     }
 }
 
@@ -1034,6 +1037,7 @@ TESTIMONIAL
     position: absolute;
     top: 0;
     right: -50px;
+    
 }
 
 button#btn-close {
@@ -1064,8 +1068,38 @@ button#btn-close {
 
 
 
-/* PAGE DETAIL CONTRACT*/
 
+/*POPUP*/
+
+.popup-box {
+    height: 600px;
+    position: fixed;
+    background: #fff;
+    z-index: 1000;
+    left: 50%;
+    top: -70%;
+    transform: translate(-50%,-50%);
+    overflow: auto;
+    background: #eee;
+}
+
+    .popup-box .row .form-group {
+        padding: 20px;
+        border: 1px solid #eee;
+        margin: 0;
+    }
+
+        .popup-box.row .form-group textarea.form-control {
+            height: 100px;
+        }
+
+
+
+
+
+
+
+/* PAGE DETAIL CONTRACT*/
 .page-detail-contract {
     margin-bottom: 20px;
 }

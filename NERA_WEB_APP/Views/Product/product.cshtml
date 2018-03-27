@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Sản phẩm";
 }
-
+@Html.Partial("~/Views/Product/popupProduct.cshtml")
 
 @Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
 <!--  FILTER -->
@@ -11,11 +11,11 @@
 <section class="sortby-wrapper breadcrumb-wrapper">
     <div class="breadcrumb-wrapper">
         <span>
-            <a href="#">Trang chủ </a>
+            <a href="/Home/Index">Trang chủ </a>
             &nbsp;
             <i class="fa fa-angle-right" aria-hidden="true"></i>
             &nbsp;
-            @ViewBag.Title 
+            @ViewBag.Title
         </span>
     </div>
     <div class="sort-by-wrapper">
@@ -31,11 +31,26 @@
 
 </section>
 <!--  MAIN -->
-<section id="main-product"  ng-controller="ProductCtrl">
+<section id="main-product">
 
-    @* tạo vòng lặp 
+    @* tạo vòng lặp
         show thông tin sản phẩm *@
-    <div class="details-product product"  ng-repeat="i in ItemSP">
+    <fieldset>
+        <legend style="position:relative;">
+            <span style="text-align:left;">
+                <h3>
+                    Sản phẩm
+                </h3>
+            </span>
+            <span style="text-align:right; position:absolute; right:0; bottom:0;">
+                <h4>
+                    <a href="#" class="btn-show-popup">Thêm mới</a>
+                </h4>
+            </span>
+
+        </legend>
+    </fieldset>
+    <div class="details-product product">
         <div class="img-product-wrapper">
             <img src="~/Media/images/furniture.jpg" />
         </div>
@@ -43,7 +58,7 @@
             <div class="inror-product">
                 <div>
                     <span>Mã sản phẩm :</span>
-                    #{{i.Item_Id}}
+                    @*#{{i.Item_Id}}*@
                 </div>
                 <div>
                     <h2>
@@ -71,17 +86,18 @@
                 <span>
                     Trạng thái: Đã thuê
                 </span>
-            </div> 
+            </div>
 
-            
+
         </div>
     </div>
 
-   
+
 
 </section>
 
+<script src="~/Scripts/jq dialog/dialog.js"></script>
 @section JavaScript{
     
-<script src="~/Scripts/Controller/Product/product.js"></script>
-    }
+    <script src="~/Scripts/Controller/Product/product.js"></script>
+}

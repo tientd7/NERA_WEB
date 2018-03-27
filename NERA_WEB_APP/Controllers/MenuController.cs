@@ -19,16 +19,16 @@ namespace NERA_WEB_APP.Controllers
         public JsonResult GetAllMenu()
         {
             //Lấy ds từ db
-            var LST = (from obj in db.CS_Menu_Item select obj).ToList();
+            var LST = (from obj in db.Cs_Menu_item select obj).ToList();
             return Json(LST, JsonRequestBehavior.AllowGet);
         }
         public ActionResult Edit(int id)
         {
-            var obj = db.CS_Menu_Item.Find(id);
+            var obj = db.Cs_Menu_item.Find(id);
             return View(obj);
         }
         [HttpPost]
-        public JsonResult Edit(CS_Menu_Item csitem)
+        public JsonResult Edit(Cs_Menu_item csitem)
         {
             //String Rs = "";
             //    if (csitem.Item_Id> 0)
@@ -52,10 +52,10 @@ namespace NERA_WEB_APP.Controllers
             return View();
         }
         [HttpPost]
-        public JsonResult CreatMenu(CS_Menu_Item Obj)
+        public JsonResult CreatMenu(Cs_Menu_item Obj)
         {
-            CS_Menu_Item newObj = new CS_Menu_Item();
-            int id = new App_Auto_NumberController().GenID("CS_Menu_Item.Item_Id");
+            Cs_Menu_item newObj = new Cs_Menu_item();
+            int id = new App_Auto_NumberController().GenID("Cs_Menu_item.Item_Id");
             newObj.Item_Id = Obj.Item_Id;
             newObj.Item_Name = Obj.Item_Name;
             newObj.Enable = Obj.Enable;
@@ -63,9 +63,10 @@ namespace NERA_WEB_APP.Controllers
             newObj.Meta_Desc = Obj.Meta_Desc;
             newObj.Meta_Key = Obj.Meta_Key;
             newObj.Language = Obj.Language;
+            newObj.Item_Content = Obj.Item_Content;
 
 
-            db.CS_Menu_Item.Add(newObj);
+            db.Cs_Menu_item.Add(newObj);
             db.SaveChanges();
             return Json(newObj);
         }
@@ -76,8 +77,8 @@ namespace NERA_WEB_APP.Controllers
             String er = "";
             try
             {
-                var de = db.CS_Menu_Item.Find(Item_Id);
-                db.CS_Menu_Item.Remove(de);
+                var de = db.Cs_Menu_item.Find(Item_Id);
+                db.Cs_Menu_item.Remove(de);
                 db.SaveChanges();
             }
             catch (Exception e)
@@ -89,7 +90,7 @@ namespace NERA_WEB_APP.Controllers
         }
         public JsonResult Detail(int? Id)
         {
-            var obj = db.CS_Menu_Item.Find(Id);
+            var obj = db.Cs_Menu_item.Find(Id);
             return Json(obj, JsonRequestBehavior.AllowGet);
         }
 

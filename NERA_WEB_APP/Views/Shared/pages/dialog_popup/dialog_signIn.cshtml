@@ -1,4 +1,4 @@
-﻿<div class="box-dialog page-login-box" ng-controller="LoginController">
+﻿<div class="box-dialog page-login-box" ng-controller="AccountController">
     <div class="container">
         <div class="row">
 
@@ -6,7 +6,7 @@
             <div class="col-sm-10 form-signin-user">
                 <div>
                     <h2>
-                        Đăng nhập @Session["username"]
+                        Đăng nhập 
                     </h2>
                 </div>
                 <div class="btn-close">
@@ -26,50 +26,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="button" class="btn btn-signin" value="Đăng nhập" ng-click="Login()" />
+                    <input type="button" class="btn btn-signin" value="Đăng nhập" ng-click="login()" />
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-<script>
-    app.controller("LoginController", function ($scope, $http) {
-        
-       
-
-        //for (var i = 0; i < vm.length; i++) {
-        //    var p = vm[i];
-        //    p["z1"] = "z2";
-        //    console.log(vm[i]["p1"]);
-        //}
-
-        $scope.message = "ok";
-        $scope.Username = null;
-        $scope.Password = null;
-        $scope.list = null;
-        debugger;
-        $scope.Login = function () {
-           
-            $http({
-                url: '/Test/Login',
-                method:"POST",
-                data:$scope.user
-            })
-                    .success(function (data) {
-                        debugger;
-                        if (data != 0) {
-                            window.location.href = "/Home/Index";
-                        } else {
-                            console.log("tai khoan hoac mat khau khong chinh xacs");
-                        }
-                        
-                    }).error(function(error){
-                        console.log('error log' + error);
-        })
-            
-        }
-   
-    })
-</script>
+    <script src="~/Scripts/Controller/Account/Account.js"></script>

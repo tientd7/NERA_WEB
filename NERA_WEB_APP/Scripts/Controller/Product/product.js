@@ -7,8 +7,8 @@
     $scope.ItemDV;
 
     // hàm gọi lấy danh sách sản phẩm
-    $scope.showSP = function () {
-        $http.get('/Product/showSP').success(function (data, status) {
+    $scope.hienthisanpham = function () {
+        $http.get('/Product/hienthisanpham').success(function (data, status) {
             $scope.ItemSP = data;
             console.log("success" + data + status);
             for (var i = 0; i < $scope.Item.length; i++) {
@@ -18,8 +18,9 @@
             console.log("error :" + error);
         })
     };
+
     // chạy hàm
-    $scope.showSP();
+    $scope.hienthisanpham();
 
     // hàm gọi lấy danh sách dich vụ
     $scope.showDV = function () {
@@ -27,12 +28,12 @@
             $scope.ItemDV = data;
             console.log("success" + data + status);
             
-        }).error(function (error) {
-            console.log("error :" + error);
+        }).error(function (error,status) {
+            console.log("error :" + error + status);
         })
     };
     // chạy hàm
-    $scope.showDV();
+    //$scope.showDV();
 
 
     $scope.Item;
