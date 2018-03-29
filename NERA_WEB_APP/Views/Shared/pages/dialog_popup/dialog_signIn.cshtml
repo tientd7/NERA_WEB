@@ -6,17 +6,24 @@
             <div class="col-sm-10 form-signin-user">
                 <div>
                     <h2>
-                        Đăng nhập 
+                        Đăng nhập
                     </h2>
                 </div>
                 <div class="btn-close">
                     <button id="btn-close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
                 </div>
+
                 <div class="form-group">
-                    <input type="text" class="form-control" value="" placeholder="Username" ng-model="user.UserName" />
+                    <div class="alert alert-danger alert-username">
+                       Sai tên đăng nhập
+                    </div>
+                    <input type="text" id="username" class="form-control" value="" placeholder="Username" autofocus ng-model="user.UserName" required />
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" ng-model="user.Password" />
+                    <div class="alert alert-danger alert-password">
+                        Sai mật khẩu 
+                    </div>
+                    <input type="password" id="password" class="form-control" placeholder="Password" ng-model="user.Password" required />
                     <div>
                         <input type="checkbox" /> Luôn đăng nhập
                         <span style="text-align:right; float:right;">
@@ -28,8 +35,9 @@
                 <div class="form-group">
                     <input type="button" class="btn btn-signin" value="Đăng nhập" ng-click="login()" />
                 </div>
+
             </div>
         </div>
     </div>
 </div>
-    <script src="~/Scripts/Controller/Account/Account.js"></script>
+<script src="~/Scripts/Controller/Account/Account.js"></script>

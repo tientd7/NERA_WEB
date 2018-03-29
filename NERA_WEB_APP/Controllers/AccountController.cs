@@ -73,26 +73,29 @@ namespace NERA_WEB_APP.Controllers
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult LogOn(LoginViewModel model, string returnUrl)
+        public JsonResult LogOn(LoginViewModel model, string returnUrl)
         {
+            String message = "";
             if (ModelState.IsValid)
             {
-                String message = "";
+               
                 Nera_User user = checkUser(model.UserName, model.Password, ref message);
                 if (!String.IsNullOrEmpty(message))
                 {
                     //Lỗi đăng nhập
                     ViewBag.ErrMessage = message;
-                    return View(new LoginViewModel());
+                    return Json(ViewBag.ErrMessage);
                 }
                 //FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                 signIn(user, model.RememberMe);
+                Session["UserName"] = user.UserName;
+                Session["UserRole"] = user.RoleId;
                 //services.SignIn(model.UserName, model.RememberMe);
                 //ViewData["Role"] = user.Role.RoleCode;
             }
 
             // If we got this far, something failed, redisplay form
-            return RedirectToRoute(returnUrl);
+             return Json("Login success!");
         }
 
 
@@ -134,32 +137,47 @@ namespace NERA_WEB_APP.Controllers
             Nera_Role role = db.Nera_Roles.Find(user.RoleId);
             FormsAuthenticationTicket authTck = new FormsAuthenticationTicket(1, user.UserName, DateTime.Now, DateTime.Now.AddMinutes(20), rememberme, role.RoleCode);
             var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(authTck));
-            Session["UserName"] = user.FirstName;
-            Session["UserRole"] = role.RoleName;
             Response.Cookies.Add(cookie);
         }
         //[HttpPost]
+        [AllowAnonymous]
         public ActionResult LogOut()
         {
             services.LogOut();
             Session["UserName"] = "";
             Session["UserRole"] = "";
-            return RedirectToAction("LogOn");
+            return RedirectToAction("Index","Home");
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        public JsonResult signOut()
+        {
+            services.LogOut();
+            Session["UserName"] = "";
+            Session["UserRole"] = "";
+            return Json("logout");
         }
 
+        [AllowAnonymous]
         private Nera_User checkUser(string UserName, string Password, ref string mess)
         {
-            var us1 = (from s in db.Nera_Users where s.UserName.Equals(UserName) select s);
-            var us = us1.ToList();
+            IQueryable<Nera_User> us1;
+            List<Nera_User> us = new List<Nera_User>();
+            using (var db2 = new AuthenContext())
+            {
+                us1 = (from s in db2.Nera_Users where s.UserName.Equals(UserName) select s);
+                us = us1.ToList();
+            }
+            
             if (us.Count == 0)
             {
-                mess = "Tên đăng nhập không đúng!";
+                mess = "user error";
                 return new Nera_User();
             }
             else
             {
                 if (!MD5_Hash(Password).Equals(us.First().PasswordHash) || !us.First().IsEnable)
-                    mess = "Sai mật khẩu!";
+                    mess = "pass error";
             }
             return us.First();
         }

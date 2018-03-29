@@ -8,6 +8,8 @@
 $('.btn-link-login').click(function () {
     $('.box-dialog').addClass('box-dialog-keyframes');
     $('.box-dialog').removeClass('active-hide');
+    $('#username').focus();
+
 })
 
 $('.btn-show-popup').click(function () {

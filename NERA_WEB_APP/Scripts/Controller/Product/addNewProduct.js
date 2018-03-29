@@ -5,7 +5,7 @@ app.controller('addNewCtr', function ($scope, $http) {
     $scope.message = "";
     $scope.listProduct;
     $scope.Item = null;
-    console.log('df');
+
 
     $scope.Create = function () {
 
