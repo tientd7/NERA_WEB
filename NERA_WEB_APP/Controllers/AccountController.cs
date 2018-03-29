@@ -145,7 +145,8 @@ namespace NERA_WEB_APP.Controllers
 
         private Nera_User checkUser(string UserName, string Password, ref string mess)
         {
-            var us = (from s in db.Nera_Users where s.UserName == UserName select s).ToList();
+            var us1 = (from s in db.Nera_Users where s.UserName.Equals(UserName) select s);
+            var us = us1.ToList();
             if (us.Count == 0)
             {
                 mess = "Tên đăng nhập không đúng!";

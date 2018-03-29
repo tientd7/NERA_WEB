@@ -20,16 +20,16 @@ namespace NERA_WEB_APP.Controllers
         }
         public JsonResult GetDanhMucSanPham()
         {
-            var Lst = from s in db.CS_Menu_Item where s.Item_Type == "SP" select s;
+            var Lst = from s in db.Cs_Menu_item where s.Item_Type == "SP" select s;
             return Json(Lst.ToList());
         }
-        public JsonResult ThemMenuItem(CS_Menu_Item item)
+        public JsonResult ThemMenuItem(Cs_Menu_item item)
         {
             try
             {
                 int id = new App_Auto_NumberController().GenID("CS_Menu_Item.Item_Id");
                 item.Item_Id = id;
-                db.CS_Menu_Item.Add(item);
+                db.Cs_Menu_item.Add(item);
                 db.SaveChanges();
             }
             catch (Exception ex)
@@ -41,10 +41,10 @@ namespace NERA_WEB_APP.Controllers
         }
         public JsonResult GetMenuById(int id)
         {
-            var item = db.CS_Menu_Item.Find(id);
+            var item = db.Cs_Menu_item.Find(id);
             return Json(item);
         }
-        public JsonResult SuaMenuItem(CS_Menu_Item item)
+        public JsonResult SuaMenuItem(Cs_Menu_item item)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace NERA_WEB_APP.Controllers
         {
             try
             {
-                var item = db.CS_Menu_Item.Find(id);
+                var item = db.Cs_Menu_item.Find(id);
                 item.Enable = false;
                 db.Entry(item);
                 db.SaveChanges();
