@@ -134,12 +134,16 @@ namespace NERA_WEB_APP.Controllers
             Nera_Role role = db.Nera_Roles.Find(user.RoleId);
             FormsAuthenticationTicket authTck = new FormsAuthenticationTicket(1, user.UserName, DateTime.Now, DateTime.Now.AddMinutes(20), rememberme, role.RoleCode);
             var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(authTck));
+            Session["UserName"] = user.FirstName;
+            Session["UserRole"] = role.RoleName;
             Response.Cookies.Add(cookie);
         }
         //[HttpPost]
         public ActionResult LogOut()
         {
             services.LogOut();
+            Session["UserName"] = "";
+            Session["UserRole"] = "";
             return RedirectToAction("LogOn");
         }
 
