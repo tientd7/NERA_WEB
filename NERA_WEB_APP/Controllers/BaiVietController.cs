@@ -38,6 +38,12 @@ namespace NERA_WEB_APP.Controllers
             return Json(obj, JsonRequestBehavior.AllowGet);
         }
 
+        //[HttpPost]
+        //public JsonResult SaveSlide(List<CS_Post_Slides> lst)
+        //{
+
+        //}
+
         [HttpPost]
         public JsonResult ConfirmEdit(CS_Post_Info objInfo)
         {
@@ -69,6 +75,7 @@ namespace NERA_WEB_APP.Controllers
                     newObj.Post_Title = objInfo.Post_Title;
                     db.CS_Post_Info.Add(newObj);
                     db.SaveChanges();
+                    return Json(newObj);
                 }
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
