@@ -94,6 +94,41 @@ namespace NERA_WEB_APP.Controllers
             // If we got this far, something failed, redisplay form
             return RedirectToRoute(returnUrl);
         }
+
+
+
+        // lỗi đăng nhập
+        
+        [HttpPost]
+        [AllowAnonymous]
+        public JsonResult LogIn(LoginViewModel model, string returnUrl)
+        {
+            
+            if (ModelState.IsValid)
+            {
+                String message = "";
+                Nera_User user = checkUser(model.UserName, model.Password, ref message);
+                if (!String.IsNullOrEmpty(message))
+                {
+                    //Lỗi đăng nhập
+                    ViewBag.ErrMessage = message;
+                    return Json(ViewBag.ErrMessage);
+                }
+                //FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                // signIn(user, model.RememberMe);
+                //services.SignIn(model.UserName, model.RememberMe);
+                //ViewData["Role"] = user.Role.RoleCode;
+                return Json(model);
+            }
+            else
+            {
+                return Json(model);
+            }
+
+            // If we got this far, something failed, redisplay form
+            
+        }
+
         private void signIn(Nera_User user, bool rememberme)
         {
             Nera_Role role = db.Nera_Roles.Find(user.RoleId);
@@ -107,6 +142,7 @@ namespace NERA_WEB_APP.Controllers
             services.LogOut();
             return RedirectToAction("LogOn");
         }
+
         private Nera_User checkUser(string UserName, string Password, ref string mess)
         {
             var us = (from s in db.Nera_Users where s.UserName == UserName select s).ToList();

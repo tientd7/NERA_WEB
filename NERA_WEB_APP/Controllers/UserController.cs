@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NERA_WEB_APP.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +10,7 @@ namespace NERA_WEB_APP.Controllers
     public class UserController : Controller
     {
         // GET: User
+        AuthenContext db = new AuthenContext();
         public ActionResult user_infor()
         {
             return View();
@@ -23,5 +25,6 @@ namespace NERA_WEB_APP.Controllers
         {
             return View();
         }
+
     }
 }

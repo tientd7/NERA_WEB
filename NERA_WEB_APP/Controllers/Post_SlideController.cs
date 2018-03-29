@@ -70,7 +70,7 @@ namespace NERA_WEB_APP.Controllers
             return Json(Slide);
         }
         [HttpPost]
-        public JsonResult delete(int Post_Id)
+        public JsonResult Delete(int Post_Id)
         {
             String er = "";
             try

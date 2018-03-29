@@ -1,0 +1,139 @@
+﻿@model IEnumerable<NERA_WEB_APP.Models.CS_Post_Info>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section jsFooter{
+    <script>
+        $(document).ready(function () {
+            $('#btnselect').on('click', function (e) {
+                e.preventDefault();
+                var finder = new CKFinder();
+
+                finder.selectActionFunction = function (url) {
+                    $('#txtPost_content').val(url);
+                };
+                finder.popup();
+
+            })
+            var editor = CKEDITOR.replace('Post_Content',
+                {
+                    customConfig: '/Scripts/Controller/BaiViet/ckeditor/ckeditor.js',
+                }, {
+                    htmlEncodeOutput: true
+                });
+
+
+
+
+        })
+
+
+    </script>
+}
+@Html.Partial("~/Views/BaiVietMVC/popupBaiviet.cshtml")
+<section class="container">
+    <fieldset>
+        <legend style="position:relative;">
+            <span style="text-align:left;">
+                <h3>
+                    Sản phẩm
+                </h3>
+            </span>
+            <span style="text-align:right; position:absolute; right:0; bottom:0;">
+                <h4>
+                    <a href="#" class="btn-show-popup">Thêm mới</a>
+                </h4>
+            </span>
+
+        </legend>
+    </fieldset>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Tiêu đề bài viết
+            </th>
+            <th>
+                Nội dung bài viết
+            </th>
+            <th>
+                Miêu tả
+            </th>
+            <th>
+                Từ khóa
+            </th>
+            <th>
+                Enable
+            </th>
+            <th>
+                ID Item
+            </th>
+            <th>
+                Người tạo
+            </th>
+            <th>
+                Ngày tạo
+            </th>
+            <th>
+                Người sửa
+            </th>
+            <th>
+                Ngày sửa
+            </th>
+            <th>
+                Ngôn ngữ
+            </th>
+            <th>Chức năng</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Post_Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Post_Content)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Meta_Desc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Meta_Key)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Enable)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Item_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Create_By)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Create_Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Update_By)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Update_Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Language)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Post_Id }) |
+                    <a href="/BaiVietMVC/delete?Post_Id=@item.Post_Id">xoa</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</section>
+<script src="~/Scripts/jq dialog/dialog.js"></script>

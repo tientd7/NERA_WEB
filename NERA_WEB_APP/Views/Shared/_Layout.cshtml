@@ -77,6 +77,7 @@
     <script src="~/Scripts/js/twitterFetcher_min.js"></script>
     <!-- Custom Script -->
     <script src="~/Scripts/js/scripts.js"></script>
+    <script src="~/Scripts/jq dialog/dialog.js"></script>
     <!-- HTML5 Shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via  -->
     <!--[if lt IE 9]>
@@ -94,7 +95,8 @@
     <div id="st-container" class="st-container">
         <div class="st-pusher">
             <div class="st-content">
-
+                @Html.Partial("~/Views/Shared/pages/dialog_popup/dialog_signIn.cshtml")
+              
                 @Html.Partial("~/Views/Shared/pages/header/header.cshtml")
                 @RenderBody()
                 @Html.Partial("~/Views/Shared/pages/footer/footer.cshtml")
