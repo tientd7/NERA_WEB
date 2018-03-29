@@ -101,16 +101,16 @@ namespace NERA_WEB_APP.Controllers
         
         [HttpPost]
         [AllowAnonymous]
-        public JsonResult LogIn(LoginViewModel model, string returnUrl)
+        public JsonResult LogIn(LoginViewModel model)
         {
             
             if (ModelState.IsValid)
             {
                 String message = "";
                 Nera_User user = checkUser(model.UserName, model.Password, ref message);
-                if (!String.IsNullOrEmpty(message))
+                if (!String.IsNullOrEmpty(message)) 
                 {
-                    //Lỗi đăng nhập
+                    //Lỗi đăn g nhập
                     ViewBag.ErrMessage = message;
                     return Json(ViewBag.ErrMessage);
                 }
@@ -118,11 +118,11 @@ namespace NERA_WEB_APP.Controllers
                 // signIn(user, model.RememberMe);
                 //services.SignIn(model.UserName, model.RememberMe);
                 //ViewData["Role"] = user.Role.RoleCode;
-                return Json(model);
+                return Json("login success!");
             }
             else
             {
-                return Json(model);
+                return Json("login failed");
             }
 
             // If we got this far, something failed, redisplay form

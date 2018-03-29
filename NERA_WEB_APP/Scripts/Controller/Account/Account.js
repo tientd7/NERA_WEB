@@ -9,28 +9,29 @@ app.controller("AccountController", function ($scope, $http) {
     $scope.Password;
     $scope.message;
     $scope.user;
+
+    debugger;
     $scope.login = function () {
         $http({
             url: '/Account/LogIn',
             method: 'POST',
             data: {
-                'UserName': $scope.UserName,
-                'Password': $scope.Password,
-                'message': $scope.message
+                model: $scope.user
             }
         }).success(function (data, status) {
-
+            debugger;
             if (data != null) {
                 $scope.message = "success";
                 console.log('login success');
+                window.location.href = '/Home/Index';
             } else {
                 $scope.message = "failed";
                 console.log('login failed!');
             }
-            }).error(function (error, status) {
-                console.log('error' + error);
-                console.log('status error' + status);
-            })
+        }).error(function (error, status) {
+            console.log('error' + error);
+            console.log('status error' + status);
+        })
     }
 
 })
