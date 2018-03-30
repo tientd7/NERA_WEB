@@ -5,7 +5,6 @@ app.controller('ThemPostSlide', function ($scope, $http) {
     $scope.message = '';
     $scope.listSlide = null;
     $scope.isViewLoading = false;
-
     $scope.Create = function () {
 
         $http({

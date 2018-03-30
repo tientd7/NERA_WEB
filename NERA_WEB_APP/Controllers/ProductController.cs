@@ -29,11 +29,8 @@ namespace NERA_WEB_APP.Controllers
 
         public JsonResult hienthisanpham()
         {
-         
-                var hienthi = (from i in db.Cs_Menu_item where i.Item_Type == "SP" select i).ToList();
-                return new JsonResult { Data = hienthi, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-           
-           
+            var hienthi = (from i in db.Cs_Menu_item where i.Item_Name == "SP" select i).ToList();
+            return new JsonResult { Data = hienthi, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
 
@@ -80,13 +77,13 @@ namespace NERA_WEB_APP.Controllers
 
 
         //lấy danh sách Dịch vụ có trong bảng MenuItem 
-        public JsonResult showDV()
-        {
-            db.Configuration.ProxyCreationEnabled = false;
-            db.Configuration.LazyLoadingEnabled = false;
-            var show = (from i in db.Cs_Menu_item where i.Item_Type == "DV" select i).Take(3);
-            return Json(show, JsonRequestBehavior.AllowGet);
-        }
+        //public JsonResult showDV()
+        //{
+        //    db.Configuration.ProxyCreationEnabled = false;
+        //    db.Configuration.LazyLoadingEnabled = false;
+        //    var show = from i in db.CS_Menu_Item where i.Item_Type == "DV" select i;
+        //    return Json(show, JsonRequestBehavior.AllowGet);
+        //}
 
 
         // Item service

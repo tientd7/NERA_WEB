@@ -31,7 +31,7 @@
 
 </section>
 <!--  MAIN -->
-<section id="main-product" ng-controller="ProductCtrl">
+<section id="main-product">
 
     @* tạo vòng lặp
         show thông tin sản phẩm *@
@@ -50,50 +50,46 @@
 
         </legend>
     </fieldset>
-    <div ng-repeat="i in  ItemSP">
-        <div class="details-product product">
-            <div class="img-product-wrapper">
-                <img src="~/Media/images/furniture.jpg" />
-            </div>
-
-            <div class="infor-product-wrapper">
-                <div class="inror-product">
-                    <div>
-                        <span>Mã sản phẩm :</span>
-                        @*#{{i.Item_Id}}*@
-                    </div>
-                    <div>
-                        <h2>
-                            <span>Tên sản phẩm :</span>
-                            {{i.Item_Name}}
-                        </h2>
-
-                    </div>
-                    <div>
-                        <h4>
-                            <span>Mô tả:</span>
-                            {{i.Meta_Desc}}
-                        </h4>
-                    </div>
-                    <div class="action-product">
-                        <div>
-                            <button class="btn btn-edit"><i class="fa fa-edit"></i></button>
-                        </div>
-                        <div>
-                            <button class="btn btn-remove" ng-click="Delete(i.Item_Id)"><i class="fa fa-remove"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="state-product">
-                    <span>
-                        Trạng thái: Đã thuê
-                    </span>
-                </div>
-
-
-            </div>
+    <div class="details-product product">
+        <div class="img-product-wrapper">
+            <img src="~/Media/images/furniture.jpg" />
         </div>
+        <div class="infor-product-wrapper">
+            <div class="inror-product">
+                <div>
+                    <span>Mã sản phẩm :</span>
+                    @*#{{i.Item_Id}}*@
+                </div>
+                <div>
+                    <h2>
+                        <span>Tên sản phẩm :</span>
+                        {{i.Item_Name}}
+                    </h2>
 
+                </div>
+                <div>
+                    <h4>
+                        <span>Mô tả:</span>
+                        {{i.Meta_Desc}}
+                    </h4>
+                </div>
+                <div class="action-product">
+                    <div>
+                        <button class="btn btn-edit"><i class="fa fa-edit"></i></button>
+                    </div>
+                    <div>
+                        <button class="btn btn-remove" ng-click="Delete(i.Item_Id)"><i class="fa fa-remove"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="state-product">
+                <span>
+                    Trạng thái: Đã thuê
+                </span>
+            </div>
+
+
+        </div>
     </div>
 
 
@@ -102,6 +98,6 @@
 
 <script src="~/Scripts/jq dialog/dialog.js"></script>
 @section JavaScript{
-
+    
     <script src="~/Scripts/Controller/Product/product.js"></script>
 }

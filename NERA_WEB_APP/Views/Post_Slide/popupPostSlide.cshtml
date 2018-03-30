@@ -1,0 +1,63 @@
+﻿
+
+
+
+<section ng-controller="ThemPostSlide">
+    <div class="container popup-box" style="max-width:60%;">
+        <div>
+            <h2>
+                Thêm  Post Slide
+            </h2>
+        </div>
+
+        <div class="row form-horizontal">
+            <div class="btn-close btn-close-popup" style="right:8px;">
+                <button id="btn-close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label>Tiêu Tbl_Id</label>
+            <input type="text" class="form-control" ng-model="Item.Tbl_Id" value="{{Item.Tbl_Id}}"/>
+        </div>
+        <div class="form-group">
+            <label>Tiêu đề ảnh</label>
+            <textarea type="Text" class="form-control"  value="{{Item.Tbl_Id}}"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Đường Dẫn </label>
+            <textarea class="form-control" ng-model="Item.Image_URL"  value="{{Item.Image_URL}}"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Link Ảnh</label>
+            <input class="form-control" ng-model="Item.Image_Link" id="txtPost_content"  name="LinkAnh" value="{{Item.Image_Link}}" /> <button class="btn" id="btnselect">Thêm ảnh</button>
+        </div>
+        <div class="form-group">
+            <label>Nhà cung cấp ảnh</label>
+            <textarea class="form-control" ng-model="Item.Image_Order"  value="{{Item.Image_Order}}"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Enable</label>
+            <input type="checkbox" ng-model="Item.Enable"  value="{{Item.Enable}}" />
+        </div>
+
+        <div class="form-group">
+            <label>Ngôn ngữ</label>
+            <select class="form-control" ng-model="Item.Language" style="width:150px;">
+                <option value="">Chọn ngôn ngữ</option>
+                <option value="VI">Việt nam</option>
+                <option value="EN">English</option>
+            </select>
+        </div>
+
+
+        <div class="form-group" style="border:0px;">
+            <button type="button" ng-click="Create()" class="btn btn-add btn-success">Thêm mới</button>
+        </div>
+    </div>
+
+</section>
+
+@section JavaScript{
+    <script src="~/Scripts/Controller/Post_Slide/ThemSlide.js"></script>
+}

@@ -20,6 +20,7 @@
             var editor = CKEDITOR.replace('Post_Content',
                 {
                     customConfig: '/Scripts/Controller/BaiViet/ckeditor/ckeditor.js',
+                    cloudServices_tokenUrl: '/Scripts/Controller/BaiViet/ckeditor/config.js',
                 }, {
                     htmlEncodeOutput: true
                 });
@@ -32,7 +33,7 @@
 
     </script>
 }
-@Html.Partial("~/Views/BaiVietMVC/popupBaiviet.cshtml")
+
 <section class="container">
     <fieldset>
         <legend style="position:relative;">
@@ -136,4 +137,5 @@
 
     </table>
 </section>
+@Html.Partial("~/Views/BaiVietMVC/popupBaiviet.cshtml")
 <script src="~/Scripts/jq dialog/dialog.js"></script>

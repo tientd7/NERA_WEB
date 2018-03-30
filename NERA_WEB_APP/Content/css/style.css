@@ -1062,24 +1062,7 @@ button#btn-close {
     padding: 20px;
 }
 
-    .form-signin-user div.form-group {
-        position: relative;
-    }
-
-div.alert.alert-danger {
-    position: absolute;
-    width: 150px;
-    top: -62px;
-    right: 0;
-    z-index: 10000;
-}
-
-.alert-username, .alert-password {
-    display:none;
-}
-
-.alert-active{
-    display:block;
+.page-wrapper {
 }
 
 
@@ -1087,6 +1070,7 @@ div.alert.alert-danger {
 
 
 /*POPUP*/
+
 .popup-box {
     height: 600px;
     position: fixed;

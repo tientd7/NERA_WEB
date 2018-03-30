@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace NERA_WEB_APP.Models
 {
@@ -11,6 +12,8 @@ namespace NERA_WEB_APP.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
          public int Post_Id { get; set; }
         public string Post_Title { get; set; }
+
+        [AllowHtml]
         public string Post_Content { get; set; }
         public string Meta_Desc { get; set; }
         public string Meta_Key { get; set; }

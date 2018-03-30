@@ -25,7 +25,7 @@ namespace NERA_WEB_APP.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Create(CS_Post_Info objInfo)
+        public ActionResult Create(CS_Post_Info objInfo, List<String> slides)
         {
             CS_Post_Info newObj = new CS_Post_Info();
             int id = new App_Auto_NumberController().GenID("CS_Posts_Info.Post_Id");
@@ -35,15 +35,35 @@ namespace NERA_WEB_APP.Controllers
             newObj.Update_By = 1;
             newObj.Update_Date = DateTime.Now;
             newObj.Enable = objInfo.Enable;
-            newObj.Item_ID = objInfo.Item_ID;
-            newObj.Language = objInfo.Language;
-            newObj.Meta_Desc = objInfo.Meta_Desc;
-            newObj.Meta_Key = objInfo.Meta_Key;
+            newObj.Item_ID = Convert.ToInt32(Request.Form["Item"]);
+            newObj.Language = Request.Form["Language"];
+            newObj.Meta_Desc = Request.Form["MetaDesc"];
+            newObj.Meta_Key = Request.Form["MetaKey"];
             newObj.Post_Content = Request.Unvalidated["Post_Content"];
             newObj.Post_Title = objInfo.Post_Title;
             db.CS_Post_Info.Add(newObj);
             db.SaveChanges();
-            return View(newObj);
+            foreach (string s in slides)
+            {
+                if (!String.IsNullOrEmpty(s))
+                {
+
+                    CS_Post_Slides Post = new CS_Post_Slides();
+                    Post.Tbl_Id = new App_Auto_NumberController().GenID("CS_Post_Slides.Tbl_Id");
+                    Post.Post_Id = id;
+                    Post.Image_Link = s;
+                    db.CS_Post_Slides.Add(Post);
+                    db.SaveChanges();
+                }
+
+
+                
+
+            }
+            var showmn = from i in db.Cs_Menu_item select i;
+
+            ViewBag.data = showmn;
+            return View(showmn);
         }
         public ActionResult Edit(int id)
         {
@@ -53,33 +73,28 @@ namespace NERA_WEB_APP.Controllers
         [HttpPost]
         public ActionResult Edit(CS_Post_Info Slide)
         {
-            
-                var obj = db.CS_Post_Info.Find(1);
-            Slide.Post_Content = Request.Unvalidated["Post_Content"];
 
-
-
+            var obj = db.CS_Post_Info.Find(Slide.Post_Id);
             bool saveFailed;
-                do
+          
+
+                try
                 {
-                    saveFailed = false;
+                    db.Entry(Slide).State =EntityState.Modified; 
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException ex)
+                {
+                    
 
-                    try
-                    {
-                        db.SaveChanges();
-                    }
-                    catch (DbUpdateConcurrencyException ex)
-                    {
-                        saveFailed = true;
+                    // Update the values of the entity that failed to save from the store 
+                    ex.Entries.Single().Reload();
+                }
 
-                        // Update the values of the entity that failed to save from the store 
-                        ex.Entries.Single().Reload();
-                    }
-
-                } while (saveFailed);
+             
             return View(Slide);
 
-            }
+        }
         [HttpPost]
         //public ActionResult Delete(int Post_Id)
         //{
@@ -104,7 +119,7 @@ namespace NERA_WEB_APP.Controllers
             db.SaveChanges();
             return RedirectToAction("Index", "BaiVietMVC");
         }
-        
+
         public ActionResult delete(int Post_Id)
         {
             CS_Post_Info de = db.CS_Post_Info.Where(x => x.Post_Id == Post_Id).FirstOrDefault();
@@ -113,5 +128,5 @@ namespace NERA_WEB_APP.Controllers
             return RedirectToAction("Index", "BaiVietMVC");
         }
     }
-    }
+}
 

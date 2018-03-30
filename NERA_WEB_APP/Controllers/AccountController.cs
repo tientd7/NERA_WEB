@@ -73,29 +73,26 @@ namespace NERA_WEB_APP.Controllers
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
-        public JsonResult LogOn(LoginViewModel model, string returnUrl)
+        public ActionResult LogOn(LoginViewModel model, string returnUrl)
         {
-            String message = "";
             if (ModelState.IsValid)
             {
-               
+                String message = "";
                 Nera_User user = checkUser(model.UserName, model.Password, ref message);
                 if (!String.IsNullOrEmpty(message))
                 {
                     //Lỗi đăng nhập
                     ViewBag.ErrMessage = message;
-                    return Json(ViewBag.ErrMessage);
+                    return View(new LoginViewModel());
                 }
                 //FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                 signIn(user, model.RememberMe);
-                Session["UserName"] = user.UserName;
-                Session["UserRole"] = user.RoleId;
                 //services.SignIn(model.UserName, model.RememberMe);
                 //ViewData["Role"] = user.Role.RoleCode;
             }
 
             // If we got this far, something failed, redisplay form
-             return Json("Login success!");
+            return RedirectToRoute(returnUrl);
         }
 
 
@@ -104,16 +101,16 @@ namespace NERA_WEB_APP.Controllers
         
         [HttpPost]
         [AllowAnonymous]
-        public JsonResult LogIn(LoginViewModel model)
+        public JsonResult LogIn(LoginViewModel model, string returnUrl)
         {
             
             if (ModelState.IsValid)
             {
                 String message = "";
                 Nera_User user = checkUser(model.UserName, model.Password, ref message);
-                if (!String.IsNullOrEmpty(message)) 
+                if (!String.IsNullOrEmpty(message))
                 {
-                    //Lỗi đăn g nhập
+                    //Lỗi đăng nhập
                     ViewBag.ErrMessage = message;
                     return Json(ViewBag.ErrMessage);
                 }
@@ -121,11 +118,11 @@ namespace NERA_WEB_APP.Controllers
                 // signIn(user, model.RememberMe);
                 //services.SignIn(model.UserName, model.RememberMe);
                 //ViewData["Role"] = user.Role.RoleCode;
-                return Json("login success!");
+                return Json(model);
             }
             else
             {
-                return Json("login failed");
+                return Json(model);
             }
 
             // If we got this far, something failed, redisplay form
@@ -140,44 +137,24 @@ namespace NERA_WEB_APP.Controllers
             Response.Cookies.Add(cookie);
         }
         //[HttpPost]
-        [AllowAnonymous]
         public ActionResult LogOut()
         {
             services.LogOut();
-            Session["UserName"] = "";
-            Session["UserRole"] = "";
-            return RedirectToAction("Index","Home");
-        }
-        [HttpPost]
-        [AllowAnonymous]
-        public JsonResult signOut()
-        {
-            services.LogOut();
-            Session["UserName"] = "";
-            Session["UserRole"] = "";
-            return Json("logout");
+            return RedirectToAction("LogOn");
         }
 
-        [AllowAnonymous]
         private Nera_User checkUser(string UserName, string Password, ref string mess)
         {
-            IQueryable<Nera_User> us1;
-            List<Nera_User> us = new List<Nera_User>();
-            using (var db2 = new AuthenContext())
-            {
-                us1 = (from s in db2.Nera_Users where s.UserName.Equals(UserName) select s);
-                us = us1.ToList();
-            }
-            
+            var us = (from s in db.Nera_Users where s.UserName == UserName select s).ToList();
             if (us.Count == 0)
             {
-                mess = "user error";
+                mess = "Tên đăng nhập không đúng!";
                 return new Nera_User();
             }
             else
             {
                 if (!MD5_Hash(Password).Equals(us.First().PasswordHash) || !us.First().IsEnable)
-                    mess = "pass error";
+                    mess = "Sai mật khẩu!";
             }
             return us.First();
         }

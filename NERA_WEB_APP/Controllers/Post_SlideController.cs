@@ -36,14 +36,14 @@ namespace NERA_WEB_APP.Controllers
         {
             CS_Post_Slides newObj = new CS_Post_Slides();
             int id = new App_Auto_NumberController().GenID("CS_Posts_Slides.Post_Id");
-            newObj.Post_Id = Obj.Post_Id;
+            newObj.Post_Id = id;
             newObj.Tbl_Id = Obj.Tbl_Id;
             newObj.Image_Title = Obj.Image_Title;
             newObj.Image_Url = Obj.Image_Url;
-            newObj.Image_Link = Obj.Image_Link;
+            newObj.Image_Link = Request.Form["LinkAnh"];
             newObj.Image_Order = Obj.Image_Order;
             newObj.Enable = Obj.Enable;
-            newObj.Language = Obj.Language;
+            newObj.Language = "BH"; 
             db.CS_Post_Slides.Add(newObj);
             db.SaveChanges();
             return Json(newObj);

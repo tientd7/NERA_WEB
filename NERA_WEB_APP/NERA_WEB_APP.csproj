@@ -181,7 +181,6 @@
     <Compile Include="Controllers\Post_SlideController.cs" />
     <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Controllers\QLSanPhamController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="CustomMemberShip\CustomMembership.cs" />
     <Compile Include="Global.asax.cs">
@@ -297,6 +296,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="machine.config" />
     <Content Include="Scripts\angular-route.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Areas\Admin\Views\web.config" />
@@ -1481,6 +1481,7 @@
     <Content Include="Views\Shared\pages\dialog_popup\dialog_signIn.cshtml" />
     <Content Include="Views\Product\popupProduct.cshtml" />
     <Content Include="Views\BaiVietMVC\popupBaiviet.cshtml" />
+    <Content Include="Views\Post_Slide\popupPostSlide.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1489,7 +1490,6 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Content\fonts\" />
     <Folder Include="Views\App_Auto_Number\" />
-    <Folder Include="Views\QLSanPham\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
