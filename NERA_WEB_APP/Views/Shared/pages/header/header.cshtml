@@ -33,8 +33,17 @@
 
                                 var roleId = Session["UserRole"];
                             }
-                            @if (userName.ToString() != "")
-                            {<div>
+                            @if (userName == null)
+                            {
+                                <a href="#" class="user-account btn-link-login">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    Đăng nhập
+
+                                </a>
+                            }
+                            else
+                            {
+                                <div>
                                     <div>
                                         <a href="/User/user_infor" class="user-account btn-link-infor-user" style="text-transform:uppercase;">
                                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -46,15 +55,6 @@
                                     </div>
 
                                 </div>
-
-                            }
-                            else
-                            {
-                                <a href="#" class="user-account btn-link-login">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    Đăng nhập
-
-                                </a>
                             }
 
 

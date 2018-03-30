@@ -144,8 +144,8 @@ namespace NERA_WEB_APP.Controllers
         public ActionResult LogOut()
         {
             services.LogOut();
-            Session["UserName"] = "";
-            Session["UserRole"] = "";
+            Session.Remove("UserName");
+            Session.Remove("UserRole");
             return RedirectToAction("Index", "Home");
         }
 
