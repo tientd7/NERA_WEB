@@ -3,8 +3,7 @@
     // tạo biến item sản phẩm
     $scope.ItemSP;
 
-    //tạo biến item dv
-    $scope.ItemDV;
+  
 
     // hàm gọi lấy danh sách sản phẩm
     $scope.hienthisanpham = function () {
@@ -22,6 +21,10 @@
     // chạy hàm
     $scope.hienthisanpham();
 
+
+
+    //tạo biến item dv
+    $scope.ItemDV;
     // hàm gọi lấy danh sách dich vụ
     $scope.showDV = function () {
         $http.get('/Product/showDV').success(function (data, status) {
@@ -33,7 +36,7 @@
         })
     };
     // chạy hàm
-    //$scope.showDV();
+    $scope.showDV();
 
 
     $scope.Item;
