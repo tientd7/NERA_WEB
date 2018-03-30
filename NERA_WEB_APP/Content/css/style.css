@@ -1037,7 +1037,6 @@ TESTIMONIAL
     position: absolute;
     top: 0;
     right: -50px;
-    
 }
 
 button#btn-close {
@@ -1062,7 +1061,24 @@ button#btn-close {
     padding: 20px;
 }
 
-.page-wrapper {
+    .form-signin-user div.form-group {
+        position: relative;
+    }
+
+div.alert.alert-danger {
+    position: absolute;
+    width: 150px;
+    top: -62px;
+    right: 0;
+    z-index: 10000;
+}
+
+.alert-username, .alert-password {
+    display: none;
+}
+
+.alert-active {
+    display: block;
 }
 
 
@@ -1070,7 +1086,6 @@ button#btn-close {
 
 
 /*POPUP*/
-
 .popup-box {
     height: 600px;
     position: fixed;
