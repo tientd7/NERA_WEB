@@ -57,7 +57,7 @@ namespace NERA_WEB_APP.Controllers
                 }
 
 
-                
+
 
             }
             var showmn = from i in db.Cs_Menu_item select i;
@@ -65,36 +65,23 @@ namespace NERA_WEB_APP.Controllers
             ViewBag.data = showmn;
             return View(showmn);
         }
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int Post_Id)
         {
-            var obj = db.CS_Post_Info.Find(id);
+            var obj = db.CS_Post_Info.Find(Post_Id);
             return View(obj);
         }
-        [HttpPost]
-        public ActionResult Edit(CS_Post_Info Slide)
+
+        public ActionResult Edit_post(int Post_Id)
         {
-
-            var obj = db.CS_Post_Info.Find(Slide.Post_Id);
-            bool saveFailed;
-          
-
-                try
-                {
-                    db.Entry(Slide).State =EntityState.Modified; 
-                    db.SaveChanges();
-                }
-                catch (DbUpdateConcurrencyException ex)
-                {
-                    
-
-                    // Update the values of the entity that failed to save from the store 
-                    ex.Entries.Single().Reload();
-                }
-
-             
-            return View(Slide);
-
+            var up = db.CS_Post_Info.Where(x => x.Post_Id == Post_Id).FirstOrDefault();
+            up.Meta_Desc = Request.Form["MetaDesc"];
+            up.Meta_Key = Request.Form["MetaKey"];
+            db.Entry(up).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index","BaiVietMVC");
         }
+
+       
         [HttpPost]
         //public ActionResult Delete(int Post_Id)
         //{

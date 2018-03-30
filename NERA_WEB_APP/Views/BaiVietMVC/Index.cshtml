@@ -129,7 +129,7 @@
                     @Html.DisplayFor(modelItem => item.Language)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Post_Id }) |
+                    @Html.ActionLink("Edit", "Edit", new { Post_Id = item.Post_Id }) |
                     <a href="/BaiVietMVC/delete?Post_Id=@item.Post_Id">xoa</a>
                 </td>
             </tr>
