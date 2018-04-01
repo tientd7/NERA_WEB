@@ -5,8 +5,6 @@
     $scope.showDV = function () {
         $http.get('/Product/showDV').success(function (data, status) {
             $scope.ItemDV = data;
-            console.log("success" + data + status);
-
         }).error(function (error, status) {
             console.log("error :" + error + status);
         })

@@ -3,6 +3,12 @@
     ViewBag.Title = "Bảng giá";
 }
 
+@{
+    var userName = HttpContext.Current.Session["UserName"];
+
+    var roleId = Session["UserRole"];
+}
+
 @Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
 
 <section class="sortby-wrapper breadcrumb-wrapper">
@@ -23,17 +29,20 @@
         <div class="list-price">
             <fieldset>
                 <legend style="position:relative;">
-                    <span  style="text-align:left;">
+                    <span style="text-align:left;">
                         <h3>
                             Dịch vụ
                         </h3>
                     </span>
-                   <span  style="text-align:right; position:absolute; right:0; bottom:0;">
-                       <h4>
-                           <a href="/Price/addNewListPrice">Thêm mới</a>
-                       </h4>
-                   </span>
-                   
+                    @if (userName != null)
+                    {
+
+                        <span style="text-align:right; position:absolute; right:0; bottom:0;">
+                            <h4>
+                                <a href="/Price/addNewListPrice">Thêm mới</a>
+                            </h4>
+                        </span>
+                    }
                 </legend>
                 <table class="table table-condensed table-bordered">
                     <thead>
@@ -43,7 +52,11 @@
                             <td>Đơn vị tính</td>
                             <td>Đơn giá (VND)</td>
                             <td>Mô tả</td>
-                            <td>Chức năng</td>
+                            @if (userName != null)
+                            {
+
+                                <td>Chức năng</td>
+                            }
                         </tr>
                     </thead>
                     <tbody>
@@ -53,12 +66,16 @@
                             <td>Số điện x Đơn giá</td>
                             <td>5000</td>
                             <td>Mô tả</td>
-                            <td>
-                               <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+                            @if (userName != null)
+                            {
 
-                                <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+                                <td>
+                                    <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
 
-                            </td>
+                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+
+                                </td>
+                            }
                         </tr>
                         <tr>
                             <td>#23233</td>
@@ -66,13 +83,15 @@
                             <td>Số nước x Đơn giá</td>
                             <td>25000</td>
                             <td>Mô tả</td>
-                            <td>
+                            @if (userName != null)
+                            {
 
-                                <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
-
-                                <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
-
-                            </td>
+                                <span style="text-align:right; position:absolute; right:0; bottom:0;">
+                                    <h4>
+                                        <a href="/Price/addNewListPrice">Thêm mới</a>
+                                    </h4>
+                                </span>
+                            }
                         </tr>
                         <tr>
                             <td>#23234</td>
@@ -80,12 +99,15 @@
                             <td>Tính theo tháng x số ti vi</td>
                             <td>200000</td>
                             <td>Mô tả</td>
-                            <td>
-                                <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+                            @if (userName != null)
+                            {
 
-                                <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
-
-                            </td>
+                                <span style="text-align:right; position:absolute; right:0; bottom:0;">
+                                    <h4>
+                                        <a href="/Price/addNewListPrice">Thêm mới</a>
+                                    </h4>
+                                </span>
+                            }
                         </tr>
                         <tr>
                             <td>#23235</td>
@@ -93,13 +115,15 @@
                             <td>Tính theo tháng x số người</td>
                             <td>100000</td>
                             <td>Mô tả</td>
-                            <td>
+                            @if (userName != null)
+                            {
 
-                                <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
-
-                                <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
-
-                            </td>
+                                <span style="text-align:right; position:absolute; right:0; bottom:0;">
+                                    <h4>
+                                        <a href="/Price/addNewListPrice">Thêm mới</a>
+                                    </h4>
+                                </span>
+                            }
                         </tr>
                         <tr>
                             <td>#23235</td>
@@ -107,12 +131,15 @@
                             <td>Tính theo tháng x số người</td>
                             <td>70000</td>
                             <td>Mô tả</td>
-                            <td>
-                                <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+                            @if (userName != null)
+                            {
 
-                                <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
-
-                            </td>
+                                <span style="text-align:right; position:absolute; right:0; bottom:0;">
+                                    <h4>
+                                        <a href="/Price/addNewListPrice">Thêm mới</a>
+                                    </h4>
+                                </span>
+                            }
                         </tr>
                         <tr>
                             <td>#23235</td>
@@ -120,12 +147,15 @@
                             <td>Tính theo tháng x số lượng xe</td>
                             <td>100000</td>
                             <td>Mô tả</td>
-                            <td>
-                                <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+                            @if (userName != null)
+                            {
 
-                                <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
-
-                            </td>
+                                <span style="text-align:right; position:absolute; right:0; bottom:0;">
+                                    <h4>
+                                        <a href="/Price/addNewListPrice">Thêm mới</a>
+                                    </h4>
+                                </span>
+                            }
                         </tr>
                         <tr>
                             <td>#23235</td>
@@ -133,12 +163,15 @@
                             <td>Tính theo tháng x số người</td>
                             <td>200000</td>
                             <td>Mô tả</td>
-                            <td>
-                                <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+                            @if (userName != null)
+                            {
 
-                                <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
-
-                            </td>
+                                <span style="text-align:right; position:absolute; right:0; bottom:0;">
+                                    <h4>
+                                        <a href="/Price/addNewListPrice">Thêm mới</a>
+                                    </h4>
+                                </span>
+                            }
                         </tr>
                     </tbody>
                 </table>
@@ -166,7 +199,11 @@
                             <td>Đơn vị tính</td>
                             <td>Đơn giá (VND)</td>
                             <td style="width:200px;">Mô tả</td>
-                            <td>Chức năng</td>
+                            @if (userName != null)
+                            {
+
+                                <td>Chức năng</td>
+                            }
                         </tr>
                     </thead>
                     <tbody>
@@ -176,14 +213,18 @@
                             <td>Tính theo tháng x số phòng</td>
                             <td>500000</td>
                             <td>Mô tả</td>
-                            <td>
-                                <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+                            @if (userName != null)
+                            {
 
-                                <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+                                <td>
+                                    <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
 
-                            </td>
+                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+
+                                </td>
+                            }
                         </tr>
-                  
+
                     </tbody>
                 </table>
             </fieldset>
