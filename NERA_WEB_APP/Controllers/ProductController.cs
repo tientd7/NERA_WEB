@@ -69,13 +69,52 @@ namespace NERA_WEB_APP.Controllers
             return Json(newObj);
         }
 
-        // xóa sản phẩm dịch vụ
-        public JsonResult delete(int Id)
+
+        [HttpPost]
+        public JsonResult getDetails(int Id)
         {
-            var dt = db.Cs_Menu_item.Find(Id);
-            db.Cs_Menu_item.Remove(dt);
+            db = new DataContext();
+            Cs_Menu_item menu = new Cs_Menu_item();
+            menu = db.Cs_Menu_item.Find(Id);
+            return Json(menu, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult update(Cs_Menu_item Menu)
+        {
+            string str = "";
+            try
+            {
+                db = new DataContext();
+                db.Entry(Menu).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                str = "success";
+                return Json(str);
+            }
+            catch (Exception e)
+            {
+                str = "error " + e;
+                return Json(str);
+            }
+
+        }
+
+        // xóa sản phẩm dịch vụ
+        //public JsonResult delete(int Id)
+        //{
+        //    var dt = db.Cs_Menu_item.Find(Id);
+        //    db.Cs_Menu_item.Remove(dt);
+        //    db.SaveChanges();
+        //    return Json(dt);
+        //}
+
+        // Update enable to false
+        public JsonResult del(Cs_Menu_item menuItem)
+        {
+            db = new DataContext();
+            menuItem.Enable = false;
+            db.Entry(menuItem).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
-            return Json(dt);
+            return Json(menuItem);
         }
 
 

@@ -47,7 +47,10 @@ app.controller("AccountController", function ($scope, $http) {
                         $('.alert-password').fadeOut(500);
                     }, 2000);
                 } else {
-                    window.location.href = "/Home/Index";
+                    
+                    var x = location.href;
+                    window.location.href = x;
+                    location.reload();
                 }
                 $scope.user = null;
                 //window.location.href = '/Home/Index';

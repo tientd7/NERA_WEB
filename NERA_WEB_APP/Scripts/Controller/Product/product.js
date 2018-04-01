@@ -3,16 +3,13 @@
     // tạo biến item sản phẩm
     $scope.ItemSP;
 
-  
+
 
     // hàm gọi lấy danh sách sản phẩm
     $scope.hienthisanpham = function () {
         $http.get('/Product/hienthisanpham').success(function (data, status) {
             $scope.ItemSP = data;
             console.log("success" + data + status);
-            for (var i = 0; i < $scope.Item.length; i++) {
-                console.log(i);
-            }
         }).error(function (error) {
             console.log("error :" + error);
         })
@@ -29,9 +26,7 @@
     $scope.showDV = function () {
         $http.get('/Product/showDV').success(function (data, status) {
             $scope.ItemDV = data;
-            console.log("success" + data + status);
-            
-        }).error(function (error,status) {
+        }).error(function (error, status) {
             console.log("error :" + error + status);
         })
     };
@@ -39,41 +34,127 @@
     $scope.showDV();
 
 
-    $scope.Item;
-    $scope.Create = function () {
 
-        $http({
-            method: 'POST',
-            url: '/Product/addNewProduct',
-            data: $scope.Item
-        }).success(function (data, status, headers, config) {
-            if (data != "") {
-                console.log("Thêm Thành Công");
-                window.location.href = '/Product/product';
+    // Them 
+    $scope.Item = null;
+    $scope.Create = function (Item) {
 
-            }
-            else {
-                console.log('Form data not Saved!');
 
-            }
-        }).error(function (data, status, headers, config) {
-            $scope.message = 'Unexpected Error while saving data!!' + data.errors;
-            console.log($scope.message);
-        });
+        if ($('.txt-name').val() == ''  ) {
+            $('.alert-noti-error').fadeIn(500);
+            $('.alert-noti-error').fadeOut(3000);
+            $('.txt-name').focus();
+        } else {
+            $http.post('/Product/addNewProduct', { Obj: Item })
+                .success(function (data, status, headers, config) {
+                    $scope.Item = data;
+                    $scope.Item = null;
 
+                    // jquery
+                    setTimeout(function () {
+                        $('.alert-add-success').fadeIn(500);
+                        $('.alert-noti-success').fadeIn(500);
+                    });
+                    setTimeout(function () {
+                        $('.alert-add-success').fadeOut(500);
+                        $('.alert-noti-success').fadeOut(500);
+                    }, 1500);
+
+                    $('.popup-box').removeClass('box-dialog-keyframes');
+                    $('.popup-box').addClass('active-hide');
+
+
+                    if (data != "") {
+
+                        if (data.Item_Type == "DV") {
+                            window.location.href = '/Product/services';
+                        }
+                        else if (data.Item_Type == "SP") {
+                            window.location.href = '/Product/product';
+                        }
+
+                    }
+                    else {
+                        console.log('Form data not Saved!');
+
+                    }
+                }).error(function (error, status, headers, config) {
+                    $scope.message = 'Unexpected Error while saving data!!' + data.errors;
+                    console.log(error);
+                });
+
+        }     
     }
-    $scope.Delete = function (Item) {
-        $http({
-            method: "Post",
-            url: '/Product/delete',
-            data: { 'Id': Item.Item_Id }
-        }).success(function () {
-            $scope.showSP();
-            $scope.showDV();
-            console.log('delete success');
-        }).error(function (error) {
-            console.log(error);
-        })
+
+
+    // get details
+    $scope.Item = "";
+    $scope.getDetails = function (Id) {
+        $('.popup-box').addClass('box-dialog-keyframes');
+        $('.popup-box').removeClass('active-hide');
+        $('.btn-add').css("display", "none");
+        $('.txt-name').focus();
+        $('.title-add').css("display", "none");
+        $('.title-update').css("display", "block");
+
+
+        $http.post('/Product/getDetails', { Id: Id })
+            .success(function (data) {
+                debugger;
+                $scope.Item = data;
+            }).error(function (error) {
+                console.log('error' + error);
+            });
     }
+
+
+    // update
+    $scope.update = function (Item) {
+        $http.post('/Product/update', { Menu: Item })
+            .success(function (data) {
+
+                setTimeout(function () {
+                    $('.alert-update-success').fadeIn(500);
+                    $('.alert-noti-success').fadeIn(500);
+                });
+                setTimeout(function () {
+                    $('.alert-update-success').fadeOut(500);
+                    $('.alert-noti-success').fadeOut(500);
+                }, 1500);
+
+
+                $('.popup-box').removeClass('box-dialog-keyframes');
+                $('.popup-box').addClass('active-hide');
+
+
+                //reload
+                $scope.hienthisanpham();
+                $scope.showDV();
+
+
+                //reset value
+                $scope.Item = data;
+                $scope.Item = null;
+            }).error(function (error) {
+                console.log('error update ' + error);
+            })
+    }
+
+
+
+    // update enable to false
+    $scope.del = function (i) {
+        $http.post('/Product/del', { menuItem: i })
+            .success(function (data) {
+                $scope.hienthisanpham();
+            }).error(function (error) {
+                console.log(error);
+            })
+    }
+
+
+
+
+
 })
 

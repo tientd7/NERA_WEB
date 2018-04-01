@@ -1108,6 +1108,34 @@ div.alert.alert-danger {
             height: 100px;
         }
 
+.alert-noti-success{
+    text-align:center;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index:10000;
+    display:none;
+    color:#fff;
+    background:#04c443;
+}
+
+.alert-add-success, .alert-update-success {
+    display: none;
+    color: #fff;
+}
+
+.alert-noti-error {
+    position: relative;
+    top: 10px;
+    display: none;
+}
+
+.btn-disable {
+    opacity: .5;
+    cursor: no-drop;
+}
+
 
 
 

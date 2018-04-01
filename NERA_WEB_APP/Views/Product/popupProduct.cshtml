@@ -1,50 +1,123 @@
 ﻿
 
-<section ng-controller="addNewCtr">
+<section>
 
-    <div class="container popup-box" style="max-width:60%;">
+    <div class="container" style="max-width:500px;">
+        <div class="alert alert-noti-success">
+            <h3 class="alert-add-success">
+                Thêm thành công
+            </h3>
+            <h3 class="alert-update-success">
+                Sửa thành công
+            </h3>
+        </div>
+    </div>
+
+
+    <div class="container popup-box " style="max-width:60%;">
         <div>
-            <h2>
-                Thêm sản phẩm mới
+            <h2 class="title-add">
+                Thêm mới
+            </h2>
+            <h2 class="title-update" style="display:none;">
+                Sửa thông tin
             </h2>
         </div>
-        
+
         <div class="row form-horizontal">
             <div class="btn-close btn-close-popup" style="right:8px;">
                 <button id="btn-close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
             </div>
             <div class="form-group">
                 <label>Tên sản phẩm hoặc dịch vụ</label>
-                <input type="text" class="form-control" ng-model="Item.Item_Name" />
+                <input type="text"  class="form-control txt-name" ng-model="Item.Item_Name" value="{{Item.Item_Name}}" />
+                <span class="alert alert-danger alert-noti-error" >
+                    Tên sản phẩm hoặc dịch vụ không được để trống!
+                </span>
             </div>
             <div class="form-group">
-                <label>Mục thêm</label>
-                <select class="form-control" ng-model="Item.Item_Type" style="width:150px;">
-                    <option value="">Mục thêm</option>
-                    <option value="SP">Sản phẩm</option>
-                    <option value="DV">Dịch vụ</option>
-                </select>
+
+                <div class="form-group col-sm-4">
+                    <label>Enable</label>
+                    <div ng-if="Item.Enable === true">
+                        <input type="checkbox" ng-model="Item.Enable" checked value="{{Item.Enable}}" />
+                    </div>
+                    <div ng-if="Item.Enable === false">
+                        <input type="checkbox" ng-model="Item.Enable" value="{{Item.Enable}}" />
+                    </div>
+                </div>
+
+                <div class="form-group  col-sm-4">
+                    <label>Mục thêm</label>
+                    <div>
+                        <div ng-if="Item.Item_Type === 'SP'">
+                            <select class="form-control" ng-model="Item.Item_Type" style="width:150px;">
+                                <option value="">Mục thêm</option>
+                                <option value="SP" selected>Sản phẩm</option>
+                                <option value="DV">Dịch vụ</option>
+                            </select>
+                        </div>
+                        <div ng-if="Item.Item_Type === 'DV'">
+                            <select class="form-control" ng-model="Item.Item_Type" style="width:150px;">
+                                <option value="">Mục thêm</option>
+                                <option value="SP">Sản phẩm</option>
+                                <option value="DV" selected>Dịch vụ</option>
+                            </select>
+                        </div>
+                        <div ng-else>
+                            <select class="form-control" ng-model="Item.Item_Type" style="width:150px;">
+                                <option value="">Mục thêm</option>
+                                <option value="SP">Sản phẩm</option>
+                                <option value="DV">Dịch vụ</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-4">
+                    <label>Ngôn ngữ</label>
+                    <div ng-if="Item.Item_Type === 'VI'">
+                        <select class="form-control" ng-model="Item.Language" style="width:150px;">
+                            <option value="">Chọn ngôn ngữ</option>
+                            <option selected value="VI">Việt nam</option>
+                            <option value="EN">English</option>
+                        </select>
+                    </div>
+                    <div ng-if="Item.Item_Type === 'EN'">
+                        <select class="form-control" ng-model="Item.Language" style="width:150px;">
+                            <option value="">Chọn ngôn ngữ</option>
+                            <option value="VI">Việt nam</option>
+                            <option selected value="EN">English</option>
+                        </select>
+                    </div>
+                    <div ng-else>
+                        <select class="form-control" ng-model="Item.Language" style="width:150px;">
+                            <option value="">Chọn ngôn ngữ</option>
+                            <option value="VI">Việt nam</option>
+                            <option value="EN">English</option>
+                        </select>
+                    </div>
+                </div>
             </div>
+           
 
             <div class="form-group">
                 <label>Miêu tả</label>
-                <textarea class="form-control" ng-model="Item.Meta_Desc"></textarea>
-               
+                <textarea class="form-control" ng-model="Item.Meta_Desc" value="{{Item.Meta_Desc}}">{{Item.Meta_Desc}}</textarea>
+
             </div>
             <div class="form-group">
                 <label>Từ khóa</label>
-                <textarea class="form-control" ng-model="Item.Meta_Key"></textarea>
+                <textarea class="form-control" ng-model="Item.Meta_Key">{{Item.Meta_Key}}</textarea>
             </div>
             <div class="form-group">
-                <label>Ngôn ngữ</label>
-                <select class="form-control" ng-model="Item.Language" style="width:150px;">
-                    <option value="">Chọn ngôn ngữ</option>
-                    <option value="VI">Việt nam</option>
-                    <option value="EN">English</option>
-                </select>
+                <label>Nội dung</label>
+                <textarea class="form-control" ng-model="Item.Item_Content">{{Item.Item_Content}}</textarea>
             </div>
+
             <div class="form-group" style="border:0px;">
                 <button type="button" ng-click="Create(Item)" class="btn btn-add btn-success">Thêm mới</button>
+                <button type="button" ng-click="update(Item)" class="btn btn-update btn-success">Update</button>
             </div>
         </div>
     </div>

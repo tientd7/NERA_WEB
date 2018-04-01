@@ -34,8 +34,4 @@ app.controller('addNewCtr', function ($scope, $http) {
         });
 
     }
-
-
-    
-
 });

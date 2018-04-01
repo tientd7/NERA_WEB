@@ -16,6 +16,11 @@ $('.btn-show-popup').click(function () {
 
     $('.popup-box').addClass('box-dialog-keyframes');
     $('.popup-box').removeClass('active-hide');
+    $('.txt-name').focus();
+    $('.title-add').css("display", "block");
+    $('.title-update').css("display", "none");
+    $('.btn-update').css("display", "none");
+    $('.btn-add').css("display", "block");
 })
 
 
@@ -29,7 +34,11 @@ $('#btn-close').click(function () {
 $('.btn-close-popup').click(function () {
     $('.popup-box').removeClass('box-dialog-keyframes');
     $('.popup-box').addClass('active-hide');
+    $('.btn-add').css("display", "block");
+    $('.btn-update').css("display", "block");
 })
+
+
 
 
 // Chatbox
