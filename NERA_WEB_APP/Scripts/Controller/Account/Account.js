@@ -9,7 +9,7 @@ app.controller("AccountController", function ($scope, $http) {
     $scope.message;
     $scope.user;
 
-    debugger;
+
     $scope.login = function () {
         if ($('#username').val() == '') {
             alert("Username không được để trống");
@@ -26,7 +26,7 @@ app.controller("AccountController", function ($scope, $http) {
                     model: $scope.user
                 }
             }).success(function (data, status) {
-                debugger;
+
 
                 $scope.user = data;
                 if ($scope.user == 'user error'.toString()) {

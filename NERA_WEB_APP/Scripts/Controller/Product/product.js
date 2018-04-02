@@ -147,6 +147,7 @@
         $http.post('/Product/del', { menuItem: i })
             .success(function (data) {
                 $scope.hienthisanpham();
+                $scope.showDV();
             }).error(function (error) {
                 console.log(error);
             })

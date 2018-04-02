@@ -594,7 +594,7 @@ section {
 
 .topbar-right {
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 60% 40%;
     padding: 15px 18px;
     position: relative;
 }
@@ -788,8 +788,8 @@ POPUP FEATURE
     position: absolute;
     top: 20px;
     right: 0;
-    padding: 40px;
-    height: 210px;
+    padding: 40px 0px 40px 40px;
+    height: 150px;
 }
 
 .txt-search {

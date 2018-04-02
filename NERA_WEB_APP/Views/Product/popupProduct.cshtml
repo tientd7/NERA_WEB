@@ -30,8 +30,8 @@
             </div>
             <div class="form-group">
                 <label>Tên sản phẩm hoặc dịch vụ</label>
-                <input type="text"  class="form-control txt-name" ng-model="Item.Item_Name" value="{{Item.Item_Name}}" />
-                <span class="alert alert-danger alert-noti-error" >
+                <input type="text" class="form-control txt-name" ng-model="Item.Item_Name" value="{{Item.Item_Name}}" />
+                <span class="alert alert-danger alert-noti-error">
                     Tên sản phẩm hoặc dịch vụ không được để trống!
                 </span>
             </div>
@@ -64,7 +64,14 @@
                                 <option value="DV" selected>Dịch vụ</option>
                             </select>
                         </div>
-                        <div ng-else>
+                        <div ng-if="Item.Item_Type == ''">
+                            <select class="form-control" ng-model="Item.Item_Type" style="width:150px;">
+                                <option value="">Mục thêm</option>
+                                <option value="SP">Sản phẩm</option>
+                                <option value="DV">Dịch vụ</option>
+                            </select>
+                        </div>
+                        <div ng-if="Item.Item_Type == null">
                             <select class="form-control" ng-model="Item.Item_Type" style="width:150px;">
                                 <option value="">Mục thêm</option>
                                 <option value="SP">Sản phẩm</option>
@@ -99,7 +106,7 @@
                     </div>
                 </div>
             </div>
-           
+
 
             <div class="form-group">
                 <label>Miêu tả</label>

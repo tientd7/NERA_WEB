@@ -1391,7 +1391,8 @@
     <Content Include="Scripts\Controller\Product\addNewProduct.js" />
     <Content Include="Scripts\Controller\Product\product.js" />
     <Content Include="Scripts\Controller\Product\showMenuBarDV.js" />
-    <Content Include="Scripts\jq dialog\dialog.js" />
+    <Content Include="Scripts\jquery\chatbox.js" />
+    <Content Include="Scripts\jquery\dialog.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -1399,6 +1400,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery\language.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\js\classie.js" />
     <Content Include="Scripts\js\flickerPhoto.min.js" />
