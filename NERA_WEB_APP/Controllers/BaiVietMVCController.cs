@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace NERA_WEB_APP.Controllers
 {
-    [CustomAuthorize(Roles ="Admin,Mod")]
+    [CustomAuthorize(Roles ="Mod")]
     public class BaiVietMVCController : Controller
     {
         DataContext db = new DataContext();
@@ -22,6 +22,7 @@ namespace NERA_WEB_APP.Controllers
         }
         public ActionResult Create()
         {
+            ViewBag.CBXMenuItem = (from s in db.Cs_Menu_item where s.Item_Type.Equals( "SP") select s).ToList();
             return View();
         }
         [HttpPost]
