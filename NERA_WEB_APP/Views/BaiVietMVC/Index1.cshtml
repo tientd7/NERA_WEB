@@ -42,7 +42,11 @@
                     Sản phẩm
                 </h3>
             </span>
-           
+            <span style="text-align:right; position:absolute; right:0; bottom:0;">
+                <h4>
+                    <a href="#" class="btn-show-popup">Thêm mới</a>
+                </h4>
+            </span>
 
         </legend>
     </fieldset>
@@ -90,50 +94,50 @@
 
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Post_Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Post_Content)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Meta_Desc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Meta_Key)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Enable)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Item_ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Create_By)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Create_Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Update_By)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Update_Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Language)
-            </td>
-           
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { Post_Id = item.Post_Id }) |
-                @Html.ActionLink("Details", "Details", new { Post_Id = item.Post_Id }) |
-                <a href="/BaiVietMVC/delete?Post_Id=@item.Post_Id">xoa</a>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Post_Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Post_Content)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Meta_Desc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Meta_Key)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Enable)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Item_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Create_By)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Create_Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Update_By)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Update_Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Language)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { Post_Id = item.Post_Id }) |
+                    @Html.ActionLink("Details", "Details", new { Post_Id = item.Post_Id }) |
+                    <a href="/BaiVietMVC/delete?Post_Id=@item.Post_Id">xoa</a>
+                </td>
+            </tr>
         }
 
     </table>
 </section>
 @Html.Partial("~/Views/BaiVietMVC/popupBaiviet.cshtml")
-<script src="~/Scripts/jquery/dialog.js"></script>
+<script src="~/Scripts/jq dialog/dialog.js"></script>

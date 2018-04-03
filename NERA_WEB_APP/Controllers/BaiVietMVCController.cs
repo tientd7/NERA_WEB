@@ -1,4 +1,5 @@
-﻿using NERA_WEB_APP.Models;
+﻿using NERA_WEB_APP.CustomMemberShip;
+using NERA_WEB_APP.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace NERA_WEB_APP.Controllers
 {
+    [CustomAuthorize(Roles ="Mod,Admin")]
     public class BaiVietMVCController : Controller
     {
         DataContext db = new DataContext();
@@ -20,6 +22,7 @@ namespace NERA_WEB_APP.Controllers
         }
         public ActionResult Create()
         {
+            ViewBag.CBXMenuItem = (from s in db.Cs_Menu_item where s.Item_Type.Equals( "SP") select s).ToList();
             return View();
         }
         [HttpPost]
@@ -55,34 +58,51 @@ namespace NERA_WEB_APP.Controllers
                     db.CS_Post_Slides.Add(Post);
                     db.SaveChanges();
                 }
-
-
-
-
             }
-            var showmn = from i in db.Cs_Menu_item select i;
 
-            ViewBag.data = showmn;
-            return View(showmn);
+            return RedirectToAction("Index");
         }
         public ActionResult Edit(int Post_Id)
+        { 
+            var obj = db.CS_Post_Info.Find(Post_Id);
+            return View(obj);
+        }
+        [HttpPost]
+        public ActionResult Edit(CS_Post_Info Slide)
+        {
+            Slide.Create_By = 1;
+            Slide.Create_Date = DateTime.Now;
+            Slide.Update_By = 1;
+            Slide.Update_Date = DateTime.Now;
+            Slide.Meta_Desc = Request.Form["MetaDesc"];
+            Slide.Meta_Key = Request.Form["MetaKey"];
+            db.Entry(Slide).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Edit1(int Post_Id)
         {
             var obj = db.CS_Post_Info.Find(Post_Id);
             return View(obj);
         }
 
-        public ActionResult Edit_post(int Post_Id)
+        [HttpPost]
+        public ActionResult Edit1(CS_Post_Info Slide)
         {
-            var up = db.CS_Post_Info.Where(x => x.Post_Id == Post_Id).FirstOrDefault();
-            up.Meta_Desc = Request.Form["MetaDesc"];
-            up.Meta_Key = Request.Form["MetaKey"];
-            db.Entry(up).State = EntityState.Modified;
+            Slide.Create_By = 1;
+            Slide.Create_Date = DateTime.Now;
+            Slide.Update_By = 1;
+            Slide.Update_Date = DateTime.Now;
+            Slide.Meta_Desc = Request.Form["MetaDesc"];
+            Slide.Meta_Key = Request.Form["MetaKey"];
+            db.Entry(Slide).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index","BaiVietMVC");
+            return View(Slide);
         }
 
-       
-        [HttpPost]
+
+
         //public ActionResult Delete(int Post_Id)
         //{
         //    String er = "";
@@ -99,13 +119,13 @@ namespace NERA_WEB_APP.Controllers
 
         //    return RedirectToAction("Index", "BaiVietMVC");
         //}
-        public ActionResult del(int Post_Id)
-        {
-            CS_Post_Info de = db.CS_Post_Info.Where(x => x.Post_Id == Post_Id).FirstOrDefault();
-            db.CS_Post_Info.Remove(de);
-            db.SaveChanges();
-            return RedirectToAction("Index", "BaiVietMVC");
-        }
+        //public ActionResult del(int Post_Id)
+        //{
+        //    CS_Post_Info de = db.CS_Post_Info.Where(x => x.Post_Id == Post_Id).FirstOrDefault();
+        //    db.CS_Post_Info.Remove(de);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index", "BaiVietMVC");
+        //}
 
         public ActionResult delete(int Post_Id)
         {
@@ -113,6 +133,24 @@ namespace NERA_WEB_APP.Controllers
             db.CS_Post_Info.Remove(de);
             db.SaveChanges();
             return RedirectToAction("Index", "BaiVietMVC");
+        }
+        [AllowAnonymous]
+        public ActionResult Details(int Post_Id)
+        {
+            var obj = db.CS_Post_Info.Where(t=>t.Enable && t.Post_Id==Post_Id);
+            if (obj.Count() > 0)
+            {
+                var slides = from s in db.CS_Post_Slides where s.Post_Id == Post_Id && s.Enable select s;
+                PostDetailViewModel objView = new PostDetailViewModel(obj.First(), slides.ToList());
+                return View(objView);
+            }
+            return RedirectToRoute("Home/index");
+        }
+
+        public ActionResult Index1()
+        {
+            var LST = (from obj in db.CS_Post_Info select obj).ToList();
+            return View(LST);
         }
     }
 }

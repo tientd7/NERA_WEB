@@ -1,7 +1,10 @@
 ﻿@{
-    var userName = HttpContext.Current.Session["UserName"];
+    //var userName = HttpContext.Current.Session["UserName"];
 
-    var roleId = Convert.ToInt32(Session["UserRole"]);
+
+    var userName = HttpContext.Current.User.Identity.Name;
+
+    //var roleId = Convert.ToInt32(Session["UserRole"]);
 }
 
 <header class="header">
@@ -34,7 +37,7 @@
                     <div class="topbar-right">
                         <div class="user-acc-box">
 
-                            @if (userName == null)
+                            @if (String.IsNullOrEmpty(userName))
                             {
                                 <a href="#" class="user-account btn-link-login">
                                     <i class="fa fa-user" aria-hidden="true"></i>
