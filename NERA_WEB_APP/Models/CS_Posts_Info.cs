@@ -24,5 +24,7 @@ namespace NERA_WEB_APP.Models
         public int? Update_By { get; set; }
         public DateTime? Update_Date { get; set; }
         public string Language { get; set; }
+
+        
     }
 }

@@ -212,6 +212,7 @@
     <Compile Include="Models\Maps\CS_Other_Slide_Map.cs" />
     <Compile Include="Models\Maps\CS_Posts_Info_Map.cs" />
     <Compile Include="Models\Maps\CS_Post_Slides_Map.cs" />
+    <Compile Include="Models\post_slide_viewModel.cs" />
     <Compile Include="Models\SimpleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -1482,6 +1483,9 @@
     <Content Include="Views\Product\popupProduct.cshtml" />
     <Content Include="Views\BaiVietMVC\popupBaiviet.cshtml" />
     <Content Include="Views\Post_Slide\popupPostSlide.cshtml" />
+    <Content Include="Views\BaiVietMVC\Edit1.cshtml" />
+    <Content Include="Views\BaiVietMVC\Details.cshtml" />
+    <Content Include="Views\BaiVietMVC\Index1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
