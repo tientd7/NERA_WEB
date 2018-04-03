@@ -71,18 +71,21 @@
                         <span>Mã sản phẩm :</span>
                         {{i.Item_Id}}
                     </div>
-                    @if (roleId == 1)
-                    {
-                        <div class="col-sm-9">
+                    <div class="col-sm-9">
+                        @if (roleId == 1)
+                        {
+
                             <div ng-if="i.Enable === true" style="background:#13cb71;text-align:center; color:#fff; width:100px;">
                                 <span>Enable : {{i.Enable}}</span>
                             </div>
                             <div ng-if="i.Enable === false" style="background:#ff0000; color:#fff;text-align:center;  width:100px;">
                                 <span>Enable : {{i.Enable}}</span>
                             </div>
-                        </div>
-                    }
+
+                        }
+                    </div>
                 </div>
+                </br>
                 <div>
                     <h2>
                         <span>Tên sản phẩm :</span>

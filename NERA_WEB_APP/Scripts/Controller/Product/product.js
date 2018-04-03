@@ -9,7 +9,6 @@
     $scope.hienthisanpham = function () {
         $http.get('/Product/hienthisanpham').success(function (data, status) {
             $scope.ItemSP = data;
-            console.log("success" + data + status);
         }).error(function (error) {
             console.log("error :" + error);
         })
@@ -40,10 +39,19 @@
     $scope.Create = function (Item) {
 
 
-        if ($('.txt-name').val() == ''  ) {
+        if ($('.txt-name').val() === ''.trim()) {
             $('.alert-noti-error').fadeIn(500);
             $('.alert-noti-error').fadeOut(3000);
             $('.txt-name').focus();
+            
+        } else if ($('select.select-category').val() == '') {
+            $('.alert-null-error-cate').fadeIn(500);
+            $('.alert-null-error-cate').fadeOut(3000);
+            $('.select-category').focus();
+        } else if ($('select.select-lang').val() == '') {
+            $('.alert-null-error-lang').fadeIn(500);
+            $('.alert-null-error-lang').fadeOut(3000);
+            $('.select-lang').focus();
         } else {
             $http.post('/Product/addNewProduct', { Obj: Item })
                 .success(function (data, status, headers, config) {
@@ -83,7 +91,7 @@
                     console.log(error);
                 });
 
-        }     
+        }
     }
 
 

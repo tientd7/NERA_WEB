@@ -78,7 +78,7 @@
                                         Vietnam <img class="img-flags" src="~/Media/images/flags/vietnam.svg" />
                                     </span>
                                     <span class="country country-noactive country-england">
-                                        English  <img class="img-flags" src="~/Media/images/flags/united-kingdom.svg"/>
+                                        English  <img class="img-flags" src="~/Media/images/flags/united-kingdom.svg" />
                                     </span>
 
                                 </div>
@@ -114,11 +114,32 @@
                     </div>
                     <div class="acc-lang-wt">
                         <div class="topbar-right">
-                            <div class="user-acc-box-mb">
-                                <a href="/User/SignIn" class="user-account">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    Đăng nhập
-                                </a>
+                            <div class="user-acc-box">
+
+                                @if (userName == null)
+                                {
+                                    <a href="#" class="user-account btn-link-login">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        Đăng nhập
+
+                                    </a>
+                                }
+                                else
+                                {
+                                    <div>
+                                        <div>
+                                            <a href="/User/user_infor" class="user-account btn-link-infor-user" style="text-transform:uppercase;">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                                @userName
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a href="/Account/LogOut">Đăng xuất</a>
+                                        </div>
+
+                                    </div>
+                                }
+
 
                             </div>
                             <div class="lang-support pull-right">

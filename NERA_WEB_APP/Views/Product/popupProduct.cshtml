@@ -36,7 +36,6 @@
                 </span>
             </div>
             <div class="form-group">
-
                 <div class="form-group col-sm-4">
                     <label>Enable</label>
                     <div ng-if="Item.Enable === true">
@@ -51,59 +50,65 @@
                     <label>Mục thêm</label>
                     <div>
                         <div ng-if="Item.Item_Type === 'SP'">
-                            <select class="form-control" ng-model="Item.Item_Type" style="width:150px;">
+                            <select class="form-control  select-category" ng-model="Item.Item_Type" style="width:150px;">
                                 <option value="">Mục thêm</option>
                                 <option value="SP" selected>Sản phẩm</option>
                                 <option value="DV">Dịch vụ</option>
                             </select>
                         </div>
                         <div ng-if="Item.Item_Type === 'DV'">
-                            <select class="form-control" ng-model="Item.Item_Type" style="width:150px;">
+                            <select class="form-control  select-category" ng-model="Item.Item_Type" style="width:150px;">
                                 <option value="">Mục thêm</option>
                                 <option value="SP">Sản phẩm</option>
                                 <option value="DV" selected>Dịch vụ</option>
                             </select>
                         </div>
                         <div ng-if="Item.Item_Type == ''">
-                            <select class="form-control" ng-model="Item.Item_Type" style="width:150px;">
+                            <select class="form-control select-category" ng-model="Item.Item_Type" style="width:150px;">
                                 <option value="">Mục thêm</option>
                                 <option value="SP">Sản phẩm</option>
                                 <option value="DV">Dịch vụ</option>
                             </select>
                         </div>
                         <div ng-if="Item.Item_Type == null">
-                            <select class="form-control" ng-model="Item.Item_Type" style="width:150px;">
+                            <select class="form-control select-category" ng-model="Item.Item_Type" style="width:150px;">
                                 <option value="">Mục thêm</option>
                                 <option value="SP">Sản phẩm</option>
                                 <option value="DV">Dịch vụ</option>
                             </select>
                         </div>
+                        <span class="alert alert-danger alert-null-error-cate" style="display:none; position:relative; top:8px;width:150px;padding: 12px;">
+                            Chọn mục cần thêm
+                        </span>
                     </div>
                 </div>
 
                 <div class="form-group col-sm-4">
                     <label>Ngôn ngữ</label>
                     <div ng-if="Item.Item_Type === 'VI'">
-                        <select class="form-control" ng-model="Item.Language" style="width:150px;">
+                        <select class="form-control select-lang" ng-model="Item.Language" style="width:150px;">
                             <option value="">Chọn ngôn ngữ</option>
                             <option selected value="VI">Việt nam</option>
                             <option value="EN">English</option>
                         </select>
                     </div>
                     <div ng-if="Item.Item_Type === 'EN'">
-                        <select class="form-control" ng-model="Item.Language" style="width:150px;">
+                        <select class="form-control select-lang" ng-model="Item.Language" style="width:150px;">
                             <option value="">Chọn ngôn ngữ</option>
                             <option value="VI">Việt nam</option>
                             <option selected value="EN">English</option>
                         </select>
                     </div>
                     <div ng-else>
-                        <select class="form-control" ng-model="Item.Language" style="width:150px;">
+                        <select class="form-control select-lang" ng-model="Item.Language" style="width:150px;">
                             <option value="">Chọn ngôn ngữ</option>
                             <option value="VI">Việt nam</option>
                             <option value="EN">English</option>
                         </select>
                     </div>
+                    <span class="alert alert-danger alert-null-error-lang" style="display:none; position:relative; top:8px;width:150px;padding: 12px;">
+                        Chọn ngôn ngữ cần thêm
+                    </span>
                 </div>
             </div>
 
