@@ -1,4 +1,5 @@
-﻿using NERA_WEB_APP.Models;
+﻿using NERA_WEB_APP.CustomMemberShip;
+using NERA_WEB_APP.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace NERA_WEB_APP.Controllers
 {
+    [CustomAuthorize(Roles ="Admin,Mod")]
     public class BaiVietMVCController : Controller
     {
         DataContext db = new DataContext();
@@ -131,10 +133,13 @@ namespace NERA_WEB_APP.Controllers
             db.SaveChanges();
             return RedirectToAction("Index", "BaiVietMVC");
         }
+        [AllowAnonymous]
         public ActionResult Details(int Post_Id)
         {
             var obj = db.CS_Post_Info.Find(Post_Id);
-            return View(obj);
+            var slides = from s in db.CS_Post_Slides where s.Post_Id == Post_Id select s;
+            PostDetailViewModel objView = new PostDetailViewModel(obj,slides.ToList());
+            return View(objView);
         }
 
         public ActionResult Index1()
