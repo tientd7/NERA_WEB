@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using NERA_WEB_APP.Models;
+using Newtonsoft.Json.Linq;
 
 namespace NERA_WEB_APP.CustomMemberShip
 {
@@ -282,7 +283,7 @@ namespace NERA_WEB_APP.CustomMemberShip
 
             var authCookie = filterContext.HttpContext.Request.Cookies[cookieName];
             var authTicket = FormsAuthentication.Decrypt(authCookie.Value);
-            string[] roles = authTicket.UserData.Split(',');
+            string[] roles = JObject.Parse(authTicket.UserData).SelectToken("Role").ToString().Split(',');
 
             var userIdentity = new GenericIdentity(authTicket.Name);
             var userPrincipal = new GenericPrincipal(userIdentity, roles);

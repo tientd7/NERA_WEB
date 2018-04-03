@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace NERA_WEB_APP.Controllers
 {
-    [CustomAuthorize(Roles ="Mod")]
+    [CustomAuthorize(Roles ="Mod,Admin")]
     public class BaiVietMVCController : Controller
     {
         DataContext db = new DataContext();
@@ -144,7 +144,7 @@ namespace NERA_WEB_APP.Controllers
                 PostDetailViewModel objView = new PostDetailViewModel(obj.First(), slides.ToList());
                 return View(objView);
             }
-            return RedirectToRoute("/Home");
+            return RedirectToRoute("Home/index");
         }
 
         public ActionResult Index1()
