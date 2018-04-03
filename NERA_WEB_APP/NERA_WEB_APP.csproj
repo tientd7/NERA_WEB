@@ -743,9 +743,11 @@
     <Content Include="Scripts\Controller\BaiViet\ckfinder\ckfinder.html" />
     <Content Include="Scripts\Controller\BaiViet\ckfinder\ckfinder.js" />
     <Content Include="Scripts\Controller\BaiViet\ckfinder\ckfinder_v1.js" />
-    <Content Include="Scripts\Controller\BaiViet\ckfinder\config.ascx" />
+    <Content Include="Scripts\Controller\BaiViet\ckfinder\config.ascx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\Controller\BaiViet\ckfinder\config.js" />
-    <Content Include="Scripts\Controller\BaiViet\ckfinder\core\connector\aspx\connector.aspx" />
+    <Content Include="Scripts\Controller\BaiViet\ckfinder\connector.aspx" />
     <Content Include="Scripts\Controller\BaiViet\ckfinder\core\connector\aspx\lang\bg.xml" />
     <Content Include="Scripts\Controller\BaiViet\ckfinder\core\connector\aspx\lang\ca.xml" />
     <Content Include="Scripts\Controller\BaiViet\ckfinder\core\connector\aspx\lang\cs.xml" />
@@ -1488,6 +1490,7 @@
     <Content Include="Views\BaiVietMVC\Edit1.cshtml" />
     <Content Include="Views\BaiVietMVC\Details.cshtml" />
     <Content Include="Views\BaiVietMVC\Index1.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
