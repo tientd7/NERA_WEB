@@ -9,7 +9,7 @@
 @{
     var userName = HttpContext.Current.Session["UserName"];
 
-    var roleId = Session["UserRole"];
+    var roleId = Convert.ToInt32(Session["UserRole"]);
 }
 
 <section class="sortby-wrapper breadcrumb-wrapper">
@@ -49,7 +49,7 @@
                     Sản phẩm
                 </h3>
             </span>
-            @if (userName != null)
+            @if (roleId == 1)
             {
                 <span style="text-align:right; position:absolute; right:0; bottom:0;">
                     <h4>
@@ -71,7 +71,7 @@
                         <span>Mã sản phẩm :</span>
                         {{i.Item_Id}}
                     </div>
-                    @if (userName != null)
+                    @if (roleId == 1)
                     {
                         <div class="col-sm-9">
                             <div ng-if="i.Enable === true" style="background:#13cb71;text-align:center; color:#fff; width:100px;">
@@ -95,7 +95,7 @@
                         {{i.Meta_Desc}}
                     </h4>
                 </div>
-                @if (userName != null)
+                @if (roleId == 1)
                 {
                     <div class="action-product">
 
@@ -122,7 +122,7 @@
 
 </section>
 
-<script src="~/Scripts/jq dialog/dialog.js"></script>
+<script src="~/Scripts/jquery/dialog.js"></script>
 @section JavaScript{
 
     <script src="~/Scripts/Controller/Product/product.js"></script>

@@ -1,4 +1,9 @@
-﻿
+﻿@{
+    var userName = HttpContext.Current.Session["UserName"];
+
+    var roleId = Convert.ToInt32(Session["UserRole"]);
+}
+
 <header class="header">
     <nav class="top-bar">
         <div>
@@ -28,11 +33,7 @@
                 <div class="col-sm-3 hidden-xs">
                     <div class="topbar-right">
                         <div class="user-acc-box">
-                            @{
-                                var userName = HttpContext.Current.Session["UserName"];
 
-                                var roleId = Session["UserRole"];
-                            }
                             @if (userName == null)
                             {
                                 <a href="#" class="user-account btn-link-login">
@@ -60,26 +61,34 @@
 
                         </div>
                         <div class="lang-support pull-right">
-                            <div>
+                            @*<div>
 
-                                <select class="lang-select">
+                                    <select class="lang-select">
 
-                                    <option value="vietnam" data-class="flag-vietnam">VietNam</option>
-                                    <option value="united-kingdom" data-class="flag-uk">English</option>
-                                </select>
-                            </div>
-
-                            @*<div class="wt">
-                                    <span>
-                                        <i class="fa fa-briefcase"></i>
-                                        Thời gian làm việc<br /> từ 8h đến 22h hàng ngày
-                                    </span>
+                                        <option value="vietnam" data-class="flag-vietnam">VietNam</option>
+                                        <option value="united-kingdom" data-class="flag-uk">English</option>
+                                    </select>
                                 </div>*@
 
+                            <div class="language-select">
+                                <div class="select-country">
+                                    <span class="country country-active selected-vn">Vietnam</span>
+                                    <span class="country country-active selected-en" style="display:none;">English</span>
+                                    <span class="country country-noactive  country-vietnam">
+                                        Vietnam <img class="img-flags" src="~/Media/images/flags/vietnam.svg" />
+                                    </span>
+                                    <span class="country country-noactive country-england">
+                                        English  <img class="img-flags" src="~/Media/images/flags/united-kingdom.svg"/>
+                                    </span>
+
+                                </div>
+                                <div class="flag">
+
+                                </div>
+                            </div>
                         </div>
-
-
                     </div>
+
                     <div class="wt">
                         <span>
                             <i class="fa fa-briefcase"></i>
@@ -113,14 +122,22 @@
 
                             </div>
                             <div class="lang-support pull-right">
-                                <div>
-                                    <select class="lang-select">
+                                <div class="language-select" style="left: 10px;">
+                                    <div class="select-country">
+                                        <span class="country country-active selected-vn">Vietnam</span>
+                                        <span class="country country-active selected-en" style="display:none;">English</span>
+                                        <span class="country country-noactive  country-vietnam">
+                                            Vietnam <img class="img-flags" src="~/Media/images/flags/vietnam.svg" />
+                                        </span>
+                                        <span class="country country-noactive country-england">
+                                            English  <img class="img-flags" src="~/Media/images/flags/united-kingdom.svg" />
+                                        </span>
 
-                                        <option value="vietnam" data-class="flag-vietnam">VietNam</option>
-                                        <option value="united-kingdom" data-class="flag-uk">English</option>
-                                    </select>
+                                    </div>
+                                    <div class="flag">
+
+                                    </div>
                                 </div>
-
                             </div>
 
 
@@ -205,8 +222,8 @@
     </div>
 </header>
 
-<script src="~/Scripts/jq dialog/dialog.js"></script>
-
+<script src="~/Scripts/jquery/language.js"></script>
+<script src="~/Scripts/jquery/dialog.js"></script>
 
 
 

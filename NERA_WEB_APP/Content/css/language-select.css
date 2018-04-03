@@ -1,79 +1,171 @@
 /*----------------------------------
 Default custom select styles */
 
+
+
+.language-select {
+    height: 25px;
+    width: 80px;
+    background: #eee;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    line-height: 27px;
+    cursor: pointer;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.select-country span {
+    font-size: 8.5px;
+    font-weight: 300;
+    position: relative;
+    cursor: pointer;
+    padding: 0 15px 0 5px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    height: 100%;
+    text-align: left;
+    z-index: 10000;
+}
+
+.select-country:hover .country-noactive {
+    display: block;
+}
+
+.country {
+    display: none;
+}
+
+.country-active {
+    display: block;
+}
+
+.select-country .country-noactive {
+    width: 90px;
+    background: #fff;
+}
+
+.country-england {
+}
+
+.flag {
+    border-radius: 50%;
+    background: #fff;
+    height: 25px;
+    width: 30px;
+    padding: 4px;
+    text-align: center;
+    line-height: 10px;
+    position: relative;
+    background: url('../../Media/images/flags/vietnam.svg') no-repeat center;
+}
+
+
+.img-flags {
+    top: 3px;
+    right: 18px;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+}
+
+/* reponsive*/
+
+@media only screen and (max-width : 500px) {
+    language-select {
+        height: 25px;
+        width: 65px;
+    }
+
+    select-country span {
+        font-size: 8px;
+    }
+    .select-country .country-noactive {
+        width: 86px;
+        background: #fff;
+    }
+
+    .flag {
+        border-radius: 20%;
+        height: 25px;
+        width: 20px;
+    }
+ 
+}
+
+
 div.lang-select {
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
-  text-align: left;
-  z-index: 100;
-  width: 78px;
-  max-width: 500px;
-  border-radius: 30px;
-  height: 25px;
-  line-height: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    text-align: left;
+    z-index: 100;
+    width: 78px;
+    max-width: 500px;
+    border-radius: 30px;
+    height: 25px;
+    line-height: 25px;
 }
 
 .lang-select:focus {
-  outline: none;
- /* For better accessibility add a style for this in your skin */;
+    outline: none;
+    /* For better accessibility add a style for this in your skin */;
 }
 
 .lang-select select {
-  display: none;
+    display: none;
 }
 
 .lang-select span {
-  display: block;
-  font-size: 8.5px;
-  font-weight: 300;
-  position: relative;
-  cursor: pointer;
-  padding: 0 19px 0 12px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  text-transform: uppercase;
-  height: 100%;
-  
+    display: block;
+    font-size: 8.5px;
+    font-weight: 300;
+    position: relative;
+    cursor: pointer;
+    padding: 0 19px 0 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    height: 100%;
 }
 
-.lang-select span.cs-placeholder {
-  position: relative;
-  background: #f7f7f7;
-  border: 0;
-  border-radius: 30px;
-}
-
-.lang-select span.cs-placeholder:after {
-  content: "\f1ab";
-  position: absolute;
-  top: -3px;
-  right: -2px;
-  width: 30px;
-  height: 30px;
-  background: #fff;
-  font-size: 14px;
-  line-height: 28px;
-  color: #343434;
-  font-family: FontAwesome;
-}
-
-
-.lang-select span.cs-placeholder[data-current="united-kingdom"]:after,
-.lang-select span.cs-placeholder[data-current="vietnam"]:after {
-  text-indent: 1000px;
-  background-size: 70%!important;
-}
-
-    .lang-select span.cs-placeholder[data-current="united-kingdom"]:after {
-       
-        background: url('../../Media/images/flags/united-kingdom.svg') no-repeat center;
+    .lang-select span.cs-placeholder {
+        position: relative;
+        background: #f7f7f7;
+        border: 0;
+        border-radius: 30px;
     }
 
-    .lang-select span.cs-placeholder[data-current="vietnam"]:after {
-        background: url('../../Media/images/flags/vietnam.svg')  no-repeat center;
-        
-    }
+        .lang-select span.cs-placeholder:after {
+            content: "\f1ab";
+            position: absolute;
+            top: -3px;
+            right: -2px;
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            font-size: 14px;
+            line-height: 28px;
+            color: #343434;
+            font-family: FontAwesome;
+        }
+
+
+        .lang-select span.cs-placeholder[data-current="united-kingdom"]:after,
+        .lang-select span.cs-placeholder[data-current="vietnam"]:after {
+            text-indent: 1000px;
+            background-size: 70% !important;
+        }
+
+        .lang-select span.cs-placeholder[data-current="united-kingdom"]:after {
+            background: url('../../Media/images/flags/united-kingdom.svg') no-repeat center;
+        }
+
+        .lang-select span.cs-placeholder[data-current="vietnam"]:after {
+            background: url('../../Media/images/flags/vietnam.svg') no-repeat center;
+        }
 
 
 /* Placeholder and selected option */
@@ -81,85 +173,83 @@ div.lang-select {
 
 .lang-select > span::after,
 .lang-select .lang-selected span::after {
-  speak: none;
-  position: absolute;
-  top: 50%;
+    speak: none;
+    position: absolute;
+    top: 50%;
 }
 
 .lang-select > span::after {
-  right: 0;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  width: 28px;
-  height: 28px;
-  text-align: center;
+    right: 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    text-align: center;
 }
 
 div.cs-active {
-  z-index: 200;
+    z-index: 200;
 }
 
 /* Options */
 .lang-select .cs-options {
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  background: #fff;
-  visibility: hidden;
-  margin-top: 5px;
-  border-radius: 4px;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    background: #fff;
+    visibility: hidden;
+    margin-top: 5px;
+    border-radius: 4px;
 }
 
 .lang-select.cs-active .cs-options {
-  visibility: visible;
+    visibility: visible;
 }
 
 .lang-select ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
-.lang-select ul span {
-  padding: 0 10px;
-}
+    .lang-select ul span {
+        padding: 0 10px;
+    }
 
-.lang-select ul li.cs-focus span {
-  background-color: #ddd;
-}
+    .lang-select ul li.cs-focus span {
+        background-color: #ddd;
+    }
 
 .lang-select .cs-options span {
-  background-repeat: no-repeat;
-  background-position: 12px 48%;
-  background-size: 15px auto;
-  padding: 0 0px 0 13px;
+    background-repeat: no-repeat;
+    background-position: 12px 48%;
+    background-size: 15px auto;
+    padding: 0 0px 0 13px;
 }
 
-.lang-select .cs-options span:hover,
-.lang-select .cs-options li.cs-focus span,
-.lang-select .cs-options .cs-selected span {
-  color: #1e4c4a;
-}
+    .lang-select .cs-options span:hover,
+    .lang-select .cs-options li.cs-focus span,
+    .lang-select .cs-options .cs-selected span {
+        color: #1e4c4a;
+    }
 
-.lang-select .cs-options .cs-selected span::after {
-  content: '';
-}
+        .lang-select .cs-options .cs-selected span::after {
+            content: '';
+        }
 
 .lang-select .cs-options li.flag-uk span {
-  background-image: url(../img/flags/united-kingdom.svg);
+    background-image: url(../img/flags/united-kingdom.svg);
 }
 
 .lang-select .cs-options li.flag-france span {
-  background-image: url(../img/flags/france.svg);
+    background-image: url(../img/flags/france.svg);
 }
 
 .lang-select .cs-options li.flag-spain span {
-  background-image: url(../img/flags/spain.svg);
+    background-image: url(../img/flags/spain.svg);
 }
 
 .lang-select .cs-options li.flag-bd span {
-  background-image: url(../img/flags/bangladesh.svg);
+    background-image: url(../img/flags/bangladesh.svg);
 }
-
-
