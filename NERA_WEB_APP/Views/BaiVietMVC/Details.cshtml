@@ -1,106 +1,83 @@
 ﻿@model NERA_WEB_APP.Models.PostDetailViewModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Model.Post_Title;
+    ViewBag.DESC = Model.Meta_Desc;
+    ViewBag.Keyword = Model.Meta_Key;
 }
 
-<h2>Details</h2>
+@Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
+@Html.Partial("~/Views/Shared/pages/breadcrumb/breadcrumb.cshtml")
+<section class="details-product-wrap section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="img-thumb col-sm-12">
+                    <img class="img-responsive col-sm-12" src="~/Media/images/about-thumb.jpg" alt="thumb">
 
-<div>
-    <h4>CS_Post_Info</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_Title)
-        </dt>
+                    <div class="col-sm-12 slide-img-product">
+                        <div>
+                            <img src="~/Media/images/featurebg.png" class="img-thumbnail" alt="">
+                            <div class="arrow arrow-left">
+                                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="~/Media/images/counterbg3.png" class="img-thumbnail" alt="">
+                        </div>
+                        <div>
+                            <img src="~/Media/images/featurebg.png" class="img-thumbnail" alt="">
+                            <div class="arrow arrow-right">
+                                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Post_Title)
-        </dd>
+            </div><!-- /.col -->
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Post_Content)
-        </dt>
+            <div class="col-sm-7 infor-details-pro">
+                <div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Post_Content)
-        </dd>
+                    <div>
+                        <span>Mã sản phẩm :</span>
+                        #456546456
+                    </div>
+                    <div>
+                        <h2>
+                            <span>Tên sản phẩm :</span>
+                            Tên sản phẩm
+                        </h2>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Meta_Desc)
-        </dt>
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Meta_Desc)
-        </dd>
+                    <div>
+                        <span style="font-size: 20px;">
+                            300.000 vnd
+                        </span>
+                    </div>
+                    <div style="margin-bottom: 5px;">
+                        <span>
+                            Đánh giá
+                        </span>
+                    </div>
+                    <div>
+                        <h4>
+                            <span>Mô tả:</span>
+                            @Html.Raw(Model.Post_Content)
+                        </h4>
+                    </div>
+                </div>
+                <div class="state-detail-product">
+                    <button type="button" class="btn">
+                        Đăng ký thuê nhà
+                    </button>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Meta_Key)
-        </dt>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Meta_Key)
-        </dd>
+        </div><!--/.details-product-wrap-content  -->
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Enable)
-        </dt>
+    </div><!--/.col-->
 
-        <dd>
-            @Html.DisplayFor(model => model.Enable)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Item_ID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Item_ID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Create_By)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Create_By)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Create_Date)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Create_Date)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Update_By)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Update_By)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Update_Date)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Update_Date)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Language)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Language)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { Post_Id = Model.Post_Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+</section>

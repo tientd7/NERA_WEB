@@ -136,10 +136,14 @@ namespace NERA_WEB_APP.Controllers
         [AllowAnonymous]
         public ActionResult Details(int Post_Id)
         {
-            var obj = db.CS_Post_Info.Find(Post_Id);
-            var slides = from s in db.CS_Post_Slides where s.Post_Id == Post_Id select s;
-            PostDetailViewModel objView = new PostDetailViewModel(obj,slides.ToList());
-            return View(objView);
+            var obj = db.CS_Post_Info.Where(t=>t.Enable && t.Post_Id==Post_Id);
+            if (obj.Count() > 0)
+            {
+                var slides = from s in db.CS_Post_Slides where s.Post_Id == Post_Id && s.Enable select s;
+                PostDetailViewModel objView = new PostDetailViewModel(obj.First(), slides.ToList());
+                return View(objView);
+            }
+            return RedirectToRoute("/Home");
         }
 
         public ActionResult Index1()
