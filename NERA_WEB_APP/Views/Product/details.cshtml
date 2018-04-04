@@ -86,18 +86,23 @@
     var images = $(".wrapper-img").find('img').map(function () {
         return $(this).attr('src')
     }).get();
+    var wrapperImg = $('.wrapper-img');
 
+    var imgSlide = wrapperImg.find('img');
+
+    imgSlide.click(function () {
+        var src = $(this).attr('src');
+        
+        $('#img-content').attr('src', src);
+    });
+   
+   
     if ($(".wrapper-img").eq(1)) {
         var getsrcSlideCenter = $(".wrapper-img").eq(1).find('img').attr('src');
         $('#img-content').attr('src', getsrcSlideCenter);
     }
     
-    var imgSlide = $('.wrapper-img').find('img');
-    imgSlide.click(function () {
-        var src = $(this).attr('src');
-        $('#img-content').show(2000);
-        $('#img-content').attr('src', src);
-    });
+    
 
 </script>
 

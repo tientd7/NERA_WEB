@@ -63,12 +63,14 @@ namespace NERA_WEB_APP.Controllers
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult LogOn(string returnUrl)
-        {
-            ViewBag.ReturnUrl = returnUrl;
-            LoginViewModel model = new LoginViewModel();
-            return View(model);
+        {          
+                ViewBag.ReturnUrl = returnUrl;
+                LoginViewModel model = new LoginViewModel();
+                return View(model); 
         }
 
+      
+     
         //
         // POST: /Account/Login
         [HttpPost]
@@ -87,6 +89,9 @@ namespace NERA_WEB_APP.Controllers
                     return Json(ViewBag.ErrMessage);
                 }
                 //FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+
+
+               
                 signIn(user, model.RememberMe);
                 //services.SignIn(model.UserName, model.RememberMe);
                 //ViewData["Role"] = user.Role.RoleCode;

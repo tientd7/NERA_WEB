@@ -17,8 +17,8 @@
     </div>
 
 </section>
-
 <section class="container">
+    @Html.Partial("~/Views/Contract/popupContract.cshtml")
     <div class="page-list-price">
         <div class="list-price">
             <fieldset>
@@ -30,14 +30,14 @@
                     </span>
                     <span style="text-align:right; position:absolute; right:0; bottom:0;">
                         <h4>
-                            <a href="#">Thêm mới</a>
+                            <a href="#" class="btn-show-popup">Thêm mới</a>
                         </h4>
                     </span>
 
                 </legend>
 
                 <div class="row" style="border-bottom:1px solid #eee; margin-bottom:20px;  padding:20px;">
-                    <div class="col-sm-3 user-profile"  style="border-right:1px solid #eee;">
+                    <div class="col-sm-3 user-profile" style="border-right:1px solid #eee;">
                         <img src="~/Media/images/client1.png" />
                     </div>
                     <div class="col-sm-7 infor-customer">
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="row" style="border-bottom:1px solid #eee; margin-bottom:20px; padding:20px;">
-                    <div class="col-sm-3 user-profile"  style="border-right:1px solid #eee;">
+                    <div class="col-sm-3 user-profile" style="border-right:1px solid #eee;">
                         <img src="~/Media/images/client1.png" />
                     </div>
                     <div class="col-sm-7 infor-customer">
@@ -87,10 +87,10 @@
                     </div>
                 </div>
                 <div class="row" style="border-bottom:1px solid #eee; margin-bottom:20px;  padding:20px;">
-                    <div class="col-sm-3 user-profile"  style="border-right:1px solid #eee;">
+                    <div class="col-sm-3 user-profile" style="border-right:1px solid #eee;">
                         <img src="~/Media/images/client1.png" />
                     </div>
-                    <div class="col-sm-7 infor-customer"">
+                    <div class="col-sm-7 infor-customer" ">
                         <div>
                             <span>Họ tên : <b>Nguyễn Văn A</b></span>
                         </div>
@@ -116,4 +116,8 @@
         </div>
     </div>
 </section>
+
+
+<script src="~/Scripts/dirPagination.js"></script>
+<script src="~/Scripts/jquery/dialog.js"></script>
 

@@ -51,30 +51,21 @@
                     <div>
                         <div ng-if="Item.Item_Type === 'SP'">
                             <select class="form-control  select-category" ng-model="Item.Item_Type" style="width:150px;">
-                                <option value="">Mục thêm</option>
-                                <option value="SP" selected>Sản phẩm</option>
-                                <option value="DV">Dịch vụ</option>
+                                <option value="SP">Sản phẩm</option>
                             </select>
                         </div>
                         <div ng-if="Item.Item_Type === 'DV'">
                             <select class="form-control  select-category" ng-model="Item.Item_Type" style="width:150px;">
-                                <option value="">Mục thêm</option>
-                                <option value="SP">Sản phẩm</option>
-                                <option value="DV" selected>Dịch vụ</option>
-                            </select>
-                        </div>
-                        <div ng-if="Item.Item_Type == ''">
-                            <select class="form-control select-category" ng-model="Item.Item_Type" style="width:150px;">
-                                <option value="">Mục thêm</option>
-                                <option value="SP">Sản phẩm</option>
                                 <option value="DV">Dịch vụ</option>
                             </select>
                         </div>
+
                         <div ng-if="Item.Item_Type == null">
-                            <select class="form-control select-category" ng-model="Item.Item_Type" style="width:150px;">
-                                <option value="">Mục thêm</option>
+                            <select class="form-control  select-category select-category-sp" ng-model="Item.Item_Type" style="width:150px; display:none;">
                                 <option value="SP">Sản phẩm</option>
-                                <option value="DV">Dịch vụ</option>
+                            </select>
+                            <select class="form-control select-category select-category-dv" ng-model="Item.Item_Type" style="width:150px;">
+                                <option value="DV" selected class="option-dv">Dịch vụ</option>
                             </select>
                         </div>
                         <span class="alert alert-danger alert-null-error-cate" style="display:none; position:relative; top:8px;width:150px;padding: 12px;">
@@ -126,9 +117,15 @@
                 <label>Nội dung</label>
                 <textarea class="form-control" ng-model="Item.Item_Content">{{Item.Item_Content}}</textarea>
             </div>
+            @*<div class="form-group">
+                <label>Nội dung</label>
+                
+                    <textarea class="form-control" id="Post_Content" name="Post_Content" ng-model="Item.Item_Content">{{Item.Item_Content}}</textarea>
+            </div>*@
 
             <div class="form-group" style="border:0px;">
                 <button type="button" ng-click="Create(Item)" class="btn btn-add btn-success">Thêm mới</button>
+                @*<button type="button" ng-click="CreateNewServices(Item)" class="btn btn-add btn-success">Thêm mới dichj vuj</button>*@
                 <button type="button" ng-click="update(Item)" class="btn btn-update btn-success">Update</button>
             </div>
         </div>

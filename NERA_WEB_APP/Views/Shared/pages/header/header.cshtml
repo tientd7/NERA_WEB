@@ -3,7 +3,7 @@
 
 
     var userName = HttpContext.Current.User.Identity.Name;
-
+    
     //var roleId = Convert.ToInt32(Session["UserRole"]);
 }
 
@@ -17,6 +17,7 @@
                         <h1>
                             <a href="/Home/Index">
                                 NeraHome
+                                
                             </a>
 
                         </h1>
@@ -218,21 +219,35 @@
                     <!-- Services -->
                     <li class="dropdown">
                         <a href="#">Dịch vụ &amp; Tiện ích<b class="caret"></b></a>
-                        <!-- submenu-wrapper -->
+
                         <div class="submenu-wrapper submenu-wrapper-topbottom">
                             <div class="submenu-inner  submenu-inner-topbottom">
                                 <ul class="dropdown-menu" ng-controller="ProductCtrl">
 
                                     <li><a href="/Price/listPrice">Bảng giá dịch vụ</a></li>
-                                    <li ng-repeat="i in ItemDV"><a href="/Product/details">{{i.Item_Name}}</a></li>
+                                    <li ng-repeat="i in ItemDV | limitTo : 3"><a href="/Product/details">{{i.Item_Name}}</a></li>
                                     <li><a href="/Product/services">Dịch vụ khác</a></li>
                                 </ul>
                             </div>
                         </div>
-                        <!-- /submenu-wrapper -->
+
                     </li>
                     <!-- /Services -->
-                    <!-- Blog -->
+
+                    <li class="dropdown">
+                        <a href="#">Sản phẩm <b class="caret"></b></a>
+
+                        <div class="submenu-wrapper submenu-wrapper-topbottom">
+                            <div class="submenu-inner  submenu-inner-topbottom">
+                                <ul class="dropdown-menu" ng-controller="ProductCtrl">
+                                    <li ng-repeat="i in ItemSP | limitTo : 3"><a href="/Product/details">{{i.Item_Name}}</a></li>
+                                    <li><a href="/Product/product">Sản phẩm khác</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </li>
+
                     @*<li><a href="/Home/Utility">Tiện ích</a> </li>*@
                     <!-- /Blog -->
                     <li><a href="/Home/Event">Tin tức &amp; Sự kiện</a></li>
@@ -249,5 +264,7 @@
 <script src="~/Scripts/jquery/language.js"></script>
 <script src="~/Scripts/jquery/dialog.js"></script>
 
-
+@section JavaScript{
+    <script src="~/Scripts/Controller/Product/product.js"></script>
+}
 

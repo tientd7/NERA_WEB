@@ -50,6 +50,8 @@
     <script src="~/Scripts/angular.js"></script>
 
     <script src="~/Scripts/Controller/Filter/CustomFilter.js"></script>
+    <script src="~/Scripts/dirPagination.js"></script>
+    <script src="~/Scripts/Controller/Product/product.js"></script>
     <script src="~/Scripts/Controller/Product/showMenuBarDV.js"></script>
     <script src="~/Scripts/Controller/Product/addNewProduct.js"></script>
     <script src="~/Scripts/Controller/chatbox/chatboxCtrl.js"></script>
@@ -98,7 +100,7 @@
         <div class="st-pusher">
             <div class="st-content">
                 @Html.Partial("~/Views/Shared/pages/dialog_popup/dialog_signIn.cshtml")
-              
+
                 @Html.Partial("~/Views/Shared/pages/header/header.cshtml")
                 @RenderBody()
                 @Html.Partial("~/Views/Shared/pages/footer/footer.cshtml")
@@ -121,6 +123,6 @@
     @Html.Partial("~/Views/Shared/pages/action_totop/totop.cshtml")
     @Html.Partial("~/Views/Chatbox/chat_box.cshtml")
 
-   
+
 </body>
 </html>
