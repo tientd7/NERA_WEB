@@ -19,25 +19,6 @@ namespace NERA_WEB_APP
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            //< !--Twitter feed-- >
-
-
-            //< script src = "~/Scripts/Controller/BaiViet/ckfinder/ckfinder.js" ></ script >
-
-
-            // < script src = "~/Scripts/Controller/BaiViet/ckeditor/ckeditor.js" ></ script >
-
-
-            //  < script src = "~/Scripts/js/twitterFetcher_min.js" ></ script >
-
-
-            //   < !--Custom Script-- >
-
-
-            //   < script src = "~/Scripts/js/scripts.js" ></ script >
-
-
-            //    < script src = "~/Scripts/jquery/dialog.js" ></ script >
 
             bundles.Add(new ScriptBundle("~/bundles/scripts")
           .Include("~/Scripts/Controller/Filter/CustomFilter.js")

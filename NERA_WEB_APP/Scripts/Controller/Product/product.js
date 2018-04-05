@@ -1,6 +1,7 @@
 ﻿
-app.controller("ProductCtrl", function ($scope, $http) {
 
+
+app.controller("ProductCtrl", function ($scope, $http) {
     // tạo biến item sản phẩm
     $scope.ItemSP;
     // hàm gọi lấy danh sách sản phẩm
