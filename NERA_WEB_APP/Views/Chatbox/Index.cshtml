@@ -14,7 +14,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Chat_Id</th>
+                    <th><a>Chat_Id</a></th>
                     <th>Request_Name</th>
                     <th>Request_Phone</th>
                     <th>Request_Content</th>
@@ -22,7 +22,7 @@
                     <th>Create_date</th>
                 </tr>
             </thead>
-            <tr ng-repeat="a in data | orderBy:'Unread':true | orderBy:sort">
+            <tr ng-repeat="a in data ">
                 <td>{{a.Chat_Id}}</td>
                 <td>{{a.Request_Name}}</td>
                 <td>{{a.Request_Phone}}</td>
@@ -38,6 +38,16 @@
                 <td></td>
             </tr>
         </table>
+        <ul class="pager">
+            <li class="page-item"><a class="page-link" href="#" ng-click="onStart()">Start</a></li>
+            <li class="page-item"><a class="page-link" href="#" ng-click="onPrevious()">Previous</a></li>
+            <ul class="pagination" ng-repeat="item in Paging">
+                <li class="page-item"  ng-class="item.disable"><a  class="page-link" href="#" ng-click="onPage(item.pageIndex)">{{item.pageIndex + 1}}</a></li>
+            </ul>
+
+            <li class="page-item"><a class="page-link" href="#" ng-click="onNext()">Next</a></li>
+            <li class="page-item"><a class="page-link" href="#" ng-click="onEnd()">End</a></li>
+        </ul>
     </div>
 </form>
 

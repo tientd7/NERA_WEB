@@ -1,5 +1,49 @@
 ﻿app.controller('CBCtrl', function ($scope, $http, $filter) {
 
+//#region Paging
+    $scope.totalRows = 101;
+    $scope.pageSize = 20;
+    $scope.pageIndex = 0;
+    $scope.Paging = [];
+    var numOfPages = Math.ceil($scope.totalRows / $scope.pageSize);
+    startPaging();
+    $scope.onStart = function () {
+        setPageIndex(0);
+    };
+    $scope.onStart();
+    $scope.onNext = function () {
+        setPageIndex($scope.pageIndex+1);
+    }
+    $scope.onPrevious = function () {
+        setPageIndex($scope.pageIndex - 1);
+    }
+    $scope.onEnd = function () {
+        setPageIndex(numOfPages - 1);
+    }
+    $scope.onPage = function (id) {
+        setPageIndex(id);
+    }
+    function setPageIndex(i) {
+        $scope.pageIndex = i;
+        startPaging();
+        $scope.Paging[$scope.pageIndex]['disable'] = 'disabled';
+    }
+    function startPaging() {
+        $scope.Paging = [];
+        for (i = 0; i < numOfPages; i++) {
+            var item = {};
+            item['pageIndex'] = i;
+            item['disable'] = '';
+            $scope.Paging.push(item);
+        }
+    }
+//#endregion Paging
+
+    //#region filter
+    $scope.filter = '';
+    $scope.order = '';
+    $scope.desc = true;
+    //#endregion filter
 
     $scope.data;
     $filter.data = false;
