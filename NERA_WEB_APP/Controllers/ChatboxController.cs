@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -21,11 +22,70 @@ namespace NERA_WEB_APP.Controllers
             return View();
 
         }
-        public JsonResult GetData()
+        [HttpPost]
+        public JsonResult GetData(string filter, string order, bool? unread, bool desc = false, int pageIndex = 0, int pageSize = 20)
         {
             //Lấy ds từ db
-            var LST = (from obj in db.CS_ChatBox_Info select obj).ToList();
-            return Json(LST, JsonRequestBehavior.AllowGet);
+
+            #region filter
+            Expression<Func<CS_ChatBox_Info, bool>> filterExp = (t => 1 == 1);
+
+            if (unread.HasValue)
+                filterExp = obj => (obj.Request_Content.Contains(filter)
+                        || obj.Request_Name.Contains(filter)
+                        || obj.Request_Phone.Contains(filter))
+                        && obj.Unread == unread.Value
+                        ;
+            else
+                filterExp = obj => (obj.Request_Content.Contains(filter)
+                        || obj.Request_Name.Contains(filter)
+                        || obj.Request_Phone.Contains(filter));
+
+
+            #endregion
+
+            var LST = (from obj in db.CS_ChatBox_Info select obj).Where(filterExp);
+
+            int totalRows = LST.Count();
+
+            #region Order 
+            string Order = order.ToUpper();
+            //order
+            switch (Order)
+            {
+                case "REQUEST_NAME":
+                    if (desc)
+                        LST = LST.OrderByDescending(t => t.Request_Name);
+                    else
+                        LST = LST.OrderBy(t => t.Request_Name);
+                    break;
+                case "REQUEST_PHONE":
+                    if (desc)
+                        LST = LST.OrderByDescending(t => t.Request_Phone);
+                    else
+                        LST = LST.OrderBy(t => t.Request_Phone);
+                    break;
+                case "REQUEST_CONTENT":
+                    if (desc)
+                        LST = LST.OrderByDescending(t => t.Request_Content);
+                    else
+                        LST = LST.OrderBy(t => t.Request_Content);
+                    break;
+                case "UNREAD":
+                    if (desc)
+                        LST = LST.OrderByDescending(t => t.Unread);
+                    else
+                        LST = LST.OrderBy(t => t.Unread);
+                    break;
+                default:
+                    //Mac dinh order theo create date
+                    LST = LST.OrderByDescending(t => t.Create_date);
+                    break;
+            }
+
+            #endregion
+            LST = LST.Skip(pageIndex * pageSize).Take(pageSize);
+            return Json(new object[] { LST.ToList(),totalRows }, JsonRequestBehavior.AllowGet);
         }
 
 
@@ -44,9 +104,9 @@ namespace NERA_WEB_APP.Controllers
             //return Json(cscb);
 
         }
-  
 
-        }
+
     }
+}
 
 
