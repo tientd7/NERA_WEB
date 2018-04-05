@@ -19,7 +19,15 @@ namespace NERA_WEB_APP.Controllers
         public ActionResult Index()
         {
             return View();
+
         }
+        public JsonResult GetData()
+        {
+            //Lấy ds từ db
+            var LST = (from obj in db.CS_ChatBox_Info select obj).ToList();
+            return Json(LST, JsonRequestBehavior.AllowGet);
+        }
+
 
         public void addData(CS_ChatBox_Info cs)
         {
@@ -34,6 +42,11 @@ namespace NERA_WEB_APP.Controllers
             db.CS_ChatBox_Info.Add(cscb);
             db.SaveChanges();
             //return Json(cscb);
+
+        }
+  
+
         }
     }
-}
+
+

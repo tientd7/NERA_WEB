@@ -31,108 +31,132 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
-            <h4>CS_Post_Info</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.Post_Id)
+    <div class="form-horizontal">
+        <h4>CS_Post_Info</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Post_Id)
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Post_Title, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Post_Title, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Post_Title, "", new { @class = "text-danger" })
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Post_Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Post_Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Post_Title, "", new { @class = "text-danger" })
             </div>
+        </div>
 
 
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Meta_Desc, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <textarea rows="3" name="MetaDesc" style="width:100%;">@Model.Meta_Desc</textarea>
-                    @Html.ValidationMessageFor(model => model.Meta_Desc, "", new { @class = "text-danger" })
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Meta_Desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <textarea rows="3" name="MetaDesc" style="width:100%;">@Model.Meta_Desc</textarea>
+                @Html.ValidationMessageFor(model => model.Meta_Desc, "", new { @class = "text-danger" })
             </div>
+        </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Meta_Key, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <textarea rows="3" name="MetaKey" style="width:100%;">@Model.Meta_Key" </textarea>
-                    @Html.ValidationMessageFor(model => model.Meta_Key, "", new { @class = "text-danger" })
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Meta_Key, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <textarea rows="3" name="MetaKey" style="width:100%;">@Model.Meta_Key" </textarea>
+                @Html.ValidationMessageFor(model => model.Meta_Key, "", new { @class = "text-danger" })
             </div>
+        </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Enable, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.Enable)
-                        @Html.ValidationMessageFor(model => model.Enable, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Item_ID, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Item_ID, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Item_ID, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group  col-sm-6">
-                <label class="control-label col-md-2">Ngôn ngữ</label>
-                <div class="col-md-10">
-                    <select class="form-control" name="Language" style="width:150px;">
-
-                        <option value="">Chọn ngôn ngữ</option>
-                        @if (Model.Language == "VI")
-                        {
-                            <option value="@Model.Language" selected>Việt nam</option>
-                            <option value="EN">English</option>
-                        }
-                        else if (Model.Language == "EN")
-                        {
-                            <option value="VI">Việt nam</option>
-                            <option value="@Model.Language" selected>English</option>
-
-                        }
-                        else
-                        {
-                            <option value="VI">Việt nam</option>
-                            <option value="EN">English</option>
-                        }
-                    </select>
-                </div>
-
-            </div>
-            <div class="form-group">
-                <div class="col-md-12">
-                    Nội dung bài viết
-                </div>
-                <div class="col-md-12">
-                    @Html.TextAreaFor(model => model.Post_Content, new { htmlAttributes = new { @class = "form-control", @id = "Post_Content" }, id = "Post_Content" })
-                    @Html.ValidationMessageFor(model => model.Post_Content, "", new { @class = "text-danger" })
-                </div>
-
-            </div>
-            <div class="form-group" id="BoxAnh">
-                <label class="col-md-12">Ảnh</label>
-                <div class="col-md-12">
-                    <input type="hidden" name="slides" class="col-sm-8" id="txtPost_content1" /> <input type="button" class="col-sm-1 prevented" id="btnselect" onclick="chonAnh()" value="Chon anh" /><br />
-
-            </div>
-                </div>
-
-           
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.Enable, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Enable)
+                    @Html.ValidationMessageFor(model => model.Enable, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                <div class="form-group  col-sm-6">
+                    <label class="control-label col-md-2">Item id</label>
+                    <div class="col-md-10" name="Item">
+                        @Html.DropDownList("Item_Id", new SelectList(ViewBag.CBXMenuItem, "Item_Id", "Item_Name"))
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group  col-sm-6">
+            <label class="control-label col-md-2">Ngôn ngữ</label>
+            <div class="col-md-10">
+                <select class="form-control" name="Language" style="width:150px;">
+
+                    <option value="">Chọn ngôn ngữ</option>
+                    @if (Model.Language == "VI")
+                {
+                    <option value="@Model.Language" selected>Việt nam</option>
+                    <option value="EN">English</option>
+            }
+            else if (Model.Language == "EN")
+            {
+                <option value="VI">Việt nam</option>
+                <option value="@Model.Language" selected>English</option>
+
+        }
+        else
+        {
+            <option value="VI">Việt nam</option>
+            <option value="EN">English</option>
+    }
+                </select>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                Nội dung bài viết
+            </div>
+            <div class="col-md-12">
+                @Html.TextAreaFor(model => model.Post_Content, new { htmlAttributes = new { @class = "form-control", @id = "Post_Content" }, id = "Post_Content" })
+                @Html.ValidationMessageFor(model => model.Post_Content, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="form-group col-md-12">
+            <div class="col-md-12">
+                Giá
+            </div>
+
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Gia, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Gia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group col-md-5">
+            @Html.LabelFor(model => model.Dathue, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Dathue)
+                    @Html.ValidationMessageFor(model => model.Dathue, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group" id="BoxAnh">
+            <label class="col-md-12">Ảnh</label>
+            <div class="col-md-12">
+                <input type="hidden" name="slides" class="col-sm-8" id="txtPost_content1" /> <input type="button" class="col-sm-1 prevented" id="btnselect" onclick="chonAnh()" value="Chon anh" /><br />
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
 
 
 
