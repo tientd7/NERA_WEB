@@ -175,7 +175,6 @@
     <Compile Include="Controllers\BaiVietMVCController.cs" />
     <Compile Include="Controllers\ChatboxController.cs" />
     <Compile Include="Controllers\ContractController.cs" />
-    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\Orther_SlideController.cs" />
@@ -213,7 +212,6 @@
     <Compile Include="Models\Maps\CS_Other_Slide_Map.cs" />
     <Compile Include="Models\Maps\CS_Posts_Info_Map.cs" />
     <Compile Include="Models\Maps\CS_Post_Slides_Map.cs" />
-    <Compile Include="Models\Post_Infor_ModelView.cs" />
     <Compile Include="Models\post_slide_viewModel.cs" />
     <Compile Include="Models\SimpleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -303,7 +301,6 @@
     <Content Include="Scripts\angular-route.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\build-config.js" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\ckeditor.js" />
@@ -738,6 +735,7 @@
     <Content Include="Scripts\Controller\BaiViet\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\skins\moono-lisa\readme.md" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Controller\BaiViet\BaiVietInsertUpdate.js" />
     <Content Include="Scripts\Controller\BaiViet\BaiVietListController.js" />
@@ -1396,7 +1394,6 @@
     <Content Include="Scripts\editor\editor.js" />
     <Content Include="Scripts\Controller\Product\product.js" />
     <Content Include="Scripts\Controller\Product\showMenuBarDV.js" />
-    <Content Include="Scripts\dirPagination.js" />
     <Content Include="Scripts\jquery\chatbox.js" />
     <Content Include="Scripts\jquery\dialog.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -1432,7 +1429,6 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\ui-bootstrap-tpls-2.5.0.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1464,7 +1460,6 @@
     <Content Include="Views\Shared\pages\chat_box\chat_box.cshtml" />
     <Content Include="Views\Home\Tamnhin.cshtml" />
     <Content Include="Views\Chatbox\chat_box.cshtml" />
-    <Content Include="Views\Chatbox\Index.cshtml" />
     <Content Include="Views\Post_Slide\Index.cshtml" />
     <Content Include="Views\Post_Slide\ThemSlide.cshtml" />
     <Content Include="Views\Post_Slide\Edit.cshtml" />
@@ -1495,10 +1490,7 @@
     <Content Include="Views\BaiVietMVC\Details.cshtml" />
     <Content Include="Views\BaiVietMVC\Index1.cshtml" />
     <Content Include="Views\Account\LogOn.cshtml" />
-    <Content Include="Views\Price\popupPrice.cshtml" />
-    <Content Include="Views\Contract\popupContract.cshtml" />
-    <Content Include="Views\Customer\order.cshtml" />
-    <Content Include="Views\Customer\detailOrder.cshtml" />
+    <Content Include="Views\Chatbox\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

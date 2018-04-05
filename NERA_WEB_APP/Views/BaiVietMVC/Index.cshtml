@@ -56,9 +56,6 @@
                 Tiêu đề bài viết
             </th>
             <th>
-                Nội dung bài viết
-            </th>
-            <th>
                 Miêu tả
             </th>
             <th>
@@ -85,6 +82,9 @@
             <th>
                 Ngôn ngữ
             </th>
+
+            <th>Giá </th>
+            <th>Đã Thuê</th>
             <th>Chức năng</th>
         </tr>
 
@@ -94,9 +94,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Post_Title)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Post_Content)
-            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Meta_Desc)
             </td>
@@ -124,7 +122,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Language)
             </td>
-           
+            <td>
+                @Html.DisplayFor(modelItem => item.Gia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dathue)
+            </td>
+
             <td>
                 @Html.ActionLink("Edit", "Edit", new { Post_Id = item.Post_Id }) |
                 @Html.ActionLink("Details", "Details", new { Post_Id = item.Post_Id }) |

@@ -18,14 +18,18 @@ namespace NERA_WEB_APP.Models
         public string Meta_Desc { get; set; }
         public string Meta_Key { get; set; }
         public bool Enable { get; set; }
-        public int Item_ID { get; set; }
+        public string Item_ID { get; set; }
         public int? Create_By { get; set; }
         public DateTime? Create_Date { get; set; }
         public int? Update_By { get; set; }
         public DateTime? Update_Date { get; set; }
-        public string Language { get; set; }
+        public string Language { get; set; }     
+        public Int32 Gia { get; set; }
+        public bool Dathue { get; set; }
 
-        
+
+
+         
     }
     public class PostDetailViewModel
     {
@@ -57,7 +61,7 @@ namespace NERA_WEB_APP.Models
         public string Meta_Desc { get; set; }
         public string Meta_Key { get; set; }
         public bool Enable { get; set; }
-        public int Item_ID { get; set; }
+        public string Item_ID { get; set; }
         public int? Create_By { get; set; }
         public DateTime? Create_Date { get; set; }
         public int? Update_By { get; set; }

@@ -3,9 +3,7 @@ using NERA_WEB_APP.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace NERA_WEB_APP.Controllers
@@ -22,7 +20,7 @@ namespace NERA_WEB_APP.Controllers
         }
         public ActionResult Create()
         {
-            ViewBag.CBXMenuItem = (from s in db.Cs_Menu_item where s.Item_Type.Equals( "SP") select s).ToList();
+            ViewBag.CBXMenuItem = (from s in db.Cs_Menu_item where s.Item_Type.Equals("SP") select s).ToList();
             return View();
         }
         [HttpPost]
@@ -38,12 +36,14 @@ namespace NERA_WEB_APP.Controllers
             newObj.Update_By = 1;
             newObj.Update_Date = DateTime.Now;
             newObj.Enable = objInfo.Enable;
-            newObj.Item_ID = Convert.ToInt32(Request.Form["Item"]);
+            newObj.Item_ID = Request.Form["Item_Id"];
             newObj.Language = Request.Form["Language"];
             newObj.Meta_Desc = Request.Form["MetaDesc"];
             newObj.Meta_Key = Request.Form["MetaKey"];
             newObj.Post_Content = Request.Unvalidated["Post_Content"];
             newObj.Post_Title = objInfo.Post_Title;
+            newObj.Gia = objInfo.Gia;
+            newObj.Dathue = objInfo.Dathue;
             db.CS_Post_Info.Add(newObj);
             db.SaveChanges();
             foreach (string s in slides)
@@ -65,6 +65,7 @@ namespace NERA_WEB_APP.Controllers
         public ActionResult Edit(int Post_Id)
         { 
             var obj = db.CS_Post_Info.Find(Post_Id);
+            ViewBag.CBXMenuItem = (from s in db.Cs_Menu_item where s.Item_Type.Equals("SP") select s).ToList();
             return View(obj);
         }
         [HttpPost]
@@ -76,6 +77,7 @@ namespace NERA_WEB_APP.Controllers
             Slide.Update_Date = DateTime.Now;
             Slide.Meta_Desc = Request.Form["MetaDesc"];
             Slide.Meta_Key = Request.Form["MetaKey"];
+            Slide.Item_ID = Request.Form["Item_Id"];
             db.Entry(Slide).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
