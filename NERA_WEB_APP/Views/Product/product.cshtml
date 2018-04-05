@@ -3,6 +3,9 @@
     ViewBag.Title = "Sản phẩm";
 }
 
+@section jsFooter{
+<script src="~/Scripts/editor/editor.js"></script>
+}
 
 @Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
 <!--  FILTER -->
@@ -11,7 +14,7 @@
 
     //var roleId = Convert.ToInt32(Session["UserRole"]);
     var userName = HttpContext.Current.User.Identity.Name;
-   
+
 }
 
 <section class="sortby-wrapper breadcrumb-wrapper">
@@ -21,7 +24,7 @@
             &nbsp;
             <i class="fa fa-angle-right" aria-hidden="true"></i>
             &nbsp;
-            @ViewBag.Title 
+            @ViewBag.Title
         </span>
     </div>
     <div class="sort-by-wrapper">
@@ -116,19 +119,21 @@
                 }
             </div>
             <div class="state-product">
-                
+
                 <span>
-                    Trạng thái: Đã thuê 
+                    Trạng thái: Đã thuê
                 </span>
             </div>
 
 
         </div>
     </div>
-    <dir-pagination-controls  boundary-links="true"></dir-pagination-controls>
+    <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
 
 
 </section>
+
+
 <script src="~/Scripts/dirPagination.js"></script>
 <script src="~/Scripts/jquery/dialog.js"></script>
 @section JavaScript{

@@ -66,7 +66,7 @@ namespace NERA_WEB_APP.Controllers
             newObj.Meta_Desc = Obj.Meta_Desc;
             newObj.Meta_Key = Obj.Meta_Key;
             newObj.Language = Obj.Language;
-            newObj.Item_Content = Obj.Item_Content;
+            newObj.Item_Content = Request.Form["Post_Content"];
             db.Cs_Menu_item.Add(newObj);
             db.SaveChanges();
             return Json(newObj);

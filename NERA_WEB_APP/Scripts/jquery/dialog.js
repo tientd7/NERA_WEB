@@ -33,6 +33,10 @@ $('.btn-add-service').click(function () {
     $('.select-category-dv').show();
 })
 
+$('.btn-edit').click(function () {
+    $('.popup-box').addClass('box-dialog-keyframes');
+    $('.popup-box').removeClass('active-hide');
+})
 
 
 $('#btn-close').click(function () {
