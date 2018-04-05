@@ -61,14 +61,20 @@
                         </div>
 
                         <div ng-if="Item.Item_Type == null">
-                            <select class="form-control  select-category select-category-sp" ng-model="Item.Item_Type" style="width:150px; display:none;">
+                            <select class="form-control  select-category select-category-sp" ng-model="Item.Item_Type" style="width:150px;">
+                                <option value="">
+                                    Chọn mục thêm
+                                </option>
                                 <option value="SP">Sản phẩm</option>
                             </select>
                             <select class="form-control select-category select-category-dv" ng-model="Item.Item_Type" style="width:150px;">
+                                <option value="">
+                                    Chọn mục thêm
+                                </option>
                                 <option value="DV" selected class="option-dv">Dịch vụ</option>
                             </select>
                         </div>
-                        <span class="alert alert-danger alert-null-error-cate" style="display:none; position:relative; top:8px;width:150px;padding: 12px;">
+                        <span class="alert alert-danger alert-null-error-cate" style="display:none; position:relative; top:8px; width:150px; padding: 12px;">
                             Chọn mục cần thêm
                         </span>
                     </div>
@@ -97,7 +103,7 @@
                             <option value="EN">English</option>
                         </select>
                     </div>
-                    <span class="alert alert-danger alert-null-error-lang" style="display:none; position:relative; top:8px;width:150px;padding: 12px;">
+                    <span class="alert alert-danger alert-null-error-lang" style="display:none; position:relative; top:8px; width:150px;padding: 12px;">
                         Chọn ngôn ngữ cần thêm
                     </span>
                 </div>
@@ -118,10 +124,10 @@
                 <textarea class="form-control" ng-model="Item.Item_Content">{{Item.Item_Content}}</textarea>
             </div>
             @*<div class="form-group">
-                <label>Nội dung</label>
-                
-                    <textarea class="form-control" id="Post_Content" name="Post_Content" ng-model="Item.Item_Content">{{Item.Item_Content}}</textarea>
-            </div>*@
+                    <label>Nội dung</label>
+
+                        <textarea class="form-control" id="Post_Content" name="Post_Content" ng-model="Item.Item_Content">{{Item.Item_Content}}</textarea>
+                </div>*@
 
             <div class="form-group" style="border:0px;">
                 <button type="button" ng-click="Create(Item)" class="btn btn-add btn-success">Thêm mới</button>

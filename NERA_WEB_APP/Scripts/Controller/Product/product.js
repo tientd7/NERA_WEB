@@ -1,4 +1,5 @@
-﻿app.controller("ProductCtrl", function ($scope, $http) {
+﻿
+app.controller("ProductCtrl", function ($scope, $http) {
 
     // tạo biến item sản phẩm
     $scope.ItemSP;

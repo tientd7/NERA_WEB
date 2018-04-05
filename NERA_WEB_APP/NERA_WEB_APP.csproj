@@ -175,6 +175,7 @@
     <Compile Include="Controllers\BaiVietMVCController.cs" />
     <Compile Include="Controllers\ChatboxController.cs" />
     <Compile Include="Controllers\ContractController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\Orther_SlideController.cs" />
@@ -1495,6 +1496,8 @@
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Price\popupPrice.cshtml" />
     <Content Include="Views\Contract\popupContract.cshtml" />
+    <Content Include="Views\Customer\order.cshtml" />
+    <Content Include="Views\Customer\detailOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
