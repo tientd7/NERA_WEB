@@ -29,17 +29,18 @@ namespace NERA_WEB_APP.Controllers
 
             #region filter
             Expression<Func<CS_ChatBox_Info, bool>> filterExp = (t => 1 == 1);
+            String Filter = (String.IsNullOrEmpty(filter))?"":filter;
 
             if (unread.HasValue)
-                filterExp = obj => (obj.Request_Content.Contains(filter)
-                        || obj.Request_Name.Contains(filter)
-                        || obj.Request_Phone.Contains(filter))
+                filterExp = obj => (obj.Request_Content.Contains(Filter)
+                        || obj.Request_Name.Contains(Filter)
+                        || obj.Request_Phone.Contains(Filter))
                         && obj.Unread == unread.Value
                         ;
             else
-                filterExp = obj => (obj.Request_Content.Contains(filter)
-                        || obj.Request_Name.Contains(filter)
-                        || obj.Request_Phone.Contains(filter));
+                filterExp = obj => (obj.Request_Content.Contains(Filter)
+                        || obj.Request_Name.Contains(Filter)
+                        || obj.Request_Phone.Contains(Filter));
 
 
             #endregion
@@ -49,7 +50,9 @@ namespace NERA_WEB_APP.Controllers
             int totalRows = LST.Count();
 
             #region Order 
-            string Order = order.ToUpper();
+            String Order = "";
+            if (!String.IsNullOrEmpty(order))
+                Order = order.ToUpper();
             //order
             switch (Order)
             {
