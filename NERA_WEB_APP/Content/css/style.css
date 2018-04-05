@@ -1108,16 +1108,16 @@ div.alert.alert-danger {
             height: 100px;
         }
 
-.alert-noti-success{
-    text-align:center;
-    position:fixed;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    z-index:10000;
-    display:none;
-    color:#fff;
-    background:#04c443;
+.alert-noti-success {
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 10000;
+    display: none;
+    color: #fff;
+    background: #04c443;
 }
 
 .alert-add-success, .alert-update-success {
@@ -1173,4 +1173,39 @@ div.alert.alert-danger {
 }
 
     .item-detail-contract .col-sm-4 {
+    }
+
+
+
+/* PAGE LIST ORDER*/
+.wrapper-item-order {
+    border: 1px solid #eee;
+    margin-bottom:30px;
+}
+.wrapper-item-order-header {
+    border-bottom: 1px solid #eee;
+}
+.wrapper-item-order-header{
+    display:grid;
+    grid-template-columns:50% 50%;
+}
+.link-item-detail {
+    position: relative;
+    text-align: right;
+}
+
+    .link-item-detail a{
+        position:absolute;
+        top:10px;
+        right:0;
+    }
+
+
+.wrapper-item-order-content {
+    padding: 10px;
+    text-align: center;
+}
+
+    .wrapper-item-order-content .col-sm-3 {
+        padding-top: 20px;
     }

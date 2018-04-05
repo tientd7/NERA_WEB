@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "Chi tiết hóa đơn";
+}
+
+@{
+
+    var userName = HttpContext.Current.User.Identity.Name;
+
+}
+
+@Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
+
+<section class="sortby-wrapper breadcrumb-wrapper">
+    <div class="breadcrumb-wrapper">
+        <span>
+            <a href="/Home/Index">Trang chủ </a>
+            &nbsp;
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            &nbsp;
+            <a href="/Customer/order">Hóa đơn </a>
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            &nbsp;
+            @ViewBag.Title
+        </span>
+    </div>
+
+</section>
+
+
+<section class="container">
+    <div class="page-wrapper page-wrapper-detail-order">
+        <div class="detail-order-wrapper">
+            <fieldset>
+                <legend style="position:relative;">
+                    <span style="text-align:left;">
+                        <h3>
+                            Chi tiết hóa đơn khách hàng
+                        </h3>
+                    </span>
+                    @if (!String.IsNullOrEmpty(userName))
+                    {
+                        <span style="text-align:right; position:absolute; right:0; bottom:0;">
+                            <h5>
+                                <a href="#">Sửa</a>
+                                <a href="#">Xóa</a>
+                            </h5>
+                        </span>
+                    }
+                </legend>
+
+                <div class="details-order">
+                    <div class="col-sm-3">
+                        <div>
+                            <span>Họ tên : Nguyễn văn A</span>
+                        </div>
+
+                        <div>
+                            <span>SCMT : 123456789</span>
+                        </div>
+                        <div>
+                            <span>Số điện thoại : 0989999999</span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div>
+                            <span>ngày đặt phòng : 2/4/2018</span>
+                        </div>
+                        <div>
+                            <span>ngày kết thúc : 10/4/2018</span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td>STT</td>
+                                <td>Dịch vụ</td>
+                                <td>Đơn giá dịch vụ</td>
+                                <td>Phòng</td>
+                                <td>Đơn giá phòng</td>
+                                <td>Tổng tiền</td>
+                            </tr>
+                            <tr>
+                                <td>STT</td>
+                                <td>Dịch vụ</td>
+                                <td>Đơn giá dịch vụ</td>
+                                <td>Phòng</td>
+                                <td>Đơn giá phòng</td>
+                                <td>Tổng tiền</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</section>
+

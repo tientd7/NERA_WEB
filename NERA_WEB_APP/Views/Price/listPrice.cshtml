@@ -4,17 +4,16 @@
 }
 
 @{
-    var userName = HttpContext.Current.Session["UserName"];
-
-    var roleId = Convert.ToInt32(Session["UserRole"]);
+    var userName = HttpContext.Current.User.Identity.Name;
 }
 
 @Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
 
 <section class="sortby-wrapper breadcrumb-wrapper">
+
     <div class="breadcrumb-wrapper">
         <span>
-            <a href="#">Trang chủ </a>
+            <a href="/Home/Index">Trang chủ </a>
             &nbsp;
             <i class="fa fa-angle-right" aria-hidden="true"></i>
             &nbsp;
@@ -24,7 +23,9 @@
 
 </section>
 
+
 <section class="container">
+    @Html.Partial("~/Views/Price/popupPrice.cshtml")
     <div class="page-wrapper page-list-price">
         <div class="list-price">
             <fieldset>
@@ -34,12 +35,13 @@
                             Dịch vụ
                         </h3>
                     </span>
-                    @if (roleId == 1)
+                    @if (!String.IsNullOrEmpty(userName))
                     {
+
 
                         <span style="text-align:right; position:absolute; right:0; bottom:0;">
                             <h4>
-                                <a href="/Price/addNewListPrice">Thêm mới</a>
+                                <a href="#" class="btn-show-popup">Thêm mới</a>
                             </h4>
                         </span>
                     }
@@ -52,7 +54,7 @@
                             <td>Đơn vị tính</td>
                             <td>Đơn giá (VND)</td>
                             <td>Mô tả</td>
-                            @if (roleId == 1)
+                            @if (!String.IsNullOrEmpty(userName))
                             {
                                 <td>Chức năng</td>
                             }
@@ -65,7 +67,7 @@
                             <td>Số điện x Đơn giá</td>
                             <td>5000</td>
                             <td>Mô tả</td>
-                            @if (roleId == 1)
+                            @if (!String.IsNullOrEmpty(userName))
                             {
 
                                 <td>
@@ -82,15 +84,15 @@
                             <td>Số nước x Đơn giá</td>
                             <td>25000</td>
                             <td>Mô tả</td>
-                            @if (roleId == 1)
+                            @if (!String.IsNullOrEmpty(userName))
                             {
 
-                            <td>
-                                <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+                                <td>
+                                    <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
 
-                                <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
 
-                            </td>
+                                </td>
                             }
                         </tr>
                         <tr>
@@ -99,16 +101,16 @@
                             <td>Tính theo tháng x số ti vi</td>
                             <td>200000</td>
                             <td>Mô tả</td>
-                            @if (roleId == 1)
-    {
+                            @if (!String.IsNullOrEmpty(userName))
+                            {
 
-                        <td>
-                            <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+                                <td>
+                                    <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
 
-                            <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
 
-                        </td>
-}
+                                </td>
+                            }
                         </tr>
                         <tr>
                             <td>#23235</td>
@@ -116,15 +118,15 @@
                             <td>Tính theo tháng x số người</td>
                             <td>100000</td>
                             <td>Mô tả</td>
-                            @if (roleId == 1)
-    {
-                        <td>
-                            <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+                            @if (!String.IsNullOrEmpty(userName))
+                            {
+                                <td>
+                                    <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
 
-                            <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
 
-                        </td>
-}
+                                </td>
+                            }
                         </tr>
                         <tr>
                             <td>#23235</td>
@@ -132,16 +134,16 @@
                             <td>Tính theo tháng x số người</td>
                             <td>70000</td>
                             <td>Mô tả</td>
-                            @if (roleId == 1)
-    {
+                            @if (!String.IsNullOrEmpty(userName))
+                            {
 
-                        <td>
-                            <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+                                <td>
+                                    <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
 
-                            <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
 
-                        </td>
-}
+                                </td>
+                            }
                         </tr>
                         <tr>
                             <td>#23235</td>
@@ -149,16 +151,16 @@
                             <td>Tính theo tháng x số lượng xe</td>
                             <td>100000</td>
                             <td>Mô tả</td>
-                            @if (roleId == 1)
-    {
+                            @if (!String.IsNullOrEmpty(userName))
+                            {
 
-                        <td>
-                            <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+                                <td>
+                                    <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
 
-                            <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
 
-                        </td>
-}
+                                </td>
+                            }
                         </tr>
                         <tr>
                             <td>#23235</td>
@@ -166,15 +168,15 @@
                             <td>Tính theo tháng x số người</td>
                             <td>200000</td>
                             <td>Mô tả</td>
-                            @if (roleId == 1)
-    {
-                        <td>
-                            <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
+                            @if (!String.IsNullOrEmpty(userName))
+                            {
+                                <td>
+                                    <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
 
-                            <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
+                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
 
-                        </td>
-}
+                                </td>
+                            }
                         </tr>
                     </tbody>
                 </table>
@@ -202,7 +204,7 @@
                             <td>Đơn vị tính</td>
                             <td>Đơn giá (VND)</td>
                             <td style="width:200px;">Mô tả</td>
-                            @if (roleId == 1)
+                            @if (!String.IsNullOrEmpty(userName))
                             {
 
                                 <td>Chức năng</td>
@@ -216,7 +218,7 @@
                             <td>Tính theo tháng x số phòng</td>
                             <td>500000</td>
                             <td>Mô tả</td>
-                            @if (roleId == 1)
+                            @if (!String.IsNullOrEmpty(userName))
                             {
                                 <td>
                                     <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
@@ -233,4 +235,7 @@
         </div>
     </div>
 </section>
+
+<script src="~/Scripts/dirPagination.js"></script>
+<script src="~/Scripts/jquery/dialog.js"></script>
 

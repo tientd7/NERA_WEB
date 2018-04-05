@@ -7,9 +7,11 @@
 @Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
 <!--  FILTER -->
 @{
-    var userName = HttpContext.Current.Session["UserName"];
+    //var userName = HttpContext.Current.Session["UserName"];
 
-    var roleId = Convert.ToInt32(Session["UserRole"]);
+    //var roleId = Convert.ToInt32(Session["UserRole"]);
+    var userName = HttpContext.Current.User.Identity.Name;
+   
 }
 
 <section class="sortby-wrapper breadcrumb-wrapper">
@@ -19,7 +21,7 @@
             &nbsp;
             <i class="fa fa-angle-right" aria-hidden="true"></i>
             &nbsp;
-            @ViewBag.Title
+            @ViewBag.Title 
         </span>
     </div>
     <div class="sort-by-wrapper">
@@ -49,17 +51,19 @@
                     Sản phẩm
                 </h3>
             </span>
-            @if (roleId == 1)
+
+            @if (!String.IsNullOrEmpty(userName))
             {
                 <span style="text-align:right; position:absolute; right:0; bottom:0;">
                     <h4>
-                        <a href="#" class="btn-show-popup">Thêm mới</a>
+                        <a href="#" class="btn-show-popup btn-add-pro">Thêm mới</a>
                     </h4>
                 </span>
             }
+
         </legend>
     </fieldset>
-    <div class="details-product product" ng-repeat="i in ItemSP">
+    <div class="details-product product" dir-paginate='i in ItemSP | itemsPerPage:5'>
         <div class="img-product-wrapper">
             <img src="~/Media/images/furniture.jpg" />
         </div>
@@ -71,18 +75,21 @@
                         <span>Mã sản phẩm :</span>
                         {{i.Item_Id}}
                     </div>
-                    @if (roleId == 1)
-                    {
-                        <div class="col-sm-9">
+                    <div class="col-sm-9">
+                        @if (!String.IsNullOrEmpty(userName))
+                        {
+
                             <div ng-if="i.Enable === true" style="background:#13cb71;text-align:center; color:#fff; width:100px;">
                                 <span>Enable : {{i.Enable}}</span>
                             </div>
                             <div ng-if="i.Enable === false" style="background:#ff0000; color:#fff;text-align:center;  width:100px;">
                                 <span>Enable : {{i.Enable}}</span>
                             </div>
-                        </div>
-                    }
+
+                        }
+                    </div>
                 </div>
+                </br>
                 <div>
                     <h2>
                         <span>Tên sản phẩm :</span>
@@ -95,7 +102,7 @@
                         {{i.Meta_Desc}}
                     </h4>
                 </div>
-                @if (roleId == 1)
+                @if (!String.IsNullOrEmpty(userName))
                 {
                     <div class="action-product">
 
@@ -109,19 +116,20 @@
                 }
             </div>
             <div class="state-product">
+                
                 <span>
-                    Trạng thái: Đã thuê
+                    Trạng thái: Đã thuê 
                 </span>
             </div>
 
 
         </div>
     </div>
-
+    <dir-pagination-controls  boundary-links="true"></dir-pagination-controls>
 
 
 </section>
-
+<script src="~/Scripts/dirPagination.js"></script>
 <script src="~/Scripts/jquery/dialog.js"></script>
 @section JavaScript{
 

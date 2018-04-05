@@ -63,12 +63,14 @@ namespace NERA_WEB_APP.Controllers
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult LogOn(string returnUrl)
-        {
-            ViewBag.ReturnUrl = returnUrl;
-            LoginViewModel model = new LoginViewModel();
-            return View(model);
+        {          
+                ViewBag.ReturnUrl = returnUrl;
+                LoginViewModel model = new LoginViewModel();
+                return View(model); 
         }
 
+      
+     
         //
         // POST: /Account/Login
         [HttpPost]
@@ -87,9 +89,10 @@ namespace NERA_WEB_APP.Controllers
                     return Json(ViewBag.ErrMessage);
                 }
                 //FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+
+
+               
                 signIn(user, model.RememberMe);
-                Session["UserName"] = user.UserName;
-                Session["UserRole"] = user.RoleId;
                 //services.SignIn(model.UserName, model.RememberMe);
                 //ViewData["Role"] = user.Role.RoleCode;
             }
@@ -135,7 +138,11 @@ namespace NERA_WEB_APP.Controllers
         private void signIn(Nera_User user, bool rememberme)
         {
             Nera_Role role = db.Nera_Roles.Find(user.RoleId);
-            FormsAuthenticationTicket authTck = new FormsAuthenticationTicket(1, user.UserName, DateTime.Now, DateTime.Now.AddMinutes(20), rememberme, role.RoleCode);
+            var model = new UserModel() { Password = MD5_Hash(user.PasswordHash), UserName = user.FirstName, RememberMe = rememberme, Role=role.RoleCode};
+            var serializedUser = Newtonsoft.Json.JsonConvert.SerializeObject(model);
+
+
+            FormsAuthenticationTicket authTck = new FormsAuthenticationTicket(1, user.FirstName, DateTime.Now, DateTime.Now.AddMinutes(20), rememberme, serializedUser);
             var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(authTck));
             Response.Cookies.Add(cookie);
         }
@@ -144,8 +151,6 @@ namespace NERA_WEB_APP.Controllers
         public ActionResult LogOut()
         {
             services.LogOut();
-            Session.Remove("UserName");
-            Session.Remove("UserRole");
             return RedirectToAction("Index", "Home");
         }
 
@@ -200,5 +205,12 @@ namespace NERA_WEB_APP.Controllers
         {
             FormsAuthentication.SignOut();
         }
+    }
+    public class UserModel
+    {
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public bool RememberMe { get; set; }
+        public string Role { get; set; }
     }
 }

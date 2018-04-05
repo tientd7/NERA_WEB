@@ -1,23 +1,20 @@
-﻿app.controller("ProductCtrl", function ($scope, $http) {
+﻿
+app.controller("ProductCtrl", function ($scope, $http) {
 
     // tạo biến item sản phẩm
     $scope.ItemSP;
-
-
-
     // hàm gọi lấy danh sách sản phẩm
     $scope.hienthisanpham = function () {
         $http.get('/Product/hienthisanpham').success(function (data, status) {
             $scope.ItemSP = data;
-            console.log("success" + data + status);
         }).error(function (error) {
             console.log("error :" + error);
         })
     };
-
+    
     // chạy hàm
     $scope.hienthisanpham();
-
+    
 
 
     //tạo biến item dv
@@ -40,11 +37,20 @@
     $scope.Create = function (Item) {
 
 
-        if ($('.txt-name').val() == ''  ) {
-            $('.alert-noti-error').fadeIn(500);
-            $('.alert-noti-error').fadeOut(3000);
-            $('.txt-name').focus();
-        } else {
+        //if ($('.txt-name').val() === ''.trim()) {
+        //    $('.alert-noti-error').fadeIn(500);
+        //    $('.alert-noti-error').fadeOut(3000);
+        //    $('.txt-name').focus();
+            
+        //} else if ($('select.select-category').val() == '') {
+        //    $('.alert-null-error-cate').fadeIn(500);
+        //    $('.alert-null-error-cate').fadeOut(3000);
+        //    $('.select-category').focus();
+        //} else if ($('select.select-lang').val() == '') {
+        //    $('.alert-null-error-lang').fadeIn(500);
+        //    $('.alert-null-error-lang').fadeOut(3000);
+        //    $('.select-lang').focus();
+        //} else {
             $http.post('/Product/addNewProduct', { Obj: Item })
                 .success(function (data, status, headers, config) {
                     $scope.Item = data;
@@ -83,9 +89,68 @@
                     console.log(error);
                 });
 
-        }     
+        //}
     }
 
+
+    // add new services
+    $scope.CreateNewServices = function (Item) {
+
+
+        //if ($('.txt-name').val() === ''.trim()) {
+        //    $('.alert-noti-error').fadeIn(500);
+        //    $('.alert-noti-error').fadeOut(3000);
+        //    $('.txt-name').focus();
+
+        //} else if ($('select.select-category').val() == '') {
+        //    $('.alert-null-error-cate').fadeIn(500);
+        //    $('.alert-null-error-cate').fadeOut(3000);
+        //    $('.select-category').focus();
+        //} else if ($('select.select-lang').val() == '') {
+        //    $('.alert-null-error-lang').fadeIn(500);
+        //    $('.alert-null-error-lang').fadeOut(3000);
+        //    $('.select-lang').focus();
+        //} else {
+            $http.post('/Product/addNewProduct', { Obj: Item })
+                .success(function (data, status, headers, config) {
+                    $scope.Item = data;
+                    $scope.Item = null;
+
+                    // jquery
+                    setTimeout(function () {
+                        $('.alert-add-success').fadeIn(500);
+                        $('.alert-noti-success').fadeIn(500);
+                    });
+                    setTimeout(function () {
+                        $('.alert-add-success').fadeOut(500);
+                        $('.alert-noti-success').fadeOut(500);
+                    }, 1500);
+
+                    $('.popup-box').removeClass('box-dialog-keyframes');
+                    $('.popup-box').addClass('active-hide');
+
+
+                    if (data != "") {
+
+                        if (data.Item_Type == "DV") {
+                            window.location.href = '/Product/services';
+                        }
+                        else if (data.Item_Type == "SP") {
+                            window.location.href = '/Product/product';
+                        }
+
+                    }
+                    else {
+                        console.log('Form data not Saved!');
+
+                    }
+                }).error(function (error, status, headers, config) {
+                    $scope.message = 'Unexpected Error while saving data!!' + data.errors;
+                    console.log(error);
+                });
+
+        //}
+    }
 
     // get details
     $scope.Item = "";
@@ -100,7 +165,7 @@
 
         $http.post('/Product/getDetails', { Id: Id })
             .success(function (data) {
-                debugger;
+ 
                 $scope.Item = data;
             }).error(function (error) {
                 console.log('error' + error);
@@ -153,9 +218,20 @@
             })
     }
 
-
-
-
-
+    //$scope.listpost = null;
+    //$scope.listImg = null;
+    //$scope.getlistPost = function () {
+    //    $http.get('/Product/getDetails')
+    //        .success(function (data) {
+    //            $scope.listpost = data;
+    //            $scope.listImg = data.map(x => x.Slides);
+    //            for (var i in $scope.listImg) {
+    //                console.log($scope.listImg[i]);
+    //            }
+    //            console.log('success' + data);
+    //        }).error(function (error) {
+    //            console.log(error);
+    //        })
+    //}
 })
 

@@ -1,4 +1,5 @@
-﻿using NERA_WEB_APP.Models;
+﻿using NERA_WEB_APP.CustomMemberShip;
+using NERA_WEB_APP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Web.Mvc;
 
 namespace NERA_WEB_APP.Controllers
 {
+   
     public class ProductController : Controller
     {
         DataContext db = new DataContext();
@@ -51,6 +53,7 @@ namespace NERA_WEB_APP.Controllers
 
 
         // thêm mới sản phẩm
+        [CustomAuthorize(Roles = "Admin")]
         [HttpPost]
         public JsonResult addNewProduct(Cs_Menu_item Obj)
         {
@@ -69,7 +72,7 @@ namespace NERA_WEB_APP.Controllers
             return Json(newObj);
         }
 
-
+        [CustomAuthorize(Roles = "Admin")]
         [HttpPost]
         public JsonResult getDetails(int Id)
         {
@@ -78,7 +81,7 @@ namespace NERA_WEB_APP.Controllers
             menu = db.Cs_Menu_item.Find(Id);
             return Json(menu, JsonRequestBehavior.AllowGet);
         }
-
+        [CustomAuthorize(Roles = "Admin")]
         public JsonResult update(Cs_Menu_item Menu)
         {
             string str = "";
@@ -108,6 +111,7 @@ namespace NERA_WEB_APP.Controllers
         //}
 
         // Update enable to false
+        [CustomAuthorize(Roles = "Admin")]
         public JsonResult del(Cs_Menu_item menuItem)
         {
             db = new DataContext();
@@ -123,10 +127,21 @@ namespace NERA_WEB_APP.Controllers
         {
             db.Configuration.ProxyCreationEnabled = false;
             db.Configuration.LazyLoadingEnabled = false;
-            var show = (from i in db.Cs_Menu_item where i.Item_Type == "DV" select i).Take(3);
+            var show = (from i in db.Cs_Menu_item where i.Item_Type == "DV" select i).ToList();
             return Json(show, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult getDetails()
+        {
+            List<CS_Post_Info> listInfo = db.CS_Post_Info.ToList();
+            List<CS_Post_Slides> listSlide = db.CS_Post_Slides.ToList();
+            List<PostDetailViewModel> listdetail = listInfo.Select(x => new PostDetailViewModel
+            {
+                Post_Id = x.Post_Id,
+                Slides = listSlide
+            }).ToList();
+            return Json(listdetail, JsonRequestBehavior.AllowGet);
+        }
 
         // Item service
 

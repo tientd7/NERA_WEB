@@ -1,4 +1,4 @@
-﻿var app = angular.module('myFormApp', []);
+﻿var app = angular.module('myFormApp', ['angularUtils.directives.dirPagination']);
 
 
 app.filter('mydate', function () {

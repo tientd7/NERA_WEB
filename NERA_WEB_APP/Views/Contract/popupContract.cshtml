@@ -1,0 +1,203 @@
+﻿
+
+<section>
+
+    <div class="container" style="max-width:500px;">
+        <div class="alert alert-noti-success">
+            <h3 class="alert-add-success">
+                Thêm thành công
+            </h3>
+            <h3 class="alert-update-success">
+                Sửa thành công
+            </h3>
+        </div>
+    </div>
+
+
+    <div class="container popup-box " style="max-width:60%;">
+        <div>
+            <h2 class="title-add">
+                Thêm mới
+            </h2>
+            <h2 class="title-update" style="display:none;">
+                Sửa thông tin
+            </h2>
+        </div>
+
+        <div class="row form-horizontal">
+            <div class="btn-close btn-close-popup" style="right:8px;">
+                <button id="btn-close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+            </div>
+            <div class="form-group">
+                <label>Tên hợp đồng</label>
+                <input type="text" class="form-control txt-name" ng-model="Item.Item_Name" value="{{Item.Item_Name}}" />
+                <span class="alert alert-danger alert-noti-error">
+                    Tên hợp đồng không được để trống!
+                </span>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group  col-sm-6">
+                    <div class="form-group">
+                        <label>Tên người cho thuê</label>
+                        <input type="text" class="form-control txt-name" ng-model="Item.Item_Name" value="{{Item.Item_Name}}" />
+                        <span class="alert alert-danger alert-noti-error">
+                            Tên người cho thuê không được để trống!
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <label>Số điện thoại</label>
+                            <input type="text" class="form-control txt-name" ng-model="Item.Item_Name" value="{{Item.Item_Name}}" />
+                            <span class="alert alert-danger alert-noti-error">
+                                số điện thoại không được để trống!
+                            </span>
+                        </div>
+                        <div>
+                            <label>Số CMTND</label>
+                            <input type="text" class="form-control txt-name" ng-model="Item.Item_Name" value="{{Item.Item_Name}}" />
+                            <span class="alert alert-danger alert-noti-error">
+                                Số chứng minh thư không được để trống!
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ</label>
+                        <div>
+                            <select class="form-control select-lang" style="width:150px;">
+                                <option value="">Chọn địa chỉ</option>
+                                <option value="Hà nội">Hà nội</option>
+                                <option value="TP Hồ chí minh">TP Hồ chí minh</option>
+                            </select>
+                        </div>
+                        <span class="alert alert-danger alert-null-error-lang" style="display:none; position:relative; top:8px;width:150px;padding: 12px;">
+                            Chọn địa chỉ
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group  col-sm-6">
+                    <div class="form-group">
+                        <label>Tên người thuê</label>
+                        <input type="text" class="form-control txt-name" ng-model="Item.Item_Name" value="{{Item.Item_Name}}" />
+                        <span class="alert alert-danger alert-noti-error">
+                            Tên người thuê không được để trống!
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <label>Số điện thoại</label>
+                            <input type="text" class="form-control txt-name" ng-model="Item.Item_Name" value="{{Item.Item_Name}}" />
+                            <span class="alert alert-danger alert-noti-error">
+                                số điện thoại không được để trống!
+                            </span>
+                        </div>
+                        <div>
+                            <label>Số CMTND</label>
+                            <input type="text" class="form-control txt-name" ng-model="Item.Item_Name" value="{{Item.Item_Name}}" />
+                            <span class="alert alert-danger alert-noti-error">
+                                Số chứng minh thư không được để trống!
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ</label>
+                        <div>
+                            <select class="form-control select-lang" style="width:150px;">
+                                <option value="">Chọn địa chỉ</option>
+                                <option value="Hà nội">Hà nội</option>
+                                <option value="TP Hồ chí minh">TP Hồ chí minh</option>
+                            </select>
+                        </div>
+                        <span class="alert alert-danger alert-null-error-lang" style="display:none; position:relative; top:8px;width:150px;padding: 12px;">
+                            Chọn địa chỉ
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div>
+                            <label>Ngày ký hợp đồng</label>
+                            <input type="date" class="form-control txt-name" ng-model="Item.Item_Name" value="{{Item.Item_Name}}" />
+                            <span class="alert alert-danger alert-noti-error">
+                                ngày ký không được để trống!
+                            </span>
+                        </div>
+                        <div>
+                            <label>Ngày kết thúc hợp đồng</label>
+                            <input type="date" class="form-control txt-name" ng-model="Item.Item_Name" value="{{Item.Item_Name}}" />
+                            <span class="alert alert-danger alert-noti-error">
+                                ngày kết thúc không được để trống!
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Các dịch vụ sử dụng</label>
+                        <div>
+                            <input type="checkbox" /> Dịch vụ A
+                        </div>
+                        <div>
+                            <input type="checkbox" /> Dịch vụ A
+                        </div>
+                        <div>
+                            <input type="checkbox" /> Dịch vụ A
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Giá trị hợp đồng</label>
+                <table class="table table-condensed" style="background:#fff;">
+                    <tr>
+                        <td>STT</td>
+                        <td>Nội dung</td>
+                        <td>Dịch vụ sử dụng</td>
+                        <td>Đơn giá dịch vụ</td>
+                        <td>số ngày thuê</td>
+                        <td>Đơn giá phòng</td>
+                        <td>Tổng tiền</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Nội dung</td>
+                        <td>Dịch vụ 1</td>
+                        <td>200000 VND</td>
+                        <td>20</td>
+                        <td>200000 VND</td>
+                        <td>5000000 VND</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="form-group">
+                <label>Nội dung</label>
+                <textarea class="form-control" ng-model="Item.Item_Content">{{Item.Item_Content}}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Cam kết chung</label>
+                <p>
+                    <input type="checkbox" />
+                    Hai bên cam kết thực hiện các điều khoản ghi trong hợp đồng.
+                    Trong quá trình thực hiện có gì thay đổi hoặc vướng mắc hai
+                    bên có trách nhiệm thông báo chonhau để cùng bàn bạc bằng
+                    thương lượng hoà giải, hoặc đưa ra trọng tài kinh tế giảiquyết
+                </p>
+            </div>
+            @*<div class="form-group">
+                    <label>Nội dung</label>
+
+                        <textarea class="form-control" id="Post_Content" name="Post_Content" ng-model="Item.Item_Content">{{Item.Item_Content}}</textarea>
+                </div>*@
+
+            <div class="form-group" style="border:0px;">
+                <button type="button" class="btn btn-add btn-success">Thêm mới hợp đồng</button>
+                @*<button type="button" ng-click="CreateNewServices(Item)" class="btn btn-add btn-success">Thêm mới dichj vuj</button>*@
+                <button type="button" class="btn btn-update btn-success">Update</button>
+            </div>
+        </div>
+    </div>
+</section>

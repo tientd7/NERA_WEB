@@ -11,20 +11,22 @@
         <div class="row">
             <div class="col-sm-5">
                 <div class="img-thumb col-sm-12">
-                    <img class="img-responsive col-sm-12" src="~/Media/images/about-thumb.jpg" alt="thumb">
+
+                    <img class="img-responsive col-sm-12" id="img-content" style="width: 457px;height: 567px;" src="~/Media/images/about-thumb.jpg" alt="thumb">
 
                     <div class="col-sm-12 slide-img-product">
-                        <div>
-                            <img src="~/Media/images/featurebg.png" class="img-thumbnail" alt="">
+
+                        <div class="wrapper-img" style="cursor:pointer">
+                            <img src="~/Media/images/counterbg3.png" class="img-thumbnail" alt="">
                             <div class="arrow arrow-left">
                                 <i class="fa fa-chevron-left" aria-hidden="true"></i>
                             </div>
                         </div>
-                        <div>
-                            <img src="~/Media/images/counterbg3.png" class="img-thumbnail" alt="">
+                        <div class="wrapper-img" style="cursor:pointer">
+                            <img src="~/Media/images/timthumb.jpg" class="img-thumbnail" alt="">
                         </div>
-                        <div>
-                            <img src="~/Media/images/featurebg.png" class="img-thumbnail" alt="">
+                        <div class="wrapper-img" style="cursor:pointer">
+                            <img src="~/Media/images/about-thumb.jpg" class="img-thumbnail" alt="">
                             <div class="arrow arrow-right">
                                 <i class="fa fa-chevron-right" aria-hidden="true"></i>
                             </div>
@@ -79,4 +81,28 @@
     </div><!--/.col-->
 
 </section>
+
+<script>
+    var images = $(".wrapper-img").find('img').map(function () {
+        return $(this).attr('src')
+    }).get();
+    var wrapperImg = $('.wrapper-img');
+
+    var imgSlide = wrapperImg.find('img');
+
+    imgSlide.click(function () {
+        var src = $(this).attr('src');
+        
+        $('#img-content').attr('src', src);
+    });
+   
+   
+    if ($(".wrapper-img").eq(1)) {
+        var getsrcSlideCenter = $(".wrapper-img").eq(1).find('img').attr('src');
+        $('#img-content').attr('src', getsrcSlideCenter);
+    }
+    
+    
+
+</script>
 

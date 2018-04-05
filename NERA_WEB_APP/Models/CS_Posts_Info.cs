@@ -68,5 +68,6 @@ namespace NERA_WEB_APP.Models
         public DateTime? Update_Date { get; set; }
         public string Language { get; set; }
         public List<CS_Post_Slides> Slides { set; get; }
+        public virtual Cs_Menu_item Cs_Menu_Item { get; set; }
     }
 }
