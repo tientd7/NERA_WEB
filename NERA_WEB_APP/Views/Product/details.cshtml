@@ -7,6 +7,7 @@
 @Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
 @Html.Partial("~/Views/Shared/pages/breadcrumb/breadcrumb.cshtml")
 <section class="details-product-wrap section-padding">
+    @Html.Partial("~/Views/Product/popupUserInfor.cshtml")
     <div class="container">
         <div class="row">
             <div class="col-sm-5">
@@ -69,7 +70,7 @@
                     </div>
                 </div>
                 <div class="state-detail-product">
-                    <button type="button" class="btn">
+                    <button type="button" class="btn btn-show-popup">
                         Đăng ký thuê nhà
                     </button>
                 </div>
@@ -81,7 +82,8 @@
     </div><!--/.col-->
 
 </section>
-
+<script src="~/Scripts/dirPagination.js"></script>
+<script src="~/Scripts/jquery/dialog.js"></script>
 <script>
     var images = $(".wrapper-img").find('img').map(function () {
         return $(this).attr('src')
@@ -92,17 +94,17 @@
 
     imgSlide.click(function () {
         var src = $(this).attr('src');
-        
+
         $('#img-content').attr('src', src);
     });
-   
-   
+
+
     if ($(".wrapper-img").eq(1)) {
         var getsrcSlideCenter = $(".wrapper-img").eq(1).find('img').attr('src');
         $('#img-content').attr('src', getsrcSlideCenter);
     }
-    
-    
+
+
 
 </script>
 

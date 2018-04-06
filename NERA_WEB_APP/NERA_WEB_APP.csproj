@@ -1491,6 +1491,7 @@
     <Content Include="Views\BaiVietMVC\Index1.cshtml" />
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Chatbox\Index.cshtml" />
+    <Content Include="Views\Product\popupUserInfor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

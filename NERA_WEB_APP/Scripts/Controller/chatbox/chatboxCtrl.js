@@ -95,11 +95,7 @@
             alert('Thành công');
         } else {
             alert('Thành công');
-        }
-       
+        }       
     }
-
-    
-
     
 })
