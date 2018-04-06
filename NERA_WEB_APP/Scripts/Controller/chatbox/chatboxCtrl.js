@@ -5,12 +5,15 @@
     $scope.pageSize = 20;
     $scope.pageIndex = 0;
     $scope.Paging = [];
+    var filter1 = null;
+    var order1 = 'NAME';
+    var desc1 = true;
+
     var numOfPages = Math.ceil($scope.totalRows / $scope.pageSize);
-    startPaging();
+    setPageIndex(0);
     $scope.onStart = function () {
         setPageIndex(0);
     };
-    $scope.onStart();
     $scope.onNext = function () {
         setPageIndex($scope.pageIndex+1);
     }
@@ -25,6 +28,8 @@
     }
     function setPageIndex(i) {
         $scope.pageIndex = i;
+        GetAllData();
+        numOfPages = Math.ceil($scope.totalRows / $scope.pageSize);
         startPaging();
         $scope.Paging[$scope.pageIndex]['disable'] = 'disabled';
     }
@@ -40,9 +45,18 @@
 //#endregion Paging
 
     //#region filter
-    $scope.filter = '';
-    $scope.order = '';
-    $scope.desc = true;
+    
+
+    $scope.SortingBy = function (clm) {
+        if (order1 !== clm) {
+            order1 = clm;
+            desc1 = true;
+        } else {
+            desc1 = !desc1;
+        }
+        GetAllData();
+    }
+
     //#endregion filter
 
     $scope.data;
@@ -73,20 +87,30 @@
             console.log('error' + error);
         })
     };
-    $scope.getData = function () {
+    $scope.getData = $scope.getData || GetAllData();
+
+    function GetAllData() {
         //debugger;
-        $http.get('/Chatbox/GetData')
-            .success(function (data, status, headers, config) {
-                $scope.data = data;
-                
-            })
-            .error(function (error) {
+        var config = {
+            params: {
+                filter: this.filter1,
+                order: this.order1,
+                unread: null,
+                desc: this.desc1,
+                pageIndex: $scope.pageIndex,
+                pageSize: $scope.pageSize
+            }
+        };
+        $http.post('/Chatbox/GetData', config
+            ).then(function (data, status, headers, config) {
+                $scope.data = data.data[0];
+                $scope.totalRows = data.data[1];
+            },function (error) {
                 $scope.message = 'Unexpected Error while loading data!!';
                 $scope.result = "color-red";
                 console.log(error);
             });
     };
-    $scope.getData();
 
     $scope.sort="name"
     $scope.a = { "Unread": false };

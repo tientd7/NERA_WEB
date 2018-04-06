@@ -7,19 +7,19 @@
 <h1></h1>
 <form>
     <div ng-controller="CBCtrl">
-        Order By: <select ng-model="sort">
+        @*Order By: <select ng-model="sort">
          <option value="">--Chọn--</option>       
             <option value="Create_date">Ngày Viết</option>
-        </select>
+        </select>*@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th><a>Chat_Id</a></th>
-                    <th>Request_Name</th>
-                    <th>Request_Phone</th>
+                    <th><a ng-click="SortingBy('CHAT_ID')">Chat_Id</a></th>
+                    <th><a ng-click="SortingBy('REQUEST_NAME')">Request_Name</a></th>
+                    <th><a ng-click="SortingBy('REQUEST_PHONE')">Request_Phone</a></th>
                     <th>Request_Content</th>
-                    <th>Unread</th>
-                    <th>Create_date</th>
+                    <th><a ng-click="SortingBy('UNREAD')">Unread</a></th>
+                    <th><a ng-click="SortingBy('CREATE_DATE')">Create_date</a></th>
                 </tr>
             </thead>
             <tr ng-repeat="a in data ">
@@ -28,7 +28,7 @@
                 <td>{{a.Request_Phone}}</td>
                 <td>{{a.Request_Content}}</td>
                 <td>{{a.Unread}}</td>
-                <td>{{a.Create_date|mydate| date: 'dd-MMM-yyyy'}}</td>
+                <td>{{a.Create_date|date: 'dd-MMM-yyyy'}}</td>
 
                 <td>
                     <input type="checkbox" ng-model="a.Unread" ng-change="check()" />
