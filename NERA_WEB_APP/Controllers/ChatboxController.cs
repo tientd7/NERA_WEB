@@ -102,7 +102,7 @@ namespace NERA_WEB_APP.Controllers
             cscb.Request_Content = cs.Request_Content;
             cscb.Request_Phone = cs.Request_Phone;
             cscb.Unread = true;
-            cscb.Create_date = DateTime.Now;
+            cscb.Create_date = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             db.CS_ChatBox_Info.Add(cscb);
             db.SaveChanges();
             //return Json(cscb);

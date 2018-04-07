@@ -10,9 +10,7 @@
 @Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
 <!--  FILTER -->
 @{
-    //var userName = HttpContext.Current.Session["UserName"];
 
-    //var roleId = Convert.ToInt32(Session["UserRole"]);
     var userName = HttpContext.Current.User.Identity.Name;
 
 }

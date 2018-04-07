@@ -1209,3 +1209,46 @@ div.alert.alert-danger {
     .wrapper-item-order-content .col-sm-3 {
         padding-top: 20px;
     }
+
+
+    /* TABLE*/
+
+    .table-wrapper{
+        width:1000px;
+    }
+        .table-wrapper tr{
+            text-align:center;
+        }
+            .table-wrapper tr th {
+                cursor: pointer;
+                color: #2b2b2e;
+                text-align: center;
+            }
+            .lbl-content{
+                width:400px;
+            }
+
+            .table-wrapper tr th, .table-wrapper tr td {
+                padding: 10px;
+            }
+
+
+/* PAGINATION*/
+.pagination-wrapper-page{
+    position:relative;
+}
+.pagination-wrapper {
+    position: absolute;
+    right: 66px;
+}
+
+.pagination {
+    margin: 0;
+    position: relative;
+    top: 12px;
+}
+
+.pager li>a.page-item-link {
+    padding: 0px 20px;
+    border-radius: 5px;
+}

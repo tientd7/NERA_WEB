@@ -24,16 +24,17 @@
 
                 </div>
                 <div class="form-group">
-                    <input type="text" name="" ng-model="data.Request_Name" class="form-control" placeholder="Tên của bạn" />
+                    <input type="text" name="" ng-model="Item.Request_Name" class="form-control" placeholder="Tên của bạn" />
                 </div>
                 <div class="form-group">
-                    <input type="number" name="" ng-model="data.Request_Phone" class="form-control" placeholder="Số điện thoại của bạn" />
+                    <input type="number" name="" ng-model="Item.Request_Phone" class="form-control" placeholder="Số điện thoại của bạn" />
                 </div>
                 <div class="form-group">
-                    <textarea name="" ng-model="data.Request_Content" class="form-control" placeholder="Nhập tin nhắn của bạn ở đây"></textarea>
+
+                    <textarea name="" ng-model="Item.Request_Content" class="form-control" placeholder="Nhập tin nhắn của bạn ở đây"></textarea>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-submit-ms" ng-click="addData()">Gửi tin nhắn</button>
+                    <button class="btn btn-submit-ms" ng-click="addData(Item)">Gửi tin nhắn</button>
                 </div>
             </div>
 

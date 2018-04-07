@@ -3,54 +3,65 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-<h1></h1>
-<form>
-    <div ng-controller="CBCtrl">
-        @*Order By: <select ng-model="sort">
-         <option value="">--Chọn--</option>       
-            <option value="Create_date">Ngày Viết</option>
-        </select>*@
-        <table class="table table-striped">
-            <thead>
+<section class="container">
+    <h3>Danh sách lời nhắn của khách hàng</h3>
+
+    <form>
+        <div ng-controller="CBCtrl">
+            @*Order By: <select ng-model="sort">
+                 <option value="">--Chọn--</option>
+                    <option value="Create_date">Ngày Viết</option>
+                </select>*@
+            <table class="table-wrapper table-bordered table-hover container">
                 <tr>
-                    <th><a ng-click="SortingBy('CHAT_ID')">Chat_Id</a></th>
-                    <th><a ng-click="SortingBy('REQUEST_NAME')">Request_Name</a></th>
-                    <th><a ng-click="SortingBy('REQUEST_PHONE')">Request_Phone</a></th>
-                    <th>Request_Content</th>
-                    <th><a ng-click="SortingBy('UNREAD')">Unread</a></th>
-                    <th><a ng-click="SortingBy('CREATE_DATE')">Create_date</a></th>
+                    <th>STT</th>
+                    <th ng-click="sort('Request_Name')">Họ tên</th>
+                    <th ng-click="sort('Request_Phone')">Số điện thoại</th>
+                    <th class="lbl-content">Nội dung</th>
+                    <th ng-click="sort('Unread')">Chưa duyệt</th>
+                    <th ng-click="sort('Create_date')">Ngày nhận</th>
                 </tr>
-            </thead>
-            <tr ng-repeat="a in data ">
-                <td>{{a.Chat_Id}}</td>
-                <td>{{a.Request_Name}}</td>
-                <td>{{a.Request_Phone}}</td>
-                <td>{{a.Request_Content}}</td>
-                <td>{{a.Unread}}</td>
-                <td>{{a.Create_date|date: 'dd-MMM-yyyy'}}</td>
+                <tr dir-paginate="a in data | itemsPerPage:5 | orderBy : sortColumn:reserveSort">
+                    <td>{{$index}}</td>
+                    <td>{{a.Request_Name}}</td>
+                    <td>{{a.Request_Phone}}</td>
+                    <td>{{a.Request_Content}}</td>
+                    <td>
+                        <input type="checkbox" ng-model="a.Unread" />
+                    </td>
+                    <td>{{a.Create_date | date:  "dd.MM.y"}}</td>
+                </tr>
+            </table>
 
-                <td>
-                    <input type="checkbox" ng-model="a.Unread" ng-change="check()" />
+            @* pagination  *@
+            @*<div class="pagination-wrapper-page">
+                <div class="pagination-wrapper">
+                    <ul class="pager">
+                        <li class="page-item"><a class="page-item-link" href="#" ng-click="onStart()"><<</a></li>
+                        <li class="page-item"><a class="page-item-link" href="#" ng-click="onPrevious()"><</a></li>
+                        <li class="page-item">
+                            <ul class="pagination" ng-repeat="item in Paging">
+                                <li class="page-item" ng-class="item.disable"><a class="page-link" href="#" ng-click="onPage(item.pageIndex)">{{item.pageIndex + 1}}</a></li>
+                            </ul>
+                        </li>
 
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
-        </table>
-        <ul class="pager">
-            <li class="page-item"><a class="page-link" href="#" ng-click="onStart()">Start</a></li>
-            <li class="page-item"><a class="page-link" href="#" ng-click="onPrevious()">Previous</a></li>
-            <ul class="pagination" ng-repeat="item in Paging">
-                <li class="page-item"  ng-class="item.disable"><a  class="page-link" href="#" ng-click="onPage(item.pageIndex)">{{item.pageIndex + 1}}</a></li>
-            </ul>
 
-            <li class="page-item"><a class="page-link" href="#" ng-click="onNext()">Next</a></li>
-            <li class="page-item"><a class="page-link" href="#" ng-click="onEnd()">End</a></li>
-        </ul>
-    </div>
-</form>
+                        <li class="page-item"><a class="page-item-link" href="#" ng-click="onNext()">></a></li>
+                        <li class="page-item"><a class="page-item-link" href="#" ng-click="onEnd()">>></a></li>
+                    </ul>
+                </div>
+            </div>*@
+            
+            
+        </div>
+    </form>
+   
+        <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
+    
+    
+</section>
 
+<script src="~/Scripts/dirPagination.js"></script>
 
 @section JavaScript{
 

@@ -1391,6 +1391,7 @@
     <Content Include="Scripts\Controller\Post_Slide\ThemSlide.js" />
     <Content Include="Scripts\Controller\Post_Slide\Update.js" />
     <Content Include="Scripts\Controller\Product\addNewProduct.js" />
+    <Content Include="Scripts\dirPagination.js" />
     <Content Include="Scripts\editor\editor.js" />
     <Content Include="Scripts\Controller\Product\product.js" />
     <Content Include="Scripts\Controller\Product\showMenuBarDV.js" />

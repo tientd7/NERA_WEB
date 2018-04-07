@@ -1,6 +1,6 @@
 ﻿app.controller('CBCtrl', function ($scope, $http, $filter) {
 
-//#region Paging
+    //#region Paging
     $scope.totalRows = 101;
     $scope.pageSize = 20;
     $scope.pageIndex = 0;
@@ -15,7 +15,7 @@
         setPageIndex(0);
     };
     $scope.onNext = function () {
-        setPageIndex($scope.pageIndex+1);
+        setPageIndex($scope.pageIndex + 1);
     }
     $scope.onPrevious = function () {
         setPageIndex($scope.pageIndex - 1);
@@ -42,10 +42,10 @@
             $scope.Paging.push(item);
         }
     }
-//#endregion Paging
+    //#endregion Paging
 
     //#region filter
-    
+
 
     $scope.SortingBy = function (clm) {
         if (order1 !== clm) {
@@ -61,31 +61,27 @@
 
     $scope.data;
     $filter.data = false;
-    $scope.addData = function () {
-        $http({
-            url: '/Chatbox/addData',
-            method: 'POST',
-            data: $scope.data
-        }).success(function (data, status) {
-            setTimeout(function () {
-                $('.chat-box-wrapper').css("height", "316px");
-                $('.form-msg-box').fadeOut(500);
-                $('.alert-noti-success-msg-box').fadeIn(500);
-            }, 300)
+    $scope.addData = function (Item) {
+        $http.post('/Chatbox/addData', { cs: Item })
+            .success(function (data, status) {
+                setTimeout(function () {
+                    $('.chat-box-wrapper').css("height", "316px");
+                    $('.form-msg-box').fadeOut(500);
+                    $('.alert-noti-success-msg-box').fadeIn(500);
+                }, 300)
 
-            setTimeout(function () {
-                $('.chat-box-wrapper').css("height", "auto");
-                $('.form-msg-box').fadeIn(3000);
-                $('.alert-noti-success-msg-box').fadeOut(3000);
-            }, 2000);
+                setTimeout(function () {
+                    $('.chat-box-wrapper').css("height", "auto");
+                    $('.form-msg-box').fadeIn(3000);
+                    $('.alert-noti-success-msg-box').fadeOut(3000);
+                }, 2000);
 
-
-            $scope.data = data;
-            console.log("success" + data);
-            $scope.data = null;
-        }).error(function (error) {
-            console.log('error' + error);
-        })
+                $scope.data = data;
+                console.log("success" + data);
+                $scope.data = null;
+            }).error(function (error) {
+                console.log('error' + error);
+            })
     };
     $scope.getData = $scope.getData || GetAllData();
 
@@ -102,24 +98,21 @@
             }
         };
         $http.post('/Chatbox/GetData', config
-            ).then(function (data, status, headers, config) {
-                $scope.data = data.data[0];
-                $scope.totalRows = data.data[1];
-            },function (error) {
-                $scope.message = 'Unexpected Error while loading data!!';
-                $scope.result = "color-red";
-                console.log(error);
-            });
+        ).then(function (data, status, headers, config) {
+            $scope.data = data.data[0];
+            $scope.totalRows = data.data[1];
+        }, function (error) {
+            $scope.message = 'Unexpected Error while loading data!!';
+            $scope.result = "color-red";
+            console.log(error);
+        });
     };
 
-    $scope.sort="name"
-    $scope.a = { "Unread": false };
-    $scope.check = function (Unread) {
-        if ($scope.Unread == true) {
-            alert('Thành công');
-        } else {
-            alert('Thành công');
-        }       
+    $scope.sortColumn = 'name';
+    $scope.reserveSort = false;
+    $scope.sort = function (item) {
+        $scope.reserveSort = ($scope.sortColumn == item) ? !$scope.reserveSort : false;
+        $scope.sortColumn = item;
     }
-    
+
 })
