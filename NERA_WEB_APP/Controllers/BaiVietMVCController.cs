@@ -24,7 +24,7 @@ namespace NERA_WEB_APP.Controllers
         [CustomAuthorize(Roles = "Mod,Admin")]
         public ActionResult Create()
         {
-            ViewBag.CBXMenuItem = (from s in db.Cs_Menu_item where s.Item_Type.Equals("SP") select s).ToList();
+            ViewBag.CBXMenuItem = (from s in db.Cs_Menu_item where s.Item_Type.Equals("SP") && s.Enable==true select s).ToList();
             return View();
         }
 
