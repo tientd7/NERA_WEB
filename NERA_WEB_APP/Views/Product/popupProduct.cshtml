@@ -5,10 +5,10 @@
 
     <div class="container" style="max-width:500px;">
         <div class="alert alert-noti-success">
-            <h3 class="alert-add-success">
+            <h3 class="alert-add-success" style="color:#fff;">
                 Thêm thành công
             </h3>
-            <h3 class="alert-update-success">
+            <h3 class="alert-update-success" style="color:#fff;">
                 Sửa thành công
             </h3>
         </div>
@@ -122,13 +122,15 @@
             </div>
             <div class="form-group">
                 <label>Nội dung</label>
+                
                 <textarea class="form-control" ng-model="Item.Item_Content">{{Item.Item_Content}}</textarea>
             </div>
             <div class="form-group">
                 <label>Nội dung</label>
-                <textarea class="form-control" id="Item_Content" name="Item_Content" ng-model="Item.Item_Content">{{Item.Item_Content}}</textarea>
-                <span>{{Item.Item_Content}}</span>
-          
+                <textarea ck-editor ng-model="Item.Item_Content"></textarea>
+                @* <textarea ckeditor ng-model="Item.Item_Content"  class="form-control"></textarea>*@
+                @*<textarea class="form-control" id="Item_Content" name="Item_Content">{{Item.Item_Content}}</textarea>*@
+                <button type="button" ng-click="getValue(Item.Item_Content)" class="btn btn-add btn-success">Thêm mới dichj vuj</button>
             </div>
 
             <div class="form-group" style="border:0px;">

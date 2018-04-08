@@ -65,26 +65,30 @@ app.controller("ProductCtrl", function ($scope, $http) {
                     setTimeout(function () {
                         $('.alert-add-success').fadeOut(500);
                         $('.alert-noti-success').fadeOut(500);
+
+                        //reload
+                        $scope.hienthisanpham();
+                        $scope.showDV();
                     }, 1500);
 
                     $('.popup-box').removeClass('box-dialog-keyframes');
                     $('.popup-box').addClass('active-hide');
 
 
-                    if (data != "") {
+                    //if (data != "") {
 
-                        if (data.Item_Type == "DV") {
-                            window.location.href = '/Product/services';
-                        }
-                        else if (data.Item_Type == "SP") {
-                            window.location.href = '/Product/product';
-                        }
+                    //    if (data.Item_Type == "DV") {
+                    //        window.location.href = '/Product/services';
+                    //    }
+                    //    else if (data.Item_Type == "SP") {
+                    //        window.location.href = '/Product/product';
+                    //    }
 
-                    }
-                    else {
-                        console.log('Form data not Saved!');
+                    //}
+                    //else {
+                    //    console.log('Form data not Saved!');
 
-                    }
+                    //}
                 }).error(function (error, status, headers, config) {
                     $scope.message = 'Unexpected Error while saving data!!' + data.errors;
                     console.log(error);
@@ -93,7 +97,20 @@ app.controller("ProductCtrl", function ($scope, $http) {
         //}
     }
 
+    //var editor = CKEDITOR.replace('Item_Content',
+    //    {
 
+    //        customConfig: '/Scripts/Controller/BaiViet/ckeditor/ckeditor.js',
+    //        cloudServices_tokenUrl: '/Scripts/Controller/BaiViet/ckeditor/config.js',
+    //    }, {
+
+    //        htmlEncodeOutput: true
+    //    });
+
+    
+    $scope.getValue = function (item) {
+        alert(item);
+    }
     // add new services
     $scope.CreateNewServices = function (Item) {
 
@@ -119,9 +136,15 @@ app.controller("ProductCtrl", function ($scope, $http) {
 
                     // jquery
                     setTimeout(function () {
+                        $('.img-preload').fadeIn(200);
+                    });
+                    setTimeout(function () {
+                        $('.img-preload').fadeOut(200);
+                    }, 800);
+                    setTimeout(function () {
                         $('.alert-add-success').fadeIn(500);
                         $('.alert-noti-success').fadeIn(500);
-                    });
+                    },801);
                     setTimeout(function () {
                         $('.alert-add-success').fadeOut(500);
                         $('.alert-noti-success').fadeOut(500);
@@ -131,20 +154,20 @@ app.controller("ProductCtrl", function ($scope, $http) {
                     $('.popup-box').addClass('active-hide');
 
 
-                    if (data != "") {
+                    //if (data != "") {
 
-                        if (data.Item_Type == "DV") {
-                            window.location.href = '/Product/services';
-                        }
-                        else if (data.Item_Type == "SP") {
-                            window.location.href = '/Product/product';
-                        }
+                    //    if (data.Item_Type == "DV") {
+                    //        window.location.href = '/Product/services';
+                    //    }
+                    //    else if (data.Item_Type == "SP") {
+                    //        window.location.href = '/Product/product';
+                    //    }
 
-                    }
-                    else {
-                        console.log('Form data not Saved!');
+                    //}
+                    //else {
+                    //    console.log('Form data not Saved!');
 
-                    }
+                    //}
                 }).error(function (error, status, headers, config) {
                     $scope.message = 'Unexpected Error while saving data!!' + data.errors;
                     console.log(error);
@@ -178,14 +201,22 @@ app.controller("ProductCtrl", function ($scope, $http) {
     $scope.update = function (Item) {
         $http.post('/Product/update', { Menu: Item })
             .success(function (data) {
-
+                setTimeout(function () {
+                    $('.img-preload').fadeIn(200);
+                });
+                setTimeout(function () {
+                    $('.img-preload').fadeOut(200);
+                }, 800);
                 setTimeout(function () {
                     $('.alert-update-success').fadeIn(500);
                     $('.alert-noti-success').fadeIn(500);
-                });
+                },801);
                 setTimeout(function () {
                     $('.alert-update-success').fadeOut(500);
                     $('.alert-noti-success').fadeOut(500);
+                    //reload
+                    $scope.hienthisanpham();
+                    $scope.showDV();
                 }, 1500);
 
 
@@ -193,9 +224,7 @@ app.controller("ProductCtrl", function ($scope, $http) {
                 $('.popup-box').addClass('active-hide');
 
 
-                //reload
-                $scope.hienthisanpham();
-                $scope.showDV();
+               
 
 
                 //reset value
@@ -210,13 +239,33 @@ app.controller("ProductCtrl", function ($scope, $http) {
 
     // update enable to false
     $scope.del = function (i) {
-        $http.post('/Product/del', { menuItem: i })
-            .success(function (data) {
-                $scope.hienthisanpham();
-                $scope.showDV();
-            }).error(function (error) {
-                console.log(error);
-            })
+        var dialog_noti = confirm("Bạn có muốn xóa");
+        if (dialog_noti == true) {
+            $http.post('/Product/del', { menuItem: i })
+                .success(function (data) {
+                    setTimeout(function () {
+                        $('.img-preload').fadeIn(200);
+                    });
+                    setTimeout(function () {
+                        $('.img-preload').fadeOut(200);
+                    }, 800);
+                    setTimeout(function () {
+                        $('.alert-delete-success').fadeIn(500);
+                        $('.alert-delete-success').fadeIn(500);
+                    },801);
+                    setTimeout(function () {
+                        $('.alert-delete-success').fadeOut(500);
+                        $scope.hienthisanpham();
+                        $scope.showDV();
+                        $('.alert-delete-success').fadeOut(500);
+                        
+                    }, 1500);
+                    
+                }).error(function (error) {
+                    console.log(error);
+                })
+        } 
+      
     }
 
     //$scope.listpost = null;
@@ -235,4 +284,53 @@ app.controller("ProductCtrl", function ($scope, $http) {
     //        })
     //}
 })
+app.directive('ckeditor', function () {
+        return {
+            require: '?ngModel',
+            link: function (scope, element, attrs, ngModel) {
+                var ckeditor = CKEDITOR.replace(element[0], {
 
+                });
+                if (!ngModel) {
+                    return;
+                }
+                ckeditor.on('instanceReady', function () {
+                    ckeditor.setData(ngModel.$viewValue);
+                });
+                ckeditor.on('pasteState', function () {
+                    scope.$apply(function () {
+                        ngModel.$setViewValue(ckeditor.getData());
+                    });
+                });
+                ngModel.$render = function (value) {
+                    ckeditor.setData(ngModel.$viewValue);
+                };
+            }
+        };
+    });
+
+
+//    directive('ckeditor', function () {
+//    return {
+//        require: '?ngModel',
+//        link: function (scope, element, attrs, ngModel) {
+//            var ckeditor = CKEDITOR.replace(element[0], {
+
+//            });
+//            if (!ngModel) {
+//                return;
+//            }
+//            ckeditor.on('instanceReady', function () {
+//                ckeditor.setData(ngModel.$viewValue);
+//            });
+//            ckeditor.on('pasteState', function () {
+//                scope.$apply(function () {
+//                    ngModel.$setViewValue(ckeditor.getData());
+//                });
+//            });
+//            ngModel.$render = function (value) {
+//                ckeditor.setData(ngModel.$viewValue);
+//            };
+//        }
+//    };
+//});
