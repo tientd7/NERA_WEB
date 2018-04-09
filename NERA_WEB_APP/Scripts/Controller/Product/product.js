@@ -11,10 +11,21 @@ app.controller("ProductCtrl", function ($scope, $http) {
         }).error(function (error) {
             console.log("error :" + error);
         })
-    };
-    
+    }; 
     // chạy hàm
     $scope.hienthisanpham();
+
+    // Hiển thị sản phẩm tồn tại
+    $scope.ItemSPEnable;
+    $scope.productEnable = function () {
+        $http.get('/Product/productEnable').success(function (data, status) {
+            $scope.ItemSPEnable = data;
+        }).error(function (error) {
+            console.log("error :" + error);
+        })
+    };
+    // chạy hàm
+    $scope.productEnable();
     
 
 
@@ -31,8 +42,33 @@ app.controller("ProductCtrl", function ($scope, $http) {
     // chạy hàm
     $scope.showDV();
 
+// hàm gọi lấy danh sách dich vụ tồn tại
+    $scope.ItemDVEnable;
+    
+    $scope.showDvEnable = function () {
+        $http.get('/Product/showDvEnable').success(function (data, status) {
+            $scope.ItemDVEnable = data;
+        }).error(function (error, status) {
+            console.log("error :" + error + status);
+        })
+    };
+    // chạy hàm
+    $scope.showDvEnable();
 
 
+    // lấy ảnh
+    $scope.listImg;
+    $scope.showImg = function () {
+        $http.get('/Product/getImages')
+            .success(function (data) {
+                $scope.listImg = data;
+
+            }).error(function (error) {
+                console.log(error);
+            })
+    }
+    $scope.showImg();
+    
     // Them 
     $scope.Item = null;
     $scope.Create = function (Item) {
@@ -223,10 +259,6 @@ app.controller("ProductCtrl", function ($scope, $http) {
                 $('.popup-box').removeClass('box-dialog-keyframes');
                 $('.popup-box').addClass('active-hide');
 
-
-               
-
-
                 //reset value
                 $scope.Item = data;
                 $scope.Item = null;
@@ -240,7 +272,7 @@ app.controller("ProductCtrl", function ($scope, $http) {
     // update enable to false
     $scope.del = function (i) {
         var dialog_noti = confirm("Bạn có muốn xóa");
-        if (dialog_noti == true) {
+        if (dialog_noti === true) {
             $http.post('/Product/del', { menuItem: i })
                 .success(function (data) {
                     setTimeout(function () {

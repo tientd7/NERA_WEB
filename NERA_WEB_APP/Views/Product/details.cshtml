@@ -1,12 +1,14 @@
-﻿
+﻿@model NERA_WEB_APP.Models.Cs_Menu_item
 @{
-    ViewBag.Title = "Chi tiết";
+    ViewBag.Title = Model.Item_Name;
+    ViewBag.DESC = Model.Meta_Desc;
+    ViewBag.Keyword = Model.Meta_Key;
 }
 
 
 @Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
 @Html.Partial("~/Views/Shared/pages/breadcrumb/breadcrumb.cshtml")
-<section class="details-product-wrap section-padding">
+<section class="details-product-wrap section-padding" ng-controller="ProductCtrl">
     @Html.Partial("~/Views/Product/popupUserInfor.cshtml")
     <div class="container">
         <div class="row">
@@ -17,21 +19,43 @@
 
                     <div class="col-sm-12 slide-img-product">
 
-                        <div class="wrapper-img" style="cursor:pointer">
-                            <img src="~/Media/images/counterbg3.png" class="img-thumbnail" alt="">
-                            <div class="arrow arrow-left">
+                        @*<div class="wrapper-img" style="cursor:pointer">
+                                <img src="~/Media/images/counterbg3.png" class="img-thumbnail" alt="">
+                                <div class="arrow arrow-left">
+                                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                </div>
+                            </div>*@
+                        @*<div class="arrow arrow-left">
                                 <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                        <div class="wrapper-img" style="cursor:pointer">
-                            <img src="~/Media/images/timthumb.jpg" class="img-thumbnail" alt="">
-                        </div>
-                        <div class="wrapper-img" style="cursor:pointer">
-                            <img src="~/Media/images/about-thumb.jpg" class="img-thumbnail" alt="">
-                            <div class="arrow arrow-right">
+                            </div>*@
+                        @{
+                            if (ViewBag.listImg == null)
+                            {
+                               
+                            }
+                            else
+                            {
+                                foreach (var i in ViewBag.listImg)
+                                {
+                                    <div class="wrapper-img" style="cursor:pointer">
+
+                                        <img src="@i.Image_Link" class="img-thumbnail" alt="">
+
+                                    </div>
+                                }
+                            }
+                        }
+
+                        @*<div class="arrow arrow-right">
                                 <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                            </div>
-                        </div>
+                            </div>*@
+
+                        @*<div class="wrapper-img" style="cursor:pointer">
+                                <img src="~/Media/images/about-thumb.jpg" class="img-thumbnail" alt="">
+                                <div class="arrow arrow-right">
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                </div>
+                            </div>*@
                     </div>
                 </div>
 
@@ -42,12 +66,12 @@
 
                     <div>
                         <span>Mã sản phẩm :</span>
-                        #456546456
+                        #@Model.Item_Id
                     </div>
                     <div>
                         <h2>
                             <span>Tên sản phẩm :</span>
-                            Tên sản phẩm
+                            @Model.Item_Name
                         </h2>
 
                     </div>
@@ -65,7 +89,7 @@
                     <div>
                         <h4>
                             <span>Mô tả:</span>
-                            Thông tin miêu tả sản phẩm
+                            @Model.Meta_Desc
                         </h4>
                     </div>
                 </div>
@@ -82,19 +106,22 @@
     </div><!--/.col-->
 
 </section>
+
+@section JavaScript{
+    <script src="~/Scripts/Controller/Product/product.js"></script>
+}
 <script src="~/Scripts/dirPagination.js"></script>
 <script src="~/Scripts/jquery/dialog.js"></script>
 <script>
     var images = $(".wrapper-img").find('img').map(function () {
         return $(this).attr('src')
     }).get();
-    var wrapperImg = $('.wrapper-img');
 
+    var wrapperImg = $('.wrapper-img');
     var imgSlide = wrapperImg.find('img');
 
     imgSlide.click(function () {
         var src = $(this).attr('src');
-
         $('#img-content').attr('src', src);
     });
 
@@ -104,7 +131,7 @@
         $('#img-content').attr('src', getsrcSlideCenter);
     }
 
-
-
 </script>
+
+
 

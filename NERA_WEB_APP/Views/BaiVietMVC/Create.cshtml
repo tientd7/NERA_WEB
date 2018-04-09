@@ -24,21 +24,23 @@
     </script>
 }
 <section class="container">
+    <div style="margin-top:20px;">
+        <h2>Thêm bài viết</h2>
+    </div>
 
-    <h2>Create</h2>
 
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <h4>CS_Post_Info</h4>
+
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-12"  style="margin-left:0; margin-right:0;">
                 <div class="col-md-12">
-                    Tiêu đề bài viết
+                    <label style="font-size:18px;">Tiêu đề bài viết</label>
                 </div>
 
                 <div class="col-md-12">
@@ -47,126 +49,111 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <div class="form-group col-md-6">
+            <div class="form-group"  style="margin-left:0; margin-right:0;">
+                <div class="col-md-6">
                     <div class="col-md-12">
-                        @Html.LabelFor(model => model.Meta_Desc, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.Label("Miêu tả", htmlAttributes: new { @class = "", @style= "font-size:18px;" })
                     </div>
 
                     <div class="col-md-12">
                         @*@Html.EditorFor(model => model.Meta_Desc, new { htmlAttributes = new { @class = "form-control" } })*@
-                        <textarea rows="3" name="MetaDesc" style="width:100%;"></textarea>
+                        <textarea rows="3" class="form-control" name="MetaDesc" style="width:100%;"></textarea>
                         @Html.ValidationMessageFor(model => model.Meta_Desc, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <input type="hidden" value="1" id="count_img" />
 
-                <div class="form-group  col-md-6">
+                <div class="col-md-6">
                     <div class="col-md-12">
-                        @Html.LabelFor(model => model.Meta_Key, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.Label("Từ khóa", htmlAttributes: new { @class = "", @style = "font-size:18px;" })
                     </div>
 
                     <div class="col-md-12">
                         @*@Html.EditorFor(model => model.Meta_Key, new { htmlAttributes = new { @class = "form-control" } })*@
-                        <textarea rows="3" name="MetaKey" style="width:100%;"></textarea>
+                        <textarea rows="3" class="form-control" name="MetaKey" style="width:100%;"></textarea>
                         @Html.ValidationMessageFor(model => model.Meta_Key, "", new { @class = "text-danger" })
                     </div>
                 </div>
             </div>
 
 
-            <div class="form-group">
-                <div class="form-group col-md-6">
-                    @Html.LabelFor(model => model.Enable, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.Enable)
-                            @Html.ValidationMessageFor(model => model.Enable, "", new { @class = "text-danger" })
-                        </div>
+            <div class="form-group" style="margin-left:0; margin-right:0;">
+                <div class="col-md-3">
+                    <div style="padding-left:20px; margin-bottom:10px;">
+                        <label  style="font-size:18px;">Enable</label>
+
+                        @Html.EditorFor(model => model.Enable)
+                        @Html.ValidationMessageFor(model => model.Enable, "", new { @class = "text-danger" })
                     </div>
+                    <div  style="padding-left:20px;">
+                        <label  style="font-size:18px;">Đã thuê</label>
+
+                        @Html.EditorFor(model => model.Dathue)
+                        @Html.ValidationMessageFor(model => model.Dathue, "", new { @class = "text-danger" })
+
+
+                    </div>
+
                 </div>
-                <div class="form-group  col-sm-6">
-                    <label class="control-label col-md-2">Ngôn ngữ</label>
-                    <div class="col-md-10">
+                <div class="col-md-3">
+                    <div class=" col-md-12">
+                        <label  style="font-size:18px;">Ngôn ngữ</label>
+                    </div>
+                    <div class="col-md-12">
                         <select class="form-control" name="Language" style="width:150px;">
                             <option value="">Chọn ngôn ngữ</option>
                             <option value="VI">Việt nam</option>
                             <option value="EN">English</option>
                         </select>
                     </div>
-
                 </div>
-            </div>
+                <div class="col-md-3">
+                    <div class="col-md-12">
+                        <label  style="font-size:18px;">Item Id</label>
+                    </div>
+                    <div class="col-md-12">
+                        @Html.DropDownList("Item_Id", new SelectList(ViewBag.CBXMenuItem, "Item_Id", "Item_Name"), new { @class = "form-control", @style = "width:150px" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="col-md-12">
+                        <label  style="font-size:18px;">Đơn giá</label>
+                    </div>
 
-            <div class="form-group">
-
-                <div class="col-md-10">
-                    <div class="form-group  col-sm-6">
-                        <label class="control-label col-md-2">Item id</label>
-                        <div class="col-md-10">
-                            @Html.DropDownList("Item_Id", new SelectList(ViewBag.CBXMenuItem, "Item_Id", "Item_Name"))
-                        </div>
-
-                        @*<div class="col-md-10">
-                                <select class="form-control" name="Item" style="width:150px;">
-                                    <option value="">Chọn </option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </div>*@
-
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Gia, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Gia, "", new { @class = "text-danger" })
                     </div>
                 </div>
             </div>
 
-
-            <div class="form-group">
-                <div class="col-md-10">
-                    Nội dung bài viết
+            <div class="form-group"  style="margin-left:0; margin-right:0; padding:0;">
+                <div class="col-md-12">
+                    <label style="font-size:18px;">Nội dung bài viết</label>
                 </div>
-                <div class="col-md-10">
-                    @Html.TextAreaFor(model => model.Post_Content, new { htmlAttributes = new { @class = "form-control", @id = "Post_Content" }, id = "Post_Content" })
+                <div class="col-md-12">
+                    @Html.TextAreaFor(model => model.Post_Content, new { htmlAttributes = new { @class = "", @id = "Post_Content" }, id = "Post_Content" })
                     @Html.ValidationMessageFor(model => model.Post_Content, "", new { @class = "text-danger" })
                 </div>
 
             </div>
-            <div class="form-group col-md-12">
-                <div class="col-md-12">
-                    Giá
-                </div>
 
-                <div class="col-md-12">
-                    @Html.EditorFor(model => model.Gia, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Gia, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group col-md-5">
-                @Html.LabelFor(model => model.Dathue, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="form-group" style="margin-left:0; margin-right:0;" id="BoxAnh">
+                <label class="col-md-10" style="font-size:18px;">Chọn ảnh</label>
                 <div class="col-md-10">
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.Dathue)
-                        @Html.ValidationMessageFor(model => model.Dathue, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-            <div class="form-group" id="BoxAnh">
-                <label class="col-md-10">Ảnh</label>
-                <div class="col-md-10">
-                    <input type="hidden" name="slides" class="col-sm-8" id="txtPost_content1" /> <input type="button" class="col-sm-1 prevented" id="btnselect" onclick="chonAnh()" value="Chon anh" />
+                    <input type="hidden" name="slides" class="col-sm-8" id="txtPost_content1" /> <input type="button" style="border-radius:0px;" class="btn btn-info col-sm-2 prevented" id="btnselect" onclick="chonAnh()" value="Chọn ảnh" />
 
                     <div class="col-md-10">
                         
                         <img id="anh1" width="100" height="100" />
                     </div>
                 </div>
-
-
-
             </div>
             <div class="form-group">
                 <div class="col-md-12">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="submit" value="Thêm mới" class="btn btn-success" />
                 </div>
             </div>
         </div>
@@ -174,7 +161,7 @@
 
 
     <div>
-        <h2> @Html.ActionLink("Trở Lại", "Index")</h2>
+        <h4> @Html.ActionLink("Trở Lại", "Index")</h4>
     </div>
 </section>
 

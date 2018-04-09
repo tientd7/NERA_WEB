@@ -63,10 +63,20 @@ namespace NERA_WEB_APP.Controllers
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult LogOn(string returnUrl)
-        {          
+        {
+            string cookieName = FormsAuthentication.FormsCookieName;
+            var authCookie = HttpContext.Request.Cookies[cookieName];
+            if (authCookie != null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
                 ViewBag.ReturnUrl = returnUrl;
                 LoginViewModel model = new LoginViewModel();
-                return View(model); 
+                return View(model);
+            }
+          
         }
 
       

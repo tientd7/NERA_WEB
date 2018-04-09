@@ -26,7 +26,12 @@ app.controller("AccountController", function ($scope, $http) {
                     model: $scope.user
                 }
             }).success(function (data, status) {
-
+                setTimeout(function () {
+                    $('.img-preload').fadeIn(200);
+                });
+                setTimeout(function () {
+                    $('.img-preload').fadeOut(200);
+                }, 800);
 
                 $scope.user = data;
                 if ($scope.user == 'user error'.toString()) {
@@ -47,7 +52,12 @@ app.controller("AccountController", function ($scope, $http) {
                         $('.alert-password').fadeOut(500);
                     }, 2000);
                 } else {
-                    
+                    setTimeout(function () {
+                        $('.img-preload').fadeIn(200);
+                    });
+                    setTimeout(function () {
+                        $('.img-preload').fadeOut(200);
+                    }, 800);
                     var x = location.href;
                     window.location.href = x;
                     location.reload();

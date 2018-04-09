@@ -1493,6 +1493,7 @@
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Chatbox\Index.cshtml" />
     <Content Include="Views\Product\popupUserInfor.cshtml" />
+    <Content Include="Views\Shared\pages\preloader\reload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
