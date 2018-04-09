@@ -44,9 +44,9 @@ namespace NERA_WEB_APP.Controllers
 
 
         // chi tiet 
-        public ActionResult details(int Item_Id)
+        public ActionResult details(int id)
         {
-            var detail = db.Cs_Menu_item.Where(x => x.Item_Id == Item_Id).FirstOrDefault();
+            var detail = db.Cs_Menu_item.Where(x => x.Item_Id == id).FirstOrDefault();
             ViewBag.listImg =(
                 from i in db.CS_Post_Slides
                 join postinfor in db.CS_Post_Info on i.Post_Id equals postinfor.Post_Id

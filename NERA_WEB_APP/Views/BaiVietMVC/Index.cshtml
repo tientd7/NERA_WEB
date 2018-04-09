@@ -42,16 +42,18 @@
                     Sản phẩm
                 </h3>
             </span>
+            <span style="position: absolute; right: 0; top: 25px;">
+                <h4>
+                    @Html.ActionLink("Thêm mới", "Create")
+                </h4>
+               
+            </span>
 
 
         </legend>
     </fieldset>
-
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
     <div>
-        <table class="table">
+        <table class="table table-striped">
             <tr>
                 <th>
                     Tiêu đề bài viết
@@ -133,7 +135,8 @@
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { Post_Id = item.Post_Id }) |
                         @Html.ActionLink("Details", "Details", new { Post_Id = item.Post_Id }) |
-                        <a href="/BaiVietMVC/delete?Post_Id=@item.Post_Id">xoa</a>
+                        @Html.ActionLink("Delete", "dele", new { Post_Id = item.Post_Id })
+                        
                     </td>
                 </tr>
             }

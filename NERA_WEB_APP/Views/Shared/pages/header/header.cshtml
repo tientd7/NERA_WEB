@@ -1,10 +1,9 @@
 ﻿@{
-    //var userName = HttpContext.Current.Session["UserName"];
+
 
 
     var userName = HttpContext.Current.User.Identity.Name;
-    
-    //var roleId = Convert.ToInt32(Session["UserRole"]);
+
 }
 
 <header class="header">
@@ -225,7 +224,7 @@
                                 <ul class="dropdown-menu" ng-controller="ProductCtrl">
 
                                     <li><a href="/Price/listPrice">Bảng giá dịch vụ</a></li>
-                                    <li ng-repeat="i in ItemDVEnable "><a href="/Product/details?Item_Id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
+                                    <li ng-repeat="i in ItemDVEnable "><a href="/Product/details?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
                                     <li><a href="/Product/services">Dịch vụ khác</a></li>
                                 </ul>
                             </div>
@@ -240,7 +239,7 @@
                         <div class="submenu-wrapper submenu-wrapper-topbottom">
                             <div class="submenu-inner  submenu-inner-topbottom">
                                 <ul class="dropdown-menu" ng-controller="ProductCtrl">
-                                    <li ng-repeat="i in ItemSPEnable "><a href="/Product/details?Item_Id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
+                                    <li ng-repeat="i in ItemSPEnable "><a href="/Product/details?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
                                     <li><a href="/Product/product">Sản phẩm khác</a></li>
                                 </ul>
                             </div>
