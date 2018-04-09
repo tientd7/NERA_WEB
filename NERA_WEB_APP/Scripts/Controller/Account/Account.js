@@ -11,6 +11,7 @@ app.controller("AccountController", function ($scope, $http) {
 
 
     $scope.login = function () {
+        
         if ($('#username').val() == '') {
             alert("Username không được để trống");
         }
@@ -18,6 +19,14 @@ app.controller("AccountController", function ($scope, $http) {
             alert("Password không được để trống");
         }
         else {
+            setTimeout(function () {
+                $('.form-signin-user').css({ 'opacity':'.2'});
+                $('.img-preload').fadeIn(200);
+            });
+            setTimeout(function () {
+                $('.form-signin-user').css({ 'opacity': '1' });
+                $('.img-preload').fadeOut(200);
+            }, 800);
 
             $http({
                 url: '/Account/LogOn',
@@ -26,13 +35,11 @@ app.controller("AccountController", function ($scope, $http) {
                     model: $scope.user
                 }
             }).success(function (data, status) {
-
-
                 $scope.user = data;
                 if ($scope.user == 'user error'.toString()) {
                     setTimeout(function () {
                         $('.alert-username').fadeIn(500);
-                    }, 200);
+                    }, 801);
 
                     setTimeout(function () {
                         $('.alert-username').fadeOut(500);
@@ -41,13 +48,13 @@ app.controller("AccountController", function ($scope, $http) {
                 } else if ($scope.user == 'pass error'.toString()) {
                     setTimeout(function () {
                         $('.alert-password').fadeIn(500);
-                    }, 200);
+                    }, 801);
 
                     setTimeout(function () {
                         $('.alert-password').fadeOut(500);
                     }, 2000);
                 } else {
-                    
+                   
                     var x = location.href;
                     window.location.href = x;
                     location.reload();

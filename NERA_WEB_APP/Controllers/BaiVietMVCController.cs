@@ -4,30 +4,58 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace NERA_WEB_APP.Controllers
 {
-    [CustomAuthorize(Roles ="Mod,Admin")]
+
     public class BaiVietMVCController : Controller
     {
         DataContext db = new DataContext();
         // GET: BaiVietMVC
+
+        [CustomAuthorize(Roles = "Mod,Admin")]
         public ActionResult Index()
         {
             var LST = (from obj in db.CS_Post_Info select obj).ToList();
             return View(LST);
         }
+
+        [CustomAuthorize(Roles = "Mod,Admin")]
         public ActionResult Create()
         {
-            ViewBag.CBXMenuItem = (from s in db.Cs_Menu_item where s.Item_Type.Equals("SP") select s).ToList();
+            ViewBag.CBXMenuItem = (from s in db.Cs_Menu_item where s.Item_Type.Equals("SP") && s.Enable == true select s).ToList();
             return View();
         }
+
+
+        // get cookie
+        private void getCookie()
+        {
+
+            string cookieName = FormsAuthentication.FormsCookieName;
+            var authCookie = HttpContext.Request.Cookies[cookieName];
+            var authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+            if (authTicket != null)
+            {
+                ViewBag.show = authTicket.Name;
+            }
+            else
+            {
+                ViewBag.show = "not ok";
+            }
+        }
+
+        [CustomAuthorize(Roles = "Mod,Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
         public ActionResult Create(CS_Post_Info objInfo, List<String> slides)
         {
+            
+
             CS_Post_Info newObj = new CS_Post_Info();
             int id = new App_Auto_NumberController().GenID("CS_Posts_Info.Post_Id");
             newObj.Post_Id = id;
@@ -62,12 +90,16 @@ namespace NERA_WEB_APP.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [CustomAuthorize(Roles = "Mod,Admin")]
         public ActionResult Edit(int Post_Id)
-        { 
+        {
             var obj = db.CS_Post_Info.Find(Post_Id);
             ViewBag.CBXMenuItem = (from s in db.Cs_Menu_item where s.Item_Type.Equals("SP") select s).ToList();
             return View(obj);
         }
+
+        [CustomAuthorize(Roles = "Mod,Admin")]
         [HttpPost]
         public ActionResult Edit(CS_Post_Info Slide)
         {
@@ -83,25 +115,15 @@ namespace NERA_WEB_APP.Controllers
             return RedirectToAction("Index");
         }
 
+        [CustomAuthorize(Roles = "Mod,Admin")]
         public ActionResult Edit1(int Post_Id)
         {
             var obj = db.CS_Post_Info.Find(Post_Id);
             return View(obj);
         }
 
-        [HttpPost]
-        public ActionResult Edit1(CS_Post_Info Slide)
-        {
-            Slide.Create_By = 1;
-            Slide.Create_Date = DateTime.Now;
-            Slide.Update_By = 1;
-            Slide.Update_Date = DateTime.Now;
-            Slide.Meta_Desc = Request.Form["MetaDesc"];
-            Slide.Meta_Key = Request.Form["MetaKey"];
-            db.Entry(Slide).State = EntityState.Modified;
-            db.SaveChanges();
-            return View(Slide);
-        }
+
+
 
 
 
@@ -129,6 +151,7 @@ namespace NERA_WEB_APP.Controllers
         //    return RedirectToAction("Index", "BaiVietMVC");
         //}
 
+        [CustomAuthorize(Roles = "Mod,Admin")]
         public ActionResult delete(int Post_Id)
         {
             CS_Post_Info de = db.CS_Post_Info.Where(x => x.Post_Id == Post_Id).FirstOrDefault();
@@ -136,10 +159,25 @@ namespace NERA_WEB_APP.Controllers
             db.SaveChanges();
             return RedirectToAction("Index", "BaiVietMVC");
         }
+
+
+        [CustomAuthorize(Roles = "Mod,Admin")]
+        public ActionResult dele(int Post_Id)
+        {
+
+
+            var post = db.CS_Post_Info.Where(i => i.Post_Id == Post_Id).FirstOrDefault();
+            post.Enable = false;
+            db.Entry(post).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index", "BaiVietMVC");
+        }
+
+
         [AllowAnonymous]
         public ActionResult Details(int Post_Id)
         {
-            var obj = db.CS_Post_Info.Where(t=>t.Enable && t.Post_Id==Post_Id);
+            var obj = db.CS_Post_Info.Where(t => t.Enable && t.Post_Id == Post_Id);
             if (obj.Count() > 0)
             {
                 var slides = from s in db.CS_Post_Slides where s.Post_Id == Post_Id && s.Enable select s;
@@ -149,9 +187,12 @@ namespace NERA_WEB_APP.Controllers
             return RedirectToRoute("Home/index");
         }
 
+
+
+        [AllowAnonymous]
         public ActionResult Index1()
         {
-            var LST = (from obj in db.CS_Post_Info select obj).ToList();
+            var LST = (from obj in db.CS_Post_Info where obj.Enable == true select obj).ToList();
             return View(LST);
         }
     }

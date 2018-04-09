@@ -29,12 +29,12 @@
                     <td>
                         <input type="checkbox" ng-model="a.Unread" />
                     </td>
-                    <td>{{a.Create_date | date:  "dd.MM.y"}}</td>
-                </tr>
+                    <td>{{a.Create_date |mydate| date: 'dd-MM-yyyy'}}</td>
+</tr>
             </table>
 
             @* pagination  *@
-            @*<div class="pagination-wrapper-page">
+            <div class="pagination-wrapper-page">
                 <div class="pagination-wrapper">
                     <ul class="pager">
                         <li class="page-item"><a class="page-item-link" href="#" ng-click="onStart()"><<</a></li>
@@ -50,7 +50,7 @@
                         <li class="page-item"><a class="page-item-link" href="#" ng-click="onEnd()">>></a></li>
                     </ul>
                 </div>
-            </div>*@
+            </div>
             
             
         </div>

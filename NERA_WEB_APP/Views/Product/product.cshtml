@@ -4,7 +4,7 @@
 }
 
 @section jsFooter{
-<script src="~/Scripts/editor/editor.js"></script>
+@*<script src="~/Scripts/editor/editor.js"></script>*@
 }
 
 @Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
@@ -116,6 +116,7 @@
                     </div>
                 }
             </div>
+
             <div class="state-product">
 
                 <span>
@@ -124,6 +125,14 @@
             </div>
 
 
+        </div>
+    </div>
+   
+    <div class="container" style="max-width:500px;">
+        <div class="alert alert-delete-success" style="text-align:center; background:#13cb71;display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);">
+            <h3 style="color:#fff;">
+                Xóa thành công
+            </h3>
         </div>
     </div>
     <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
