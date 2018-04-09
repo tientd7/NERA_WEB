@@ -171,7 +171,6 @@
     <Compile Include="Bussiness\BS_App_Auto_Number.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\App_Auto_NumberController.cs" />
-    <Compile Include="Controllers\BaiVietController.cs" />
     <Compile Include="Controllers\BaiVietMVCController.cs" />
     <Compile Include="Controllers\ChatboxController.cs" />
     <Compile Include="Controllers\ContractController.cs" />
