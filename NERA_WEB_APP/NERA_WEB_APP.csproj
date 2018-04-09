@@ -277,6 +277,8 @@
     <Content Include="Media\images\images %283%29.jpg" />
     <Content Include="Media\images\images %284%29.jpg" />
     <Content Include="Media\images\images.jpg" />
+    <Content Include="Media\images\loader.gif" />
+    <Content Include="Media\images\loading.gif" />
     <Content Include="Media\images\nerahom.jpg" />
     <Content Include="Media\images\Nerahome.jpg" />
     <Content Include="Media\images\Nerahome3.jpg" />
