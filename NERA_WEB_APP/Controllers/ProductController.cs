@@ -13,9 +13,10 @@ namespace NERA_WEB_APP.Controllers
     {
         DataContext db = new DataContext();
         // GET: Product
-        public ActionResult product()
+        public ActionResult product(int id)
         {
-            return View();
+            var hienthi = (from i in db.CS_Post_Info where i.Item_ID == id && i.Enable == true select i).ToList();
+            return View(hienthi);
         }
 
 

@@ -17,9 +17,10 @@ namespace NERA_WEB_APP.Controllers
         // GET: BaiVietMVC
 
         [CustomAuthorize(Roles = "Mod,Admin")]
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            var LST = (from obj in db.CS_Post_Info select obj).ToList();
+            Session["id"] = id;
+            var LST = (from obj in db.CS_Post_Info where obj.Item_ID == id select obj).ToList();
             return View(LST);
         }
 
@@ -64,7 +65,7 @@ namespace NERA_WEB_APP.Controllers
             newObj.Update_By = 1;
             newObj.Update_Date = DateTime.Now;
             newObj.Enable = objInfo.Enable;
-            newObj.Item_ID = Request.Form["Item_Id"];
+            newObj.Item_ID = Convert.ToInt32(Request.Form["Item_Id"]);
             newObj.Language = Request.Form["Language"];
             newObj.Meta_Desc = Request.Form["MetaDesc"];
             newObj.Meta_Key = Request.Form["MetaKey"];
@@ -109,10 +110,10 @@ namespace NERA_WEB_APP.Controllers
             Slide.Update_Date = DateTime.Now;
             Slide.Meta_Desc = Request.Form["MetaDesc"];
             Slide.Meta_Key = Request.Form["MetaKey"];
-            Slide.Item_ID = Request.Form["Item_Id"];
+            Slide.Item_ID = Convert.ToInt32(Request.Form["Item_Id"]);
             db.Entry(Slide).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { id = Session["id"] });
         }
 
         [CustomAuthorize(Roles = "Mod,Admin")]
@@ -170,7 +171,7 @@ namespace NERA_WEB_APP.Controllers
             post.Enable = false;
             db.Entry(post).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index", "BaiVietMVC");
+            return RedirectToAction("Index", "BaiVietMVC", new { id = Session["id"]});
         }
 
 

@@ -1,10 +1,12 @@
 ﻿
+@model IEnumerable<NERA_WEB_APP.Models.CS_Post_Info>
+
 @{
     ViewBag.Title = "Sản phẩm";
 }
 
 @section jsFooter{
-@*<script src="~/Scripts/editor/editor.js"></script>*@
+    @*<script src="~/Scripts/editor/editor.js"></script>*@
 }
 
 @Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
@@ -43,8 +45,6 @@
 
     @Html.Partial("~/Views/Product/popupProduct.cshtml")
 
-    @* tạo vòng lặp
-        show thông tin sản phẩm *@
     <fieldset>
         <legend style="position:relative;">
             <span style="text-align:left;">
@@ -64,70 +64,84 @@
 
         </legend>
     </fieldset>
-    <div class="details-product product" dir-paginate='i in ItemSP | itemsPerPage:5'>
-        <div class="img-product-wrapper">
-            <img src="~/Media/images/furniture.jpg" />
-        </div>
-        <div class="infor-product-wrapper">
-            <div class="inror-product">
+    @* <div class="details-product product" dir-paginate='i in ItemSP | itemsPerPage:5'>*@
 
-                <div>
-                    <div class="col-sm-3">
-                        <span>Mã sản phẩm :</span>
-                        {{i.Item_Id}}
+
+    @foreach (var i in Model)
+    {
+        <div class="details-product product">
+            <div class="img-product-wrapper">
+                <img src="~/Media/images/furniture.jpg" />
+            </div>
+            <div class="infor-product-wrapper">
+                <div class="inror-product">
+
+                    <div>
+                        <div class="col-sm-3">
+                            <span>Mã sản phẩm :</span>
+                            <!--{{i.Item_Id}}-->
+                            @i.Post_Id
+
+                        </div>
+                        <div class="col-sm-9">
+                            @*@if (!String.IsNullOrEmpty(userName))
+                                {
+
+                                    <div ng-if="i.Enable === true" style="background:#13cb71;text-align:center; color:#fff; width:100px;">
+                                        <span>Enable : {{i.Enable}}</span>
+                                    </div>
+                                    <div ng-if="i.Enable === false" style="background:#ff0000; color:#fff;text-align:center;  width:100px;">
+                                        <span>Enable : {{i.Enable}}</span>
+                                    </div>
+
+                                }*@
+                        </div>
                     </div>
-                    <div class="col-sm-9">
-                        @if (!String.IsNullOrEmpty(userName))
+
+
+                    <div>
+                        <h2>
+                            <span>Tên sản phẩm :</span>
+                            <!--{{i.Item_Name}}-->
+                            @i.Post_Title
+                        </h2>
+                    </div>
+                    <div>
+                        <h4>
+                            <span>Mô tả:</span>
+                            <!--{{i.Meta_Desc}}-->
+                            @i.Meta_Desc
+                        </h4>
+                    </div>
+                    @*if (!String.IsNullOrEmpty(userName))
                         {
+                            <div class="action-product">
 
-                            <div ng-if="i.Enable === true" style="background:#13cb71;text-align:center; color:#fff; width:100px;">
-                                <span>Enable : {{i.Enable}}</span>
+                                <div>
+                                    <a class="btn btn-edit" ng-href="#" ng-click="getDetails(i.Item_Id)"><i class="fa fa-edit"></i></a>
+                                </div>
+                                <div>
+                                    <button class="btn btn-remove" ng-click="del(i)"><i class="fa fa-remove"></i></button>
+                                </div>
                             </div>
-                            <div ng-if="i.Enable === false" style="background:#ff0000; color:#fff;text-align:center;  width:100px;">
-                                <span>Enable : {{i.Enable}}</span>
-                            </div>
+                        }*@
+                </div>
 
-                        }
-                    </div>
-                </div>
-                </br>
-                <div>
-                    <h2>
-                        <span>Tên sản phẩm :</span>
-                        {{i.Item_Name}}
-                    </h2>
-                </div>
-                <div>
-                    <h4>
-                        <span>Mô tả:</span>
-                        {{i.Meta_Desc}}
-                    </h4>
-                </div>
-                @if (!String.IsNullOrEmpty(userName))
-                {
-                    <div class="action-product">
+                <div class="state-product">
 
-                        <div>
-                            <a class="btn btn-edit" ng-href="#" ng-click="getDetails(i.Item_Id)"><i class="fa fa-edit"></i></a>
-                        </div>
-                        <div>
-                            <button class="btn btn-remove" ng-click="del(i)"><i class="fa fa-remove"></i></button>
-                        </div>
-                    </div>
-                }
+                    <span>
+                        Trạng thái: Đã thuê
+                    </span>
+                </div>
+
+
             </div>
-
-            <div class="state-product">
-
-                <span>
-                    Trạng thái: Đã thuê
-                </span>
-            </div>
-
 
         </div>
-    </div>
-   
+    }
+
+
+
     <div class="container" style="max-width:500px;">
         <div class="alert alert-delete-success" style="text-align:center; background:#13cb71;display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);">
             <h3 style="color:#fff;">
@@ -135,7 +149,7 @@
             </h3>
         </div>
     </div>
-    <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
+    @*<dir-pagination-controls boundary-links="true"></dir-pagination-controls>*@
 
 
 </section>
