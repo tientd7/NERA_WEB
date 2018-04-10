@@ -170,6 +170,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Bussiness\BS_App_Auto_Number.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\App_Auto_NumberController.cs" />
     <Compile Include="Controllers\BaiVietMVCController.cs" />
     <Compile Include="Controllers\ChatboxController.cs" />
@@ -302,6 +303,7 @@
     <Content Include="Scripts\angular-route.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Scripts\Controller\BaiViet\BaiVietMVC.js" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\build-config.js" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\ckeditor.js" />
@@ -1502,6 +1504,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Content\fonts\" />
+    <Folder Include="Views\Admin\" />
     <Folder Include="Views\App_Auto_Number\" />
   </ItemGroup>
   <ItemGroup>

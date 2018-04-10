@@ -128,38 +128,7 @@ namespace NERA_WEB_APP.Controllers
 
 
 
-        //public ActionResult Delete(int Post_Id)
-        //{
-        //    String er = "";
-        //    try
-        //    {
-        //        CS_Post_Info de = db.CS_Post_Info.Where(x=>x.Post_Id == Post_Id).FirstOrDefault();
-        //        db.CS_Post_Info.Remove(de);
-        //        db.SaveChanges();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        er = e.StackTrace; 
-        //    }
-
-        //    return RedirectToAction("Index", "BaiVietMVC");
-        //}
-        //public ActionResult del(int Post_Id)
-        //{
-        //    CS_Post_Info de = db.CS_Post_Info.Where(x => x.Post_Id == Post_Id).FirstOrDefault();
-        //    db.CS_Post_Info.Remove(de);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index", "BaiVietMVC");
-        //}
-
-        //[CustomAuthorize(Roles = "Mod,Admin")]
-        //public ActionResult delete(int Post_Id)
-        //{
-        //    CS_Post_Info de = db.CS_Post_Info.Where(x => x.Post_Id == Post_Id).FirstOrDefault();
-        //    db.CS_Post_Info.Remove(de);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index", "BaiVietMVC");
-        //}
+       
 
 
         [CustomAuthorize(Roles = "Mod,Admin")]
@@ -171,7 +140,9 @@ namespace NERA_WEB_APP.Controllers
             post.Enable = false;
             db.Entry(post).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index", "BaiVietMVC", new { id = Session["id"]});
+            return Content("<script language='javascript' type='text/javascript'>comfirm('Thanks for Feedback!');</script>");
+
+            //return RedirectToAction("Index", "BaiVietMVC", new { id = Session["id"]});
         }
 
 
@@ -186,6 +157,7 @@ namespace NERA_WEB_APP.Controllers
                 return View(objView);
             }
             return RedirectToRoute("Home/index");
+
         }
 
 
@@ -195,6 +167,24 @@ namespace NERA_WEB_APP.Controllers
         {
             var LST = (from obj in db.CS_Post_Info where obj.Enable == true select obj).ToList();
             return View(LST);
+        }
+        [AllowAnonymous]
+        public JsonResult delete(int Post_Id)
+        {
+            String er = "";
+            try
+            {
+                var de = db.CS_Post_Info.Find(Post_Id);
+                de.Enable = false;
+                db.Entry(de).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                er = e.StackTrace; ;
+            }
+
+            return Json(er);
         }
     }
 }

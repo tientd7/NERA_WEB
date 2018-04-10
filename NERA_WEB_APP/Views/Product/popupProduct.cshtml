@@ -1,6 +1,29 @@
 ﻿
 
 
+<script>
+   
+        $(document).ready(function () {
+
+            var editor = CKEDITOR.replace('Item_Content',
+                {
+
+            customConfig: '/Scripts/Controller/BaiViet/ckeditor/ckeditor.js',
+                    cloudServices_tokenUrl: '/Scripts/Controller/BaiViet/ckeditor/config.js',
+                }, {
+
+            htmlEncodeOutput: true
+                });
+
+
+
+
+        })
+</script>
+
+
+    
+
 <section>
 
     <div class="container" style="max-width:500px;">
@@ -114,7 +137,6 @@
             <div class="form-group">
                 <label>Miêu tả</label>
                 <textarea class="form-control" ng-model="Item.Meta_Desc" value="{{Item.Meta_Desc}}">{{Item.Meta_Desc}}</textarea>
-
             </div>
             <div class="form-group">
                 <label>Từ khóa</label>
@@ -122,16 +144,9 @@
             </div>
             <div class="form-group">
                 <label>Nội dung</label>
-
-                <textarea class="form-control" ng-model="Item.Item_Content">{{Item.Item_Content}}</textarea>
+                <textarea class="form-control" ng-model="Item.Item_Content" id="Item_Content">{{Item.Item_Content}}"</textarea>
             </div>
-            @*<div class="form-group">
-                      <label>Nội dung</label>
-                    <textarea ck-editor ng-model="Item.Item_Content"></textarea>
-                       <textarea ckeditor ng-model="Item.Item_Content"  class="form-control"></textarea>
-                    <textarea class="form-control" id="Item_Content" name="Item_Content">{{Item.Item_Content}}</textarea>
-
-                </div>*@
+       
 
             <div class="form-group" style="border:0px;">
                 <button type="button" ng-click="Create(Item)" class="btn btn-add btn-success">Thêm mới</button>

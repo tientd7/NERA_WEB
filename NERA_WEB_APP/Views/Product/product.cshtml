@@ -2,17 +2,8 @@
 @model IEnumerable<NERA_WEB_APP.Models.CS_Post_Info>
 
 @{
-    ViewBag.Title = "Sản phẩm";
-   
-}
+    ViewBag.Title = ViewBag.MenuName;
 
-@section jsFooter{
-    @*<script src="~/Scripts/editor/editor.js"></script>*@
-}
-
-
-<!--  FILTER -->
-@{
 
     var userName = HttpContext.Current.User.Identity.Name;
 
@@ -69,14 +60,12 @@
                 </h3>
             </span>
 
-            @if (!String.IsNullOrEmpty(userName))
-            {
-                <span style="text-align:right; position:absolute; right:0; bottom:0;">
-                    <h4>
-                        <a href="#" class="btn-show-popup btn-add-pro">Thêm mới</a>
-                    </h4>
-                </span>
-            }
+            <span style="text-align:right; position:absolute; right:0; bottom:0;">
+                <h4>
+                    <a href="#" class="btn-show-popup btn-add-pro">Thêm mới</a>
+                </h4>
+            </span>
+
 
         </legend>
     </fieldset>
@@ -95,7 +84,7 @@
                     <div>
                         <div>
                             <span>Mã sản phẩm :</span>
-                           
+
                             @i.Post_Id
 
                         </div>
@@ -106,22 +95,22 @@
                     <div>
                         <h2>
                             <span>Tên sản phẩm :</span>
-                          
+
                             @i.Post_Title
                         </h2>
                     </div>
                     <div>
                         <h4>
                             <span>Mô tả:</span>
-                           
+
                             @i.Meta_Desc
                         </h4>
                     </div>
                     <div>
                         <h4>
                             <span>Đơn giá:</span>
-                          
-                            @i.Gia
+
+                            @i.Gia VND
                         </h4>
                     </div>
 
@@ -132,12 +121,23 @@
                     </div>
                 </div>
 
-                <div class="state-product">
 
-                    <span>
-                        Trạng thái: Đã thuê
-                    </span>
-                </div>
+                @if (i.Dathue == true)
+                {<div class="state-product">
+                        <span>
+                            Trạng thái: Đã thuê
+                        </span>
+                    </div>
+
+                }
+                else
+                {<div class="state-product" style="background:#13cb71;">
+                        <span>
+                            Trạng thái: Còn trống
+                        </span>
+                    </div>
+
+                }
 
 
             </div>
