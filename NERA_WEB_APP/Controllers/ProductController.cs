@@ -15,7 +15,10 @@ namespace NERA_WEB_APP.Controllers
         // GET: Product
         public ActionResult product(int id)
         {
+            Session["id"] = id;
             var hienthi = (from i in db.CS_Post_Info where i.Item_ID == id && i.Enable == true select i).ToList();
+            ViewBag.MenuName = db.Cs_Menu_item.Where(i => i.Item_Id == id).Select(i => i.Item_Name).FirstOrDefault();
+            //ViewBag.MenuName = from name in db.Cs_Menu_item where name.Item_Id == id select name.Item_Name;
             return View(hienthi);
         }
 
@@ -47,7 +50,7 @@ namespace NERA_WEB_APP.Controllers
         // chi tiet 
         public ActionResult details(int id)
         {
-            var detail = db.Cs_Menu_item.Where(x => x.Item_Id == id).FirstOrDefault();
+            var detail = db.CS_Post_Info.Where(x => x.Post_Id == id).FirstOrDefault();
             ViewBag.listImg =(
                 from i in db.CS_Post_Slides
                 join postinfor in db.CS_Post_Info on i.Post_Id equals postinfor.Post_Id
@@ -173,9 +176,10 @@ namespace NERA_WEB_APP.Controllers
 
         // Item service
 
-        public ActionResult Services()
+        public ActionResult Services(int id)
         {
-            return View();
+            var hienthi = db.Cs_Menu_item.Where(i => i.Item_Id == id && i.Item_Type.Equals("DV") && i.Enable == true).FirstOrDefault();
+            return View(hienthi);
         }
     }
 

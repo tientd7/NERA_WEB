@@ -1,13 +1,46 @@
-﻿@model NERA_WEB_APP.Models.Cs_Menu_item
+﻿@model NERA_WEB_APP.Models.CS_Post_Info
 @{
-    ViewBag.Title = Model.Item_Name;
+    
     ViewBag.DESC = Model.Meta_Desc;
     ViewBag.Keyword = Model.Meta_Key;
 }
 
 
-@Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
-@Html.Partial("~/Views/Shared/pages/breadcrumb/breadcrumb.cshtml")
+<section class="page-title-section white-arrow">
+    <div class="container">
+        <div class="page-header">
+            <h1>@Model.Post_Title</h1>
+        </div>
+        <div class="breadcrumb-mb">
+            <span>
+                <a href="/Home/Index" style="color:#fff;">Trang chủ </a>
+                &nbsp;
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                &nbsp;
+                <a href="/Product/product?id=@Session["id"]" style="color:#fff;">Product</a>
+                &nbsp;
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                &nbsp;
+                @Model.Post_Title
+            </span>
+        </div>
+    </div>
+</section>
+<div class="container breadcrumb">
+    <span>
+        <a href="/Home/Index">
+            Trang chủ
+        </a>
+        &nbsp;
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+        &nbsp;
+        <a href="/Product/product?id=@Session["id"]">Product</a>
+        &nbsp;
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+        &nbsp;
+        @Model.Post_Title
+    </span>
+</div>
 <section class="details-product-wrap section-padding" ng-controller="ProductCtrl">
     @Html.Partial("~/Views/Product/popupUserInfor.cshtml")
     <div class="container">
@@ -31,7 +64,7 @@
                         @{
                             if (ViewBag.listImg == null)
                             {
-                               
+
                             }
                             else
                             {
@@ -66,19 +99,19 @@
 
                     <div>
                         <span>Mã sản phẩm :</span>
-                        #@Model.Item_Id
+                        @Model.Post_Id
                     </div>
                     <div>
                         <h2>
                             <span>Tên sản phẩm :</span>
-                            @Model.Item_Name
+                            @Model.Post_Title
                         </h2>
 
                     </div>
 
                     <div>
                         <span style="font-size: 20px;">
-                            300.000 vnd
+                            @Model.Gia vnd
                         </span>
                     </div>
                     <div style="margin-bottom: 5px;">

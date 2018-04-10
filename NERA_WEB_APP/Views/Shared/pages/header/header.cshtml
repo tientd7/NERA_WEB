@@ -224,8 +224,8 @@
                                 <ul class="dropdown-menu" ng-controller="ProductCtrl">
 
                                     <li><a href="/Price/listPrice">Bảng giá dịch vụ</a></li>
-                                    <li ng-repeat="i in ItemDVEnable "><a href="/Product/product?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
-                                    <li><a href="/Product/services">Dịch vụ khác</a></li>
+                                    <li ng-repeat="i in ItemDVEnable "><a href="/Product/Services?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -247,7 +247,7 @@
                                     {
                                         <li ng-repeat="i in ItemSPEnable "><a href="/BaiVietMVC/Index?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
                                     }
-                                    <li><a href="/Product/product">Sản phẩm khác</a></li>
+                                    
                                 </ul>
                             </div>
                         </div>

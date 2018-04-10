@@ -16,21 +16,6 @@ namespace NERA_WEB_APP.Controllers
         DataContext db = new DataContext();
         // GET: BaiVietMVC
 
-        [CustomAuthorize(Roles = "Mod,Admin")]
-        public ActionResult Index(int id)
-        {
-            Session["id"] = id;
-            var LST = (from obj in db.CS_Post_Info where obj.Item_ID == id select obj).ToList();
-            return View(LST);
-        }
-
-        [CustomAuthorize(Roles = "Mod,Admin")]
-        public ActionResult Create()
-        {
-            ViewBag.CBXMenuItem = (from s in db.Cs_Menu_item where s.Item_Type.Equals("SP") && s.Enable == true select s).ToList();
-            return View();
-        }
-
 
         // get cookie
         private void getCookie()
@@ -47,6 +32,22 @@ namespace NERA_WEB_APP.Controllers
             {
                 ViewBag.show = "not ok";
             }
+        }
+
+
+        [CustomAuthorize(Roles = "Mod,Admin")]
+        public ActionResult Index(int id)
+        {
+            Session["id"] = id;
+            var LST = (from obj in db.CS_Post_Info where obj.Item_ID == id select obj).ToList();
+            return View(LST);
+        }
+
+        [CustomAuthorize(Roles = "Mod,Admin")]
+        public ActionResult Create()
+        {
+            ViewBag.CBXMenuItem = (from s in db.Cs_Menu_item where s.Item_Type.Equals("SP") && s.Enable == true select s).ToList();
+            return View();
         }
 
         [CustomAuthorize(Roles = "Mod,Admin")]
@@ -88,8 +89,7 @@ namespace NERA_WEB_APP.Controllers
                     db.SaveChanges();
                 }
             }
-
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","BaiVietMVC",new { id = Session["id"]});
         }
 
         [CustomAuthorize(Roles = "Mod,Admin")]
@@ -152,14 +152,14 @@ namespace NERA_WEB_APP.Controllers
         //    return RedirectToAction("Index", "BaiVietMVC");
         //}
 
-        [CustomAuthorize(Roles = "Mod,Admin")]
-        public ActionResult delete(int Post_Id)
-        {
-            CS_Post_Info de = db.CS_Post_Info.Where(x => x.Post_Id == Post_Id).FirstOrDefault();
-            db.CS_Post_Info.Remove(de);
-            db.SaveChanges();
-            return RedirectToAction("Index", "BaiVietMVC");
-        }
+        //[CustomAuthorize(Roles = "Mod,Admin")]
+        //public ActionResult delete(int Post_Id)
+        //{
+        //    CS_Post_Info de = db.CS_Post_Info.Where(x => x.Post_Id == Post_Id).FirstOrDefault();
+        //    db.CS_Post_Info.Remove(de);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index", "BaiVietMVC");
+        //}
 
 
         [CustomAuthorize(Roles = "Mod,Admin")]
