@@ -1,10 +1,28 @@
 ﻿
 
 
+<script>
+
+    $(document).ready(function () {
+
+        var editor = CKEDITOR.replace('Item_Content',
+            {
+
+                customConfig: '/Scripts/Controller/BaiViet/ckeditor/ckeditor.js',
+                cloudServices_tokenUrl: '/Scripts/Controller/BaiViet/ckeditor/config.js',
+            }, {
+
+                htmlEncodeOutput: true
+            });
 
 
 
-    
+
+    })
+</script>
+
+
+
 
 <section>
 
@@ -16,7 +34,6 @@
             <h3 class="alert-update-success" style="color:#fff;">
                 Sửa thành công
             </h3>
-            
         </div>
     </div>
 
@@ -30,7 +47,7 @@
                 Sửa thông tin
             </h2>
             <h2 class="title-details" style="display:none;">
-                Chi tiết sản phẩm
+                Chi tiết dịch vụ
             </h2>
         </div>
 
@@ -39,18 +56,18 @@
                 <button id="btn-close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
             </div>
             <div class="form-group">
-                <label>Tên sản phẩm</label>
+                <label>Tên dịch vụ</label>
                 <input type="text" class="form-control txt-name item" ng-model="Item.Item_Name" value="{{Item.Item_Name}}" />
                 <span class="alert alert-danger alert-noti-error">
-                    Tên sản phẩm không được để trống!
+                    Tên dịch vụ không được để trống!
                 </span>
             </div>
             <div class="form-group">
                 <div class="form-group col-sm-4">
                     <label>Enable</label>
-          
-                        <input type="checkbox" ng-model="Item.Enable" class="item" value="{{Item.Enable}}" />
-                  
+                   
+                        <input type="checkbox" class="item" ng-model="Item.Enable" value="{{Item.Enable}}" />
+             
                     @*<div ng-if="Item.Enable === false">
                         <input type="checkbox" ng-model="Item.Enable" value="{{Item.Enable}}" />
                     </div>*@
@@ -59,20 +76,22 @@
                 <div class="form-group  col-sm-4">
                     <label>Mục thêm</label>
                     <div>
-                        <div ng-if="Item.Item_Type === 'SP'">
-                            <select class="form-control  select-category item" ng-model="Item.Item_Type" style="width:150px;">
-                                <option value="SP">Sản phẩm</option>
+
+                      
+                        <div ng-if="Item.Item_Type === 'DV'">
+                            <select class="form-control item" ng-model="Item.Item_Type" style="width:150px;">
+                                <option class="item" selected value="DV">Dịch vụ</option>
                             </select>
                         </div>
-                       
-                        <div ng-if="Item.Item_Type == null">
-                            <select class="form-control  select-category item" ng-model="Item.Item_Type" style="width:150px;">
-                                <option class="item" value="">
-                                    Chọn mục thêm
-                                </option>
-                                <option value="SP" class="item">Sản phẩm</option>
-                            </select>
-                        </div>
+
+                        <div ng-if="Item.Item_Type === null">
+                                <select class="form-control item" ng-model="Item.Item_Type" style="width:150px;">
+                                    <option value="" class="item">
+                                        Chọn mục thêm
+                                    </option>
+                                    <option value="DV" selected class="option-dv item">Dịch vụ</option>
+                                </select>
+                            </div>
                         <span class="alert alert-danger alert-null-error-cate" style="display:none; position:relative; top:8px; width:150px; padding: 12px;">
                             Chọn mục cần thêm
                         </span>
@@ -121,10 +140,11 @@
                 <label>Nội dung</label>
                 <textarea class="form-control item" ng-model="Item.Item_Content" id="Item_Content">{{Item.Item_Content}}"</textarea>
             </div>
-       
+
 
             <div class="form-group" style="border:0px;">
                 <button type="button" ng-click="Create(Item)" class="btn btn-add btn-success">Thêm mới</button>
+                @*<button type="button" ng-click="CreateNewServices(Item)" class="btn btn-add btn-success">Thêm mới dichj vuj</button>*@
                 <button type="button" ng-click="update(Item)" class="btn btn-update btn-success">Update</button>
             </div>
         </div>

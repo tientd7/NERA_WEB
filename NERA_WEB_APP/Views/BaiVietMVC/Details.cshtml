@@ -1,13 +1,22 @@
 ﻿@model NERA_WEB_APP.Models.PostDetailViewModel
 
 @{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
     ViewBag.Title = Model.Post_Title;
     ViewBag.DESC = Model.Meta_Desc;
     ViewBag.Keyword = Model.Meta_Key;
 }
 
 @Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
-@Html.Partial("~/Views/Shared/pages/breadcrumb/breadcrumb.cshtml")
+<div class="container breadcrumb">
+    <span>
+        <a href="/Admin/Index">
+            Trang chủ
+        </a>
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+        @ViewBag.Title
+    </span>
+</div>
 <section class="details-product-wrap section-padding">
     <div class="container">
         <div class="row">
@@ -55,12 +64,12 @@
 
                     <div>
                         <span>Mã sản phẩm :</span>
-                        #456546456
+                        #@Model.Post_Id
                     </div>
                     <div>
                         <h2>
                             <span>Tên sản phẩm :</span>
-                            Tên sản phẩm
+                            @Model.Post_Title
                         </h2>
 
                     </div>
@@ -82,11 +91,11 @@
                         </h4>
                     </div>
                 </div>
-                <div class="state-detail-product">
+                @*<div class="state-detail-product">
                     <button type="button" class="btn">
                         Đăng ký thuê nhà
                     </button>
-                </div>
+                </div>*@
 
             </div>
 

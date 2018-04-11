@@ -18,6 +18,8 @@ namespace NERA_WEB_APP
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+           
         }
     }
 }

@@ -4,8 +4,7 @@
 @{
     ViewBag.Title = ViewBag.MenuName;
 
-
-    var userName = HttpContext.Current.User.Identity.Name;
+    //var userName = HttpContext.Current.User.Identity.Name;
 
 }
 <section class="page-title-section white-arrow">
@@ -50,7 +49,7 @@
 <section id="main-product" ng-controller="ProductCtrl">
 
 
-    @Html.Partial("~/Views/Product/popupProduct.cshtml")
+ 
 
     <fieldset>
         <legend style="position:relative;">
@@ -59,13 +58,6 @@
                     Sản phẩm
                 </h3>
             </span>
-
-            <span style="text-align:right; position:absolute; right:0; bottom:0;">
-                <h4>
-                    <a href="#" class="btn-show-popup btn-add-pro">Thêm mới</a>
-                </h4>
-            </span>
-
 
         </legend>
     </fieldset>
@@ -145,15 +137,7 @@
         </div>
     }
 
-
-
-    <div class="container" style="max-width:500px;">
-        <div class="alert alert-delete-success" style="text-align:center; background:#13cb71;display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);">
-            <h3 style="color:#fff;">
-                Xóa thành công
-            </h3>
-        </div>
-    </div>
+   
     @*<dir-pagination-controls boundary-links="true"></dir-pagination-controls>*@
 
 

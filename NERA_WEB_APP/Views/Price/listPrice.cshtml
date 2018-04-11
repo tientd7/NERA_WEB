@@ -3,9 +3,7 @@
     ViewBag.Title = "Bảng giá";
 }
 
-@{
-    var userName = HttpContext.Current.User.Identity.Name;
-}
+
 
 @Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
 
@@ -45,10 +43,7 @@
                             <td>Đơn vị tính</td>
                             <td>Đơn giá (VND)</td>
                             <td>Mô tả</td>
-                            @if (!String.IsNullOrEmpty(userName))
-                            {
-                                <td>Chức năng</td>
-                            }
+                           
                         </tr>
                     </thead>
                     <tbody>
@@ -58,16 +53,7 @@
                             <td>Số điện x Đơn giá</td>
                             <td>5000</td>
                             <td>Mô tả</td>
-                            @if (!String.IsNullOrEmpty(userName))
-                            {
-
-                                <td>
-                                    <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
-
-                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
-
-                                </td>
-                            }
+                           
                         </tr>
                         <tr>
                             <td>#23233</td>
@@ -75,16 +61,7 @@
                             <td>Số nước x Đơn giá</td>
                             <td>25000</td>
                             <td>Mô tả</td>
-                            @if (!String.IsNullOrEmpty(userName))
-                            {
-
-                                <td>
-                                    <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
-
-                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
-
-                                </td>
-                            }
+                           
                         </tr>
                         <tr>
                             <td>#23234</td>
@@ -92,16 +69,7 @@
                             <td>Tính theo tháng x số ti vi</td>
                             <td>200000</td>
                             <td>Mô tả</td>
-                            @if (!String.IsNullOrEmpty(userName))
-                            {
-
-                                <td>
-                                    <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
-
-                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
-
-                                </td>
-                            }
+                           
                         </tr>
                         <tr>
                             <td>#23235</td>
@@ -109,15 +77,7 @@
                             <td>Tính theo tháng x số người</td>
                             <td>100000</td>
                             <td>Mô tả</td>
-                            @if (!String.IsNullOrEmpty(userName))
-                            {
-                                <td>
-                                    <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
-
-                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
-
-                                </td>
-                            }
+                           
                         </tr>
                         <tr>
                             <td>#23235</td>
@@ -125,16 +85,7 @@
                             <td>Tính theo tháng x số người</td>
                             <td>70000</td>
                             <td>Mô tả</td>
-                            @if (!String.IsNullOrEmpty(userName))
-                            {
-
-                                <td>
-                                    <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
-
-                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
-
-                                </td>
-                            }
+                          
                         </tr>
                         <tr>
                             <td>#23235</td>
@@ -142,16 +93,7 @@
                             <td>Tính theo tháng x số lượng xe</td>
                             <td>100000</td>
                             <td>Mô tả</td>
-                            @if (!String.IsNullOrEmpty(userName))
-                            {
-
-                                <td>
-                                    <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
-
-                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
-
-                                </td>
-                            }
+                           
                         </tr>
                         <tr>
                             <td>#23235</td>
@@ -159,15 +101,7 @@
                             <td>Tính theo tháng x số người</td>
                             <td>200000</td>
                             <td>Mô tả</td>
-                            @if (!String.IsNullOrEmpty(userName))
-                            {
-                                <td>
-                                    <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
-
-                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
-
-                                </td>
-                            }
+                           
                         </tr>
                     </tbody>
                 </table>
@@ -190,11 +124,7 @@
                             <td>Đơn vị tính</td>
                             <td>Đơn giá (VND)</td>
                             <td style="width:200px;">Mô tả</td>
-                            @if (!String.IsNullOrEmpty(userName))
-                            {
-
-                                <td>Chức năng</td>
-                            }
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -204,15 +134,7 @@
                             <td>Tính theo tháng x số phòng</td>
                             <td>500000</td>
                             <td>Mô tả</td>
-                            @if (!String.IsNullOrEmpty(userName))
-                            {
-                                <td>
-                                    <a href="/Price/addNewListPrice" class="btn btn-edit"><i class="fa fa-edit"></i></a>
-
-                                    <button class="btn btn-remove"><i class="fa fa-remove"></i></button>
-
-                                </td>
-                            }
+                           
                         </tr>
 
                     </tbody>

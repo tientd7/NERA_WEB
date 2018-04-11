@@ -21,7 +21,7 @@
             Language: $scope.CreateItem.Language
         };
         var config = {
-            data: obj
+            item: obj
         };
         $http.post('/Orther_Slide/Insert', config).then(function (data) {
             getAllDataSlide();

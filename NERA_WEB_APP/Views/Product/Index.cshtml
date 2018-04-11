@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container" ng-controller="ProductCtrl">
+    @Html.Partial("~/Views/Product/popupProduct.cshtml")
+    <fieldset>
+        <legend style="position:relative;">
+            <span style="text-align:left;">
+                <h3>
+                    Danh sách sản phẩm
+                </h3>
+            </span>
+
+            <span style="text-align:right; position:absolute; right:0; bottom:0;">
+                <h4>
+                    <a href="#" class="btn-show-popup btn-add-pro">Thêm mới</a>
+                </h4>
+            </span>
+
+
+        </legend>
+    </fieldset>
+
+    <table class="talble table-bordered container" style="max-width:1170px;">
+        <tr style="text-align:center;">
+            <td style="width:100px;">Tên sản phẩm</td>
+            <td>Miêu tả</td>
+            <td>Từ khóa</td>
+            <td>Nội dung</td>
+            <td style="width:100px;">Ngôn ngữ</td>
+            <td style="width:50px;">Enable</td>
+            <td style="width:100px;">Chức năng</td>
+        </tr>
+        <tr dir-paginate='i in ItemSP | itemsPerPage:5'>
+            <td style="padding:10px;">{{i.Item_Name}}</td>
+            <td style="padding:10px;">{{i.Meta_Desc}}</td>
+            <td style="padding:10px;">{{i.Meta_Key}}</td>
+            <td style="padding:10px;">{{i.Item_Content}}</td>
+            <td style="padding:10px; text-align:center;">{{i.Language}}</td>
+            <td style="text-align:center;">
+                <input type="checkbox" ng-model="i.Enable" disabled />
+            </td>
+            <td style="text-align:center;">
+                <a href="#" class="btn-details" ng-click="readDetails(i.Item_Id)">Details</a><br />
+                <a href="#" class="btn-edit" ng-click="getDetails(i.Item_Id)">Edit</a><br />
+                <a href="#" class="btn-remove" ng-click="del(i)">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <div class="container" style="max-width:500px;">
+        <div class="alert alert-delete-success" style="text-align:center; background:#13cb71;display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);">
+            <h3 style="color:#fff;">
+                Xóa thành công
+            </h3>
+        </div>
+    </div>
+
+    <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
+</div>
+
+
+
+
+<script src="~/Scripts/dirPagination.js"></script>
+<script src="~/Scripts/jquery/dialog.js"></script>
+
+
+@section JavaScript{
+    <script src="~/Scripts/Controller/Product/product.js"></script>
+}
+
+

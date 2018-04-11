@@ -1,7 +1,5 @@
 ﻿@{
 
-
-
     var userName = HttpContext.Current.User.Identity.Name;
 
 }
@@ -14,7 +12,7 @@
                 <div class="col-sm-3 col-xs-12">
                     <div class="call-to-action">
                         <h1>
-                            <a href="/Home/Index">
+                            <a href="/Admin/Index">
                                 NeraHome
 
                             </a>
@@ -37,34 +35,29 @@
                     <div class="topbar-right">
                         <div class="user-acc-box">
 
-                            <a href="#" class="user-account btn-link-login">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                Đăng nhập
+                            @if (String.IsNullOrEmpty(userName))
+                            {
+                                <a href="#" class="user-account btn-link-login">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    Đăng nhập
 
-                            </a>
-                            @*@if (String.IsNullOrEmpty(userName))
-                                {
-                                    <a href="#" class="user-account btn-link-login">
-                                        <i class="fa fa-user" aria-hidden="true"></i>
-                                        Đăng nhập
-
-                                    </a>
-                                }
-                                else
-                                {
+                                </a>
+                            }
+                            else
+                            {
+                                <div>
                                     <div>
-                                        <div>
-                                            <a href="/User/user_infor" class="user-account btn-link-infor-user" style="text-transform:uppercase;">
-                                                <i class="fa fa-user" aria-hidden="true"></i>
-                                                @userName
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <a href="/Account/LogOut">Đăng xuất</a>
-                                        </div>
-
+                                        <a href="/User/user_infor" class="user-account btn-link-infor-user" style="text-transform:uppercase;">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            @userName
+                                        </a>
                                     </div>
-                                }*@
+                                    <div>
+                                        <a href="/Account/LogOut">Đăng xuất</a>
+                                    </div>
+
+                                </div>
+                            }
 
 
                         </div>
@@ -114,7 +107,7 @@
 
                     <div class="call-to-action">
                         <h1>
-                            <a href="/Home/Index">
+                            <a href="/Admin/Index">
                                 NeraHome
                             </a>
 
@@ -123,12 +116,8 @@
                     <div class="acc-lang-wt">
                         <div class="topbar-right">
                             <div class="user-acc-box">
-                                <a href="#" class="user-account btn-link-login">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    Đăng nhập
 
-                                </a>
-                                @*@if (String.IsNullOrEmpty(userName))
+                                @if (String.IsNullOrEmpty(userName))
                                 {
                                     <a href="#" class="user-account btn-link-login">
                                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -150,7 +139,7 @@
                                         </div>
 
                                     </div>
-                                }*@
+                                }
 
 
                             </div>
@@ -221,46 +210,35 @@
 
 
                 <ul class="nav navbar-nav hidden-sm">
-                    <li><a href="/Home/Introduce">Giới thiệu</a></li>
-                    <li><a href="/Home/project">Dự án</a></li>
+                    <li><a href="/BaiVietMVC/Index">Quản lý bài viết</a></li>
+                    <li><a href="/Services/Index">Quản lý dịch vụ</a></li>
+                    <li><a href="/Product/Index">Quản lý sản phẩm</a></li>
 
-                    <!-- Services -->
-                    <li class="dropdown">
-                        <a href="#">Dịch vụ &amp; Tiện ích<b class="caret"></b></a>
 
-                        <div class="submenu-wrapper submenu-wrapper-topbottom">
-                            <div class="submenu-inner  submenu-inner-topbottom">
-                                <ul class="dropdown-menu" ng-controller="ProductCtrl">
+        @*<li class="dropdown">
+            <a href="#">Sản phẩm <b class="caret"></b></a>
 
-                                    <li><a href="/Price/listPrice">Bảng giá dịch vụ</a></li>
-                                    <li ng-repeat="i in ItemDVEnable "><a href="/Services/details?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
+            <div class="submenu-wrapper submenu-wrapper-topbottom">
+                <div class="submenu-inner  submenu-inner-topbottom">
+                    <ul class="dropdown-menu" ng-controller="ProductCtrl">
+                        @if (String.IsNullOrEmpty(userName))
+                        {
+                            <li ng-repeat="i in ItemSPEnable "><a href="/Product/product?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
+                        }
+                        else
+                        {
+                            <li ng-repeat="i in ItemSPEnable "><a href="/BaiVietMVC/Index?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
+                        }
 
-                                </ul>
-                            </div>
-                        </div>
+                    </ul>
+                </div>
+            </div>
 
-                    </li>
-                    <!-- /Services -->
+        </li>*@
 
-                    <li class="dropdown">
-                        <a href="#">Sản phẩm <b class="caret"></b></a>
-
-                        <div class="submenu-wrapper submenu-wrapper-topbottom">
-                            <div class="submenu-inner  submenu-inner-topbottom">
-                                <ul class="dropdown-menu" ng-controller="ProductCtrl">
-                                    <li ng-repeat="i in ItemSPEnable "><a href="/Product/product?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </li>
-
-                    @*<li><a href="/Home/Utility">Tiện ích</a> </li>*@
-                    <!-- /Blog -->
-                    <li><a href="/Home/Event">Tin tức &amp; Sự kiện</a></li>
-                    @*<li><a href="/Home/Tamnhin">Tin tức </a></li>*@
-                    <li><a href="/Home/Nha_dau_tu">Nhà đầu tư </a></li>
-                    <li><a href="/Home/recruit">Tuyển dụng</a></li>
+                    <li><a href="/Post_Slide/Index">Quản lý slides</a></li>
+                    <li><a href="/Chatbox/Index">Quản lý tin nhắn khách hàng</a></li>
+                    @*<li><a href="/Home/recruit">Tuyển dụng</a></li>*@
                 </ul>
             </div><!-- /.navbar-collapse -->
 

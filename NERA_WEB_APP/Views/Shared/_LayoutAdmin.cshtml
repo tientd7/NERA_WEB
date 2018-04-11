@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@ViewBag.DESC">
+    <meta name="author" content="Thiên địa hội">
+    <meta name="keywords" itemprop="keywords" content="@ViewBag.Keyword">
+    <meta name="news_keywords" content="">
+    <meta http-equiv="content-language" content="vi">
+
+    <title>@ViewBag.Title - NeraHome</title>
+    <!-- Web Fonts -->
+
+
+    <link href="~/Content/images/client_org1_x0Z_icon.ico" rel="shortcut icon" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,400italic,700,700italic,900,900italic,500italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- Flaticon CSS -->
+    <link href="~/Content/css/animate.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.css">
+    <link href="~/Content/fonts/flaticon/flaticon.css" rel="stylesheet" />
+    <!-- font-awesome CSS -->
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Offcanvas CSS -->
+    <link href="~/Content/css/off-canvas.css" rel="stylesheet">
+    <!-- animate CSS -->
+    <link href="~/Content/css/animate.css" rel="stylesheet">
+    <!-- language CSS -->
+    <link href="~/Content/css/language-select.css" rel="stylesheet">
+    <!-- owl.carousel CSS -->
+    <link href="~/Content/css/owl.carousel.css" rel="stylesheet" />
+
+    <!-- magnific-popup -->
+    <link href="~/Content/css/magnific-popup.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Template Core Styles -->
+    <link href="~/Content/css/template.css" rel="stylesheet">
+    <!-- Main Menu Styles -->
+    <link href="~/Content/css/menu.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Content/css/style.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+
+    <link href="~/Content/css/responsive.css" rel="stylesheet">
+    <script src="~/Scripts/angular.js"></script>
+    @Scripts.Render("~/bundles/scripts")
+
+    <script src="~/Scripts/Controller/Filter/CustomFilter.js"></script>
+
+    <script src="~/Scripts/Controller/Product/product.js"></script>
+    @* <script src="~/Scripts/Controller/Product/showMenuBarDV.js"></script>*@
+    <script src="~/Scripts/Controller/Product/addNewProduct.js"></script>
+    <script src="~/Scripts/Controller/chatbox/chatboxCtrl.js"></script>
+    <script src="~/Scripts/Controller/Post_Slide/AllSlide.js"></script>
+    <script src="~/Scripts/Controller/Menu_Item/MenuItem.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="~/Scripts/js/vendor/modernizr-2.8.1.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Scripts/dirPagination.js"></script>
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+    <!-- Scrolling Nav JavaScript -->
+    <script src="~/Scripts/js/jquery.easing.min.js"></script>
+    <!-- owl.carousel -->
+    <script src="~/Scripts/js/owl.carousel.min.js"></script>
+    <!-- Magnific-popup -->
+    <script src="~/Scripts/js/jquery.magnific-popup.min.js"></script>
+    <!-- Offcanvas Menu -->
+    <script src="~/Scripts/js/jquery.sticky.js"></script>
+    <script src="~/Scripts/js/jquery.sticky-kit.min.js"></script>
+    <script src="~/Scripts/js/hippo-offcanvas.js"></script>
+    <script src="~/Scripts/js/classie.js"></script>
+    <script src="~/Scripts/js/jquery.stellar.js"></script>
+    <!-- language select -->
+    <script src="~/Scripts/js/selectFx.js"></script>
+    <!-- Twitter feed -->
+    <script src="~/Scripts/Controller/BaiViet/ckfinder/ckfinder.js"></script>
+    <script src="~/Scripts/Controller/BaiViet/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/js/twitterFetcher_min.js"></script>
+    <!-- Custom Script -->
+    <script src="~/Scripts/js/scripts.js"></script>
+    <script src="~/Scripts/jquery/dialog.js"></script>
+
+    @RenderSection("jsFooter", required: false)
+
+        @RenderSection("JavaScript", required: false)
+</head>
+
+
+<body id="page-top" ng-app="myFormApp">
+
+    <div id="st-container" class="st-container">
+        <div class="st-pusher">
+            <div class="st-content">
+                @Html.Partial("~/Views/Shared/pages/dialog_popup/dialog_signIn.cshtml")
+                @Html.Partial("~/Views/Admin/header.cshtml")
+                
+                @RenderBody()
+      
+                @Html.Partial("~/Views/Shared/pages/footer/footer.cshtml")
+            </div>
+        </div>
+
+
+        <!-- OFFCANVAS MENU -->
+        @Html.Partial("~/Views/Shared/pages/menu_off_canvas/menu_off_canvas.cshtml")
+        <!-- Preloader -->
+        @Html.Partial("~/Views/Shared/pages/preloader/reload.cshtml")
+        @Html.Partial("~/Views/Shared/pages/preloader/preloader.cshtml")
+
+
+
+    </div>
+
+    <!-- to top-->
+    @Html.Partial("~/Views/Shared/pages/action_totop/totop.cshtml")
+   
+
+
+
+</body>
+</html>

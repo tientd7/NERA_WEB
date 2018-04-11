@@ -35,11 +35,19 @@ namespace NERA_WEB_APP.Controllers
         }
 
 
+        //[CustomAuthorize(Roles = "Mod,Admin")]
+        //public ActionResult Index(int id)
+        //{
+        //    Session["id"] = id;
+        //    var LST = (from obj in db.CS_Post_Info where obj.Item_ID == id select obj).ToList();
+        //    return View(LST);
+        //}
+
+
         [CustomAuthorize(Roles = "Mod,Admin")]
-        public ActionResult Index(int id)
+        public ActionResult Index()
         {
-            Session["id"] = id;
-            var LST = (from obj in db.CS_Post_Info where obj.Item_ID == id select obj).ToList();
+            var LST = (from obj in db.CS_Post_Info  select obj).ToList();
             return View(LST);
         }
 
@@ -156,7 +164,7 @@ namespace NERA_WEB_APP.Controllers
                 PostDetailViewModel objView = new PostDetailViewModel(obj.First(), slides.ToList());
                 return View(objView);
             }
-            return RedirectToRoute("Home/index");
+            return RedirectToRoute("BaiVietMVC/index");
 
         }
 

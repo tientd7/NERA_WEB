@@ -1,6 +1,6 @@
 ﻿
 @{
-    /**/
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
     ViewBag.Title = "Index";
 }
 
@@ -28,8 +28,8 @@
 
 <section class="container">
     <div id="content" ng-controller="PostSlide">
+        @Html.Partial("~/Views/Post_Slide/popupPostSlide.cshtml")
 
-        <a href="/Post_Slide/ThemSlide">Thêm mới</a>
         <fieldset>
             <legend style="position:relative;">
                 <span style="text-align:left;">
@@ -59,18 +59,22 @@
                         <th>Language</th>
                     </tr>
                 </thead>
-                <tr ng-repeat="a in ListSlide">
+                <tr dir-paginate='i in Item | itemsPerPage:5'>
                     <td>{{a.Post_Id}}</td>
                     <td>{{a.Tbl_Id}}</td>
                     <td>{{a.Image_Title}}</td>
                     <td>{{a.Image_URL}}</td>
-                    <td>{{a.Image_Link}}</td>
-                    <td>{{a.Image_Order}}</td>
-                    <td>{{a.Enable}}</td>
-                    <td>{{a.Meta_Key}}</td>
                     <td>
-                        <a href='/Post_Slide/Edit/{{a.Post_Id}}' ng-click="getDetail(a.Post_Id)">Sửa</a>&nbsp;
-                        <input type="button" value="Xóa" ng-click="delete(a)" />
+                        {{a.Image_Link}}
+                    </td>
+                    <td>{{a.Image_Order}}</td>
+                    <td>
+                        <input type="checkbox" ng-model="a.Enable" value="{{a.Enable}}" disabled />
+                    </td>
+                    <td>{{a.Language}}</td>
+                    <td>
+                        <a href='#' class="btn-edit" ng-click="getDetail(a.Post_Id)">Sửa</a>&nbsp;
+                        <a href="#" ng-click="delete(a.Post_Id)">Xóa</a>
 
                 </tr>
                 <tr>
@@ -80,15 +84,36 @@
                 </tr>
             </table>
         </form>
+        <div class="container" style="max-width:500px;">
+            <div class="alert alert-noti-success">
+                <h3 class="alert-add-success" style="color:#fff;">
+                    Thêm thành công
+                </h3>
+                <h3 class="alert-update-success" style="color:#fff;">
+                    Sửa thành công
+                </h3>
+
+            </div>
+        </div>
+
+        <div class="container" style="max-width:500px;">
+            <div class="alert alert-delete-success" style="text-align:center; background:#13cb71;display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);">
+                <h3 style="color:#fff;">
+                    Xóa thành công
+                </h3>
+            </div>
+        </div>
     </div>
+
+    <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
 </section>
 
-@Html.Partial("~/Views/Post_Slide/popupPostSlide.cshtml")
+<script src="~/Scripts/dirPagination.js"></script>
 <script src="~/Scripts/jquery/dialog.js"></script>
 @section JavaScript{
 
     <script src="~/Scripts/Controller/Post_Slide/AllSlide.js"></script>
-    <script src="~/Scripts/Controller/Post_Slide/UpdateDeleteSlide.js"></script>
-    <script src="~/Scripts/Controller/Post_Slide/ThemSlide.js"></script>
+    @*<script src="~/Scripts/Controller/Post_Slide/UpdateDeleteSlide.js"></script>
+        <script src="~/Scripts/Controller/Post_Slide/ThemSlide.js"></script>*@
 }
 

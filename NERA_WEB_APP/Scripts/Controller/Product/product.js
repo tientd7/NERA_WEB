@@ -130,86 +130,31 @@ app.controller("ProductCtrl", function ($scope, $http) {
                     console.log(error);
                 });
 
-        //}
     }
 
-    //var editor = CKEDITOR.replace('Item_Content',
-    //    {
-
-    //        customConfig: '/Scripts/Controller/BaiViet/ckeditor/ckeditor.js',
-    //        cloudServices_tokenUrl: '/Scripts/Controller/BaiViet/ckeditor/config.js',
-    //    }, {
-
-    //        htmlEncodeOutput: true
-    //    });
-
-    
     $scope.getValue = function (item) {
         alert(item);
     }
-    // add new services
-    $scope.CreateNewServices = function (Item) {
+
+    $scope.readDetails = function (Id) {
+        $('.popup-box').addClass('box-dialog-keyframes');
+        $('.popup-box').removeClass('active-hide');
+        $('.btn-add').css("display", "none");
+        $('.btn-update').css("display", "none");     
+        $('.title-add').css("display", "none");
+        $('.title-update').css("display", "none");
+        $('.title-details').css("display", "block");
+        $('.item').attr('disabled', true);
+        $('.item').css({'background':'#fff'});
 
 
-        //if ($('.txt-name').val() === ''.trim()) {
-        //    $('.alert-noti-error').fadeIn(500);
-        //    $('.alert-noti-error').fadeOut(3000);
-        //    $('.txt-name').focus();
+        $http.post('/Product/getDetails', { Id: Id })
+            .success(function (data) {
 
-        //} else if ($('select.select-category').val() == '') {
-        //    $('.alert-null-error-cate').fadeIn(500);
-        //    $('.alert-null-error-cate').fadeOut(3000);
-        //    $('.select-category').focus();
-        //} else if ($('select.select-lang').val() == '') {
-        //    $('.alert-null-error-lang').fadeIn(500);
-        //    $('.alert-null-error-lang').fadeOut(3000);
-        //    $('.select-lang').focus();
-        //} else {
-            $http.post('/Product/addNewProduct', { Obj: Item })
-                .success(function (data, status, headers, config) {
-                    $scope.Item = data;
-                    $scope.Item = null;
-
-                    // jquery
-                    setTimeout(function () {
-                        $('.img-preload').fadeIn(200);
-                    });
-                    setTimeout(function () {
-                        $('.img-preload').fadeOut(200);
-                    }, 800);
-                    setTimeout(function () {
-                        $('.alert-add-success').fadeIn(500);
-                        $('.alert-noti-success').fadeIn(500);
-                    },801);
-                    setTimeout(function () {
-                        $('.alert-add-success').fadeOut(500);
-                        $('.alert-noti-success').fadeOut(500);
-                    }, 1500);
-
-                    $('.popup-box').removeClass('box-dialog-keyframes');
-                    $('.popup-box').addClass('active-hide');
-
-
-                    //if (data != "") {
-
-                    //    if (data.Item_Type == "DV") {
-                    //        window.location.href = '/Product/services';
-                    //    }
-                    //    else if (data.Item_Type == "SP") {
-                    //        window.location.href = '/Product/product';
-                    //    }
-
-                    //}
-                    //else {
-                    //    console.log('Form data not Saved!');
-
-                    //}
-                }).error(function (error, status, headers, config) {
-                    $scope.message = 'Unexpected Error while saving data!!' + data.errors;
-                    console.log(error);
-                });
-
-        //}
+                $scope.Item = data;
+            }).error(function (error) {
+                console.log('error' + error);
+            });
     }
 
     // get details

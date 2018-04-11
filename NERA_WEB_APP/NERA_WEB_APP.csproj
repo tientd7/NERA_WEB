@@ -167,7 +167,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Bussiness\BS_App_Auto_Number.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -181,6 +180,7 @@
     <Compile Include="Controllers\Post_SlideController.cs" />
     <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="CustomMemberShip\CustomMembership.cs" />
     <Compile Include="Global.asax.cs">
@@ -302,7 +302,6 @@
     <Content Include="machine.config" />
     <Content Include="Scripts\angular-route.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
-    <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Scripts\Controller\BaiViet\BaiVietMVC.js" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\build-config.js" />
@@ -1477,7 +1476,6 @@
     <Content Include="Views\Home\Nha_dau_tu.cshtml" />
     <Content Include="Views\Home\Event.cshtml" />
     <Content Include="Views\Home\Utility.cshtml" />
-    <Content Include="Views\Product\Services.cshtml" />
     <Content Include="Views\Price\addNewListPrice.cshtml" />
     <Content Include="Views\Price\listPrice.cshtml" />
     <Content Include="Views\Contract\detailContract.cshtml" />
@@ -1497,14 +1495,17 @@
     <Content Include="Views\Chatbox\Index.cshtml" />
     <Content Include="Views\Product\popupUserInfor.cshtml" />
     <Content Include="Views\Shared\pages\preloader\reload.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\header.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\Services\details.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Services\popupServices.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Controllers\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Content\fonts\" />
-    <Folder Include="Views\Admin\" />
     <Folder Include="Views\App_Auto_Number\" />
   </ItemGroup>
   <ItemGroup>

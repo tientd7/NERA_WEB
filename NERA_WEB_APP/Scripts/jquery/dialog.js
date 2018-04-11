@@ -19,24 +19,37 @@ $('.btn-show-popup').click(function () {
     $('.txt-name').focus();
     $('.title-add').css("display", "block");
     $('.title-update').css("display", "none");
+    $('.title-details').css("display", "none");
     $('.btn-update').css("display", "none");
     $('.btn-add').css("display", "block");
 });
 
-$('.btn-add-pro').click(function () {
-    $('.select-category-sp').show();
-    $('.select-category-dv').hide();
+//$('.btn-add-pro').click(function () {
+//    $('.select-category-sp').show();
+//    $('.select-category-dv').hide();
 
-})
-$('.btn-add-service').click(function () {
-    $('.select-category-sp').hide();
-    $('.select-category-dv').show();
-})
+//})
+//$('.btn-add-service').click(function () {
+//    $('.select-category-sp').hide();
+//    $('.select-category-dv').show();
+//})
+
+
+
+
+$('.btn-details').click(function () {
+    $('.popup-box').addClass('box-dialog-keyframes');
+    $('.popup-box').removeClass('active-hide');
+    $('.item').attr('disabled', true);
+    $('.btn-add').css("display", "none");
+    $('.btn-update').css("display", "none");
+
+});
 
 $('.btn-edit').click(function () {
     $('.popup-box').addClass('box-dialog-keyframes');
     $('.popup-box').removeClass('active-hide');
-})
+});
 
 
 $('#btn-close').click(function () {
@@ -51,6 +64,7 @@ $('.btn-close-popup').click(function () {
     $('.popup-box').addClass('active-hide');
     $('.btn-add').css("display", "block");
     $('.btn-update').css("display", "block");
+    $('.item').attr('disabled', false);
 })
 
 

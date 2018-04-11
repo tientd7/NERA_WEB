@@ -23,6 +23,13 @@ namespace NERA_WEB_APP.Controllers
         }
 
 
+        [CustomAuthorize(Roles = "Admin")]
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+
         //lấy danh sách sản phẩm có trong bảng MenuItem 
         //public JsonResult showSP()
         //{
@@ -133,6 +140,7 @@ namespace NERA_WEB_APP.Controllers
         //}
 
         // Update enable to false
+
         [CustomAuthorize(Roles = "Admin")]
         public JsonResult del(Cs_Menu_item menuItem)
         {
@@ -176,11 +184,7 @@ namespace NERA_WEB_APP.Controllers
 
         // Item service
 
-        public ActionResult Services(int id)
-        {
-            var hienthi = db.Cs_Menu_item.Where(i => i.Item_Id == id && i.Item_Type.Equals("DV") && i.Enable == true).FirstOrDefault();
-            return View(hienthi);
-        }
+        
     }
 
 }

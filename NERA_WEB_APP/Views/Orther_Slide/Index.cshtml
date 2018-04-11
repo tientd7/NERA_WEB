@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <div class="container" id="content" ng-controller="Orther_Slide">
@@ -25,10 +26,17 @@
             <td><input type="text" class="form-control" ng-model="CreateItem.Image_Orde" /></td>
             <td><input type="checkbox" class="form-control" ng-model="CreateItem.Enable" /></td>
             <td><input type="text" class="form-control" ng-model="CreateItem.Slide_Type" /></td>
-            <td><input type="text" class="form-control" ng-model="CreateItem.Language" /></td>
-            <td><input type="button" class="btn" value="Thêm" ng-click="onCreateSlide()" /></td>
+            <td>
+               
+                <select class="form-control" ng-model="CreateItem.Language" style="width:150px;">
+                    <option value="">Chọn ngôn ngữ</option>
+                    <option value="VI">Việt nam</option>
+                    <option value="EN">English</option>
+                </select>
+            </td>
+            <td><input type="button" class="btn btn-success" value="Thêm" ng-click="onCreateSlide()" /></td>
         </tr>
-        <tr ng-repeat="Item in ListSlide">
+        <tr dir-paginate='Item in ListSlide | itemsPerPage:5'>
             <td>{{Item.Tbl_Id}}</td>
             <td>
                 <div ng-show="getStatusSlide(Item.Tbl_Id)">
@@ -67,20 +75,28 @@
                 <div ng-show="getStatusSlide(Item.Tbl_Id)">
                     {{Item.Language}}
                 </div>
-                <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Language" />
+                <select class="form-control" ng-model="Item.Language" style="width:150px;" ng-hide="getStatusSlide(Item.Tbl_Id)">
+                    <option value="">Chọn ngôn ngữ</option>
+                    <option value="VI">Việt nam</option>
+                    <option value="EN">English</option>
+                </select>
+               
             </td>
             <td>
                 <div class="btn-group">
-                    <input ng-show="getStatusSlide(Item.Tbl_Id)" type="button" class="btn btn-group-vertical" ng-click="onEditSlide(Item.Tbl_Id)" value="Sửa" />
-                    <input ng-hide="getStatusSlide(Item.Tbl_Id)" type="button" class="btn btn-group-vertical"" ng-click="onSaveSlide(Item)" value="Lưu" />
-                    <input ng-hide="getStatusSlide(Item.Tbl_Id)" type="button" class="btn btn-group-vertical"" ng-click="onCancelSlide()" value="Hủy" />
-                    <input ng-show="getStatusSlide(Item.Tbl_Id)" type="button" class="btn btn-group-vertical"" ng-click="onDeleteSlide(Item.Tbl_Id)" value="Xóa" />
+                    <input ng-show="getStatusSlide(Item.Tbl_Id)" type="button" class="btn btn-info" style="border-radius:30px; padding:5px 15px;; margin-right:2px;" ng-click="onEditSlide(Item.Tbl_Id)" value="Sửa" />
+                    <input ng-hide="getStatusSlide(Item.Tbl_Id)" type="button" class="btn btn-info" style="border-radius:30px; padding:5px 15px;; margin-right:2px;"  ng-click="onSaveSlide(Item)" value="Lưu" />
+                    <input ng-hide="getStatusSlide(Item.Tbl_Id)" type="button" class="btn btn-info" style="border-radius:30px; padding:5px 15px;; margin-right:2px;"  ng-click="onCancelSlide()" value="Hủy" />
+                    <input ng-show="getStatusSlide(Item.Tbl_Id)" type="button" class="btn btn-info" style="border-radius:30px; padding:5px 15px;; margin-right:2px;"  ng-click="onDeleteSlide(Item.Tbl_Id)" value="Xóa" />
                 </div>
             </td>
         </tr>
 
     </table>
+    <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
 </div>
+
+<script src="~/Scripts/dirPagination.js"></script>
 
 @section JavaScript{
 

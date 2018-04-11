@@ -645,12 +645,12 @@ TESTIMONIAL
 .btn-edit, .btn-remove {
     border-radius: 0px;
     padding: 5px;
-    font-size: 1.5em;
+    font-size: 1em;
     background: none;
     outline: none;
     border: none;
     text-align: right;
-    color: #9b9696;
+
 }
 
 .state-product {
