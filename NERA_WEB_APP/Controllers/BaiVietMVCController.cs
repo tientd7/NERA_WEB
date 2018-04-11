@@ -83,7 +83,13 @@ namespace NERA_WEB_APP.Controllers
             newObj.Gia = objInfo.Gia;
             newObj.Dathue = objInfo.Dathue;
             db.CS_Post_Info.Add(newObj);
+            insertSlides(id, slides);
             db.SaveChanges();
+
+            return RedirectToAction("Index","BaiVietMVC",new { id = Session["id"]});
+        }
+        private void insertSlides(int post_id, List<String> slides)
+        {
             foreach (string s in slides)
             {
                 if (!String.IsNullOrEmpty(s))
@@ -91,15 +97,17 @@ namespace NERA_WEB_APP.Controllers
 
                     CS_Post_Slides Post = new CS_Post_Slides();
                     Post.Tbl_Id = new App_Auto_NumberController().GenID("CS_Post_Slides.Tbl_Id");
-                    Post.Post_Id = id;
+                    Post.Post_Id = post_id;
                     Post.Image_Link = s;
                     db.CS_Post_Slides.Add(Post);
-                    db.SaveChanges();
                 }
             }
-            return RedirectToAction("Index","BaiVietMVC",new { id = Session["id"]});
         }
-
+        private void deleteSlides(int post_id)
+        {
+            var lst = from s in db.CS_Post_Slides where s.Post_Id == post_id select s;
+            db.CS_Post_Slides.RemoveRange(lst);
+        }
         [CustomAuthorize(Roles = "Mod,Admin")]
         public ActionResult Edit(int Post_Id)
         {
