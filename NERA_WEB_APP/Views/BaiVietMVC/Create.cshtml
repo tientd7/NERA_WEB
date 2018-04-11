@@ -168,8 +168,8 @@
 
 <script>
     function removeSlide(id) {
-        var elem = document.getElementById(id);
-        elem.parentNode.removeChild(elem);
+        //var elem = document.getElementById(id);
+        id.parentNode.removeChild(id);
     }
     function chonAnh() {
         var finder = new CKFinder();
@@ -185,7 +185,7 @@
             $('#BoxAnh').html(str);
             $('#txtPost_content' + id).val(url);
             $('#anh' + id).attr("src", url);
-            id = id++;
+            id = id+ 1;
             $('#count_img').val(id);
         };
         finder.popup();
