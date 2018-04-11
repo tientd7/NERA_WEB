@@ -47,7 +47,7 @@ namespace NERA_WEB_APP.Controllers
         [CustomAuthorize(Roles = "Mod,Admin")]
         public ActionResult Index()
         {
-            var LST = (from obj in db.CS_Post_Info  select obj).ToList();
+            var LST = (from obj in db.CS_Post_Info select obj).ToList();
             return View(LST);
         }
 
@@ -64,7 +64,7 @@ namespace NERA_WEB_APP.Controllers
         [ValidateInput(false)]
         public ActionResult Create(CS_Post_Info objInfo, List<String> slides)
         {
-            
+
 
             CS_Post_Info newObj = new CS_Post_Info();
             int id = new App_Auto_NumberController().GenID("CS_Posts_Info.Post_Id");
@@ -97,7 +97,7 @@ namespace NERA_WEB_APP.Controllers
                     db.SaveChanges();
                 }
             }
-            return RedirectToAction("Index","BaiVietMVC",new { id = Session["id"]});
+            return RedirectToAction("Index", "BaiVietMVC", new { id = Session["id"] });
         }
 
         [CustomAuthorize(Roles = "Mod,Admin")]
@@ -125,18 +125,12 @@ namespace NERA_WEB_APP.Controllers
         }
 
         [CustomAuthorize(Roles = "Mod,Admin")]
-        public ActionResult Edit1(int Post_Id)
-        {
-            var obj = db.CS_Post_Info.Find(Post_Id);
-            return View(obj);
-        }
 
 
 
 
 
 
-       
 
 
         [CustomAuthorize(Roles = "Mod,Admin")]
@@ -176,24 +170,5 @@ namespace NERA_WEB_APP.Controllers
             var LST = (from obj in db.CS_Post_Info where obj.Enable == true select obj).ToList();
             return View(LST);
         }
-        [AllowAnonymous]
-        public JsonResult delete(int Post_Id)
-        {
-            String er = "";
-            try
-            {
-                var de = db.CS_Post_Info.Find(Post_Id);
-                de.Enable = false;
-                db.Entry(de).State = EntityState.Modified;
-                db.SaveChanges();
-            }
-            catch (Exception e)
-            {
-                er = e.StackTrace; ;
-            }
-
-            return Json(er);
-        }
     }
 }
-
