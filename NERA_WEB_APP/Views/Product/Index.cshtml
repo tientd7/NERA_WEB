@@ -4,8 +4,10 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+
+
 <div class="container" ng-controller="ProductCtrl">
-    @Html.Partial("~/Views/Product/popupProduct.cshtml")
+    @Html.ActionLink("Thêm mới", "Create")
     <fieldset>
         <legend style="position:relative;">
             <span style="text-align:left;">

@@ -205,6 +205,10 @@ namespace NERA_WEB_APP.Controllers
             db.SaveChanges();
             return View(newObj);
         }
+        public ActionResult Create1()
+        {
+            return View();
+        }
     }
 
 }
