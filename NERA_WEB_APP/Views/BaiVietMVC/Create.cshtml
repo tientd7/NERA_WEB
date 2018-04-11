@@ -143,12 +143,13 @@
 
             <div class="form-group" style="margin-left:0; margin-right:0;" id="BoxAnh">
                 <div class="col-md-12" style="margin-bottom:10px;">
-                    <input type="hidden" name="slides" class="col-sm-8" id="txtPost_content1" /> <input type="button" style="border-radius:5px; " class="btn btn-info col-sm-2 prevented" id="btnselect" onclick="chonAnh()" value="Chọn ảnh" />
+                    <input type="button" style="border-radius:5px; " class="btn btn-info col-sm-2 prevented" id="btnselect" onclick="chonAnh()" value="Chọn ảnh" />
                 </div>
 
-                <div style="width:100px; height:100px; float:left; margin-right:2px;margin-left: 15px;">
+                @*<div id="1" style="float:left; margin-right:2px;margin-left: 15px;">
+                    <input type="hidden" name="slides" class="col-sm-8" id="txtPost_content1" />
                     <img id="anh1" width="100" height="100" />
-                </div>
+                </div>*@
             </div>
             <div class="form-group">
                 <div class="col-md-12">
@@ -166,21 +167,26 @@
 </section>
 
 <script>
+    function removeSlide(id) {
+        var elem = document.getElementById(id);
+        elem.parentNode.removeChild(elem);
+    }
     function chonAnh() {
         var finder = new CKFinder();
         var id = $('#count_img').val();
         finder.selectActionFunction = function (url) {
-            $('#txtPost_content' + id).val(url);
-            $('#anh' + id).attr("src", url);
-            id = id + 1;
-            $('#count_img').val(id);
             var str = $("#BoxAnh").html()
+            str += '<div id="div' + id + '" style="width:100px; height:100px; float:left; margin-right:2px;">';
             str += '<input type="hidden" name="slides" class="col-sm-8" id="txtPost_content' + id + '" />'
-            str += '<div style="width:100px; height:100px; float:left; margin-right:2px;">';
-
-            str += '<img id = "anh' + id + '" width="100" height="100"/> ';
+            str += '<a href="#" onclick="removeSlide(div'+id+')" > ';
+            str += '<img id="anh' + id + '" width="100" height="100"/> ';
+            str += '</a> ';
             str += '</div>';
             $('#BoxAnh').html(str);
+            $('#txtPost_content' + id).val(url);
+            $('#anh' + id).attr("src", url);
+            id = id++;
+            $('#count_img').val(id);
         };
         finder.popup();
     }

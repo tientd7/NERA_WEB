@@ -47,7 +47,7 @@ namespace NERA_WEB_APP.Controllers
         [CustomAuthorize(Roles = "Mod,Admin")]
         public ActionResult Index()
         {
-            var LST = (from obj in db.CS_Post_Info select obj).ToList();
+            var LST = (from obj in db.CS_Post_Info  select obj).ToList();
             return View(LST);
         }
 
@@ -64,7 +64,7 @@ namespace NERA_WEB_APP.Controllers
         [ValidateInput(false)]
         public ActionResult Create(CS_Post_Info objInfo, List<String> slides)
         {
-
+            
 
             CS_Post_Info newObj = new CS_Post_Info();
             int id = new App_Auto_NumberController().GenID("CS_Posts_Info.Post_Id");
@@ -83,7 +83,13 @@ namespace NERA_WEB_APP.Controllers
             newObj.Gia = objInfo.Gia;
             newObj.Dathue = objInfo.Dathue;
             db.CS_Post_Info.Add(newObj);
+            insertSlides(id, slides);
             db.SaveChanges();
+
+            return RedirectToAction("Index","BaiVietMVC",new { id = Session["id"]});
+        }
+        private void insertSlides(int post_id, List<String> slides)
+        {
             foreach (string s in slides)
             {
                 if (!String.IsNullOrEmpty(s))
@@ -91,15 +97,17 @@ namespace NERA_WEB_APP.Controllers
 
                     CS_Post_Slides Post = new CS_Post_Slides();
                     Post.Tbl_Id = new App_Auto_NumberController().GenID("CS_Post_Slides.Tbl_Id");
-                    Post.Post_Id = id;
+                    Post.Post_Id = post_id;
                     Post.Image_Link = s;
                     db.CS_Post_Slides.Add(Post);
-                    db.SaveChanges();
                 }
             }
-            return RedirectToAction("Index", "BaiVietMVC", new { id = Session["id"] });
         }
-
+        private void deleteSlides(int post_id)
+        {
+            var lst = from s in db.CS_Post_Slides where s.Post_Id == post_id select s;
+            db.CS_Post_Slides.RemoveRange(lst);
+        }
         [CustomAuthorize(Roles = "Mod,Admin")]
         public ActionResult Edit(int Post_Id)
         {
@@ -125,12 +133,18 @@ namespace NERA_WEB_APP.Controllers
         }
 
         [CustomAuthorize(Roles = "Mod,Admin")]
+        public ActionResult Edit1(int Post_Id)
+        {
+            var obj = db.CS_Post_Info.Find(Post_Id);
+            return View(obj);
+        }
 
 
 
 
 
 
+       
 
 
         [CustomAuthorize(Roles = "Mod,Admin")]
@@ -170,5 +184,24 @@ namespace NERA_WEB_APP.Controllers
             var LST = (from obj in db.CS_Post_Info where obj.Enable == true select obj).ToList();
             return View(LST);
         }
+        [AllowAnonymous]
+        public JsonResult delete(int Post_Id)
+        {
+            String er = "";
+            try
+            {
+                var de = db.CS_Post_Info.Find(Post_Id);
+                de.Enable = false;
+                db.Entry(de).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                er = e.StackTrace; ;
+            }
+
+            return Json(er);
+        }
     }
 }
+
