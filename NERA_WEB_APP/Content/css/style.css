@@ -461,16 +461,52 @@ OUR SERVICES SECTION
         right: 0px;
         top: -19.5em;
     }
+/* wrapper image homepage */
 
+.wrapper-img-homepage {
+    margin-top: -26px;
+    height: 600px;
+    margin-bottom: 27px;
+}
+    .wrapper-img-homepage div img{
+        height:600px;
+        width:100%;
+    }
 
-/* ------------------------------------------------------------------
+@media only screen and (max-width:900px){
+    .wrapper-img-homepage {
+        margin-top: -26px;
+        height: 400px;
+        margin-bottom: 27px;
+    }
+
+        .wrapper-img-homepage div img {
+            height: 400px;
+            width: 100%;
+        }
+}
+
+@media only screen and (max-width:600px) {
+    .wrapper-img-homepage {
+        margin-top: -26px;
+        height: 300px;
+        margin-bottom: 27px;
+    }
+
+        .wrapper-img-homepage div img {
+            height: 300px;
+            width: 100%;
+        }
+}
+    /* ------------------------------------------------------------------
 TESTIMONIAL
 --------------------------------------------------------------------- */
-.testimonial-wrap {
-    top: -25px;
-    background: #fff;
-    margin-bottom: -52px;
-}
+    .testimonial-wrap {
+        top: -25px;
+        background: #fff;
+        margin-bottom: -52px;
+        height:430px;
+    }
 
     .testimonial-wrap .section-heading {
         margin-bottom: 20px;
@@ -512,12 +548,15 @@ TESTIMONIAL
 
 .slideshow-fb-img .item img {
     width: 100%;
-    height: 300px;
+    height: 430px;
+}
+#maps, #slideshow-fb{
+    height:430px;
 }
 
-#slideshow-fb .section-heading, #maps .section-heading {
-    margin-left: 20px;
-}
+    #slideshow-fb .section-heading, #maps .section-heading {
+        margin-left: 20px;
+    }
 
 
 
@@ -1214,7 +1253,7 @@ div.alert.alert-danger {
     /* TABLE*/
 
     .table-wrapper{
-        width:1000px;
+        width:1170px;
     }
         .table-wrapper tr{
             text-align:center;
@@ -1251,4 +1290,21 @@ div.alert.alert-danger {
 .pager li>a.page-item-link {
     padding: 0px 20px;
     border-radius: 5px;
+}
+
+/* icon action  */
+
+.icon-action {
+    border: none;
+    background: none;
+    padding: 13px 5px;
+    margin-right: 2px;
+}
+.icon-action i{
+    font-size:20px;
+}
+
+.title-page{
+    text-align:center;
+    margin: 10px 0;
 }

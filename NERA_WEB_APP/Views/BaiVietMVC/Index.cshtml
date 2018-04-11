@@ -26,64 +26,64 @@
     </script>
 }
 
-<section class="container">
-    <fieldset>
-        <legend style="position:relative;">
-            <span style="text-align:left;">
-                <h3>
-                   Danh sách bài viết
-                </h3>
-            </span>
-            <span style="position: absolute; right: 0; top: 25px;">
-                <h4>
-                    @Html.ActionLink("Thêm mới", "Create")
-                </h4>
+    <section class="container">
+        <fieldset>
+            <legend style="position:relative;">
+                <span style="text-align:left;">
+                    <h3 class="title-page">
+                        Danh sách bài viết
+                    </h3>
+                </span>
+                <span style="position: absolute; right: 0; top: 25px;">
+                    <h4>
+                        @Html.ActionLink("Thêm mới", "Create")
+                    </h4>
 
-            </span>
+                </span>
 
 
-        </legend>
-    </fieldset>
-    <div>
-        <table class="table table-striped" ng-controller="BaiVietMVC">
-            <tr>
-                <th>
-                    Tiêu đề bài viết
-                </th>
-                <th>
-                    Miêu tả
-                </th>
-                <th>
-                    Từ khóa
-                </th>
-                <th>
-                    Enable
-                </th>
-                <th>
-                    ID Item
-                </th>
-                <th>
-                    Người tạo
-                </th>
-                <th>
-                    Ngày tạo
-                </th>
-                <th>
-                    Người sửa
-                </th>
-                <th>
-                    Ngày sửa
-                </th>
-                <th>
-                    Ngôn ngữ
-                </th>
+            </legend>
+        </fieldset>
+        <div class=" table-wrapper container">
+            <table class="table table-striped" ng-controller="BaiVietMVC">
+                <tr>
+                    <th>
+                        Tiêu đề bài viết
+                    </th>
+                    <th>
+                        Miêu tả
+                    </th>
+                    <th>
+                        Từ khóa
+                    </th>
+                    <th>
+                        Enable
+                    </th>
+                    <th>
+                        ID Item
+                    </th>
+                    <th>
+                        Người tạo
+                    </th>
+                    <th>
+                        Ngày tạo
+                    </th>
+                    <th>
+                        Người sửa
+                    </th>
+                    <th>
+                        Ngày sửa
+                    </th>
+                    <th>
+                        Ngôn ngữ
+                    </th>
 
-                <th>Giá </th>
-                <th>Đã Thuê</th>
-                <th>Chức năng</th>
-            </tr>
+                    <th>Giá </th>
+                    <th>Đã Thuê</th>
+                    <th>Chức năng</th>
+                </tr>
 
-            @foreach (var item in Model)
+                @foreach (var item in Model)
             {
                 <tr>
                     <td>
@@ -125,38 +125,38 @@
                     </td>
 
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { Post_Id = item.Post_Id }) |
-                        @Html.ActionLink("Details", "Details", new { Post_Id = item.Post_Id }) |
+                        @Html.ActionLink("Edit", "Edit", new { Post_Id = item.Post_Id }) <br />
+                        @Html.ActionLink("Details", "Details", new { Post_Id = item.Post_Id }) <br />
                         <a href="#" ng-click="delete(@item.Post_Id)">Delete </a>
 
                     </td>
                 </tr>
-            }
+        }
 
 
 
-        </table>
-    </div>
-    @* pagination  *@
-    <div class="pagination-wrapper-page" style="height:50px; width:100%;">
-        <div class="pagination-wrapper">
-            <ul class="pager">
-                <li class="page-item"><a class="page-item-link" href="#" ng-click="onStart()"><<</a></li>
-                <li class="page-item"><a class="page-item-link" href="#" ng-click="onPrevious()"><</a></li>
-                <li class="page-item">
-                    <ul class="pagination" ng-repeat="item in Paging">
-                        <li class="page-item" ng-class="item.disable"><a class="page-link" href="#" ng-click="onPage(item.pageIndex)">{{item.pageIndex + 1}}</a></li>
-                    </ul>
-                </li>
-
-
-                <li class="page-item"><a class="page-item-link" href="#" ng-click="onNext()">></a></li>
-                <li class="page-item"><a class="page-item-link" href="#" ng-click="onEnd()">>></a></li>
-            </ul>
+            </table>
         </div>
-    </div>
+        @* pagination  *@
+        <div class="pagination-wrapper-page" style="height:50px; width:100%;">
+            <div class="pagination-wrapper">
+                <ul class="pager">
+                    <li class="page-item"><a class="page-item-link" href="#" ng-click="onStart()"><<</a></li>
+                    <li class="page-item"><a class="page-item-link" href="#" ng-click="onPrevious()"><</a></li>
+                    <li class="page-item">
+                        <ul class="pagination" ng-repeat="item in Paging">
+                            <li class="page-item" ng-class="item.disable"><a class="page-link" href="#" ng-click="onPage(item.pageIndex)">{{item.pageIndex + 1}}</a></li>
+                        </ul>
+                    </li>
 
-</section>
+
+                    <li class="page-item"><a class="page-item-link" href="#" ng-click="onNext()">></a></li>
+                    <li class="page-item"><a class="page-item-link" href="#" ng-click="onEnd()">>></a></li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
 @Html.Partial("~/Views/BaiVietMVC/popupBaiviet.cshtml")
 <script src="~/Scripts/jquery/dialog.js"></script>
 @section JavaScript{

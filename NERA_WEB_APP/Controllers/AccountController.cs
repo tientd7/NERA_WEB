@@ -68,7 +68,7 @@ namespace NERA_WEB_APP.Controllers
             var authCookie = HttpContext.Request.Cookies[cookieName];
             if (authCookie != null)
             {
-                return RedirectToAction("Index", "Admin");
+                return Redirect(returnUrl);
             }
             else
             {

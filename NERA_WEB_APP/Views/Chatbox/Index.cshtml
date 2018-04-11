@@ -5,7 +5,7 @@
 }
 
 <section class="container">
-    <h3>Danh sách lời nhắn của khách hàng</h3>
+    <h3 class="title-page">Danh sách lời nhắn của khách hàng</h3>
 
     <form>
         <div ng-controller="CBCtrl">
@@ -31,35 +31,16 @@
                         <input type="checkbox" ng-model="a.Unread" />
                     </td>
                     <td>{{a.Create_date |mydate| date: 'dd-MM-yyyy'}}</td>
-</tr>
+                </tr>
             </table>
 
-            @* pagination  *@
-            <div class="pagination-wrapper-page">
-                <div class="pagination-wrapper">
-                    <ul class="pager">
-                        <li class="page-item"><a class="page-item-link" href="#" ng-click="onStart()"><<</a></li>
-                        <li class="page-item"><a class="page-item-link" href="#" ng-click="onPrevious()"><</a></li>
-                        <li class="page-item">
-                            <ul class="pagination" ng-repeat="item in Paging">
-                                <li class="page-item" ng-class="item.disable"><a class="page-link" href="#" ng-click="onPage(item.pageIndex)">{{item.pageIndex + 1}}</a></li>
-                            </ul>
-                        </li>
 
-
-                        <li class="page-item"><a class="page-item-link" href="#" ng-click="onNext()">></a></li>
-                        <li class="page-item"><a class="page-item-link" href="#" ng-click="onEnd()">>></a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            
         </div>
     </form>
-   
-        <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
-    
-    
+
+    <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
+
+
 </section>
 
 <script src="~/Scripts/dirPagination.js"></script>

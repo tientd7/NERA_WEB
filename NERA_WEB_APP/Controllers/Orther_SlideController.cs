@@ -53,7 +53,8 @@ namespace NERA_WEB_APP.Controllers
                 db.Entry(Slide);
                 db.SaveChanges();
                 return Json("OK");
-            }else
+            }
+            else
                 return Json("ModelState Invalid!");
         }
 
