@@ -161,15 +161,15 @@
                     <input type="button" style="border-radius:5px; " class="btn btn-info col-sm-2 prevented" id="btnselect" onclick="chonAnh()" value="Chọn ảnh" />
                 </div>
                 @foreach (var slide in Model.Slides)
-                {
-                    <div id="'div'+@slide.Tbl_Id" float:left; margin-right:2px;margin-left: 15px;">
+                        { string ids = "div" + slide.Tbl_Id, idp = "txtPost_content" + slide.Tbl_Id;
+                    <div id="@ids" float:left; margin-right:2px;margin-left: 15px;">
 
-                        <input type="hidden" name="slides" class="col-sm-8" id="'txtPost_content'+@slide.Tbl_Id" />
-                        <a href="#" onclick="deleteSlide('div'+@slide.Tbl_Id)">
-                            <img id="'anh'+@slide.Tbl_Id" width="100" height="100" src="@slide.Image_Url" />
+                        <input type="hidden" name="slides" class="col-sm-8" id="@idp" value="@slide.Image_Link" />
+                        <a href="#" onclick="removeSlide(@ids)">
+                            <img id="@slide.Tbl_Id" width="100" alt="@slide.Image_Title" height="100" src="@slide.Image_Link" />
                         </a>
                     </div>
-                };
+                }
 
             </div>
 
@@ -199,8 +199,12 @@
             var id = $('#count_img').val();
             finder.selectActionFunction = function (url) {
                 var str = $("#BoxAnh").html()
-                str += '<div style="width:100px; height:100px; float:left; margin-right:2px;">';
-                str += '<img id = "anh' + id + '" width="100" height="100"/> ';
+                str += '<div id="div' + id + '" style="width:100px; height:100px; float:left; margin-right:2px;">';
+                str += '<input type="hidden" name="slides" class="col-sm-8" id="txtPost_content' + id + '" />'
+                str += '<a href="#" onclick="removeSlide(div' + id + ')" > ';
+                str += '<img id="anh' + id + '" width="100" height="100"/> ';
+                str += '</a> ';
+                str += '</div>';
                 $('#BoxAnh').html(str);
                 $('#txtPost_content' + id).val(url);
                 $('#anh' + id).attr("src", url);
