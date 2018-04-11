@@ -52,6 +52,8 @@ namespace NERA_WEB_APP.Models
             this.Update_By = post.Update_By;
             this.Update_Date = post.Update_Date;
             this.Language = post.Language;
+            this.Dathue = post.Dathue;
+            this.Gia = post.Gia;
         }
         public int Post_Id { set; get; }
         public string Post_Title { get; set; }
@@ -69,5 +71,7 @@ namespace NERA_WEB_APP.Models
         public string Language { get; set; }
         public List<CS_Post_Slides> Slides { set; get; }
         public virtual Cs_Menu_item Cs_Menu_Item { get; set; }
+        public bool Dathue { set; get; }
+        public int Gia { set; get; }
     }
 }
