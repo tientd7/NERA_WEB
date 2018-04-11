@@ -1,4 +1,4 @@
-﻿@model NERA_WEB_APP.Models.CS_Post_Info
+﻿@model NERA_WEB_APP.Models.Cs_Menu_item
 
 @{
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
@@ -30,7 +30,7 @@
     </div>
     <hr />
 
-    @using (Html.BeginForm())
+@using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
@@ -45,8 +45,8 @@
                 </div>
 
                 <div class="col-md-12">
-                    @Html.EditorFor(model => model.Post_Title, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Post_Title, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Item_Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Item_Name, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -62,9 +62,6 @@
                         @Html.ValidationMessageFor(model => model.Meta_Desc, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
-                <input type="hidden" value="1" id="count_img" />
-
                 <div class="col-md-6">
                     <div class="col-md-12">
                         @Html.Label("Từ khóa", htmlAttributes: new { @class = "", @style = "font-size:18px;" })
@@ -87,14 +84,7 @@
                         @Html.EditorFor(model => model.Enable)
                         @Html.ValidationMessageFor(model => model.Enable, "", new { @class = "text-danger" })
                     </div>
-                    <div style="padding-left:20px;">
-                        <label style="font-size:18px;">Đã thuê</label>
-
-                        @Html.EditorFor(model => model.Dathue)
-                        @Html.ValidationMessageFor(model => model.Dathue, "", new { @class = "text-danger" })
-
-
-                    </div>
+                    
 
                 </div>
                 <div class="col-md-3">
@@ -109,96 +99,32 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="col-md-12">
-                        <label style="font-size:18px;">Item Id</label>
-                    </div>
-                    <div class="col-md-12">
-                        @Html.DropDownList("Item_Id", new SelectList(ViewBag.CBXMenuItem, "Item_Id", "Item_Name"), new { @class = "form-control", @style = "width:150px" })
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="col-md-12">
-                        <label style="font-size:18px;">Đơn giá</label>
-                    </div>
-
-                    <div class="col-md-12">
-                        @Html.EditorFor(model => model.Gia, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Gia, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-
+                
+                
             <div class="form-group" style="margin-left:0; margin-right:0; padding:0;">
                 <div class="col-md-12">
                     <label style="font-size:18px;">Nội dung bài viết</label>
                 </div>
                 <div class="col-md-12">
-                    @Html.TextAreaFor(model => model.Post_Content, new { htmlAttributes = new { @class = "", @id = "Post_Content" }, id = "Post_Content" })
-                    @Html.ValidationMessageFor(model => model.Post_Content, "", new { @class = "text-danger" })
+                    @Html.TextAreaFor(model => model.Item_Content, new { htmlAttributes = new { @class = "", @id = "Post_Content" }, id = "Post_Content" })
+                    @Html.ValidationMessageFor(model => model.Item_Content, "", new { @class = "text-danger" })
                 </div>
 
             </div>
 
-
-            <div class="form-group" style="margin-left:0; margin-right:0;" id="BoxAnh">
-                <div class="col-md-12" style="margin-bottom:10px;">
-                    <input type="button" style="border-radius:5px; " class="btn btn-info col-sm-2 prevented" id="btnselect" onclick="chonAnh()" value="Chọn ảnh" />
-                </div>
-
-                @*<div id="1" style="float:left; margin-right:2px;margin-left: 15px;">
-                    <input type="hidden" name="slides" class="col-sm-8" id="txtPost_content1" />
-                    <img id="anh1" width="100" height="100" />
-                </div>*@
-            </div>
             <div class="form-group">
                 <div class="col-md-12">
                     <input type="submit" value="Thêm mới" class="btn btn-success" />
                 </div>
             </div>
             <div>
-                <h4> @Html.ActionLink("Quay Lại", "Index", new { id = Session["id"] }, null)</h4>
+                <h4> @Html.ActionLink("Quay Lại", "Index")
             </div>
         </div>
+            </div>
     }
 
 
 
 </section>
-
-<script>
-    function removeSlide(id) {
-        //var elem = document.getElementById(id);
-        id.parentNode.removeChild(id);
-    }
-    function chonAnh() {
-        var finder = new CKFinder();
-        var id = $('#count_img').val();
-        finder.selectActionFunction = function (url) {
-            var str = $("#BoxAnh").html()
-            str += '<div id="div' + id + '" style="width:100px; height:100px; float:left; margin-right:2px;">';
-            str += '<input type="hidden" name="slides" class="col-sm-8" id="txtPost_content' + id + '" />'
-            str += '<a href="#" onclick="removeSlide(div'+id+')" > ';
-            str += '<img id="anh' + id + '" width="100" height="100"/> ';
-            str += '</a> ';
-            str += '</div>';
-            $('#BoxAnh').html(str);
-            $('#txtPost_content' + id).val(url);
-            $('#anh' + id).attr("src", url);
-            id = id+ 1;
-            $('#count_img').val(id);
-        };
-        finder.popup();
-    }
-            //$("#btnselect").on('click', function (e) {
-            //    if ($(this).hasClass('prevented')) {
-            //        e.preventDefault();
-            //        $(this).removeClass('prevented');
-            //    } else {
-            //        $(this).addClass('prevented');
-            //    }
-
-
-            //})
-</script>
 

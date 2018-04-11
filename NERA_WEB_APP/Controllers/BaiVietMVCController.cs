@@ -83,7 +83,13 @@ namespace NERA_WEB_APP.Controllers
             newObj.Gia = objInfo.Gia;
             newObj.Dathue = objInfo.Dathue;
             db.CS_Post_Info.Add(newObj);
+            insertSlides(id, slides);
             db.SaveChanges();
+
+            return RedirectToAction("Index","BaiVietMVC",new { id = Session["id"]});
+        }
+        private void insertSlides(int post_id, List<String> slides)
+        {
             foreach (string s in slides)
             {
                 if (!String.IsNullOrEmpty(s))
@@ -91,35 +97,46 @@ namespace NERA_WEB_APP.Controllers
 
                     CS_Post_Slides Post = new CS_Post_Slides();
                     Post.Tbl_Id = new App_Auto_NumberController().GenID("CS_Post_Slides.Tbl_Id");
-                    Post.Post_Id = id;
+                    Post.Post_Id = post_id;
                     Post.Image_Link = s;
                     db.CS_Post_Slides.Add(Post);
-                    db.SaveChanges();
                 }
             }
-            return RedirectToAction("Index","BaiVietMVC",new { id = Session["id"]});
         }
-
+        private void deleteSlides(int post_id)
+        {
+            var lst = from s in db.CS_Post_Slides where s.Post_Id == post_id select s;
+            db.CS_Post_Slides.RemoveRange(lst);
+        }
         [CustomAuthorize(Roles = "Mod,Admin")]
         public ActionResult Edit(int Post_Id)
         {
-            var obj = db.CS_Post_Info.Find(Post_Id);
             ViewBag.CBXMenuItem = (from s in db.Cs_Menu_item where s.Item_Type.Equals("SP") select s).ToList();
+            var obj = db.CS_Post_Info.Where(t => t.Enable && t.Post_Id == Post_Id);
+            if (obj.Count() > 0)
+            {
+                var slides = from s in db.CS_Post_Slides where s.Post_Id == Post_Id select s;
+                PostDetailViewModel objView = new PostDetailViewModel(obj.First(), slides.ToList());
+                return View(objView);
+            }
+            return RedirectToRoute("BaiVietMVC/index");
             return View(obj);
         }
 
         [CustomAuthorize(Roles = "Mod,Admin")]
         [HttpPost]
-        public ActionResult Edit(CS_Post_Info Slide)
+        public ActionResult Edit(CS_Post_Info post, List<string> slides)
         {
-            Slide.Create_By = 1;
-            Slide.Create_Date = DateTime.Now;
-            Slide.Update_By = 1;
-            Slide.Update_Date = DateTime.Now;
-            Slide.Meta_Desc = Request.Form["MetaDesc"];
-            Slide.Meta_Key = Request.Form["MetaKey"];
-            Slide.Item_ID = Convert.ToInt32(Request.Form["Item_Id"]);
-            db.Entry(Slide).State = EntityState.Modified;
+            post.Create_By = 1;
+            post.Create_Date = DateTime.Now;
+            post.Update_By = 1;
+            post.Update_Date = DateTime.Now;
+            post.Meta_Desc = Request.Form["MetaDesc"];
+            post.Meta_Key = Request.Form["MetaKey"];
+            post.Item_ID = Convert.ToInt32(Request.Form["Item_Id"]);
+            db.Entry(post).State = EntityState.Modified;
+            deleteSlides(post.Post_Id);
+            insertSlides(post.Post_Id, slides);
             db.SaveChanges();
             return RedirectToAction("Index", new { id = Session["id"] });
         }
@@ -164,7 +181,7 @@ namespace NERA_WEB_APP.Controllers
                 PostDetailViewModel objView = new PostDetailViewModel(obj.First(), slides.ToList());
                 return View(objView);
             }
-            return RedirectToRoute("BaiVietMVC/index");
+            return RedirectToRoute("/Home/Index");
 
         }
 
