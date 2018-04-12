@@ -8,54 +8,83 @@
     <div id="main-carousel" class="carousel slide hero-slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#main-carousel" data-slide-to="1"></li>
+            @{ var i = 0; }
+            @foreach (var slide in ViewBag.slideImageTop)
+            {
+                i++;
+                if (slide.Image_Order == 1)
+                {
+                    <li data-target="#main-carousel" data-slide-to="@i" class="active"></li>
+                }
+                else
+                {
+                    <li data-target="#main-carousel" data-slide-to="@i"></li>
+                }
+            }
         </ol>
-
         <!-- Wrapper for slides -->
+
         <div class="carousel-inner slide-img" role="listbox">
-            <div class="item active">
 
-                <img src="~/Media/images/timthumb (1).jpg" />
+            @foreach (var slide in ViewBag.slideImageTop)
+            {
+                if (slide.Image_Order == 1)
+                {
+                    <div class="item active">
 
-                <!--Slide Image-->
+                        <img src="@slide.Image_Link" />
 
-                <div class="container">
-                    <div class="carousel-caption">
-                        <small class="animated fadeIn">Gọi cho chúng tôi</small>
-                        <div class="phone animated lightSpeedIn">+8498888888</div>
-                        <h1 class="animated lightSpeedIn">Tên dự án </h1>
+                        <!--Slide Image-->
 
-                        <p class="lead animated lightSpeedIn">Thông tin về dự án</p>
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <small class="animated fadeIn">Gọi cho chúng tôi</small>
+                                <div class="phone animated lightSpeedIn">+84 988.888.888</div>
+                                <h1 class="animated lightSpeedIn">
+                                    <a href="#" style="color: #f50707;">
+                                        Tên dự án
+                                    </a>
+                                </h1>
 
-                        <a class="btn btn-primary  animated lightSpeedIn" href="#">làm việc với chúng tôi</a>
+                                <p class="lead animated lightSpeedIn">Thông tin về dự án</p>
+
+                                <a class="btn btn-primary  animated lightSpeedIn" href="#">làm việc với chúng tôi</a>
+                            </div>
+                            <!--.carousel-caption-->
+                        </div>
+                        <!--.container-->
                     </div>
-                    <!--.carousel-caption-->
-                </div>
-                <!--.container-->
-            </div>
+                }
+                else
+                {
+                    <div class="item">
+                        <img src="@slide.Image_Link" />
+
+                        <!--Slide Image-->
+
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <small class="animated fadeIn">Gọi cho chúng tôi</small>
+                                <div class="phone animated lightSpeedIn">+84 988.888.888</div>
+                                <h1 class="animated lightSpeedIn">
+                                    <a href="#" style="color: #f50707;">
+                                        Tên dự án
+                                    </a>
+
+                                </h1>
+
+                                <p class="lead animated lightSpeedIn">Thông tin về dự án</p>
+
+                                <a class="btn btn-primary animated lightSpeedIn" href="#">làm việc với chúng tôi</a>
+                            </div>
+                            <!--.carousel-caption-->
+                        </div>
+                        <!--.container-->
+                    </div>
+                }
+            }
+
             <!--.item-->
-
-            <div class="item">
-
-                <img src="~/Media/images/hinh-anh-thiet-ke-noi-that-phong-khach-1.jpg" />
-
-                <!--Slide Image-->
-
-                <div class="container">
-                    <div class="carousel-caption">
-                        <small class="animated fadeIn">Gọi cho chúng tôi</small>
-                        <div class="phone animated lightSpeedIn">+8498888888</div>
-                        <h1 class="animated lightSpeedIn">Tên dự án </h1>
-
-                        <p class="lead animated lightSpeedIn">Thông tin về dự án</p>
-
-                        <a class="btn btn-primary animated lightSpeedIn" href="#">làm việc với chúng tôi</a>
-                    </div>
-                    <!--.carousel-caption-->
-                </div>
-                <!--.container-->
-            </div>
             <!--.item-->
         </div>
         <!--.carousel-inner-->
@@ -82,7 +111,7 @@
             <div>
                 <span>
                     <i class="fa fa-phone"></i>
-                    +8495999999
+                    +84 988.888.888
                 </span>
             </div>
         </div>
@@ -107,7 +136,7 @@
 </section>
 <!-- services end -->
 <!-- portfolio-section start -->
-<section class="fleets-wrap">
+<section class="fleets-wrap" style="top:2px;">
     <div class="container-fluid">
         <div class="no-padding">
             <div class="row">
@@ -203,7 +232,7 @@
 <!-- fleets-wrap end -->
 
 
-<section class="wrapper-img-homepage">
+<section class="wrapper-img-homepage" style="margin-top: 4px;">
     <div>
         <img src="~/Media/images/noi_that_nerahome.jpg" />
     </div>
@@ -215,37 +244,47 @@
 
     <div id="slideshow-maps">
         <div id="slideshow-fb">
-            <div class="title-feedback">
-                <span>
-                    Mọi thông tin phản hồi xin liên hệ
-                </span>
-                <br />
-                <span>
-                    <i class="fa fa-phone"></i>
-                    +8495999999
-                </span>
-            </div>
+
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
+
                 <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    @{ var j = 0; }
+                    @foreach (var slide in ViewBag.slideImagefeedback)
+                    {
+                        j++;
+                        if (slide.Image_Order == 1)
+                        {
+                            <li data-target="#myCarousel" data-slide-to="@j" class="active"></li>
+                        }
+                        else
+                        {
+                            <li data-target="#myCarousel" data-slide-to="@j"></li>
+                        }
+                    }
+                    @*<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>*@
                 </ol>
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner slideshow-fb-img">
-                    <div class="item active">
-                        <img src="~/Media/images/images (2).jpg" />
-                    </div>
+                    @foreach (var slide in ViewBag.slideImagefeedback)
+                    {
+                        if (slide.Image_Order == 1)
+                        {
+                            <div class="item active">
+                                <img src="@slide.Image_Link" />
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="item">
+                                <img src="@slide.Image_Link" />
+                            </div>
+                        }
+                    }
 
-                    <div class="item">
-                        <img src="~/Media/images/images (3).jpg" />
-                    </div>
-
-                    <div class="item">
-                        <img src="~/Media/images/images (4).jpg" />
-                    </div>
                 </div>
 
                 <!-- Left and right controls -->

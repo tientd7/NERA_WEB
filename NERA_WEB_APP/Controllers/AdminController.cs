@@ -1,4 +1,5 @@
 ﻿using System;
+using NERA_WEB_APP.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,8 +10,11 @@ namespace NERA_WEB_APP.Controllers
     public class AdminController : Controller
     {
         // GET: Admin
+        DataContext db = new DataContext();
         public ActionResult Index()
         {
+            ViewBag.slideImageTop = (from i in db.CS_Other_Slide where i.Image_Link != ("") && i.Slide_Type.Equals("0") select i).ToList();
+            ViewBag.slideImagefeedback = (from i in db.CS_Other_Slide where i.Image_Link != ("") && i.Slide_Type.Equals("1") select i).ToList();
             return View();
         }
     }
