@@ -14,7 +14,7 @@
 
         <div class="carousel-inner slide-img" role="listbox">
 
-            @foreach (var slide in ViewBag.slideImage)
+            @foreach (var slide in ViewBag.slideImageTop)
             {
                 if (slide.Image_Order == 1)
                 {
@@ -235,7 +235,7 @@
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner slideshow-fb-img">
-                    @foreach (var slide in ViewBag.slideImage)
+                    @foreach (var slide in ViewBag.slideImagefeedback)
                     {
                         if (slide.Image_Order == 1)
                         {
