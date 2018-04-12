@@ -232,10 +232,10 @@
     <Content Include="Content\css\template.css" />
     <Content Include="Content\images\ng-loader.gif" />
     <Content Include="DB\NerahomeWebDB_Script.sql" />
-    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="logoneraLand.ico" />
     <Content Include="Media\images\10-1487307093393.jpg" />
     <Content Include="Media\images\151009_Final.jpg" />
     <Content Include="Media\images\1_62642.jpg" />
@@ -279,6 +279,9 @@
     <Content Include="Media\images\images.jpg" />
     <Content Include="Media\images\loader.gif" />
     <Content Include="Media\images\loading.gif" />
+    <Content Include="Media\images\logo\logoNerahome.jpg" />
+    <Content Include="Media\images\logo\logoneraLand.ico" />
+    <Content Include="Media\images\logo\logo_nerahome.jpg" />
     <Content Include="Media\images\nerahom.jpg" />
     <Content Include="Media\images\Nerahome.jpg" />
     <Content Include="Media\images\Nerahome3.jpg" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NERA_WEB_APP.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +9,11 @@ namespace NERA_WEB_APP.Controllers
 {
     public class HomeController : Controller
     {
+        DataContext db = new DataContext();
         public ActionResult Index()
         {
+            
+            ViewBag.slideImage = (from i in db.CS_Post_Slides where i.Image_Link != "" select i).ToList();
             return View();
         }
 
