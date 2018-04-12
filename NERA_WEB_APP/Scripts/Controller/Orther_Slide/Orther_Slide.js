@@ -25,7 +25,7 @@
         };
         $http.post('/Orther_Slide/Insert', config).then(function (data) {
             getAllDataSlide();
-        },function (error) {
+        }, function (error) {
             console.log(error);
         });
         clearAllControl();
@@ -58,10 +58,13 @@
         //    Slide_Type: item.Slide_Type,
         //    Language: item.Language
         //};
+        //var config = {
+        //    params: { Slide: item }
+        //};
         var config = {
-            params: { Slide: item }
+            Slide: item
         };
-        $http.post('/Orther_Slide/Update', config).then(function (data, status, headers, config) { getAllDataSlide(); },function (error) { console.log(error); });
+        $http.post('/Orther_Slide/Update', config).then(function (data, status, headers, config) { getAllDataSlide(); }, function (error) { console.log(error); });
     };
 
     $scope.getStatusSlide = function (id) {
@@ -79,6 +82,8 @@
                 console.log(error)
             });
     };
+
+
 
 
 

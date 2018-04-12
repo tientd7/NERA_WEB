@@ -45,8 +45,8 @@
 
             </legend>
         </fieldset>
-        <form>
-            <table class="table table-striped">
+        <div class=" table-wrapper container">
+            <table class="table table-striped  table-wrapper">
                 <thead>
                     <tr>
                         <th>Post_Id</th>
@@ -83,29 +83,30 @@
                     </td>
                 </tr>
             </table>
-        </form>
-        <div class="container" style="max-width:500px;">
-            <div class="alert alert-noti-success">
-                <h3 class="alert-add-success" style="color:#fff;">
-                    Thêm thành công
-                </h3>
-                <h3 class="alert-update-success" style="color:#fff;">
-                    Sửa thành công
-                </h3>
 
+            <div class="container" style="max-width:500px;">
+                <div class="alert alert-noti-success">
+                    <h3 class="alert-add-success" style="color:#fff;">
+                        Thêm thành công
+                    </h3>
+                    <h3 class="alert-update-success" style="color:#fff;">
+                        Sửa thành công
+                    </h3>
+
+                </div>
+            </div>
+
+            <div class="container" style="max-width:500px;">
+                <div class="alert alert-delete-success" style="text-align:center; background:#13cb71;display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);">
+                    <h3 style="color:#fff;">
+                        Xóa thành công
+                    </h3>
+                </div>
             </div>
         </div>
 
-        <div class="container" style="max-width:500px;">
-            <div class="alert alert-delete-success" style="text-align:center; background:#13cb71;display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);">
-                <h3 style="color:#fff;">
-                    Xóa thành công
-                </h3>
-            </div>
-        </div>
+        <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
     </div>
-
-    <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
 </section>
 
 <script src="~/Scripts/dirPagination.js"></script>
