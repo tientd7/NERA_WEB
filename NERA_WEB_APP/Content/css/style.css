@@ -1,10 +1,40 @@
-﻿﻿ /*
+﻿
+/* Logo page*/
+#img-logo-page {
+    height: 130px;
+    width: 150px;
+    display: block;
+}
 
+@media only screen and (max-width:992px) {
+    #img-logo-page {
+        height: 130px;
+        width: 150px;
+        display: block;
+        position:relative;
+        left:50%;
+        transform:translate(-50%);
+    }
+}
+
+@media only screen and (max-width:767px) {
+    #img-logo-page {
+        height: 120px;
+        width: 140px;
+    }
+}
+
+@media only screen and (max-width:500px) {
+    #img-logo-page {
+        height: 100px;
+        width: 120px;
+    }
+}
+/*
     SLIDE - SEARCHBOX
  *  HERO SLIDER
  *-------------------------------------*/
-#slide-boxsearch {
-    top: -30px;
+#slide-boxsearch {   
     position: relative;
 }
 

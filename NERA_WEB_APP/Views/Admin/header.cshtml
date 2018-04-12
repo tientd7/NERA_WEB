@@ -12,9 +12,8 @@
                 <div class="col-sm-3 col-xs-12">
                     <div class="call-to-action">
                         <h1>
-                            <a href="/Admin/Index">
-                                NeraHome
-
+                            <a href="/Admin/Index" class="logo-page" title="neraland.com.vn Home">
+                                <img src="~/Media/images/logo/logoNerahome.jpg" class="img-logo-page"  id="img-logo-page" />
                             </a>
 
                         </h1>
@@ -34,7 +33,7 @@
                 <div class="col-sm-3 hidden-xs">
                     <div class="topbar-right">
                         <div class="user-acc-box">
-
+                           
                             @if (String.IsNullOrEmpty(userName))
                             {
                                 <a href="#" class="user-account btn-link-login">
@@ -106,12 +105,9 @@
                 <div class="logo-acc-mb">
 
                     <div class="call-to-action">
-                        <h1>
-                            <a href="/Admin/Index">
-                                NeraHome
-                            </a>
-
-                        </h1>
+                        <a href="/Admin/Index" class="logo-page" title="neraland.com.vn Home">
+                            <img src="~/Media/images/logo/logoNerahome.jpg" class="img-logo-page"  id="img-logo-page" />
+                        </a>
                     </div>
                     <div class="acc-lang-wt">
                         <div class="topbar-right">
@@ -215,26 +211,26 @@
                     <li><a href="/Product/Index">Quản lý sản phẩm</a></li>
 
 
-        @*<li class="dropdown">
-            <a href="#">Sản phẩm <b class="caret"></b></a>
+                    @*<li class="dropdown">
+                            <a href="#">Sản phẩm <b class="caret"></b></a>
 
-            <div class="submenu-wrapper submenu-wrapper-topbottom">
-                <div class="submenu-inner  submenu-inner-topbottom">
-                    <ul class="dropdown-menu" ng-controller="ProductCtrl">
-                        @if (String.IsNullOrEmpty(userName))
-                        {
-                            <li ng-repeat="i in ItemSPEnable "><a href="/Product/product?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
-                        }
-                        else
-                        {
-                            <li ng-repeat="i in ItemSPEnable "><a href="/BaiVietMVC/Index?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
-                        }
+                            <div class="submenu-wrapper submenu-wrapper-topbottom">
+                                <div class="submenu-inner  submenu-inner-topbottom">
+                                    <ul class="dropdown-menu" ng-controller="ProductCtrl">
+                                        @if (String.IsNullOrEmpty(userName))
+                                        {
+                                            <li ng-repeat="i in ItemSPEnable "><a href="/Product/product?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li ng-repeat="i in ItemSPEnable "><a href="/BaiVietMVC/Index?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
+                                        }
 
-                    </ul>
-                </div>
-            </div>
+                                    </ul>
+                                </div>
+                            </div>
 
-        </li>*@
+                        </li>*@
 
                     <li><a href="/Orther_Slide/Index">Quản lý slides</a></li>
                     <li><a href="/Chatbox/Index">Quản lý tin nhắn khách hàng</a></li>
