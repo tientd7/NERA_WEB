@@ -182,7 +182,7 @@ namespace NERA_WEB_APP.Controllers
             return Json(listdetail, JsonRequestBehavior.AllowGet);
         }
 
-        // Item service
+   
         public ActionResult Create()
         {
             return View();
@@ -200,14 +200,10 @@ namespace NERA_WEB_APP.Controllers
             newObj.Language = Request.Form["Language"];
             newObj.Meta_Desc = Request.Form["MetaDesc"];
             newObj.Meta_Key = Request.Form["MetaKey"];
-            newObj.Item_Content = Request.Unvalidated["ItemContent"];
+            newObj.Item_Content = Request.Unvalidated["Item_Content"];
             db.Cs_Menu_item.Add(newObj);
             db.SaveChanges();
             return View(newObj);
-        }
-        public ActionResult Create1()
-        {
-            return View();
         }
     }
 

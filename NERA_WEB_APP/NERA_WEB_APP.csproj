@@ -1505,8 +1505,9 @@
     <Content Include="Views\Services\details.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Services\popupServices.cshtml" />
-    <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Product\Create1.cshtml" />
+    <Content Include="Views\Services\Create.cshtml" />
+    <Content Include="Views\Services\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

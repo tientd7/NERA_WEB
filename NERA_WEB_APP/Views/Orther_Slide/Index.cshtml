@@ -3,6 +3,25 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+@section jsFooter{
+    <script>
+        $(document).ready(function () {
+            $('#btnselect').on('click', function (e) {
+                e.preventDefault();
+                var finder = new CKFinder();
+
+                finder.selectActionFunction = function (url) {
+                    $('#txtAnh').val(url);
+                };
+                finder.popup();
+
+            })
+        })
+    </script>
+}
+
+
+
 
 <div class="container" id="content" ng-controller="Orther_Slide">
     <h2 class="title-page">Quản lý slides</h2>
@@ -23,7 +42,10 @@
                 <td></td>
                 <td><input type="text" class="form-control" ng-model="CreateItem.Image_Title" /></td>
                 <td><input type="text" class="form-control" ng-model="CreateItem.Image_URL" /></td>
-                <td><input type="text" class="form-control" ng-model="CreateItem.Image_Link" /></td>
+                <td>
+                    <input type="text" class="form-control" id="txtAnh" ng-model="CreateItem.Image_Link">
+                    <a href="#" id="btnselect">Chọn</a>
+                </td>
                 <td>
                     <input type="text" class="form-control" ng-model="CreateItem.Image_Order" />
 
@@ -44,7 +66,7 @@
                         <option value="EN">English</option>
                     </select>
                 </td>
-                <td><button type="button" style="font-size:30px; padding:5px 35px; background:none; border:none;" value="Thêm" ng-click="onCreateSlide()" ><i class="fa fa-plus" aria-hidden="true"></i></button></td>
+                <td><button type="button" style="font-size:30px; padding:5px 35px; background:none; border:none;" value="Thêm" ng-click="onCreateSlide()"><i class="fa fa-plus" aria-hidden="true"></i></button></td>
             </tr>
             <tr dir-paginate='Item in ListSlide | itemsPerPage:5'>
                 <td>{{Item.Tbl_Id}}</td>
@@ -105,7 +127,7 @@
         </table>
         <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
     </div>
-    
+
 </div>
 
 <script src="~/Scripts/dirPagination.js"></script>
