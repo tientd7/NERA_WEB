@@ -49,9 +49,10 @@ namespace NERA_WEB_APP.Controllers
         }
         public ActionResult Edit(int id)
         {
-            var obj = db.Cs_Menu_item.Find(id);
+            var obj = db.Cs_Menu_item.Where(i=>i.Item_Id ==id).FirstOrDefault();
             return View(obj);
         }
+        [CustomAuthorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Edit(Cs_Menu_item menu)
         {

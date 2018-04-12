@@ -193,24 +193,7 @@ namespace NERA_WEB_APP.Controllers
             var LST = (from obj in db.CS_Post_Info where obj.Enable == true select obj).ToList();
             return View(LST);
         }
-        [AllowAnonymous]
-        public JsonResult delete(int Post_Id)
-        {
-            String er = "";
-            try
-            {
-                var de = db.CS_Post_Info.Find(Post_Id);
-                de.Enable = false;
-                db.Entry(de).State = EntityState.Modified;
-                db.SaveChanges();
-            }
-            catch (Exception e)
-            {
-                er = e.StackTrace; ;
-            }
-
-            return Json(er);
-        }
+        
     }
 }
 
