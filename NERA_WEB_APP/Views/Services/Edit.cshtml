@@ -92,46 +92,47 @@
                         <label style="font-size:18px;">Ngôn ngữ</label>
                     </div>
                     <div class="col-md-12">
-                        <select class="form-control" name="Language" style="width:150px;">
-                            <option value="">Chọn ngôn ngữ</option>
+                        <select class="form-control" name="Language" style="width:150px;"@Model.Meta_Desc>
+
                             <option value="VI">Việt nam</option>
                             <option value="EN">English</option>
+                            
                         </select>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class=" col-md-12">
-                        <label style="font-size:18px;">Chọn</label>
-                    </div>
-                    <div class="col-md-12">
-                        <select class="form-control" name="Type" style="width:150px;">
-                            <option value="DV">Dịch Vụ</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group" style="margin-left:0; margin-right:0; padding:0;">
-                    <div class="col-md-12">
-                        <label style="font-size:18px;">Nội dung bài viết</label>
-                    </div>
-                    <div class="col-md-12">
-                        @Html.TextAreaFor(model => model.Item_Content, new { htmlAttributes = new { @class = "", @id = "Item_Content" }, id = "Item_Content" })
-                        @Html.ValidationMessageFor(model => model.Item_Content, "", new { @class = "text-danger" })
-                    </div>
-
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-12">
-                        <input type="submit" value="Sửa" class="btn btn-success" />
-                    </div>
-                </div>
-                <div>
-                    <h4> @Html.ActionLink("Quay Lại", "Index")
                 </div>
             </div>
+            <div class="col-md-3">
+                <div class=" col-md-12">
+                    <label style="font-size:18px;">Chọn</label>
+                </div>
+                <div class="col-md-12">
+                    <select class="form-control" name="Type" style="width:150px;">
+                        <option value="DV">Dịch Vụ</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-left:0; margin-right:0; padding:0;">
+                <div class="col-md-12">
+                    <label style="font-size:18px;">Nội dung bài viết</label>
+                </div>
+                <div class="col-md-12">
+                    @Html.TextAreaFor(model => model.Item_Content, new { htmlAttributes = new { @class = "", @id = "Item_Content" }, id = "Item_Content" })
+                    @Html.ValidationMessageFor(model => model.Item_Content, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input type="submit" value="Sửa" class="btn btn-success" />
+                </div>
+            </div>
+            <div>
+                <h4> @Html.ActionLink("Quay Lại", "Index")
+            </div>
         </div>
-    }
+    </div>
+}
 
 
 

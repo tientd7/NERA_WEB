@@ -45,14 +45,14 @@ namespace NERA_WEB_APP.Controllers
             newObj.Item_Content = Request.Unvalidated["Item_Content"];
             db.Cs_Menu_item.Add(newObj);
             db.SaveChanges();
-            return View(newObj);
+            return RedirectToAction("Index");
         }
         public ActionResult Edit(int id)
         {
             var obj = db.Cs_Menu_item.Where(i=>i.Item_Id ==id).FirstOrDefault();
             return View(obj);
         }
-        [CustomAuthorize(Roles = "Admin")]
+        [AllowAnonymous]
         [HttpPost]
         public ActionResult Edit(Cs_Menu_item menu)
         {
