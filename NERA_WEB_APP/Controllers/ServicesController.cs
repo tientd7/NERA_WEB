@@ -38,6 +38,7 @@ namespace NERA_WEB_APP.Controllers
             newObj.Item_Id = id;
             newObj.Item_Name = Obj.Item_Name;
             newObj.Enable = true;
+            
             newObj.Item_Type = Request.Form["Type"];
             newObj.Language = Request.Form["Language"];
             newObj.Meta_Desc = Request.Form["MetaDesc"];
