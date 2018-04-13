@@ -112,7 +112,7 @@ namespace NERA_WEB_APP.Controllers
         public ActionResult Edit(int Post_Id)
         {
             ViewBag.CBXMenuItem = (from s in db.Cs_Menu_item where s.Item_Type.Equals("SP") select s).ToList();
-            var obj = db.CS_Post_Info.Where(t => t.Enable && t.Post_Id == Post_Id);
+            var obj = db.CS_Post_Info.Where(t =>t.Post_Id == Post_Id);
             if (obj.Count() > 0)
             {
                 var slides = from s in db.CS_Post_Slides where s.Post_Id == Post_Id select s;
@@ -120,7 +120,7 @@ namespace NERA_WEB_APP.Controllers
                 return View(objView);
             }
             return RedirectToRoute("BaiVietMVC/index");
-            return View(obj);
+            
         }
 
         [CustomAuthorize(Roles = "Mod,Admin")]

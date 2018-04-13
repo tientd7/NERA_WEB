@@ -3,25 +3,12 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-@section jsFooter{
-    <script>
-        $(document).ready(function () {
-            $('#btnselect').on('click', function (e) {
-                e.preventDefault();
-                var finder = new CKFinder();
 
-                finder.selectActionFunction = function (url) {
-                    $('#txtAnh').val(url);
-                };
-                finder.popup();
 
-            })
-        })
-    </script>
+
+@{
+    var i = 0;
 }
-
-
-
 
 <div class="container" id="content" ng-controller="Orther_Slide">
     <h2 class="title-page">Quản lý slides</h2>
@@ -44,7 +31,7 @@
                 <td><input type="text" class="form-control" ng-model="CreateItem.Image_URL" /></td>
                 <td>
                     <input type="text" class="form-control" id="txtAnh" name="Anh" ng-model="CreateItem.Image_Link">
-                    <a href="#" id="btnselect">Chọn</a>
+                    <button style="background:none; border:none;" class="btnselect">Chọn</button>
                 </td>
                 <td>
                     <input type="text" class="form-control" ng-model="CreateItem.Image_Order" />
@@ -66,62 +53,75 @@
                         <option value="EN">English</option>
                     </select>
                 </td>
-                <td><button type="button" style="font-size:30px; padding:5px 35px; background:none; border:none;" value="Thêm" ng-click="onCreateSlide()"><i class="fa fa-plus" aria-hidden="true"></i></button></td>
-            </tr>
-            <tr dir-paginate='Item in ListSlide | itemsPerPage:5'>
-                <td>{{Item.Tbl_Id}}</td>
-                <td>
-                    <div ng-show="getStatusSlide(Item.Tbl_Id)">
-                        {{Item.Image_Title}}
-                    </div>
-                    <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Image_Title" />
-                </td>
-                <td>
-                    <div ng-show="getStatusSlide(Item.Tbl_Id)">
-                        {{Item.Image_URL}}
-                    </div>
-                    <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Image_URL" />
-                </td>
-                <td>
-                    <div ng-show="getStatusSlide(Item.Tbl_Id)">
-                        {{Item.Image_Link}}
-                    </div>
-                    <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Image_Link" />
-                </td>
-                <td>
-                    <div ng-show="getStatusSlide(Item.Tbl_Id)">
-                        {{Item.Image_Orde}}
-                    </div>
-                    <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Image_Orde" />
-                </td>
-                <td>
-                    <input class="form-control" type="checkbox" ng-disabled="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Enable" />
-                </td>
-                <td>
-                    <div ng-show="getStatusSlide(Item.Tbl_Id)">
-                        {{Item.Slide_Type}}
-                    </div>
-                    <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Slide_Type" />
-                </td>
-                <td>
-                    <div ng-show="getStatusSlide(Item.Tbl_Id)">
-                        {{Item.Language}}
-                    </div>
-                    <select class="form-control" ng-model="Item.Language" style="width:150px;" ng-hide="getStatusSlide(Item.Tbl_Id)">
-                        <option value="">Chọn ngôn ngữ</option>
-                        <option value="VI">Việt nam</option>
-                        <option value="EN">English</option>
-                    </select>
 
-                </td>
                 <td>
-                    <div class="btn-group-wrapper" style="text-align:center;">
-                        <button ng-show="getStatusSlide(Item.Tbl_Id)" type="button" class="icon-action" ng-click="onEditSlide(Item.Tbl_Id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                        <button ng-hide="getStatusSlide(Item.Tbl_Id)" type="button" class="icon-action" ng-click="onSaveSlide(Item)"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-                        <button ng-hide="getStatusSlide(Item.Tbl_Id)" type="button" class="icon-action" ng-click="onCancelSlide()"><i class="fa fa-ban" aria-hidden="true"></i></button>
-                        <button ng-show="getStatusSlide(Item.Tbl_Id)" type="button" class="icon-action" ng-click="onDeleteSlide(Item.Tbl_Id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                    </div>
+
+                    <button type="button" style="font-size:30px; padding:5px 35px; background:none; border:none;" value="Thêm" ng-click="onCreateSlide()"><i class="fa fa-plus" aria-hidden="true"></i></button>
                 </td>
+            </tr>
+
+            <tr dir-paginate='Item in ListSlide | itemsPerPage:5'>
+                
+                    <td>{{Item.Tbl_Id}}</td>
+                    <td>
+                        <div ng-show="getStatusSlide(Item.Tbl_Id)">
+                            {{Item.Image_Title}}
+                        </div>
+                        <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Image_Title" />
+                    </td>
+                    <td>
+                        <div ng-show="getStatusSlide(Item.Tbl_Id)">
+                            {{Item.Image_URL}}
+                        </div>
+                        <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Image_URL" />
+                    </td>
+                    <td>
+                        <div ng-show="getStatusSlide(Item.Tbl_Id)">
+                            {{Item.Image_Link}}
+                        </div>
+                        <input class="form-control" type="text" id="txtAnh" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Image_Link" />
+                        <input type="text" class="form-control txtAnh" name="Anh" ng-model="CreateItem.Image_Link">
+
+                        <button style="background:none; border:none;" class="btnselect" onclick="setImage()" >Chọn</button>
+                    </td>
+
+                    <td>
+
+                        <div ng-show="getStatusSlide(Item.Tbl_Id)">
+                            {{Item.Image_Orde}}
+                        </div>
+                        <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Image_Orde" />
+                    </td>
+                    <td>
+                        <input class="form-control" type="checkbox" ng-disabled="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Enable" />
+                    </td>
+                    <td>
+                        <div ng-show="getStatusSlide(Item.Tbl_Id)">
+                            {{Item.Slide_Type}}
+                        </div>
+                        <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Slide_Type" />
+                    </td>
+                    <td>
+                        <div ng-show="getStatusSlide(Item.Tbl_Id)">
+                            {{Item.Language}}
+                        </div>
+                        <select class="form-control" ng-model="Item.Language" style="width:150px;" ng-hide="getStatusSlide(Item.Tbl_Id)">
+                            <option value="">Chọn ngôn ngữ</option>
+                            <option value="VI">Việt nam</option>
+                            <option value="EN">English</option>
+                        </select>
+
+                    </td>
+                    <td>
+                        <div class="btn-group-wrapper" style="text-align:center;">
+
+                            <button ng-show="getStatusSlide(Item.Tbl_Id)" type="button" class="icon-action" ng-click="onEditSlide(Item.Tbl_Id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                            <button ng-hide="getStatusSlide(Item.Tbl_Id)" type="button" class="icon-action" ng-click="onSaveSlide(Item)"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                            <button ng-hide="getStatusSlide(Item.Tbl_Id)" type="button" class="icon-action" ng-click="onCancelSlide()"><i class="fa fa-ban" aria-hidden="true"></i></button>
+                            <button ng-show="getStatusSlide(Item.Tbl_Id)" type="button" class="icon-action" ng-click="onDeleteSlide(Item.Tbl_Id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                        </div>
+                    </td>
+                
             </tr>
 
         </table>
@@ -137,3 +137,35 @@
 
     <script src="~/Scripts/Controller/Orther_Slide/Orther_Slide.js"></script>
 }
+
+<script>
+
+    function setImage() {
+        var finder = new CKFinder();
+
+
+        finder.selectActionFunction = function (url) {
+            $('.txtAnh').val(url);
+        };
+        finder.popup();
+
+    };
+
+    //$(document).on('click','.btnselect', function (id) {
+
+
+    //    var finder = new CKFinder();
+
+    //    finder.selectActionFunction = function (url) {
+    //        $('.txtAnh'+id).val(url);
+    //    };
+    //    finder.popup();
+
+    //})
+
+
+</script>
+
+
+
+

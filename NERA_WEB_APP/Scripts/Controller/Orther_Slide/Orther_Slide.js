@@ -3,7 +3,21 @@
     $scope.List = "";
     this.IsEditing = false;
     this.EditId = -1;
+   
+
     getAllDataSlide();
+   
+    function getAllDataSlide() {
+        $http.get('/Orther_Slide/GetData')
+            .success(function (data) {
+                $scope.ListSlide = data;
+                
+            })
+            .error(function (error) {
+                console.log(error)
+            });
+    };
+
 
     function clearAllControl() {
         $scope.CreateItem = {};
@@ -30,7 +44,7 @@
         });
         clearAllControl();
     };
-
+    
     $scope.onEditSlide = function (id) {
         this.EditId = id;
         this.IsEditing = true;
@@ -73,16 +87,7 @@
                 return false;
         return true;
     };
-    function getAllDataSlide() {
-        $http.get('/Orther_Slide/GetData')
-            .success(function (data) {
-                $scope.ListSlide = data;
-            })
-            .error(function (error) {
-                console.log(error)
-            });
-    };
-
+   
 
 
 
