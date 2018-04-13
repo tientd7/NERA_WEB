@@ -9,7 +9,7 @@
 
 
 
-<section class="sortby-wrapper breadcrumb-wrapper">
+<div class="sortby-wrapper breadcrumb-wrapper">
     <div class="breadcrumb-wrapper">
         <span>
             <a href="/Home/Index">Trang chủ </a>
@@ -19,7 +19,7 @@
             @ViewBag.Title
         </span>
     </div>
-    <div class="sort-by-wrapper">
+    @*<div class="sort-by-wrapper">
         <select name="" id="">
             <option value="">Sort by</option>
             <option value="">Loại phòng</option>
@@ -28,30 +28,20 @@
             <option value="">Diện tích</option>
             <option value="">Giá</option>
         </select>
-    </div>
+    </div>*@
 
-</section>
+</div>
 <!--  MAIN -->
-<section id="main-product">
+<div id="main-product" >
 
 
     @Html.Partial("~/Views/Product/popupProduct.cshtml")
 
-    @* tạo vòng lặp
-        show thông tin sản phẩm *@
-    <fieldset>
-        <legend style="position:relative;">
-            <span style="text-align:left;">
-                <h3>
-                    Dịch vụ khách sạn
-                </h3>
-            </span>
-        </legend>
-    </fieldset>
+   
 
     @*<div class="details-product product" dir-paginate='i in ItemDV | itemsPerPage:5'>*@
-    <div class="details-services services" style="border:1px solid #eee;">
-        <div class="infor-service-wrapper" style="height:300px; width:100%; padding:20px;">
+    <div class="details-services services" style="border:1px solid #eee;display:inline-block;">
+        <div class="infor-service-wrapper" style="height:300px; width:100%; padding:20px;display:inline-block;">
             <div class="infor-service">
 
                 <div>
@@ -65,7 +55,7 @@
                 </div>
                 <div style="margin-top:20px;">
                     <h4>
-                        @Model.Item_Content
+                        @Html.Raw(Model.Item_Content)
                     </h4>
                 </div>
 
@@ -76,7 +66,7 @@
     @*<dir-pagination-controls boundary-links="true"></dir-pagination-controls>*@
 
 
-</section>
+</div>
 
 <script src="~/Scripts/jquery/dialog.js"></script>
 
