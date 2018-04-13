@@ -172,6 +172,7 @@
         id.parentNode.removeChild(id);
     }
     function chonAnh() {
+        $(this).focus();
         var finder = new CKFinder();
         var id = $('#count_img').val();
         finder.selectActionFunction = function (url) {

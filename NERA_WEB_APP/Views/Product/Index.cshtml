@@ -5,8 +5,9 @@
 }
 
 <div class="container" ng-controller="ProductCtrl">
-    @Html.Partial("~/Views/Product/popupProduct.cshtml")
+    @*@Html.Partial("~/Views/Product/popupProduct.cshtml")*@
     @Html.ActionLink("Thêm mới", "Create1")
+
     <fieldset>
         <legend style="position:relative;">
             <span style="text-align:left;">
@@ -17,40 +18,108 @@
 
             <span style="text-align:right; position:absolute; right:0; bottom:0;">
                 <h4>
-                    <a href="#" class="btn-show-popup btn-add-pro">Thêm mới</a>
+                    @*<a href="#" class="btn-show-popup btn-add-pro">Thêm mới</a>*@
+                    <a href="#" class="btn-add-data">Thêm mới</a>
                 </h4>
             </span>
 
 
         </legend>
     </fieldset>
-    <div class=" table-wrapper container">
-        <table class="talble table-bordered container  table-wrapper">
+
+    <div class="table-wrapper container">
+        <table class="talble table-bordered table-wrapper">
             <tr style="text-align:center;">
-                <td style="width:100px;">Tên sản phẩm</td>
-                <td>Miêu tả</td>
-                <td>Từ khóa</td>
-
-                <td style="width:100px;">Ngôn ngữ</td>
-                <td style="width:50px;">Enable</td>
-                <td style="width:100px;">Chức năng</td>
+                <td class="name" style="width:200px;">Tên sản phẩm</td>
+                <td class="des">Miêu tả</td>
+                <td class="key">Từ khóa</td>
+                <td class="language" style="width:100px;">Ngôn ngữ</td>
+                <td class="enalbe" style="width:50px;">Enable</td>
+                <td class="action" style="width:100px;">Chức năng</td>
             </tr>
-            <tr dir-paginate='i in ItemSP | itemsPerPage:5'>
-                <td style="padding:10px;">{{i.Item_Name}}</td>
-                <td style="padding:10px;">{{i.Meta_Desc}}</td>
-                <td style="padding:10px;">{{i.Meta_Key}}</td>
 
-                <td style="padding:10px; text-align:center;">{{i.Language}}</td>
-                <td style="text-align:center;">
-                    <input type="checkbox" ng-model="i.Enable" disabled />
+            <tr class="tr-add-data">
+                <td style="width:100px;">
+                    <input type="text" class="form-control name item-type" ng-model="Item.Item_Name" />
+                </td>
+                <td>
+                    <input type="text" class="form-control des item-type " ng-model="Item.Meta_Desc" />
+                </td>
+                <td>
+                    <input type="text" class="form-control keys item-type" ng-model="Item.Meta_Key" />
+                </td>
+
+                <td style="width:100px;">
+                    <select class="form-control select-lang item" ng-model="Item.Language" style="width:150px;">
+                        <option value="">Chọn ngôn ngữ</option>
+                        <option value="VI">Việt nam</option>
+                        <option value="EN">English</option>
+                    </select>
+                </td>
+                <td style="width:50px;">
+                    <input type="checkbox" ng-model="Item.Enable" />
+                </td>
+                <td style="width:100px;">
+                    <button type="button" style="font-size:30px; padding:5px 35px; background:none; border:none;" value="Thêm" ng-click="Create(Item)">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </button>
+                </td>
+            </tr>
+
+            <tr class="tr-show-data" dir-paginate='Item in ItemSP | itemsPerPage:5'>
+                <td style="padding:10px;">
+                    <span ng-show="isExisting">{{Item.Item_Name}}</span>
+
+                    <input type="text" class="form-control" ng-hide="isExisting" value="{{Item.Item_Name}}" ng-model="Item.Item_Name" />
+                </td>
+                <td style="padding:10px;">
+
+                    <span ng-show="isExisting"> {{Item.Meta_Desc}}</span>
+                    <input type="text" class="form-control" ng-hide="isExisting" value="{{Item.Meta_Desc}}" ng-model="Item.Meta_Desc" />
+                </td>
+                <td style="padding:10px;">
+
+                    <span ng-show="isExisting">{{Item.Meta_Key}}</span>
+                    <input type="text" class="form-control" ng-hide="isExisting" value="{{Item.Meta_Key}}" ng-model="Item.Meta_Key" />
+                </td>
+
+                <td style="padding:10px; text-align:center;">
+                    <span ng-show="isExisting"> {{Item.Language}}</span>
+                    <select class="form-control select-lang item" ng-hide="isExisting" ng-model="Item.Language" style="width:150px;">
+                        <option value="">Chọn ngôn ngữ</option>
+                        <option value="VI">Việt nam</option>
+                        <option value="EN">English</option>
+                    </select>
                 </td>
                 <td style="text-align:center;">
-                    <a href="#" class="btn-details" ng-click="readDetails(i.Item_Id)">Details</a><br />
+                    <input type="checkbox" ng-model="Item.Enable" ng-disabled="isExisting" />
+                </td>
+                <td style="text-align:center;">
+                    <div class="btn-group-wrapper" style="text-align:center;">
+                        <button ng-show="isExisting " type="button" class="icon-action" ng-click="get(Item.Item_Id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                        <button ng-show="isExisting" type="button" class="icon-action" ng-show="isExisting" ng-click="del(Item)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                        <button ng-hide="isExisting" type="button" class="icon-action" ng-click="update(Item)"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                        <button ng-hide="isExisting" type="button" class="icon-action" ng-click="cancel()"><i class="fa fa-ban" aria-hidden="true"></i></button>
+
+                    </div>
+                    @*<a href="#" class="btn-details" ng-click="readDetails(i.Item_Id)">Details</a><br />
                     <a href="#" class="btn-edit" ng-click="getDetails(i.Item_Id)">Edit</a><br />
-                    <a href="#" class="btn-remove" ng-click="del(i)">Delete</a>
+                    <a href="#" class="btn-remove" ng-click="del(i)">Delete</a>*@
                 </td>
             </tr>
         </table>
+        <div class="container" style="max-width:500px;">
+            <div class="alert alert-noti-success">
+                <h3 class="alert-add-success" style="color:#fff;">
+                    Thêm thành công
+                </h3>
+                <h3 class="alert-update-success" style="color:#fff;">
+                    Sửa thành công
+                </h3>
+
+            </div>
+        </div>
+
         <div class="container" style="max-width:500px;">
             <div class="alert alert-delete-success" style="text-align:center; background:#13cb71;display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);">
                 <h3 style="color:#fff;">

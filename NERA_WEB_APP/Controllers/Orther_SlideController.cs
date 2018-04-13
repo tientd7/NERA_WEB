@@ -50,7 +50,7 @@ namespace NERA_WEB_APP.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(Slide);
+                db.Entry(Slide).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return Json("OK");
             }
