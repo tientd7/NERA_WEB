@@ -13,7 +13,7 @@ $('.btn-link-login').click(function () {
 })
 
 $('.btn-show-popup').click(function () {
-
+    $('.popup-box').show().focus();
     $('.popup-box').addClass('box-dialog-keyframes');
     $('.popup-box').removeClass('active-hide');
     $('.txt-name').focus();
@@ -23,6 +23,7 @@ $('.btn-show-popup').click(function () {
     $('.btn-update').css("display", "none");
     $('.btn-add').css("display", "block");
 });
+
 
 //$('.btn-add-pro').click(function () {
 //    $('.select-category-sp').show();
@@ -60,6 +61,7 @@ $('#btn-close').click(function () {
 
 
 $('.btn-close-popup').click(function () {
+    $('.popup-box').hide();
     $('.popup-box').removeClass('box-dialog-keyframes');
     $('.popup-box').addClass('active-hide');
     $('.btn-add').css("display", "block");
@@ -67,6 +69,12 @@ $('.btn-close-popup').click(function () {
     $('.item').attr('disabled', false);
 })
 
+
+// hiện form thêm
+$('.btn-add-data').click(function () {
+    $('.tr-add-data').show();
+    $('.tr-add-data td input.name').focus();
+})
 
 
 

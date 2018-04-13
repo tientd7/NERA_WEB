@@ -3,27 +3,13 @@
     $scope.List = "";
     this.IsEditing = false;
     this.EditId = -1;
-   
-
     getAllDataSlide();
-   
-    function getAllDataSlide() {
-        $http.get('/Orther_Slide/GetData')
-            .success(function (data) {
-                $scope.ListSlide = data;
-                
-            })
-            .error(function (error) {
-                console.log(error)
-            });
-    };
-
 
     function clearAllControl() {
         $scope.CreateItem = {};
     }
 
-    $scope.onCreateSlide = function () {
+    $scope.onCreateSlide = function (Item) {
         var obj = {
             Tbl_Id: 0,
             Image_Title: $scope.CreateItem.Image_Title,
@@ -35,30 +21,79 @@
             Language: $scope.CreateItem.Language
         };
         var config = {
-            item: obj
+            item: Item
         };
         $http.post('/Orther_Slide/Insert', config).then(function (data) {
+            setTimeout(function () {
+                $('.img-preload').fadeIn(200);
+            });
+            setTimeout(function () {
+                $('.img-preload').fadeOut(200);
+            }, 800);
+            setTimeout(function () {
+                $('.alert-add-success').fadeIn(500);
+                $('.alert-noti-success').fadeIn(500);
+            }, 801);
+            setTimeout(function () {
+                $('.alert-add-success').fadeOut(500);
+                $('.alert-noti-success').fadeOut(500);
+
+                //reload
+                $scope.hienthisanpham();
+                $scope.showDV();
+            }, 1500);
             getAllDataSlide();
         }, function (error) {
             console.log(error);
         });
         clearAllControl();
     };
-    
+
     $scope.onEditSlide = function (id) {
         this.EditId = id;
         this.IsEditing = true;
     };
 
     $scope.onCancelSlide = function () {
-        this.IsEditing = false;
+        var ok = confirm("Bạn có muốn hủy thêm thông tin này?");
+        if (ok == true) {
+            this.IsEditing = false;
+        }
+
     };
 
     $scope.onDeleteSlide = function (id) {
+        var ok = confirm("Bạn có muốn xóa thông tin này?");
         var config = {
-            data: { Delete_Id: id }
+            Delete_Id: id
         };
-        $http.post('/Orther_Slide/Delete', config).success(function (data) { getAllDataSlide(); }).error(function (error) { console.log(error); });
+        if (ok == true) {
+            $http.post('/Orther_Slide/Delete', config)
+                .success(function (data) {
+                    setTimeout(function () {
+                        $('.img-preload').fadeIn(200);
+                    });
+                    setTimeout(function () {
+                        $('.img-preload').fadeOut(200);
+                    }, 800);
+                    setTimeout(function () {
+                        $('.alert-delete-success').fadeIn(500);
+                        $('.alert-delete-success').fadeIn(500);
+                    }, 801);
+                    setTimeout(function () {
+                        $('.alert-delete-success').fadeOut(500);
+                        $scope.hienthisanpham();
+                        $scope.showDV();
+                        $('.alert-delete-success').fadeOut(500);
+
+                    }, 1500);
+                    getAllDataSlide();
+                })
+                .error(function (error) {
+                    console.log(error);
+                });
+        }
+
     };
 
     $scope.onSaveSlide = function (item) {
@@ -78,7 +113,30 @@
         var config = {
             Slide: item
         };
-        $http.post('/Orther_Slide/Update', config).then(function (data, status, headers, config) { getAllDataSlide(); }, function (error) { console.log(error); });
+        $http.post('/Orther_Slide/Update', config)
+            .then(function (data, status, headers, config) {
+                setTimeout(function () {
+                    $('.img-preload').fadeIn(200);
+                });
+                setTimeout(function () {
+                    $('.img-preload').fadeOut(200);
+                }, 800);
+                setTimeout(function () {
+                    $('.alert-update-success').fadeIn(500);
+                    $('.alert-noti-success').fadeIn(500);
+                }, 801);
+                setTimeout(function () {
+                    $('.alert-update-success').fadeOut(500);
+                    $('.alert-noti-success').fadeOut(500);
+                    //reload
+                    $scope.hienthisanpham();
+                    $scope.showDV();
+                }, 1500);
+                getAllDataSlide();
+            },
+            function (error) {
+                console.log(error);
+            });
     };
 
     $scope.getStatusSlide = function (id) {
@@ -87,9 +145,14 @@
                 return false;
         return true;
     };
-   
-
-
-
+    function getAllDataSlide() {
+        $http.get('/Orther_Slide/GetData')
+            .success(function (data) {
+                $scope.ListSlide = data;
+            })
+            .error(function (error) {
+                console.log(error)
+            });
+    };
 
 });

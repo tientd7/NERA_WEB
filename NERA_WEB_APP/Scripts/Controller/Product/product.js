@@ -2,6 +2,9 @@
 
 
 app.controller("ProductCtrl", function ($scope, $http) {
+
+
+    $scope.isExisting = true;
     // tạo biến item sản phẩm
     $scope.ItemSP;
     // hàm gọi lấy danh sách sản phẩm
@@ -11,7 +14,7 @@ app.controller("ProductCtrl", function ($scope, $http) {
         }).error(function (error) {
             console.log("error :" + error);
         })
-    }; 
+    };
     // chạy hàm
     $scope.hienthisanpham();
 
@@ -26,7 +29,7 @@ app.controller("ProductCtrl", function ($scope, $http) {
     };
     // chạy hàm
     $scope.productEnable();
-    
+
 
 
     //tạo biến item dv
@@ -42,9 +45,10 @@ app.controller("ProductCtrl", function ($scope, $http) {
     // chạy hàm
     $scope.showDV();
 
-// hàm gọi lấy danh sách dich vụ tồn tại
+
+
+    // hàm gọi lấy danh sách dich vụ tồn tại
     $scope.ItemDVEnable;
-    
     $scope.showDvEnable = function () {
         $http.get('/Product/showDvEnable').success(function (data, status) {
             $scope.ItemDVEnable = data;
@@ -54,6 +58,7 @@ app.controller("ProductCtrl", function ($scope, $http) {
     };
     // chạy hàm
     $scope.showDvEnable();
+
 
 
     // lấy ảnh
@@ -68,7 +73,8 @@ app.controller("ProductCtrl", function ($scope, $http) {
             })
     }
     $scope.showImg();
-    
+
+
     // Them 
     $scope.Item = null;
     $scope.Create = function (Item) {
@@ -78,7 +84,7 @@ app.controller("ProductCtrl", function ($scope, $http) {
         //    $('.alert-noti-error').fadeIn(500);
         //    $('.alert-noti-error').fadeOut(3000);
         //    $('.txt-name').focus();
-            
+
         //} else if ($('select.select-category').val() == '') {
         //    $('.alert-null-error-cate').fadeIn(500);
         //    $('.alert-null-error-cate').fadeOut(3000);
@@ -88,47 +94,53 @@ app.controller("ProductCtrl", function ($scope, $http) {
         //    $('.alert-null-error-lang').fadeOut(3000);
         //    $('.select-lang').focus();
         //} else {
-            $http.post('/Product/addNewProduct', { Obj: Item })
-                .success(function (data, status, headers, config) {
-                    $scope.Item = data;
-                    $scope.Item = null;
+        $http.post('/Product/addNewProduct', { Obj: Item })
+            .success(function (data, status, headers, config) {
+                $scope.Item = data;
+                $scope.Item = null;
 
-                    // jquery
-                    setTimeout(function () {
-                        $('.alert-add-success').fadeIn(500);
-                        $('.alert-noti-success').fadeIn(500);
-                    });
-                    setTimeout(function () {
-                        $('.alert-add-success').fadeOut(500);
-                        $('.alert-noti-success').fadeOut(500);
-
-                        //reload
-                        $scope.hienthisanpham();
-                        $scope.showDV();
-                    }, 1500);
-
-                    $('.popup-box').removeClass('box-dialog-keyframes');
-                    $('.popup-box').addClass('active-hide');
-
-
-                    //if (data != "") {
-
-                    //    if (data.Item_Type == "DV") {
-                    //        window.location.href = '/Product/services';
-                    //    }
-                    //    else if (data.Item_Type == "SP") {
-                    //        window.location.href = '/Product/product';
-                    //    }
-
-                    //}
-                    //else {
-                    //    console.log('Form data not Saved!');
-
-                    //}
-                }).error(function (error, status, headers, config) {
-                    $scope.message = 'Unexpected Error while saving data!!' + data.errors;
-                    console.log(error);
+                // jquery
+                setTimeout(function () {
+                    $('.img-preload').fadeIn(200);
                 });
+                setTimeout(function () {
+                    $('.img-preload').fadeOut(200);
+                }, 800);
+                setTimeout(function () {
+                    $('.alert-add-success').fadeIn(500);
+                    $('.alert-noti-success').fadeIn(500);
+                },801);
+                setTimeout(function () {
+                    $('.alert-add-success').fadeOut(500);
+                    $('.alert-noti-success').fadeOut(500);
+
+                    //reload
+                    $scope.hienthisanpham();
+                    $scope.showDV();
+                }, 1500);
+
+                $('.popup-box').removeClass('box-dialog-keyframes');
+                $('.popup-box').addClass('active-hide');
+
+
+                //if (data != "") {
+
+                //    if (data.Item_Type == "DV") {
+                //        window.location.href = '/Product/services';
+                //    }
+                //    else if (data.Item_Type == "SP") {
+                //        window.location.href = '/Product/product';
+                //    }
+
+                //}
+                //else {
+                //    console.log('Form data not Saved!');
+
+                //}
+            }).error(function (error, status, headers, config) {
+                $scope.message = 'Unexpected Error while saving data!!' + data.errors;
+                console.log(error);
+            });
 
     }
 
@@ -136,16 +148,17 @@ app.controller("ProductCtrl", function ($scope, $http) {
         alert(item);
     }
 
+
     $scope.readDetails = function (Id) {
         $('.popup-box').addClass('box-dialog-keyframes');
         $('.popup-box').removeClass('active-hide');
         $('.btn-add').css("display", "none");
-        $('.btn-update').css("display", "none");     
+        $('.btn-update').css("display", "none");
         $('.title-add').css("display", "none");
         $('.title-update').css("display", "none");
         $('.title-details').css("display", "block");
         $('.item').attr('disabled', true);
-        $('.item').css({'background':'#fff'});
+        $('.item').css({ 'background': '#fff' });
 
 
         $http.post('/Product/getDetails', { Id: Id })
@@ -170,13 +183,28 @@ app.controller("ProductCtrl", function ($scope, $http) {
 
         $http.post('/Product/getDetails', { Id: Id })
             .success(function (data) {
- 
+                this.isExisting = false;
                 $scope.Item = data;
             }).error(function (error) {
                 console.log('error' + error);
             });
     }
 
+    this.id = null;
+    $scope.get = function (id) {
+        this.id = id; 
+        if (this.id != null) {
+            this.isExisting = false;
+        }  
+    }
+
+    $scope.cancel = function () {
+        var ok = confirm("Bạn có muốn hủy thêm thông tin này?");   
+        if (ok == true) {
+            this.isExisting = true;
+        }
+       
+    }
 
     // update
     $scope.update = function (Item) {
@@ -191,7 +219,7 @@ app.controller("ProductCtrl", function ($scope, $http) {
                 setTimeout(function () {
                     $('.alert-update-success').fadeIn(500);
                     $('.alert-noti-success').fadeIn(500);
-                },801);
+                }, 801);
                 setTimeout(function () {
                     $('.alert-update-success').fadeOut(500);
                     $('.alert-noti-success').fadeOut(500);
@@ -216,7 +244,7 @@ app.controller("ProductCtrl", function ($scope, $http) {
 
     // update enable to false
     $scope.del = function (i) {
-        var dialog_noti = confirm("Bạn có muốn xóa");
+        var dialog_noti = confirm("Bạn có muốn xóa thông tin này?");
         if (dialog_noti === true) {
             $http.post('/Product/del', { menuItem: i })
                 .success(function (data) {
@@ -229,20 +257,20 @@ app.controller("ProductCtrl", function ($scope, $http) {
                     setTimeout(function () {
                         $('.alert-delete-success').fadeIn(500);
                         $('.alert-delete-success').fadeIn(500);
-                    },801);
+                    }, 801);
                     setTimeout(function () {
                         $('.alert-delete-success').fadeOut(500);
                         $scope.hienthisanpham();
                         $scope.showDV();
                         $('.alert-delete-success').fadeOut(500);
-                        
+
                     }, 1500);
-                    
+
                 }).error(function (error) {
                     console.log(error);
                 })
-        } 
-      
+        }
+
     }
 
     //$scope.listpost = null;
@@ -260,31 +288,45 @@ app.controller("ProductCtrl", function ($scope, $http) {
     //            console.log(error);
     //        })
     //}
-})
-app.directive('ckeditor', function () {
-        return {
-            require: '?ngModel',
-            link: function (scope, element, attrs, ngModel) {
-                var ckeditor = CKEDITOR.replace(element[0], {
+});
 
-                });
-                if (!ngModel) {
-                    return;
-                }
-                ckeditor.on('instanceReady', function () {
-                    ckeditor.setData(ngModel.$viewValue);
-                });
-                ckeditor.on('pasteState', function () {
-                    scope.$apply(function () {
-                        ngModel.$setViewValue(ckeditor.getData());
-                    });
-                });
-                ngModel.$render = function (value) {
-                    ckeditor.setData(ngModel.$viewValue);
-                };
-            }
-        };
-    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+//app.directive('ckeditor', function () {
+//        return {
+//            require: '?ngModel',
+//            link: function (scope, element, attrs, ngModel) {
+//                var ckeditor = CKEDITOR.replace(element[0], {
+
+//                });
+//                if (!ngModel) {
+//                    return;
+//                }
+//                ckeditor.on('instanceReady', function () {
+//                    ckeditor.setData(ngModel.$viewValue);
+//                });
+//                ckeditor.on('pasteState', function () {
+//                    scope.$apply(function () {
+//                        ngModel.$setViewValue(ckeditor.getData());
+//                    });
+//                });
+//                ngModel.$render = function (value) {
+//                    ckeditor.setData(ngModel.$viewValue);
+//                };
+//            }
+//        };
+//    });
 
 
 //    directive('ckeditor', function () {

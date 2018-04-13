@@ -91,7 +91,7 @@ namespace NERA_WEB_APP.Controllers
             newObj.Item_Id = id;
             newObj.Item_Name = Obj.Item_Name;
             newObj.Enable = true;
-            newObj.Item_Type = Obj.Item_Type;
+            newObj.Item_Type = "SP";
             newObj.Meta_Desc = Obj.Meta_Desc;
             newObj.Meta_Key = Obj.Meta_Key;
             newObj.Language = Obj.Language;

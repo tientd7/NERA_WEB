@@ -6,10 +6,20 @@
     <div id="main-carousel" class="carousel slide hero-slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#main-carousel" data-slide-to="1"></li>
+            @{ var i = 0; }
+            @foreach (var slide in ViewBag.slideImageTop)
+            {
+                i++;
+                if (slide.Image_Order == 1)
+                {
+                    <li data-target="#main-carousel" data-slide-to="@i" class="active"></li>
+                }
+                else
+                {
+                    <li data-target="#main-carousel" data-slide-to="@i"></li>
+                }
+            }
         </ol>
-
         <!-- Wrapper for slides -->
 
         <div class="carousel-inner slide-img" role="listbox">
@@ -28,7 +38,11 @@
                             <div class="carousel-caption">
                                 <small class="animated fadeIn">Gọi cho chúng tôi</small>
                                 <div class="phone animated lightSpeedIn">+84 988.888.888</div>
-                                <h1 class="animated lightSpeedIn">Tên dự án </h1>
+                                <h1 class="animated lightSpeedIn">
+                                    <a href="#" style="color: #f50707;">
+                                        Tên dự án
+                                    </a>
+                                </h1>
 
                                 <p class="lead animated lightSpeedIn">Thông tin về dự án</p>
 
@@ -49,8 +63,12 @@
                         <div class="container">
                             <div class="carousel-caption">
                                 <small class="animated fadeIn">Gọi cho chúng tôi</small>
-                                <div class="phone animated lightSpeedIn">+8498888888</div>
-                                <h1 class="animated lightSpeedIn">Tên dự án </h1>
+                                <div class="phone animated lightSpeedIn">+84 988.888.888</div>
+                                <h1 class="animated lightSpeedIn">
+                                    <a href="#" style="color: #f50707;">
+                                        Tên dự án
+                                    </a>
+                                </h1>
 
                                 <p class="lead animated lightSpeedIn">Thông tin về dự án</p>
 
@@ -90,7 +108,7 @@
             <div>
                 <span>
                     <i class="fa fa-phone"></i>
-                    +8495999999
+                    +84 999.999.999
                 </span>
             </div>
         </div>
@@ -228,9 +246,22 @@
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
                 <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    @{ var j = 0; }
+                    @foreach (var slide in ViewBag.slideImagefeedback)
+                    {
+                        j++;
+                        if (slide.Image_Order == 1)
+                        {
+                            <li data-target="#myCarousel" data-slide-to="@j" class="active"></li>
+                        }
+                        else
+                        {
+                            <li data-target="#myCarousel" data-slide-to="@j"></li>
+                        }
+                    }
+                    @*<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                     <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>*@
                 </ol>
 
                 <!-- Wrapper for slides -->
