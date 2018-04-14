@@ -48,12 +48,15 @@ namespace NERA_WEB_APP.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [CustomAuthorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
             var obj = db.Cs_Menu_item.Where(i => i.Item_Id == id).FirstOrDefault();
             return View(obj);
         }
-        [AllowAnonymous]
+
+        [CustomAuthorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Edit(Cs_Menu_item menu)
         {

@@ -13,8 +13,8 @@ namespace NERA_WEB_APP.Controllers
         DataContext db = new DataContext();
         public ActionResult Index()
         {
-            ViewBag.slideImageTop = (from i in db.CS_Other_Slide where i.Image_Link != ("") && i.Slide_Type.Equals("0") select i).ToList();
-            ViewBag.slideImagefeedback = (from i in db.CS_Other_Slide where i.Image_Link != ("") && i.Slide_Type.Equals("1") select i).ToList();
+            ViewBag.slideImageTop = (from i in db.CS_Other_Slide where i.Image_URL != ("") && i.Slide_Type.Equals("0") select i).ToList();
+            ViewBag.slideImagefeedback = (from i in db.CS_Other_Slide where i.Image_URL != ("") && i.Slide_Type.Equals("1") select i).ToList();
             return View();
         }
     }

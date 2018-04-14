@@ -1,0 +1,115 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "user";
+}
+
+<div class="container" ng-controller="AccountController">
+    @Html.Partial("~/Views/Account/popupAccount.cshtml")
+
+    <fieldset>
+        <legend style="position:relative;">
+            <span style="text-align:left;">
+                <h3 class="title-page">
+                    Quản lý người dùng
+                </h3>
+            </span>
+
+            <span style="text-align:right; position:absolute; right:0; bottom:0;">
+                <h4>
+                    <a href="#" class="btn-show-popup btn-add-pro">Thêm mới</a>
+                    @*<a href="#" class="btn-add-data">Thêm mới</a>*@
+                </h4>
+            </span>
+
+
+        </legend>
+    </fieldset>
+
+    <div class="table-wrapper container">
+
+        <table class="talble table-bordered table-wrapper">
+            <tr class="title-name-column">
+                <td>Username</td>
+                <td>First name</td>
+                <td>Last name</td>
+                <td>Email</td>
+                <td>Phone</td>
+                <td>Role</td>
+                <td>Enable</td>
+                <td>Action</td>
+            </tr>
+
+
+            <tr class="tr-show-data" dir-paginate='user in LstUsers | itemsPerPage:5'>
+                <td>
+
+                    <span ng-show="isExisting"> {{user.Nera_User.UserName}}</span>
+                    <input ng-hide="isExisting" ng-model="user.Nera_User.UserName" value="{{user.Nera_User.UserName}}" class="form-control" />
+                </td>
+                <td>
+                    <span ng-show="isExisting"> {{user.Nera_User.FirstName}}</span>
+                    <input ng-hide="isExisting" ng-model="user.Nera_User.FirstName" value="{{user.Nera_User.FirstName}}" class="form-control" />
+                </td>
+                <td>
+                    <span ng-show="isExisting"> {{user.Nera_User.LastName}}</span>
+                    <input ng-hide="isExisting" ng-model="user.Nera_User.LastName" value="{{user.Nera_User.LastName}}" class="form-control" />
+
+                </td>
+                <td>
+                    <span ng-show="isExisting"> {{user.Nera_User.Email}}</span>
+                    <input ng-hide="isExisting" type="email" ng-model="user.Nera_User.Email" value="{{user.Nera_User.Email}}" class="form-control" />
+                </td>
+                <td>
+                    <span ng-show="isExisting"> {{user.Nera_User.PhoneNumber}}</span>
+                    <input ng-hide="isExisting" type="text" ng-model="user.Nera_User.PhoneNumber" value="{{user.Nera_User.PhoneNumber}}" class="form-control" />
+                </td>
+                <td>
+                    <span ng-show="isExisting"> {{user.Nera_Role.RoleName}}</span>
+                    <input ng-hide="isExisting" type="text" ng-model="user.Nera_Role.RoleName" value="{{user.Nera_Role.RoleName}}" class="form-control" />
+                </td>
+                <td>
+                    <input type="checkbox" ng-model="user.Nera_User.IsEnable" ng-disabled="isExisting" />
+                </td>
+
+                <td style="text-align:center;">
+                    <div class="btn-group-wrapper" style="text-align:center;">
+                        <button ng-show="isExisting" type="button" class="icon-action" ng-click="getDetails(user.Nera_User.UserId)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                        <button ng-show="isExisting" type="button" class="icon-action" ng-click="del(Item)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                        <button ng-hide="isExisting" type="button" class="icon-action" ng-click="update(Item)"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                        <button ng-hide="isExisting" type="button" class="icon-action" ng-click="cancel()"><i class="fa fa-ban" aria-hidden="true"></i></button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="container" style="max-width:500px;">
+            <div class="alert alert-noti-success">
+                <h3 class="alert-add-success" style="color:#fff;">
+                    Thêm thành công
+                </h3>
+                <h3 class="alert-update-success" style="color:#fff;">
+                    Sửa thành công
+                </h3>
+
+            </div>
+        </div>
+
+        <div class="container" style="max-width:500px;">
+            <div class="alert alert-delete-success" style="text-align:center; background:#13cb71;display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);">
+                <h3 style="color:#fff;">
+                    Xóa thành công
+                </h3>
+            </div>
+        </div>
+
+        <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
+    </div>
+</div>
+
+
+<script src="~/Scripts/dirPagination.js"></script>
+<script src="~/Scripts/jquery/dialog.js"></script>
+
+@section JavaScript{
+    <script src="~/Scripts/Controller/Account/Account.js"></script>
+}

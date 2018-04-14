@@ -25,12 +25,19 @@
 }
 
 
-<div class="container">
-    <div style="margin-top:20px;">
-        <h2>Sửa bài viết</h2>
-    </div>
-    <hr />
-    @using (Html.BeginForm())
+    <div class="container">
+        <fieldset>
+            <legend style="position:relative;">
+                <span style="text-align:left;">
+                    <h3 class="title-page">
+                        Sửa bài viết
+                    </h3>
+                </span>
+
+
+            </legend>
+        </fieldset>
+        @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
@@ -105,21 +112,21 @@
                         <select class="form-control" name="Language" style="width:150px;">
                             <option value="">Chọn ngôn ngữ</option>
                             @if (Model.Language == "VI")
-                            {
-                                <option value="@Model.Language" selected>Việt nam</option>
-                                <option value="EN">English</option>
-                            }
-                            else if (Model.Language == "EN")
-                            {
-                                <option value="VI">Việt nam</option>
-                                <option value="@Model.Language" selected>English</option>
+                        {
+                            <option value="@Model.Language" selected>Việt nam</option>
+                            <option value="EN">English</option>
+                    }
+                    else if (Model.Language == "EN")
+                    {
+                        <option value="VI">Việt nam</option>
+                        <option value="@Model.Language" selected>English</option>
 
-                            }
-                            else
-                            {
-                                <option value="VI">Việt nam</option>
-                                <option value="EN">English</option>
-                            }
+                }
+                else
+                {
+                    <option value="VI">Việt nam</option>
+                    <option value="EN">English</option>
+            }
                         </select>
 
                     </div>
@@ -150,8 +157,8 @@
                     <label style="font-size:18px;">Nội dung bài viết</label>
                 </div>
                 <div class="col-md-12">
-                    @Html.Raw(Model.Post_Content)
-                    @Html.ValidationMessageFor(model =>model.Post_Content, "", new { @class = "text-danger" })
+                    @Html.TextAreaFor(model => model.Post_Content, new { htmlAttributes = new { @class = "form-control", @id = "Post_Content" } })
+                    @Html.ValidationMessageFor(model => model.Post_Content, "", new { @class = "text-danger" })
                 </div>
 
             </div>
@@ -161,15 +168,16 @@
                     <input type="button" style="border-radius:5px; " class="btn btn-info col-sm-2 prevented" id="btnselect" onclick="chonAnh()" value="Chọn ảnh" />
                 </div>
                 @foreach (var slide in Model.Slides)
-                        { string ids = "div" + slide.Tbl_Id, idp = "txtPost_content" + slide.Tbl_Id;
-                    <div id="@ids" float:left; margin-right:2px;margin-left: 15px;">
+            {
+                string ids = "div" + slide.Tbl_Id, idp = "txtPost_content" + slide.Tbl_Id;
+                <div id="@ids" float:left; margin-right:2px;margin-left: 15px;">
 
-                        <input type="hidden" name="slides" class="col-sm-8" id="@idp" value="@slide.Image_Link" />
-                        <a href="#" onclick="removeSlide(@ids)">
-                            <img id="@slide.Tbl_Id" width="100" alt="@slide.Image_Title" height="100" src="@slide.Image_Link" />
-                        </a>
-                    </div>
-                }
+                    <input type="hidden" name="slides" class="col-sm-8" id="@idp" value="@slide.Image_Link" />
+                    <a href="#" onclick="removeSlide(@ids)">
+                        <img id="@slide.Tbl_Id" width="100" alt="@slide.Image_Title" height="100" src="@slide.Image_Link" />
+                    </a>
+                </div>
+        }
 
             </div>
 
@@ -186,33 +194,33 @@
 
             </div>
         </div>
-    }
+}
 
 
-    <script>
-        function removeSlide(id) {
-            //var elem = document.getElementById(id);
-            id.parentNode.removeChild(id);
-        }
-        function chonAnh() {
-            var finder = new CKFinder();
-            var id = $('#count_img').val();
-            finder.selectActionFunction = function (url) {
-                var str = $("#BoxAnh").html()
-                str += '<div id="div' + id + '" style="width:100px; height:100px; float:left; margin-right:2px;">';
-                str += '<input type="hidden" name="slides" class="col-sm-8" id="txtPost_content' + id + '" />'
-                str += '<a href="#" onclick="removeSlide(div' + id + ')" > ';
-                str += '<img id="anh' + id + '" width="100" height="100"/> ';
-                str += '</a> ';
-                str += '</div>';
-                $('#BoxAnh').html(str);
-                $('#txtPost_content' + id).val(url);
-                $('#anh' + id).attr("src", url);
-                id = id + 1;
-                $('#count_img').val(id);
+        <script>
+            function removeSlide(id) {
+                //var elem = document.getElementById(id);
+                id.parentNode.removeChild(id);
+            }
+            function chonAnh() {
+                var finder = new CKFinder();
+                var id = $('#count_img').val();
+                finder.selectActionFunction = function (url) {
+                    var str = $("#BoxAnh").html()
+                    str += '<div id="div' + id + '" style="width:100px; height:100px; float:left; margin-right:2px;">';
+                    str += '<input type="hidden" name="slides" class="col-sm-8" id="txtPost_content' + id + '" />'
+                    str += '<a href="#" onclick="removeSlide(div' + id + ')" > ';
+                    str += '<img id="anh' + id + '" width="100" height="100"/> ';
+                    str += '</a> ';
+                    str += '</div>';
+                    $('#BoxAnh').html(str);
+                    $('#txtPost_content' + id).val(url);
+                    $('#anh' + id).attr("src", url);
+                    id = id + 1;
+                    $('#count_img').val(id);
 
-            };
-            finder.popup();
-        }
-    </script>
+                };
+                finder.popup();
+            }
+        </script>
 

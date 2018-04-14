@@ -60,7 +60,7 @@ namespace NERA_WEB_APP.Controllers
             var detail = db.CS_Post_Info.Where(x => x.Post_Id == id).FirstOrDefault();
             ViewBag.listImg =(
                 from i in db.CS_Post_Slides
-                join postinfor in db.CS_Post_Info on i.Post_Id equals postinfor.Post_Id
+                //join postinfor in db.CS_Post_Info on i.Post_Id equals postinfor.Post_Id
                 //join menu in db.Cs_Menu_item on Convert.ToInt32(postinfor.Item_ID) equals Convert.ToInt32(menu.Item_Id)
                 select i).Take(3);
                 

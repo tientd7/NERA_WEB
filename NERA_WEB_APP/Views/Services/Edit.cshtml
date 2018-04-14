@@ -24,13 +24,20 @@
         })
     </script>
 }
-<section class="container">
-    <div style="margin-top:20px;">
-        <h2>Sửa Dịch Vụ</h2>
-    </div>
-    <hr />
+    <section class="container">
+        <fieldset>
+            <legend style="position:relative;">
+                <span style="text-align:left;">
+                    <h3 class="title-page">
+                       Sửa dịch vụ
+                    </h3>
+                </span>
 
-    @using (Html.BeginForm())
+
+            </legend>
+        </fieldset>
+
+        @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
@@ -57,7 +64,7 @@
                     </div>
 
                     <div class="col-md-12">
-                        @*@Html.EditorFor(model => model.Meta_Desc, new { htmlAttributes = new { @class = "form-control" } })*@
+
                         <textarea rows="3" class="form-control" name="MetaDesc" style="width:100%;">@Model.Meta_Desc</textarea>
                         @Html.ValidationMessageFor(model => model.Meta_Desc, "", new { @class = "text-danger" })
                     </div>
@@ -68,7 +75,7 @@
                     </div>
 
                     <div class="col-md-12">
-                        @*@Html.EditorFor(model => model.Meta_Key, new { htmlAttributes = new { @class = "form-control" } })*@
+
                         <textarea rows="3" class="form-control" name="MetaKey" style="width:100%;">@Model.Meta_Key</textarea>
                         @Html.ValidationMessageFor(model => model.Meta_Key, "", new { @class = "text-danger" })
                     </div>
@@ -95,21 +102,21 @@
                         <select class="form-control" name="Language" style="width:150px;">
                             <option value="">Chọn ngôn ngữ</option>
                             @if (Model.Language == "VI")
-                            {
-                                <option value="@Model.Language" selected>Việt nam</option>
-                                <option value="EN">English</option>
-                            }
-                            else if (Model.Language == "EN")
-                            {
-                                <option value="VI">Việt nam</option>
-                                <option value="@Model.Language" selected>English</option>
+                        {
+                            <option value="@Model.Language" selected>Việt nam</option>
+                            <option value="EN">English</option>
+                    }
+                    else if (Model.Language == "EN")
+                    {
+                        <option value="VI">Việt nam</option>
+                        <option value="@Model.Language" selected>English</option>
 
-                            }
-                            else
-                            {
-                                <option value="VI">Việt nam</option>
-                                <option value="EN">English</option>
-                            }
+                }
+                else
+                {
+                    <option value="VI">Việt nam</option>
+                    <option value="EN">English</option>
+            }
                         </select>
 
                     </div>
@@ -119,7 +126,6 @@
                         <label style="font-size:18px;">Nội dung bài viết</label>
                     </div>
                     <div class="col-md-12">
-                        @Html.Raw(Model.Item_Content)
                         @Html.TextAreaFor(model => model.Item_Content, new { htmlAttributes = new { @class = "form-control", @id = "Item_Content" }, id = "Item_Content" })
                         @Html.ValidationMessageFor(model => model.Item_Content, "", new { @class = "text-danger" })
                     </div>
@@ -136,9 +142,9 @@
                 </div>
             </div>
         </div>
-    }
+}
 
 
 
-</section>
+    </section>
 

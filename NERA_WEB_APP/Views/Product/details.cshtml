@@ -1,6 +1,6 @@
 ﻿@model NERA_WEB_APP.Models.CS_Post_Info
 @{
-    
+    ViewBag.Title = Model.Post_Title;
     ViewBag.DESC = Model.Meta_Desc;
     ViewBag.Keyword = Model.Meta_Key;
 }
@@ -72,7 +72,7 @@
                                 {
                                     <div class="wrapper-img" style="cursor:pointer">
 
-                                        <img src="@i.Image_Link" class="img-thumbnail" alt="">
+                                        <img src="@i.Image_Url" class="img-thumbnail" alt="">
 
                                     </div>
                                 }

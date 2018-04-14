@@ -29,11 +29,10 @@
     </fieldset>
 
     <table class="talble table-bordered  table-wrapper container" style="max-width:1170px;">
-        <tr style="text-align:center;">
+        <tr  class="title-name-column">
             <td style="width:100px;">Tên dịch vụ</td>
             <td>Miêu tả</td>
             <td>Từ khóa</td>
-            <td>Nội dung</td>
             <td style="width:100px;">Ngôn ngữ</td>
             <td style="width:50px;">Enable</td>
             <td style="width:100px;">Chức năng</td>
@@ -42,7 +41,6 @@
             <td style="padding:10px;">{{i.Item_Name}}</td>
             <td style="padding:10px;">{{i.Meta_Desc}}</td>
             <td style="padding:10px;">{{i.Meta_Key}}</td>
-            <td style="padding:10px;">{{i.Item_Content}}</td>
             <td style="padding:10px; text-align:center;">{{i.Language}}</td>
             <td style="text-align:center;">
                 <input type="checkbox" ng-model="i.Enable" disabled />
