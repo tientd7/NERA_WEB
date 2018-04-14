@@ -166,6 +166,18 @@ namespace NERA_WEB_APP.Controllers
             //return RedirectToAction("Index", "BaiVietMVC", new { id = Session["id"]});
         }
 
+        [CustomAuthorize(Roles = "Mod,Admin")]
+        public JsonResult delete(int Post_Id)
+        {
+            var post = db.CS_Post_Info.Where(i => i.Post_Id == Post_Id).FirstOrDefault();
+            post.Enable = false;
+            db.Entry(post).State = EntityState.Modified;
+            db.SaveChanges();
+            return Json("");
+
+            //return RedirectToAction("Index", "BaiVietMVC", new { id = Session["id"]});
+        }
+
 
         [AllowAnonymous]
         public ActionResult Details(int Post_Id)

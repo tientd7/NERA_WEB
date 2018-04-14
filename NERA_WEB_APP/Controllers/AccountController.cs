@@ -169,8 +169,14 @@ namespace NERA_WEB_APP.Controllers
             return Json("");
         }
 
-        public JsonResult deleteUser()
+        public JsonResult deleteUser(int RoleId)
         {
+            var nereuser = db.Nera_Users.Where(i => i.RoleId == RoleId).FirstOrDefault();
+            db.Nera_Users.Remove(nereuser);
+
+            var nerarole = db.Nera_Roles.Where(i => i.RoleId == RoleId).FirstOrDefault();
+            db.Nera_Roles.Remove(nerarole);
+            db.SaveChanges();
             return Json("");
         }
         //
