@@ -86,13 +86,7 @@ app.controller("AccountController", function ($scope, $http) {
 
     $scope.isExisting = true;
     $scope.id;
-    $scope.getDetails = function (id) {
-        this.id = id;
-        if (this.id != null) {
-            this.isExisting = false;
-        }
-    }
-
+   
     $scope.cancel = function () {
         var ok = confirm("Bạn có muốn hủy sửa thông tin này?");
         if (ok == true) {
@@ -126,13 +120,13 @@ app.controller("AccountController", function ($scope, $http) {
 
             $scope.user_error = "Tài khoản phải lớn hơn 5 ký tự.";
             setTimeout(function () {
-                $('.alert-noti-error').fadeIn(500);             
-            },200);
+                $('.alert-noti-error').fadeIn(500);
+            }, 200);
 
             setTimeout(function () {
-                $('.alert-noti-error').fadeOut(500);      
+                $('.alert-noti-error').fadeOut(500);
             }, 2000);
-           
+
         }
         else if ($('.password').val() == "".trim()) {
             $scope.pass_error_min_length = "Mật khẩu phải lớn hơn 6 ký tự.";
@@ -143,10 +137,11 @@ app.controller("AccountController", function ($scope, $http) {
             setTimeout(function () {
                 $('.alert-noti-password').fadeOut(500);
             }, 2000);
-           
-           
 
-        } else if ($('.password').val() == "".trim() != $('#confirmpassowrd').val() == "".trim()) {
+
+
+        }
+        else if ($('.password').val() == "".trim() != $('#confirmpassowrd').val() == "".trim()) {
             $scope.pass_error = "Xác nhận mật khẩu không trùng nhau.";
 
             setTimeout(function () {
@@ -156,17 +151,18 @@ app.controller("AccountController", function ($scope, $http) {
             setTimeout(function () {
                 $('.alert-error-confrimpassword').fadeOut(500);
             }, 2000);
-           
-           
-        } else if ($('#select-category-role').val() == "".trim()) {
-             $scope.role_code_error = "Quyền không được để trống";
+
+
+        }
+        else if ($('#select-category-role').val() == "".trim()) {
+            $scope.role_code_error = "Quyền không được để trống";
             setTimeout(function () {
                 $('.alert-null-error-rolecode').fadeIn(500);
             }, 200);
 
             setTimeout(function () {
                 $('.alert-null-error-rolecode').fadeOut(500);
-            }, 2000);    
+            }, 2000);
 
         } else {
             $http.post('/Account/SignUp', { model: _user })
@@ -222,6 +218,69 @@ app.controller("AccountController", function ($scope, $http) {
 
         }
 
+    }
+
+    //$scope.getDetails = function (id) {
+    //    this.id = id;
+    //    if (this.id != null) {
+    //        this.isExisting = false;
+    //    }
+    //}
+    // hiện chi tiết thông tin cá nhân
+    $scope._user = null;
+    $scope.getDetailsUser = function (id) {
+        this.id = id;
+        if (this.id != null) {
+            this.isExisting = false;
+        }
+        $http.get("/Account/getdetailUser", { id: id })
+            .success(function (data, status) {
+                $scope._user = data;
+            }).error(function (error) {
+                console.log(error);
+            })
+    }
+
+    // sửa thông tin thành viên
+    
+    $scope.update = function (user) {
+        $http.post("/Account/updateUser", { user: user })
+            .success(function (data, status) {
+                console.log(data);
+            }).error(function (error) {
+                console.log(error);
+            })
+    }
+
+    //xóa thành viên
+
+    $scope.delete = function (id) {
+        var ok = confirm("Bạn có muốn xóa người dùng này?");
+        if (ok == true) {
+            $http.post("/Account/deleteUser", { RoleId: id })
+                .success(function (data, status) {
+                    setTimeout(function () {
+                        $('.img-preload').fadeIn(200);
+                    });
+                    setTimeout(function () {
+                        $('.img-preload').fadeOut(200);
+                    }, 800);
+                    setTimeout(function () {
+                        $('.alert-delete-success').fadeIn(500);
+                        $('.alert-delete-success').fadeIn(500);
+                    }, 801);
+                    setTimeout(function () {
+                        $('.alert-delete-success').fadeOut(500);
+                        $scope.showData();
+                        $('.alert-delete-success').fadeOut(500);
+
+                    }, 1500);
+
+                   
+                }).error(function (error) {
+                    console.log(error);
+                })
+        }
     }
 
 })

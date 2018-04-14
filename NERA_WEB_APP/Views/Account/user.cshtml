@@ -37,7 +37,7 @@
                 <td>Phone</td>
                 <td>Role</td>
                 <td>Enable</td>
-                <td>Action</td>
+                <td style="width:100px;">Action</td>
             </tr>
 
 
@@ -74,8 +74,8 @@
 
                 <td style="text-align:center;">
                     <div class="btn-group-wrapper" style="text-align:center;">
-                        <button ng-show="isExisting" type="button" class="icon-action" ng-click="getDetails(user.Nera_User.UserId)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                        <button ng-show="isExisting" type="button" class="icon-action" ng-click="del(Item)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                        <button ng-show="isExisting" type="button" class="icon-action" ng-click="getDetailsUser(user.Nera_User.UserId)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                        <button ng-show="isExisting" type="button" class="icon-action" ng-click="delete(user.Nera_Role.RoleId)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                         <button ng-hide="isExisting" type="button" class="icon-action" ng-click="update(Item)"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                         <button ng-hide="isExisting" type="button" class="icon-action" ng-click="cancel()"><i class="fa fa-ban" aria-hidden="true"></i></button>
                     </div>
