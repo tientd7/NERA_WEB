@@ -64,14 +64,10 @@ namespace NERA_WEB_APP.Controllers
         [ValidateInput(false)]
         public ActionResult Create(CS_Post_Info objInfo, List<String> slides)
         {
-            
-
             CS_Post_Info newObj = new CS_Post_Info();
             int id = new App_Auto_NumberController().GenID("CS_Posts_Info.Post_Id");
-            newObj.Post_Id = id;
-            newObj.Create_By = 1;
+            newObj.Post_Id = id;         
             newObj.Create_Date = DateTime.Now;
-            newObj.Update_By = 1;
             newObj.Update_Date = DateTime.Now;
             newObj.Enable = objInfo.Enable;
             newObj.Item_ID = Convert.ToInt32(Request.Form["Item_Id"]);
