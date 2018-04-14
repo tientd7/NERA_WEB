@@ -22,8 +22,8 @@ namespace NERA_WEB_APP.Controllers
 
         public ActionResult details(int id)
         {
-            var hienthi = db.Cs_Menu_item.Where(i => i.Item_Id == id && i.Item_Type.Equals("DV") && i.Enable == true).FirstOrDefault();
-            return View(hienthi);
+            var obj = db.Cs_Menu_item.Where(i => i.Item_Id == id).FirstOrDefault();
+            return View(obj);
         }
         public ActionResult Create()
         {
@@ -79,7 +79,7 @@ namespace NERA_WEB_APP.Controllers
             var hienthi = (from i in db.Cs_Menu_item where i.Item_Type == "DV" && i.Enable == true select i).ToList();
             return new JsonResult { Data = hienthi, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
-          public JsonResult del(Cs_Menu_item menuItem)
+        public JsonResult del(Cs_Menu_item menuItem)
         {
             db = new DataContext();
             menuItem.Enable = false;
@@ -87,7 +87,7 @@ namespace NERA_WEB_APP.Controllers
             db.SaveChanges();
             return Json(menuItem);
         }
-    }
 
+    }
 }
   

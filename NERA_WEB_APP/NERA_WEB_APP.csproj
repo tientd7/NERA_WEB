@@ -1492,7 +1492,6 @@
     <Content Include="Views\Product\popupProduct.cshtml" />
     <Content Include="Views\BaiVietMVC\popupBaiviet.cshtml" />
     <Content Include="Views\Post_Slide\popupPostSlide.cshtml" />
-    <Content Include="Views\BaiVietMVC\Details.cshtml" />
     <Content Include="Views\BaiVietMVC\Index1.cshtml" />
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Chatbox\Index.cshtml" />

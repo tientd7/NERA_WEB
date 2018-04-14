@@ -35,6 +35,9 @@ app.controller("ServiceController", function ($scope, $http) {
         if (dialog_noti === true) {
             $http.post('/Services/del', { menuItem: i })
                 .success(function (data) {
+                    var x = location.href;
+                    window.location.href = x;
+                    location.reload();
                     setTimeout(function () {
                         $('.img-preload').fadeIn(200);
                     });
@@ -47,7 +50,6 @@ app.controller("ServiceController", function ($scope, $http) {
                     }, 801);
                     setTimeout(function () {
                         $('.alert-delete-success').fadeOut(500);
-                        $scope.hienthisanpham();
                         $scope.showDV();
                         $('.alert-delete-success').fadeOut(500);
 
