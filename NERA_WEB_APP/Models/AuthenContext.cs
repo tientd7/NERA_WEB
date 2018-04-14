@@ -143,17 +143,8 @@ namespace NERA_WEB_APP.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        public string FirstName { set; get; }
-        public string LastName { set; get; }
-        public string PasswordHash { set; get; }
-        public string PhoneNumber { set; get; }
-        public string RoleCode { set; get; }
+        
     }
 
-    public class NeraUserViewModel
-    {
-        public Nera_User Nera_User { get; set; }
-        public Nera_Role Nera_Role { get; set; }
-
-    }
+    
 }
