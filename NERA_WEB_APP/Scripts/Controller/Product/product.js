@@ -199,9 +199,10 @@ app.controller("ProductCtrl", function ($scope, $http) {
     }
 
     $scope.cancel = function () {
-        var ok = confirm("Bạn có muốn hủy thêm thông tin này?");   
+        var ok = confirm("Bạn có muốn hủy sửa thông tin này?");   
         if (ok == true) {
             this.isExisting = true;
+            $scope.hienthisanpham();
         }
        
     }

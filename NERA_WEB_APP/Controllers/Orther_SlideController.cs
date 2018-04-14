@@ -1,12 +1,15 @@
-﻿using NERA_WEB_APP.Models;
+﻿using NERA_WEB_APP.CustomMemberShip;
+using NERA_WEB_APP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace NERA_WEB_APP.Controllers
 {
+    [CustomAuthorize(Roles = "Admin,Mod")]
     public class Orther_SlideController : Controller
     {
         DataContext db = new DataContext();

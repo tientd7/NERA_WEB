@@ -19,9 +19,26 @@ namespace NERA_WEB_APP.Controllers
         AuthenContext db = new AuthenContext();
         CustomAuthenServices services = new CustomAuthenServices();
         // GET: Account
+        [CustomAuthorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult user()
+        {
+            return View();
+        }
+
+        public JsonResult showData()
+        {
+            var listUsers = (
+                from nerauser in db.Nera_Users
+                join nerarole in db.Nera_Roles
+                on nerauser.RoleId equals nerarole.RoleId
+                select new NeraUserViewModel { Nera_User = nerauser, Nera_Role = nerarole }
+                ).ToList();
+            return Json(listUsers, JsonRequestBehavior.AllowGet);
         }
 
         [CustomAuthorize(Roles = "Admin")]
@@ -29,35 +46,132 @@ namespace NERA_WEB_APP.Controllers
         {
             return View(new SignUpModel());
         }
+
+        #region signup
+        //[HttpPost]
+        //[CustomAuthorize(Roles = "Admin")]
+        //public ActionResult SignUp(SignUpModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        // Attempt to register the user
+        //        Nera_User user = new Nera_User();
+        //        user.UserName = model.UserName;
+        //        user.PasswordHash = MD5_Hash(model.Password);
+        //        user.Email = model.Email;
+        //        user.RoleId = 2;//Tạm để mặc định là mod
+        //        user.FirstName = "Test first name";
+        //        user.LastName = "Test last name";
+        //        user.IsEnable = true;
+        //        try
+        //        {
+        //            db.Nera_Users.Add(user);
+        //            db.SaveChanges();
+        //            signIn(user, false);
+        //            return RedirectToAction("Index", "Home");
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //        }
+        //    }
+
+        //    // If we got this far, something failed, redisplay form
+        //    return View(model);
+        //}
+
+        #endregion
+
         [HttpPost]
         [CustomAuthorize(Roles = "Admin")]
-        public ActionResult SignUp(SignUpModel model)
+        public JsonResult SignUp(SignUpModel model)
         {
-            if (ModelState.IsValid)
+            string er = "";
+            try
             {
+
                 // Attempt to register the user
                 Nera_User user = new Nera_User();
-                user.UserName = model.UserName;
-                user.PasswordHash = MD5_Hash(model.Password);
-                user.Email = model.Email;
-                user.RoleId = 2;//Tạm để mặc định là mod
-                user.FirstName = "Test first name";
-                user.LastName = "Test last name";
-                user.IsEnable = true;
-                try
+                Nera_Role role = new Nera_Role();
+
+
+                
+
+                if (  string.IsNullOrEmpty(model.UserName) || model.UserName.Trim().Length < 5)
                 {
+                    return Json("username error");
+                }
+                else if (model.Password.Trim().Length < 6 || string.IsNullOrEmpty(model.Password) || model.Password == null)
+                {
+                    return Json("error min length");
+                }
+                else if (model.Password != model.ConfirmPassword)
+                {
+                    return Json("password incorrect");
+                }
+                else if (model.RoleCode == "")
+                {
+                    return Json("rolecodenull");
+                }
+                else
+                {
+                    user.UserName = model.UserName;
+                    user.PasswordHash = MD5_Hash(model.Password);
+                    user.Email = model.Email;
+                    user.FirstName = model.FirstName;
+                    user.LastName = model.LastName;
+                    user.PhoneNumber = model.PhoneNumber;
+                    user.IsEnable = true;
+                    role.RoleCode = model.RoleCode;
+                    if (model.RoleCode == "Admin")
+                    {
+                        role.RoleName = "Quản trị hệ thống";
+                    }
+                    else if (model.RoleCode == "Mod")
+                    {
+                        role.RoleName = "Nhân viên";
+                    }
+                    else if (model.RoleCode == "User")
+                    {
+                        role.RoleName = "Khách hàng";
+
+                    }
+
                     db.Nera_Users.Add(user);
+                    db.Nera_Roles.Add(role);
                     db.SaveChanges();
                     signIn(user, false);
-                    return RedirectToAction("Index", "Home");
+                    return Json("success");
                 }
-                catch (Exception ex)
-                {
-                }
+            }
+            catch (Exception ex)
+            {
+                return Json("" + er + " " + ex);
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+
+        }
+
+
+
+
+        // chi tiết thông tin người dùng
+        public JsonResult getdetailUser(int id)
+        {
+            var user = db.Nera_Users.Where(u => u.UserId == id).FirstOrDefault();
+            return Json(user, JsonRequestBehavior.AllowGet);
+        }
+
+
+        // sửa thông tin người dùng
+        public JsonResult updateUser()
+        {
+            return Json("");
+        }
+
+        public JsonResult deleteUser()
+        {
+            return Json("");
         }
         //
         // GET: /Account/Login
@@ -76,11 +190,11 @@ namespace NERA_WEB_APP.Controllers
                 LoginViewModel model = new LoginViewModel();
                 return View(model);
             }
-          
+
         }
 
-      
-     
+
+
         //
         // POST: /Account/Login
         [HttpPost]
@@ -101,7 +215,7 @@ namespace NERA_WEB_APP.Controllers
                 //FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
 
 
-               
+
                 signIn(user, model.RememberMe);
                 //services.SignIn(model.UserName, model.RememberMe);
                 //ViewData["Role"] = user.Role.RoleCode;
@@ -148,7 +262,7 @@ namespace NERA_WEB_APP.Controllers
         private void signIn(Nera_User user, bool rememberme)
         {
             Nera_Role role = db.Nera_Roles.Find(user.RoleId);
-            var model = new UserModel() { Password = MD5_Hash(user.PasswordHash), UserName = user.FirstName, RememberMe = rememberme, Role=role.RoleCode};
+            var model = new UserModel() { Password = MD5_Hash(user.PasswordHash), UserName = user.FirstName, RememberMe = rememberme, Role = role.RoleCode };
             var serializedUser = Newtonsoft.Json.JsonConvert.SerializeObject(model);
 
 

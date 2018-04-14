@@ -1,0 +1,128 @@
+﻿
+
+
+
+
+
+
+
+<section>
+
+    <div class="container" style="max-width:500px;">
+        <div class="alert alert-noti-success">
+            <h3 class="alert-add-success" style="color:#fff;">
+                Đăng ký thành công
+            </h3>
+            <h3 class="alert-update-success" style="color:#fff;">
+                Sửa thành công
+            </h3>
+
+        </div>
+    </div>
+
+
+    <div class="container popup-box " style="max-width:60%;">
+        <div>
+            <h2 class="title-add">
+                Đăng ký tài khoản mới
+            </h2>
+            <h2 class="title-update" style="display:none;">
+                Sửa thông tin tài khoản
+            </h2>
+            <h2 class="title-details" style="display:none;">
+                Chi tiết sản phẩm
+            </h2>
+        </div>
+
+        <div class="row form-horizontal">
+            <div class="btn-close btn-close-popup">
+                <button id="btn-close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+            </div>
+            <div class="form-group col-md-12">
+                <label>Username</label>
+                <input type="text" class="form-control txt-name item" ng-model="_user.UserName" value="{{_user.UserName}}" />
+                <span class="alert alert-danger alert-noti-error">
+                    {{user_error}}
+                </span>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <label>Password</label>
+                    <input type="password" class="form-control item password" id="password" ng-model="_user.Password" value="{{_user.Password}}" />
+                    <span class="alert alert-danger alert-noti-password">
+                        {{pass_error_min_length}}
+                    </span>
+                </div>
+
+                <div class="col-sm-6">
+                    <label>Confirm password</label>
+                    <input type="password" class="form-control item" id="confirmpassowrd" ng-model="_user.ConfirmPassword" value="{{_user.ConfirmPassword}}" />
+                    <span class="alert alert-danger alert-error-confrimpassword">
+                        {{pass_error}}
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <label>First Name</label>
+                    <input type="text" class="form-control item" ng-model="_user.FirstName" value="{{_user.FirstName}}" />
+                    <span class="alert alert-danger alert-noti-error-firstname">
+                        First Name không được để trống!
+                    </span>
+                </div>
+                <div class="col-sm-6">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control  item" ng-model="_user.LastName" value="{{_user.LastName}}" />
+                    <span class="alert alert-danger alert-noti-error-lastname">
+                        Last Name không được để trống!
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <label>Email</label>
+                    <input type="email" class="form-control item" ng-model="_user.Email" value="{{_user.Email}}" />
+                    <span class="alert alert-danger alert-noti-error-email">
+                        Email không được để trống!
+                    </span>
+                </div>
+
+                <div class="col-sm-6">
+                    <label>Số điện thoại</label>
+                    <input type="number" class="form-control item" ng-model="_user.PhoneNumber" />
+                    <span class="alert alert-danger alert-null-error-phone" style="display:none; position:relative; top:8px; width:150px;padding: 12px;">
+                        Số điện thoại không đúng
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <label>Quyền</label>
+                    <div>
+                        <div>
+                            <select class="form-control  select-category-role item" id="select-category-role" ng-model="_user.RoleCode" style="width:160px;">
+                                <option class="item" value=""> Chọn quyền hạn </option>
+                                <option value="Admin" class="item">Quản trị hệ thống</option>
+                                <option value="Mod" class="item">Nhân viên</option>
+                            </select>
+                        </div>
+                        <span class="alert alert-danger alert-null-error-rolecode" style="display:none; position:relative; top:8px; width:150px; padding: 12px;">
+                            {{role_code_error}}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label>Enable</label>
+                    <input type="checkbox" ng-model="_user.IsEnable" class="item" value="{{_user.IsEnable}}" />
+                </div>
+
+
+            </div>
+
+            <div class="form-group" style="border:0px;">
+                <button type="button" ng-click="signUp(_user)" class="btn btn-add btn-success">Thêm mới</button>
+                <button type="button" ng-click="update(Item)" class="btn btn-update btn-success">Update</button>
+            </div>
+        </div>
+    </div>
+</section>

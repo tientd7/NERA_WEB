@@ -1507,6 +1507,8 @@
     <Content Include="Views\Product\Create1.cshtml" />
     <Content Include="Views\Services\Create.cshtml" />
     <Content Include="Views\Services\Edit.cshtml" />
+    <Content Include="Views\Account\user.cshtml" />
+    <Content Include="Views\Account\popupAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
