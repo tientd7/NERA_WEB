@@ -81,6 +81,12 @@ namespace NERA_WEB_APP.Models
             //this.HasOptional(t => t.Role).WithMany(t=>t.Users).HasForeignKey(t => t.RoleId);
         }
     }
+
+    public class NeraUserViewModel
+    {
+        public Nera_User Nera_User { get; set; }
+        public Nera_Role Nera_Role { get; set; }
+    }
     public class LoginViewModel
     {
         [Required]
@@ -100,6 +106,26 @@ namespace NERA_WEB_APP.Models
         [Required]
         [Display(Name = "Tên đăng nhập")]
         public string UserName { get; set; }
+
+        [Required]
+        [Display(Name = "Họ ")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Tên")]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "Số điện thoại")]
+        public string PhoneNumber { get; set; }
+
+        [Required]
+        [Display(Name = "Enable")]
+        public string IsEnable { get; set; }
+
+        [Required]
+        [Display(Name = "Quyền")]
+        public string RoleCode { get; set; }
 
         [Required]
         [DataType(DataType.EmailAddress)]

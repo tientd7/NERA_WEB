@@ -152,23 +152,7 @@ namespace NERA_WEB_APP.Controllers
         }
 
 
-        //lấy danh sách Dịch vụ có trong bảng MenuItem 
-        public JsonResult showDV()
-        {
-            db.Configuration.ProxyCreationEnabled = false;
-            db.Configuration.LazyLoadingEnabled = false;
-            var show = (from i in db.Cs_Menu_item where i.Item_Type == "DV" select i).ToList();
-            return Json(show, JsonRequestBehavior.AllowGet);
-        }
-
-        // hiển thị dịch vụ đang còn
-        public JsonResult showDvEnable()
-        {
-            var hienthi = (from i in db.Cs_Menu_item where i.Item_Type == "DV" && i.Enable == true select i).ToList();
-            return new JsonResult { Data = hienthi, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-        }
-
-
+       
 
         public JsonResult getDetails()
         {

@@ -1396,6 +1396,7 @@
     <Content Include="Scripts\Controller\Post_Slide\ThemSlide.js" />
     <Content Include="Scripts\Controller\Post_Slide\Update.js" />
     <Content Include="Scripts\Controller\Product\addNewProduct.js" />
+    <Content Include="Scripts\Controller\Service\Service.js" />
     <Content Include="Scripts\dirPagination.js" />
     <Content Include="Scripts\editor\editor.js" />
     <Content Include="Scripts\Controller\Product\product.js" />
@@ -1509,6 +1510,7 @@
     <Content Include="Views\Services\Edit.cshtml" />
     <Content Include="Views\Account\user.cshtml" />
     <Content Include="Views\Account\popupAccount.cshtml" />
+    <Content Include="Views\Services\Edit1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
