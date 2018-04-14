@@ -128,5 +128,6 @@ namespace NERA_WEB_APP.Models
     {
         public Nera_User Nera_User { get; set; }
         public Nera_Role Nera_Role { get; set; }
+
     }
 }
