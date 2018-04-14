@@ -3,6 +3,7 @@ using NERA_WEB_APP.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -49,23 +50,24 @@ namespace NERA_WEB_APP.Controllers
             return RedirectToAction("Index");
         }
 
-        [CustomAuthorize(Roles = "Admin")]
+
         public ActionResult Edit(int id)
         {
-            var obj = db.Cs_Menu_item.Where(i => i.Item_Id == id).FirstOrDefault();
+            var obj = db.Cs_Menu_item.Where(i => i.Item_Id==id).FirstOrDefault();
             return View(obj);
         }
 
-        [CustomAuthorize(Roles = "Admin")]
+        [CustomAuthorize(Roles = "Mod,Admin")]
         [HttpPost]
         public ActionResult Edit(Cs_Menu_item menu)
         {
+           
             menu.Language = Request.Form["Language"];
             menu.Meta_Desc = Request.Form["MetaDesc"];
             menu.Meta_Key = Request.Form["MetaKey"];
             menu.Item_Content = Request.Unvalidated["Item_Content"];
             db.Entry(menu).State = EntityState.Modified;
-            db.SaveChanges();
+            UpdateModel(menu);
             return View(menu);
 
         }
@@ -87,7 +89,27 @@ namespace NERA_WEB_APP.Controllers
             db.SaveChanges();
             return Json(menuItem);
         }
+        public ActionResult Edit1(int id)
+        {
+            var obj = db.Cs_Menu_item.Find(id);
+            return View(obj);
+        }
+
+        [CustomAuthorize(Roles = "Mod,Admin")]
+        [HttpPost]
+        public ActionResult Edit1(Cs_Menu_item menu)
+        {
+            menu.Language = Request.Form["Language"];
+            menu.Meta_Desc = Request.Form["MetaDesc"];
+            menu.Meta_Key = Request.Form["MetaKey"];
+            menu.Item_Content = Request.Unvalidated["Item_Content"];
+            UpdateModel(menu);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
 
     }
+
 }
-  
+    

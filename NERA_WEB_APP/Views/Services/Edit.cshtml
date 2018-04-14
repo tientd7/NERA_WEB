@@ -64,8 +64,8 @@
                     </div>
 
                     <div class="col-md-12">
-                        @Html.TextAreaFor(model => model.Meta_Desc, new { htmlAttributes = new { @class = "form-control" } })
-                        @*<textarea rows="3" class="form-control" name="MetaDesc" style="width:100%;">@Model.Meta_Desc</textarea>*@
+                       
+                        <textarea rows="3" class="form-control" name="MetaDesc" style="width:100%;">@Model.Meta_Desc</textarea>
                         @Html.ValidationMessageFor(model => model.Meta_Desc, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -75,8 +75,8 @@
                     </div>
 
                     <div class="col-md-12">
-                        @Html.TextAreaFor(model => model.Meta_Key, new { htmlAttributes = new { @class = "form-control" } })
-                        @*<textarea rows="3" class="form-control" name="MetaKey" style="width:100%;">@Model.Meta_Key</textarea>*@
+                        @*@Html.TextAreaFor(model => model.Meta_Key, new { htmlAttributes = new { @class = "form-control" } })*@
+                        <textarea rows="3" class="form-control" name="MetaKey" style="width:100%;">@Model.Meta_Key</textarea>
                         @Html.ValidationMessageFor(model => model.Meta_Key, "", new { @class = "text-danger" })
                     </div>
                 </div>
