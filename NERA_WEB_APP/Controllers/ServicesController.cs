@@ -38,8 +38,8 @@ namespace NERA_WEB_APP.Controllers
             newObj.Item_Id = id;
             newObj.Item_Name = Obj.Item_Name;
             newObj.Enable = true;
-            
-            newObj.Item_Type = Request.Form["Type"];
+
+            newObj.Item_Type = "DV";
             newObj.Language = Request.Form["Language"];
             newObj.Meta_Desc = Request.Form["MetaDesc"];
             newObj.Meta_Key = Request.Form["MetaKey"];
@@ -48,16 +48,18 @@ namespace NERA_WEB_APP.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [CustomAuthorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
             var obj = db.Cs_Menu_item.Where(i => i.Item_Id == id).FirstOrDefault();
             return View(obj);
         }
-        [AllowAnonymous]
+
+        [CustomAuthorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Edit(Cs_Menu_item menu)
         {
-            menu.Item_Type = "DV";
             menu.Language = Request.Form["Language"];
             menu.Meta_Desc = Request.Form["MetaDesc"];
             menu.Meta_Key = Request.Form["MetaKey"];
@@ -66,6 +68,24 @@ namespace NERA_WEB_APP.Controllers
             db.SaveChanges();
             return View(menu);
 
+        }
+        public JsonResult showDV()
+        {
+            var hienthi = (from i in db.Cs_Menu_item where i.Item_Type == "DV" select i).ToList();
+            return new JsonResult { Data = hienthi, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+        public JsonResult showDvEnable()
+        {
+            var hienthi = (from i in db.Cs_Menu_item where i.Item_Type == "DV" && i.Enable == true select i).ToList();
+            return new JsonResult { Data = hienthi, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+          public JsonResult del(Cs_Menu_item menuItem)
+        {
+            db = new DataContext();
+            menuItem.Enable = false;
+            db.Entry(menuItem).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+            return Json(menuItem);
         }
     }
 

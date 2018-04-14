@@ -32,32 +32,7 @@ app.controller("ProductCtrl", function ($scope, $http) {
 
 
 
-    //tạo biến item dv
-    $scope.ItemDV;
-    // hàm gọi lấy danh sách dich vụ
-    $scope.showDV = function () {
-        $http.get('/Product/showDV').success(function (data, status) {
-            $scope.ItemDV = data;
-        }).error(function (error, status) {
-            console.log("error :" + error + status);
-        })
-    };
-    // chạy hàm
-    $scope.showDV();
-
-
-
-    // hàm gọi lấy danh sách dich vụ tồn tại
-    $scope.ItemDVEnable;
-    $scope.showDvEnable = function () {
-        $http.get('/Product/showDvEnable').success(function (data, status) {
-            $scope.ItemDVEnable = data;
-        }).error(function (error, status) {
-            console.log("error :" + error + status);
-        })
-    };
-    // chạy hàm
-    $scope.showDvEnable();
+    
 
 
 

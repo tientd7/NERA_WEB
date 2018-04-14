@@ -2,18 +2,18 @@
 
 @{
     ViewBag.Title = "Index";
-    
-        Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    
+
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
 }
 
-<div class="container" ng-controller="ProductCtrl">
+<div class="container" ng-controller="ServiceController">
     @*@Html.Partial("~/Views/Services/popupServices.cshtml")*@
-   
+
     <fieldset>
         <legend style="position:relative;">
             <span style="text-align:left;">
-                <h3  class="title-page">
+                <h3 class="title-page">
                     Danh sách dịch vụ
                 </h3>
             </span>
@@ -30,7 +30,7 @@
     </fieldset>
 
     <table class="talble table-bordered  table-wrapper container" style="max-width:1170px;">
-        <tr style="text-align:center;">
+        <tr class="title-name-column">
             <td style="width:100px;">Tên dịch vụ</td>
             <td>Miêu tả</td>
             <td>Từ khóa</td>
@@ -38,7 +38,7 @@
             <td style="width:50px;">Enable</td>
             <td style="width:100px;">Chức năng</td>
         </tr>
-        <tr dir-paginate='i in ItemDV | itemsPerPage:5'>
+        <tr dir-paginate='i in ItemDV| itemsPerPage:5'>
             <td style="padding:10px;">{{i.Item_Name}}</td>
             <td style="padding:10px;">{{i.Meta_Desc}}</td>
             <td style="padding:10px;">{{i.Meta_Key}}</td>
@@ -71,8 +71,8 @@
 <script src="~/Scripts/jquery/dialog.js"></script>
 
 @section JavaScript{
-<script src="~/Scripts/Controller/Product/product.js"></script>
-    }
+    <script src="~/Scripts/Controller/Service/Service.js"></script>
+}
 
 
 
