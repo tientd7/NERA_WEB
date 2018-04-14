@@ -151,7 +151,7 @@
                 </div>
                 <div class="col-md-12">
                     @Html.Raw(Model.Post_Content)
-                    @Html.ValidationMessageFor(model =>model.Post_Content, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.Post_Content, "", new { @class = "text-danger" })
                 </div>
 
             </div>
@@ -161,7 +161,8 @@
                     <input type="button" style="border-radius:5px; " class="btn btn-info col-sm-2 prevented" id="btnselect" onclick="chonAnh()" value="Chọn ảnh" />
                 </div>
                 @foreach (var slide in Model.Slides)
-                        { string ids = "div" + slide.Tbl_Id, idp = "txtPost_content" + slide.Tbl_Id;
+                {
+                    string ids = "div" + slide.Tbl_Id, idp = "txtPost_content" + slide.Tbl_Id;
                     <div id="@ids" float:left; margin-right:2px;margin-left: 15px;">
 
                         <input type="hidden" name="slides" class="col-sm-8" id="@idp" value="@slide.Image_Link" />

@@ -38,7 +38,7 @@ namespace NERA_WEB_APP.Controllers
             obj.Image_URL = item.Image_URL;
             obj.Image_Title = item.Image_Title;
             obj.Image_Order = item.Image_Order;
-            obj.Image_Link = Request.Form["Anh"];
+            obj.Image_Link = item.Image_Link;
             obj.Enable = item.Enable;
             db.CS_Other_Slide.Add(obj);
             db.SaveChanges();

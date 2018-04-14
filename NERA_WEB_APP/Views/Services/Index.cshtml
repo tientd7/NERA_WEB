@@ -9,7 +9,7 @@
 
 <div class="container" ng-controller="ProductCtrl">
     @*@Html.Partial("~/Views/Services/popupServices.cshtml")*@
-    @Html.ActionLink("Thêm Mới","Create")
+   
     <fieldset>
         <legend style="position:relative;">
             <span style="text-align:left;">
@@ -20,7 +20,8 @@
 
             <span style="text-align:right; position:absolute; right:0; bottom:0;">
                 <h4>
-                    <a href="#" class="btn-show-popup btn-add-service">Thêm mới</a>
+                    @*<a href="#" class="btn-show-popup btn-add-service">Thêm mới</a>*@
+                    @Html.ActionLink("Thêm Mới", "Create")
                 </h4>
             </span>
 
@@ -33,7 +34,6 @@
             <td style="width:100px;">Tên dịch vụ</td>
             <td>Miêu tả</td>
             <td>Từ khóa</td>
-            <td>Nội dung</td>
             <td style="width:100px;">Ngôn ngữ</td>
             <td style="width:50px;">Enable</td>
             <td style="width:100px;">Chức năng</td>
@@ -42,7 +42,6 @@
             <td style="padding:10px;">{{i.Item_Name}}</td>
             <td style="padding:10px;">{{i.Meta_Desc}}</td>
             <td style="padding:10px;">{{i.Meta_Key}}</td>
-            <td style="padding:10px;">{{i.Item_Content}}</td>
             <td style="padding:10px; text-align:center;">{{i.Language}}</td>
             <td style="text-align:center;">
                 <input type="checkbox" ng-model="i.Enable" disabled />

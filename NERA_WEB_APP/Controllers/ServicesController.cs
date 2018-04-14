@@ -64,7 +64,7 @@ namespace NERA_WEB_APP.Controllers
             menu.Item_Content = Request.Unvalidated["Item_Content"];
             db.Entry(menu).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return View(menu);
 
         }
     }

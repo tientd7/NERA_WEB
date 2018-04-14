@@ -41,7 +41,7 @@
 
             <div class="form-group col-md-12" style="margin-left:0; margin-right:0;">
                 <div class="col-md-12">
-                    <label style="font-size:18px;">Tên Sản Phẩm</label>
+                    <label style="font-size:18px;">Tên Dịch Vụ</label>
                 </div>
 
                 <div class="col-md-12">
@@ -119,7 +119,6 @@
                         <label style="font-size:18px;">Nội dung bài viết</label>
                     </div>
                     <div class="col-md-12">
-                        @Html.Raw(Model.Item_Content)
                         @Html.TextAreaFor(model => model.Item_Content, new { htmlAttributes = new { @class = "form-control", @id = "Item_Content" }, id = "Item_Content" })
                         @Html.ValidationMessageFor(model => model.Item_Content, "", new { @class = "text-danger" })
                     </div>

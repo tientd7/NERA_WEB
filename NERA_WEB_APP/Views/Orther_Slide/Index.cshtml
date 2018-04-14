@@ -62,7 +62,7 @@
                 <td><input type="text" class="form-control  name item-type" ng-model="CreateItem.Image_Title" /></td>
                 <td><input type="text" class="form-control  url item-type" ng-model="CreateItem.Image_URL" /></td>
                 <td>
-                    <input type="text" class="form-control  link item-type" id="txtAnh" name="Anh" ng-model="CreateItem.Image_Link">
+                    <input type="text" class="form-control  link item-type" id="txtAnh" ng-hide="CreateItem.Image_Link" ng-model="CreateItem.Image_Link">
                     <a href="#" id="btnselect">Chọn</a>
                 </td>
                 <td>
@@ -97,7 +97,7 @@
                     <div ng-show="getStatusSlide(Item.Tbl_Id)">
                         {{Item.Image_Title}}
                     </div>
-                    <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Image_Title" />
+                    <input class="form-control" type="text" hidden ng-model="Item.Image_Title" />
                 </td>
                 <td>
                     <div ng-show="getStatusSlide(Item.Tbl_Id)">
