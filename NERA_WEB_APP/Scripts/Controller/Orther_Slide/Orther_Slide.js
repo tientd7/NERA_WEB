@@ -1,10 +1,9 @@
 ﻿app.controller("Orther_Slide", function ($scope, $http) {
-
+    $scope.CreateItem.Image_URL = '~/Content/images/no-image-available.png';
     $scope.List = "";
     this.IsEditing = false;
     this.EditId = -1;
     getAllDataSlide();
-    $scope.CreateItem.Image_URL = '~/Content/images/no-image-available.png';
     function clearAllControl() {
         $scope.CreateItem = {};
     }
@@ -48,7 +47,9 @@
                 //reload
            
                 $scope.showDV();
+
             }, 1500);
+            $scope.CreateItem.Image_URL = '~/Content/images/no-image-available.png';
             getAllDataSlide();
         }, function (error) {
             console.log(error);
