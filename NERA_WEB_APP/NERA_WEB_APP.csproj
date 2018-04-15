@@ -181,6 +181,7 @@
     <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\TariffController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="CustomMemberShip\CustomMembership.cs" />
     <Compile Include="Global.asax.cs">
@@ -199,6 +200,7 @@
     <Compile Include="Models\CS_Other_Slide.cs" />
     <Compile Include="Models\CS_Posts_Info.cs" />
     <Compile Include="Models\CS_Post_Slides.cs" />
+    <Compile Include="Models\CS_Tariff_Manager.cs" />
     <Compile Include="Models\DBContext.cs" />
     <Compile Include="Models\Maps\App_Auto_Number_Map.cs" />
     <Compile Include="Models\Maps\APP_Dic_Domain_Map.cs" />
@@ -212,6 +214,7 @@
     <Compile Include="Models\Maps\CS_Other_Slide_Map.cs" />
     <Compile Include="Models\Maps\CS_Posts_Info_Map.cs" />
     <Compile Include="Models\Maps\CS_Post_Slides_Map.cs" />
+    <Compile Include="Models\Maps\CS_Tariff_Manager_Map.cs" />
     <Compile Include="Models\post_slide_viewModel.cs" />
     <Compile Include="Models\SimpleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1512,6 +1515,8 @@
     <Content Include="Views\BaiVietMVC\Details.cshtml" />
     <Content Include="Views\Account\user_update.cshtml" />
     <Content Include="Views\Account\user_infor.cshtml" />
+    <Content Include="Views\Tariff\Index.cshtml" />
+    <Content Include="Views\Services\details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

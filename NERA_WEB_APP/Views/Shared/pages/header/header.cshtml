@@ -220,8 +220,8 @@
                         <a href="#">Dịch vụ &amp; Tiện ích<b class="caret"></b></a>
 
                         <div class="submenu-wrapper submenu-wrapper-topbottom">
-                            <div class="submenu-inner  submenu-inner-topbottom"  ng-controller="ProductCtrl">
-                                <ul class="dropdown-menu">
+                            <div class="submenu-inner  submenu-inner-topbottom">
+                                <ul class="dropdown-menu" ng-controller="ServiceController">
 
                                     <li><a href="/Price/listPrice">Bảng giá dịch vụ</a></li>
                                     <li ng-repeat="i in ItemDVEnable "><a href="/Services/details?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
@@ -237,8 +237,8 @@
                         <a href="#">Sản phẩm <b class="caret"></b></a>
 
                         <div class="submenu-wrapper submenu-wrapper-topbottom">
-                            <div class="submenu-inner  submenu-inner-topbottom"  ng-controller="ProductCtrl">
-                                <ul class="dropdown-menu">
+                            <div class="submenu-inner  submenu-inner-topbottom">
+                                <ul class="dropdown-menu" ng-controller="ProductCtrl">
                                     <li ng-repeat="i in ItemSPEnable "><a href="/Product/product?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
                                 </ul>
                             </div>
@@ -262,8 +262,6 @@
 <script src="~/Scripts/jquery/dialog.js"></script>
 
 @section JavaScript{
-    <script src="~/Scripts/Controller/Service/Service.js"></script>
-    <script src="~/Scripts/Controller/Product/product.js"></script>
-
+    
 }
 

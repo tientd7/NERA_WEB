@@ -5,20 +5,28 @@
     ViewBag.Title = "Edit";
 }
 @section jsFooter{
-    <script>
+    <script type="text/javascript">
         $(document).ready(function () {
 
-            var editor = CKEDITOR.replace('Item_Content',
+            var editor = CKEDITOR.replace('Item_Content'
+                ,
                 {
 
-                    customConfig: '/Scripts/Controller/BaiViet/ckeditor/ckeditor.js',
+                    customConfig: '/Scripts/Controller/BaiViet/ckeditor/config.js',
                     cloudServices_tokenUrl: '/Scripts/Controller/BaiViet/ckeditor/config.js',
+                    //filebrowserBrowseUrl = '/Scripts/Controller/BaiViet/ckfinder/ckfinder.html?type=Files',
+                    //filebrowserImageBrowseUrl = 'Scripts/Controller/BaiViet/ckfinder/ckfinder.html?Type=Images',
+                    //filebrowserFlashBrowseUrl = 'Scripts/Controller/BaiViet/ckfinder/ckfinder.html?Type=Flash',
+                    //filebrowserUploadUrl = 'Scripts/Controller/BaiViet/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Files',
+                    //filebrowserImageUploadUrl = 'Scripts/Controller/BaiViet/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Images',
+                    //filebrowserFlashUploadUrl = 'Scripts/Controller/BaiViet/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Flash',
                 }, {
 
                     htmlEncodeOutput: true
-                });
+                }
+            );
 
-
+            CKFinder.setupCKEditor(CKEDITOR.instances['Item_Content'], '~/Scripts/Controller/BaiViet/ckfinder/')
 
 
         })

@@ -1,0 +1,72 @@
+﻿@model NERA_WEB_APP.Models.Cs_Menu_item
+@{
+    ViewBag.Title = Model.Item_Name;
+}
+
+@Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
+<!--  FILTER -->
+
+
+
+
+<div class="sortby-wrapper breadcrumb-wrapper">
+    <div class="breadcrumb-wrapper">
+        <span>
+            <a href="/Home/Index">Trang chủ </a>
+            &nbsp;
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            &nbsp;
+            @ViewBag.Title
+        </span>
+    </div>
+    @*<div class="sort-by-wrapper">
+            <select name="" id="">
+                <option value="">Sort by</option>
+                <option value="">Loại phòng</option>
+                <option value="">Khu vực</option>
+                <option value="">Số phòng</option>
+                <option value="">Diện tích</option>
+                <option value="">Giá</option>
+            </select>
+        </div>*@
+
+</div>
+<!--  MAIN -->
+<div id="main-product">
+
+
+    @Html.Partial("~/Views/Product/popupProduct.cshtml")
+
+
+
+    @*<div class="details-product product" dir-paginate='i in ItemDV | itemsPerPage:5'>*@
+    <div class="details-services services" style="border:1px solid #eee;display:inline-block;">
+        <div class="infor-service-wrapper" style="height:300px; width:100%; padding:20px;display:inline-block;">
+            <div class="infor-service">
+
+                <div>
+                    <h4 style="font-size:25px;">
+                        <span>
+                            <b>
+                                @Model.Item_Name
+                            </b>
+                        </span>
+                    </h4>
+                </div>
+                <div style="margin-top:20px;">
+                    <h4>
+                        @Html.Raw(Model.Item_Content)
+                    </h4>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    @*<dir-pagination-controls boundary-links="true"></dir-pagination-controls>*@
+
+
+</div>
+
+<script src="~/Scripts/jquery/dialog.js"></script>
+
