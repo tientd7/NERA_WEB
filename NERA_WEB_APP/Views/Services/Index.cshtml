@@ -8,7 +8,7 @@
 }
 
 <div class="container" ng-controller="ServiceController">
-    @Html.Partial("~/Views/Services/popupServices.cshtml")
+    @*@Html.Partial("~/Views/Services/popupServices.cshtml")*@
 
     <fieldset>
         <legend style="position:relative;">
@@ -49,12 +49,12 @@
             <td style="text-align:center;">
 
                 <a href="/Services/Edit?id={{i.Item_Id}}">Edit</a>
-                <a href="#" class="btn-show-popup" ng-click="readDetails(i.Item_Id)">Details</a>
+                @*<a href="#" class="btn-show-popup" ng-click="readDetails(i.Item_Id)">Details</a>*@
                 <a href="#" class="btn-remove" ng-click="del(i)">Delete</a>
             </td>
         </tr>
     </table>
-    <button class="btn-details">get</button>
+   
     <div class="container" style="max-width:500px;">
         <div class="alert alert-delete-success" style="text-align:center; background:#13cb71;display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);">
             <h3 style="color:#fff;">
