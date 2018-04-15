@@ -11,14 +11,14 @@
             var editor = CKEDITOR.replace('Post_Content',
                 {
 
-                    customConfig: '/Scripts/Controller/BaiViet/ckeditor/ckeditor.js',
+                    customConfig: '/Scripts/Controller/BaiViet/ckeditor/config.js',
                     cloudServices_tokenUrl: '/Scripts/Controller/BaiViet/ckeditor/config.js',
                 }, {
 
                     htmlEncodeOutput: true
                 });
 
-            CKFinder.setupCKEDitor(editor, 'Scripts/Controller/BaiViet/ckfinder/')
+            CKFinder.setupCKEditor(CKEDITOR.instances['Item_Content'], '~/Scripts/Controller/BaiViet/ckfinder/')
 
 
         })
