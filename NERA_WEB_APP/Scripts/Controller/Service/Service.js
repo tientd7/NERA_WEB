@@ -1,6 +1,6 @@
 ﻿
 app.controller("ServiceController", function ($scope, $http) {
-
+    $scope.Item;
     //tạo biến item dv
     $scope.ItemDV;
     // hàm gọi lấy danh sách dich vụ
@@ -60,5 +60,27 @@ app.controller("ServiceController", function ($scope, $http) {
                 })
         }
 
+    }
+
+    $scope.readDetails = function (Id) {
+      
+        $('.popup-box').addClass('box-dialog-keyframes');
+        $('.popup-box').removeClass('active-hide');
+        $('.btn-add').css("display", "none");
+        $('.btn-update').css("display", "none");
+        $('.title-add').css("display", "none");
+        $('.title-update').css("display", "none");
+        $('.title-details').css("display", "block");
+        $('.item').attr('disabled', true);
+        $('.item').css({ 'background': '#fff' });
+
+
+        $http.post('/Services/getDetails', { Id: Id })
+            .success(function (data) {
+
+                $scope.Item = data;
+            }).error(function (error) {
+                console.log('error' + error);
+            });
     }
 })

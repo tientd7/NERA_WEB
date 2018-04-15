@@ -26,6 +26,18 @@ namespace NERA_WEB_APP.Controllers
             var obj = db.Cs_Menu_item.Where(i => i.Item_Id == id).FirstOrDefault();
             return View(obj);
         }
+
+
+        // chi tiet 
+        [CustomAuthorize(Roles = "Admin,Mod")]
+        public JsonResult getDetails(int Id)
+        {
+            db = new DataContext();
+            Cs_Menu_item menu = new Cs_Menu_item();
+            menu = db.Cs_Menu_item.Find(Id);
+            return Json(menu, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult Create()
         {
             return View();
