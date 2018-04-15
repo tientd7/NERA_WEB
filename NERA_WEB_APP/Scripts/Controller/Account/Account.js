@@ -6,6 +6,11 @@
 app.controller("AccountController", function ($scope, $http) {
     $scope.UserName;
     $scope.Password;
+    $scope.pass = null;
+    $scope.user_error;
+    $scope.pass_error_min_length;
+    $scope.pass_error;
+    $scope.role_code_error;
     $scope.message;
     $scope.user;
     $scope.LstUsers;
@@ -106,11 +111,8 @@ app.controller("AccountController", function ($scope, $http) {
             })
     }
     $scope.showData();
-    $scope.pass = null;
-    $scope.user_error;
-    $scope.pass_error_min_length;
-    $scope.pass_error;
-    $scope.role_code_error;
+
+
 
     // đăng ký thành viên
     $scope._user = null;
@@ -282,5 +284,9 @@ app.controller("AccountController", function ($scope, $http) {
                 })
         }
     }
+
+
+
+   
 
 })

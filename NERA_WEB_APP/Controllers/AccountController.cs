@@ -30,6 +30,17 @@ namespace NERA_WEB_APP.Controllers
             return View();
         }
 
+        public ActionResult user_infor()
+        {
+            return View();
+        }
+
+        public ActionResult user_update()
+        {
+            return View();
+        }
+
+
         public JsonResult showData()
         {
             var listUsers = (

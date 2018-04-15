@@ -883,9 +883,44 @@ TESTIMONIAL
     background: #fbf9f9;
 }
 
+.item-infor div.form-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+    .item-infor div.form-group label {
+        margin-top: 6px;
+    }
+
+    .item-infor div.form-group .form-control {
+        border: 1px solid #eee;
+    }
+
+ .btn-group {
+    margin-left: 28%;
+}
+
+.item-infor .btn-group .btn, .item-pass .btn-group .btn {
+    border-radius: 5px;
+}
+
+.item-infor .btn-group .btn-back, .item-pass .btn-group .btn-back {
+    margin-left: 5px;
+}
+
+.item-pass div.form-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+    .item-pass div.form-group label {
+        margin-top: 6px;
+    }
+
+.box-message {
+    margin-top: 50px;
+}
 /*PAGE UPDATE INFOR USER*/
-
-
 .page-update-user-wrapper .container {
     background: #eee;
     max-width: 60%;
@@ -1136,7 +1171,7 @@ button#btn-close {
     }
 
 div .alert.alert-danger {
-    display:none;
+    display: none;
     position: relative;
     width: 150px;
     top: 11px;
@@ -1318,6 +1353,10 @@ div .alert.alert-danger {
     padding-left: 0px;
 }
 
+table {
+    cursor: pointer;
+}
+
 .table-wrapper.container {
     padding-right: 0px;
     padding-left: 0px;
@@ -1327,9 +1366,6 @@ div .alert.alert-danger {
     width: 1170px;
 }
 
-    .table-wrapper tr {
-        text-align: center;
-    }
 
 .title-name-column {
     text-align: center;
@@ -1355,6 +1391,8 @@ div .alert.alert-danger {
 .tr-add-data {
     display: none;
 }
+
+
 
     .tr-add-data td .form-control, .tr-show-data td .form-control {
         border: 1px solid rgba(0, 0, 0, .5);

@@ -305,6 +305,7 @@
     <Content Include="machine.config" />
     <Content Include="Scripts\angular-route.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\Controller\Account\User.js" />
     <Content Include="Scripts\Controller\BaiViet\BaiVietMVC.js" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\build-config.js" />
@@ -1509,6 +1510,8 @@
     <Content Include="Views\Account\user.cshtml" />
     <Content Include="Views\Account\popupAccount.cshtml" />
     <Content Include="Views\BaiVietMVC\Details.cshtml" />
+    <Content Include="Views\Account\user_update.cshtml" />
+    <Content Include="Views\Account\user_infor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

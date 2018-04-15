@@ -15,7 +15,7 @@ namespace NERA_WEB_APP.Controllers
     {
         // GET: Services
         DataContext db = new DataContext();
-        [CustomAuthorize(Roles = "Admin")]
+        [CustomAuthorize(Roles = "Admin,Mod")]
         public ActionResult Index()
         {
             return View();
@@ -56,8 +56,9 @@ namespace NERA_WEB_APP.Controllers
             return View(obj);
         }
 
-        [CustomAuthorize(Roles = "Mod,Admin")]
+       
         [HttpPost]
+        [CustomAuthorize(Roles = "Mod,Admin")]
         public ActionResult Edit(Cs_Menu_item menu)
         {
             
@@ -68,7 +69,9 @@ namespace NERA_WEB_APP.Controllers
             menu.Item_Content = Request.Unvalidated["Item_Content"];
             db.Entry(menu).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Redirect("Index");
+            
+            
 
         }
 
