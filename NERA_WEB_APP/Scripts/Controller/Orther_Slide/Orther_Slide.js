@@ -39,7 +39,7 @@
                 $('.alert-noti-success').fadeOut(500);
 
                 //reload
-                $scope.hienthisanpham();
+           
                 $scope.showDV();
             }, 1500);
             getAllDataSlide();

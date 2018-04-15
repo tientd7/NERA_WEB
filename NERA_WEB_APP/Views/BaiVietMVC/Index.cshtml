@@ -46,14 +46,14 @@
         </fieldset>
         <div class=" table-wrapper container">
             <table class="table table-striped" ng-controller="BaiVietMVC">
-                <tr>
+                <tr  class="title-name-column" >
                     <th>
                         Tiêu đề bài viết
                     </th>
-                    <th>
+                    <th style="width:150px">
                         Miêu tả
                     </th>
-                    <th>
+                    <th style="width:150px">
                         Từ khóa
                     </th>
                     <th>
@@ -63,14 +63,8 @@
                         ID Item
                     </th>
                     <th>
-                        Người tạo
-                    </th>
-                    <th>
                         Ngày tạo
-                    </th>
-                    <th>
-                        Người sửa
-                    </th>
+                    </th>                
                     <th>
                         Ngày sửa
                     </th>
@@ -102,15 +96,11 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Item_ID)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Create_By)
-                    </td>
+                  
                     <td>
                         @Html.DisplayFor(modelItem => item.Create_Date)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Update_By)
-                    </td>
+      
                     <td>
                         @Html.DisplayFor(modelItem => item.Update_Date)
                     </td>

@@ -25,10 +25,17 @@
     </script>
 }
 <section class="container">
-    <div style="margin-top:20px;">
-        <h2>Sửa Dịch Vụ</h2>
-    </div>
-    <hr />
+    <fieldset>
+        <legend style="position:relative;">
+            <span style="text-align:left;">
+                <h3 class="title-page">
+                    Sửa dịch vụ
+                </h3>
+            </span>
+
+
+        </legend>
+    </fieldset>
 
     @using (Html.BeginForm())
     {
@@ -36,12 +43,13 @@
 
         <div class="form-horizontal container" style="max-width:1000px;">
 
+            @Html.HiddenFor(model => model.Item_Id)
 
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
             <div class="form-group col-md-12" style="margin-left:0; margin-right:0;">
                 <div class="col-md-12">
-                    <label style="font-size:18px;">Tên Sản Phẩm</label>
+                    <label style="font-size:18px;">Tên Dịch Vụ</label>
                 </div>
 
                 <div class="col-md-12">
@@ -52,32 +60,6 @@
 
             <div class="form-group" style="margin-left:0; margin-right:0;">
                 <div class="col-md-6">
-                    <div class="col-md-12">
-                        @Html.Label("Miêu tả", htmlAttributes: new { @class = "", @style = "font-size:18px;" })
-                    </div>
-
-                    <div class="col-md-12">
-                        @*@Html.EditorFor(model => model.Meta_Desc, new { htmlAttributes = new { @class = "form-control" } })*@
-                        <textarea rows="3" class="form-control" name="MetaDesc" style="width:100%;">@Model.Meta_Desc</textarea>
-                        @Html.ValidationMessageFor(model => model.Meta_Desc, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="col-md-12">
-                        @Html.Label("Từ khóa", htmlAttributes: new { @class = "", @style = "font-size:18px;" })
-                    </div>
-
-                    <div class="col-md-12">
-                        @*@Html.EditorFor(model => model.Meta_Key, new { htmlAttributes = new { @class = "form-control" } })*@
-                        <textarea rows="3" class="form-control" name="MetaKey" style="width:100%;">@Model.Meta_Key</textarea>
-                        @Html.ValidationMessageFor(model => model.Meta_Key, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="form-group" style="margin-left:0; margin-right:0;">
-                <div class="col-md-3">
                     <div style="padding-left:20px; margin-bottom:10px;">
                         <label style="font-size:18px;">Enable</label>
 
@@ -87,7 +69,35 @@
 
 
                 </div>
-                <div class="col-md-3">
+                @{
+                   
+                    @*<div class="col-md-4">
+                            <div class=" col-md-12">
+                                <label style="font-size:18px;">Mục thêm</label>
+                            </div>
+                            <div class="col-md-12">
+                                <select class="form-control" name="DV" style="width:150px;">
+                                    <option value="">Chọn mục thêm</option>
+                                    @if (Model.Item_Type == "DV")
+                                    {
+
+                                        <option value="@Model.Item_Type" selected>Dịch vụ</option>
+
+                                    }
+                                    else
+                                    {
+                                        <option value="DV">Dịch vụ</option>
+
+                                    }
+                                </select>
+
+                            </div>
+
+
+                        </div>*@
+                    
+                }
+                <div class="col-md-6">
                     <div class=" col-md-12">
                         <label style="font-size:18px;">Ngôn ngữ</label>
                     </div>
@@ -114,30 +124,54 @@
 
                     </div>
                 </div>
-                <div class="form-group" style="margin-left:0; margin-right:0; padding:0;">
+            </div>
+            <div class="form-group" style="margin-left:0; margin-right:0;">
+                <div class="col-md-6">
                     <div class="col-md-12">
-                        <label style="font-size:18px;">Nội dung bài viết</label>
-                    </div>
-                    <div class="col-md-12">
-                        @Html.TextAreaFor(model => model.Item_Content, new { htmlAttributes = new { @class = "form-control", @id = "Item_Content" }, id = "Item_Content" })
-                        @Html.ValidationMessageFor(model => model.Item_Content, "", new { @class = "text-danger" })
+                        @Html.Label("Miêu tả", htmlAttributes: new { @class = "", @style = "font-size:18px;" })
                     </div>
 
-                </div>
-
-                <div class="form-group">
                     <div class="col-md-12">
-                        <input type="submit" value="Sửa" class="btn btn-success" />
+
+                        <textarea rows="3" class="form-control" name="MetaDesc" style="width:100%;">@Model.Meta_Desc</textarea>
+                        @Html.ValidationMessageFor(model => model.Meta_Desc, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <div>
-                    <h4> @Html.ActionLink("Quay Lại", "Index")
+                <div class="col-md-6">
+                    <div class="col-md-12">
+                        @Html.Label("Từ khóa", htmlAttributes: new { @class = "", @style = "font-size:18px;" })
+                    </div>
+
+                    <div class="col-md-12">
+
+                        @*@Html.TextAreaFor(model => model.Meta_Key, new { htmlAttributes = new { @class = "form-control" } })*@
+                        <textarea rows="3" class="form-control" name="MetaKey" style="width:100%;">@Model.Meta_Key</textarea>
+                        @Html.ValidationMessageFor(model => model.Meta_Key, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-left:0; margin-right:0; padding:0;">
+                <div class="col-md-12">
+                    <label style="font-size:18px;">Nội dung bài viết</label>
+                </div>
+                <div class="col-md-12">
+                    @Html.TextAreaFor(model => model.Item_Content, new { htmlAttributes = new { @class = "form-control", @id = "Item_Content" }, id = "Item_Content" })
+                    @Html.ValidationMessageFor(model => model.Item_Content, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12" style="margin-bottom:10px;">
+                    <input type="submit" value="Sửa" class="btn btn-success" />
+                </div>
+                <div class="col-sm-12">
+                    <h4> @Html.ActionLink("Quay Lại", "Index") </h4>
                 </div>
             </div>
         </div>
     }
-
-
 
 </section>
 

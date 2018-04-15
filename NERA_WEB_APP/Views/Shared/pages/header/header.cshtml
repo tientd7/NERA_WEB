@@ -1,7 +1,4 @@
 ﻿@{
-
-
-
     var userName = HttpContext.Current.User.Identity.Name;
 
 }
@@ -13,9 +10,9 @@
             <div class="row header-top-desktop">
                 <div class="col-sm-3 col-xs-12">
                     <div class="call-to-action">
-                            <a href="/Home/Index" class="logo-page"  title="neraland.com.vn Home">   
-                                <img src="~/Media/images/logo/logoNerahome.jpg" class="img-logo-page"  id="img-logo-page" />
-                            </a>
+                        <a href="/Home/Index" class="logo-page" title="neraland.com.vn Home">
+                            <img src="~/Media/images/logo/logoNerahome.jpg" class="img-logo-page" id="img-logo-page" />
+                        </a>
                     </div><!-- /.call-to-action -->
                 </div><!-- /.col-sm-6 -->
 
@@ -109,9 +106,9 @@
                 <div class="logo-acc-mb">
 
                     <div class="call-to-action">
-                        <a href="/Home/Index" class="logo-page" title="neraland.com.vn Home"> 
-                            <img src="~/Media/images/logo/logoNerahome.jpg" class="img-logo-page" id="img-logo-page"  />
-                          
+                        <a href="/Home/Index" class="logo-page" title="neraland.com.vn Home">
+                            <img src="~/Media/images/logo/logoNerahome.jpg" class="img-logo-page" id="img-logo-page" />
+
                         </a>
                     </div>
                     <div class="acc-lang-wt">
@@ -123,28 +120,28 @@
 
                                 </a>
                                 @*@if (String.IsNullOrEmpty(userName))
-                                {
-                                    <a href="#" class="user-account btn-link-login">
-                                        <i class="fa fa-user" aria-hidden="true"></i>
-                                        Đăng nhập
+                                    {
+                                        <a href="#" class="user-account btn-link-login">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            Đăng nhập
 
-                                    </a>
-                                }
-                                else
-                                {
-                                    <div>
+                                        </a>
+                                    }
+                                    else
+                                    {
                                         <div>
-                                            <a href="/User/user_infor" class="user-account btn-link-infor-user" style="text-transform:uppercase;">
-                                                <i class="fa fa-user" aria-hidden="true"></i>
-                                                @userName
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <a href="/Account/LogOut">Đăng xuất</a>
-                                        </div>
+                                            <div>
+                                                <a href="/User/user_infor" class="user-account btn-link-infor-user" style="text-transform:uppercase;">
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                    @userName
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="/Account/LogOut">Đăng xuất</a>
+                                            </div>
 
-                                    </div>
-                                }*@
+                                        </div>
+                                    }*@
 
 
                             </div>
@@ -224,7 +221,7 @@
 
                         <div class="submenu-wrapper submenu-wrapper-topbottom">
                             <div class="submenu-inner  submenu-inner-topbottom">
-                                <ul class="dropdown-menu" ng-controller="ProductCtrl">
+                                <ul class="dropdown-menu" ng-controller="ServiceController">
 
                                     <li><a href="/Price/listPrice">Bảng giá dịch vụ</a></li>
                                     <li ng-repeat="i in ItemDVEnable "><a href="/Services/details?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
@@ -261,11 +258,11 @@
         </nav>
     </div>
 </header>
-
 <script src="~/Scripts/jquery/language.js"></script>
 <script src="~/Scripts/jquery/dialog.js"></script>
 
 @section JavaScript{
     <script src="~/Scripts/Controller/Product/product.js"></script>
+    <script src="~/Scripts/Controller/Service/Service.js"></script>
 }
 

@@ -1,13 +1,16 @@
-﻿using NERA_WEB_APP.Models;
+﻿using NERA_WEB_APP.CustomMemberShip;
+using NERA_WEB_APP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace NERA_WEB_APP.Controllers
 {
+    [CustomAuthorize(Roles = "Mod,Admin")]
     public class ChatboxController : Controller
     {
         // GET: Chatbox

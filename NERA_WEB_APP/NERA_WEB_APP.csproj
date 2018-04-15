@@ -308,6 +308,7 @@
     <Content Include="machine.config" />
     <Content Include="Scripts\angular-route.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\Controller\Account\User.js" />
     <Content Include="Scripts\Controller\BaiViet\BaiVietMVC.js" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\build-config.js" />
@@ -1399,6 +1400,7 @@
     <Content Include="Scripts\Controller\Post_Slide\ThemSlide.js" />
     <Content Include="Scripts\Controller\Post_Slide\Update.js" />
     <Content Include="Scripts\Controller\Product\addNewProduct.js" />
+    <Content Include="Scripts\Controller\Service\Service.js" />
     <Content Include="Scripts\dirPagination.js" />
     <Content Include="Scripts\editor\editor.js" />
     <Content Include="Scripts\Controller\Product\product.js" />
@@ -1494,8 +1496,6 @@
     <Content Include="Views\Product\popupProduct.cshtml" />
     <Content Include="Views\BaiVietMVC\popupBaiviet.cshtml" />
     <Content Include="Views\Post_Slide\popupPostSlide.cshtml" />
-    <Content Include="Views\BaiVietMVC\Edit1.cshtml" />
-    <Content Include="Views\BaiVietMVC\Details.cshtml" />
     <Content Include="Views\BaiVietMVC\Index1.cshtml" />
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Chatbox\Index.cshtml" />
@@ -1505,12 +1505,16 @@
     <Content Include="Views\Admin\header.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Services\Index.cshtml" />
-    <Content Include="Views\Services\details.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Services\popupServices.cshtml" />
     <Content Include="Views\Product\Create1.cshtml" />
     <Content Include="Views\Services\Create.cshtml" />
     <Content Include="Views\Services\Edit.cshtml" />
+    <Content Include="Views\Account\user.cshtml" />
+    <Content Include="Views\Account\popupAccount.cshtml" />
+    <Content Include="Views\BaiVietMVC\Details.cshtml" />
+    <Content Include="Views\Account\user_update.cshtml" />
+    <Content Include="Views\Account\user_infor.cshtml" />
     <Content Include="Views\Tariff\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

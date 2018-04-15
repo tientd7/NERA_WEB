@@ -2,11 +2,10 @@
  * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see https://ckeditor.com/legal/ckeditor-oss-license
  */
-
+CKEDITOR.config.autoParagraph = false;
 CKEDITOR.editorConfig = function (config) {
     config.enterMode = CKEDITOR.ENTER_BR;
     config.shiftEnterMode = CKEDITOR.ENTER_P
-    CKEDITOR.config.autoParagraph = false;
     config.autoParagraph = false; // stops automatic insertion of <p> on focus
     //config.filebrowserBrowseUrl = '/Scripts/Controller/BaiViet/ckfinder/ckfinder.html';
     //config.filebrowserImageBrowseUrl = 'Scripts/Controller/BaiViet/ckfinder/ckfinder.html?Type=Images';

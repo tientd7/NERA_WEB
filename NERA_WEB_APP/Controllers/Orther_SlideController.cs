@@ -1,12 +1,15 @@
-﻿using NERA_WEB_APP.Models;
+﻿using NERA_WEB_APP.CustomMemberShip;
+using NERA_WEB_APP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace NERA_WEB_APP.Controllers
 {
+    [CustomAuthorize(Roles = "Admin,Mod")]
     public class Orther_SlideController : Controller
     {
         DataContext db = new DataContext();
@@ -38,7 +41,7 @@ namespace NERA_WEB_APP.Controllers
             obj.Image_URL = item.Image_URL;
             obj.Image_Title = item.Image_Title;
             obj.Image_Order = item.Image_Order;
-            obj.Image_Link = Request.Form["Anh"];
+            obj.Image_Link = item.Image_Link;
             obj.Enable = item.Enable;
             db.CS_Other_Slide.Add(obj);
             db.SaveChanges();

@@ -11,7 +11,9 @@
                 var finder = new CKFinder();
 
                 finder.selectActionFunction = function (url) {
-                    $('#txtAnh').val(url);
+                    $('.txtAnh').val(url);
+                    $('#imgslide').attr('src', url);
+                    $('.txtAnh').trigger('change');
                 };
                 finder.popup();
 
@@ -46,24 +48,29 @@
     </fieldset>
     <div class="table-wrapper container">
         <table class="table table-striped  table-wrapper">
-            <tr>
-                <th>Id</th>
-                <th>Tiêu đề ảnh</th>
-                <th>Nguồn ảnh</th>
-                <th>Link</th>
-                <th>Ngôn ngữ</th>
-                <th>Vị trí hiện ảnh</th>
-                <th>Ưu tiên</th>
-                <th>Enable</th>
-                <th style="width:100px;">Chức năng</th>
+            <tr class="title-name-column">
+                <td>Id</td>
+                <td>Tiêu đề ảnh</td>
+                <td>Nguồn ảnh</td>
+                <td style="width:200px;  display:block;">Link</td>
+                <td>Ngôn ngữ</td>
+                <td>Vị trí hiện ảnh</td>
+                <td>Ưu tiên</td>
+                <td>Enable</td>
+                <td style="width:100px;">Chức năng</td>
             </tr>
             <tr class="tr-add-data">
                 <td></td>
                 <td><input type="text" class="form-control  name item-type" ng-model="CreateItem.Image_Title" /></td>
-                <td><input type="text" class="form-control  url item-type" ng-model="CreateItem.Image_URL" /></td>
                 <td>
-                    <input type="text" class="form-control  link item-type" id="txtAnh" name="Anh" ng-model="CreateItem.Image_Link">
+                    <input  hidden type="text" class="txtAnh" ng-change ng-model="CreateItem.Image_URL" value="{{CreateItem.Image_URL}}" />    
+                    <img src="{{CreateItem.Image_URL}}" id="imgslide" style="height:100px; width:100px;" />
                     <a href="#" id="btnselect">Chọn</a>
+                </td>
+
+                <td>
+                    <input type="text" class="form-control  link item-type txtAnh" ng-change ng-model="CreateItem.Image_Link" value="{{CreateItem.Image_Link}}">
+
                 </td>
                 <td>
                     <select class="form-control item-type" ng-model="CreateItem.Language" style="width:150px;">
@@ -101,13 +108,14 @@
                 </td>
                 <td>
                     <div ng-show="getStatusSlide(Item.Tbl_Id)">
-                        {{Item.Image_URL}}
+
+                        <img src="{{Item.Image_URL}}" style="height:100px; width:100px;" />
                     </div>
                     <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Image_URL" />
                 </td>
                 <td>
-                    <div ng-show="getStatusSlide(Item.Tbl_Id)">
-                        <img src="{{Item.Image_Link}}" style="height:100px; width:100px;" />
+                    <div ng-show="getStatusSlide(Item.Tbl_Id)" style="width:200px; display:block; word-wrap: break-word;">
+                        {{Item.Image_Link}}
 
                     </div>
                     <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Image_Link" />
@@ -168,12 +176,12 @@
         </div>
 
         @*<div class="container" style="max-width:500px;">
-            <div class="alert alert-delete-success" style="text-align:center; background:#13cb71;display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);">
-                <h3 style="color:#fff;">
-                    Xóa thành công
-                </h3>
-            </div>
-        </div>*@
+                <div class="alert alert-delete-success" style="text-align:center; background:#13cb71;display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);">
+                    <h3 style="color:#fff;">
+                        Xóa thành công
+                    </h3>
+                </div>
+            </div>*@
         <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
     </div>
 

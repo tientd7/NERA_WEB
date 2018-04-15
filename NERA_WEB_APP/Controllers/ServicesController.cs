@@ -3,6 +3,7 @@ using NERA_WEB_APP.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,7 +15,7 @@ namespace NERA_WEB_APP.Controllers
     {
         // GET: Services
         DataContext db = new DataContext();
-        [CustomAuthorize(Roles = "Admin")]
+        [CustomAuthorize(Roles = "Admin,Mod")]
         public ActionResult Index()
         {
             return View();
@@ -22,8 +23,8 @@ namespace NERA_WEB_APP.Controllers
 
         public ActionResult details(int id)
         {
-            var hienthi = db.Cs_Menu_item.Where(i => i.Item_Id == id && i.Item_Type.Equals("DV") && i.Enable == true).FirstOrDefault();
-            return View(hienthi);
+            var obj = db.Cs_Menu_item.Where(i => i.Item_Id == id).FirstOrDefault();
+            return View(obj);
         }
         public ActionResult Create()
         {
@@ -38,7 +39,7 @@ namespace NERA_WEB_APP.Controllers
             newObj.Item_Id = id;
             newObj.Item_Name = Obj.Item_Name;
             newObj.Enable = true;
-            newObj.Item_Type = Request.Form["Type"];
+            newObj.Item_Type = "DV".ToString();
             newObj.Language = Request.Form["Language"];
             newObj.Meta_Desc = Request.Form["MetaDesc"];
             newObj.Meta_Key = Request.Form["MetaKey"];
@@ -47,26 +48,72 @@ namespace NERA_WEB_APP.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
         public ActionResult Edit(int id)
         {
-            var obj = db.Cs_Menu_item.Where(i => i.Item_Id == id).FirstOrDefault();
+            var obj = db.Cs_Menu_item.Where(i => i.Item_Id==id).FirstOrDefault();
             return View(obj);
         }
-        [AllowAnonymous]
+
+       
         [HttpPost]
+        [CustomAuthorize(Roles = "Mod,Admin")]
         public ActionResult Edit(Cs_Menu_item menu)
         {
-            menu.Item_Type = "DV";
+            
+            menu.Item_Type = "DV".ToString();
             menu.Language = Request.Form["Language"];
             menu.Meta_Desc = Request.Form["MetaDesc"];
             menu.Meta_Key = Request.Form["MetaKey"];
             menu.Item_Content = Request.Unvalidated["Item_Content"];
             db.Entry(menu).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Redirect("Index");
+            
+            
 
         }
+
+        public JsonResult showDV()
+        {
+            var hienthi = (from i in db.Cs_Menu_item where i.Item_Type == "DV" select i).ToList();
+            return new JsonResult { Data = hienthi, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+        public JsonResult showDvEnable()
+        {
+            var hienthi = (from i in db.Cs_Menu_item where i.Item_Type == "DV" && i.Enable == true select i).ToList();
+            return new JsonResult { Data = hienthi, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+        public JsonResult del(Cs_Menu_item menuItem)
+        {
+            db = new DataContext();
+            menuItem.Enable = false;
+            db.Entry(menuItem).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+            return Json(menuItem);
+        }
+        //public ActionResult Edit1(int id)
+        //{
+        //    var obj = db.Cs_Menu_item.Find(id);
+        //    return View(obj);
+        //}
+
+        //[CustomAuthorize(Roles = "Mod,Admin")]
+        //[HttpPost]
+        //public ActionResult Edit1(Cs_Menu_item menu)
+        //{
+        //    menu.Language = Request.Form["Language"];
+        //    menu.Meta_Desc = Request.Form["MetaDesc"];
+        //    menu.Meta_Key = Request.Form["MetaKey"];
+        //    menu.Item_Content = Request.Unvalidated["Item_Content"];
+        //    UpdateModel(menu);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
+
+
     }
 
 }
-  
+    

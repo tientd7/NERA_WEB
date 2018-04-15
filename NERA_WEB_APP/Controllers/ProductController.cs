@@ -60,7 +60,7 @@ namespace NERA_WEB_APP.Controllers
             var detail = db.CS_Post_Info.Where(x => x.Post_Id == id).FirstOrDefault();
             ViewBag.listImg =(
                 from i in db.CS_Post_Slides
-                join postinfor in db.CS_Post_Info on i.Post_Id equals postinfor.Post_Id
+                //join postinfor in db.CS_Post_Info on i.Post_Id equals postinfor.Post_Id
                 //join menu in db.Cs_Menu_item on Convert.ToInt32(postinfor.Item_ID) equals Convert.ToInt32(menu.Item_Id)
                 select i).Take(3);
                 
@@ -152,23 +152,7 @@ namespace NERA_WEB_APP.Controllers
         }
 
 
-        //lấy danh sách Dịch vụ có trong bảng MenuItem 
-        public JsonResult showDV()
-        {
-            db.Configuration.ProxyCreationEnabled = false;
-            db.Configuration.LazyLoadingEnabled = false;
-            var show = (from i in db.Cs_Menu_item where i.Item_Type == "DV" select i).ToList();
-            return Json(show, JsonRequestBehavior.AllowGet);
-        }
-
-        // hiển thị dịch vụ đang còn
-        public JsonResult showDvEnable()
-        {
-            var hienthi = (from i in db.Cs_Menu_item where i.Item_Type == "DV" && i.Enable == true select i).ToList();
-            return new JsonResult { Data = hienthi, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-        }
-
-
+       
 
         public JsonResult getDetails()
         {

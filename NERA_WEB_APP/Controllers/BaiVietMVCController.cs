@@ -64,14 +64,10 @@ namespace NERA_WEB_APP.Controllers
         [ValidateInput(false)]
         public ActionResult Create(CS_Post_Info objInfo, List<String> slides)
         {
-            
-
             CS_Post_Info newObj = new CS_Post_Info();
             int id = new App_Auto_NumberController().GenID("CS_Posts_Info.Post_Id");
-            newObj.Post_Id = id;
-            newObj.Create_By = 1;
+            newObj.Post_Id = id;         
             newObj.Create_Date = DateTime.Now;
-            newObj.Update_By = 1;
             newObj.Update_Date = DateTime.Now;
             newObj.Enable = objInfo.Enable;
             newObj.Item_ID = Convert.ToInt32(Request.Form["Item_Id"]);
@@ -170,10 +166,28 @@ namespace NERA_WEB_APP.Controllers
             //return RedirectToAction("Index", "BaiVietMVC", new { id = Session["id"]});
         }
 
+        [CustomAuthorize(Roles = "Mod,Admin")]
+        public JsonResult delete(int Post_Id)
+        {
+            var post = db.CS_Post_Info.Where(i => i.Post_Id == Post_Id).FirstOrDefault();
+            post.Enable = false;
+            db.Entry(post).State = EntityState.Modified;
+            db.SaveChanges();
+            return Json("");
+
+            //return RedirectToAction("Index", "BaiVietMVC", new { id = Session["id"]});
+        }
+
 
         [AllowAnonymous]
         public ActionResult Details(int Post_Id)
         {
+            ViewBag.listImg = (
+                from i in db.CS_Post_Slides
+                    //join postinfor in db.CS_Post_Info on i.Post_Id equals postinfor.Post_Id
+                    //join menu in db.Cs_Menu_item on Convert.ToInt32(postinfor.Item_ID) equals Convert.ToInt32(menu.Item_Id)
+                select i).Take(3);
+
             var obj = db.CS_Post_Info.Where(t => t.Enable && t.Post_Id == Post_Id);
             if (obj.Count() > 0)
             {
@@ -181,7 +195,7 @@ namespace NERA_WEB_APP.Controllers
                 PostDetailViewModel objView = new PostDetailViewModel(obj.First(), slides.ToList());
                 return View(objView);
             }
-            return RedirectToRoute("/Home/Index");
+            return View();
 
         }
 

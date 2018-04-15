@@ -883,9 +883,44 @@ TESTIMONIAL
     background: #fbf9f9;
 }
 
+.item-infor div.form-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+    .item-infor div.form-group label {
+        margin-top: 6px;
+    }
+
+    .item-infor div.form-group .form-control {
+        border: 1px solid #eee;
+    }
+
+ .btn-group {
+    margin-left: 28%;
+}
+
+.item-infor .btn-group .btn, .item-pass .btn-group .btn {
+    border-radius: 5px;
+}
+
+.item-infor .btn-group .btn-back, .item-pass .btn-group .btn-back {
+    margin-left: 5px;
+}
+
+.item-pass div.form-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+    .item-pass div.form-group label {
+        margin-top: 6px;
+    }
+
+.box-message {
+    margin-top: 50px;
+}
 /*PAGE UPDATE INFOR USER*/
-
-
 .page-update-user-wrapper .container {
     background: #eee;
     max-width: 60%;
@@ -1135,10 +1170,11 @@ button#btn-close {
         position: relative;
     }
 
-div.alert.alert-danger {
-    position: absolute;
+div .alert.alert-danger {
+    display: none;
+    position: relative;
     width: 150px;
-    top: -62px;
+    top: 11px;
     right: 0;
     z-index: 10000;
 }
@@ -1169,15 +1205,41 @@ div.alert.alert-danger {
     background: #eee;
 }
 
+.title-add, .title-update, .title-details {
+    margin: 20px;
+}
+
+.popup-box .row .form-group {
+    padding-left: 20px;
+    border: 1px solid #eee;
+    margin: 20px 0px;
+}
+
+.popup-box .row {
+    padding-bottom: 20px;
+    margin: 0px;
+}
+
     .popup-box .row .form-group {
-        padding: 20px;
-        border: 1px solid #eee;
-        margin: 0;
     }
+
+        .popup-box .row .form-group .col-sm-6 {
+            padding-left: 0px;
+        }
 
         .popup-box.row .form-group textarea.form-control {
             height: 100px;
         }
+
+
+.btn-close {
+    right: 8px;
+    position: fixed;
+    z-index: 10000;
+    top: 2px;
+    display: block;
+}
+
 
 .alert-noti-success {
     text-align: center;
@@ -1291,6 +1353,10 @@ div.alert.alert-danger {
     padding-left: 0px;
 }
 
+table {
+    cursor: pointer;
+}
+
 .table-wrapper.container {
     padding-right: 0px;
     padding-left: 0px;
@@ -1300,15 +1366,18 @@ div.alert.alert-danger {
     width: 1170px;
 }
 
-    .table-wrapper tr {
-        text-align: center;
-    }
 
-        .table-wrapper tr th {
-            cursor: pointer;
-            color: #2b2b2e;
-            text-align: center;
-        }
+.title-name-column {
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.table-wrapper tr th {
+    cursor: pointer;
+    color: #2b2b2e;
+    text-align: center;
+}
 
 .lbl-content {
     width: 400px;
@@ -1322,6 +1391,8 @@ div.alert.alert-danger {
 .tr-add-data {
     display: none;
 }
+
+
 
     .tr-add-data td .form-control, .tr-show-data td .form-control {
         border: 1px solid rgba(0, 0, 0, .5);
