@@ -182,6 +182,12 @@ namespace NERA_WEB_APP.Controllers
         [AllowAnonymous]
         public ActionResult Details(int Post_Id)
         {
+            ViewBag.listImg = (
+                from i in db.CS_Post_Slides
+                    //join postinfor in db.CS_Post_Info on i.Post_Id equals postinfor.Post_Id
+                    //join menu in db.Cs_Menu_item on Convert.ToInt32(postinfor.Item_ID) equals Convert.ToInt32(menu.Item_Id)
+                select i).Take(3);
+
             var obj = db.CS_Post_Info.Where(t => t.Enable && t.Post_Id == Post_Id);
             if (obj.Count() > 0)
             {
@@ -189,7 +195,7 @@ namespace NERA_WEB_APP.Controllers
                 PostDetailViewModel objView = new PostDetailViewModel(obj.First(), slides.ToList());
                 return View(objView);
             }
-            return RedirectToRoute("/Home/Index");
+            return View();
 
         }
 

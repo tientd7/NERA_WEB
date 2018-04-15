@@ -1508,7 +1508,7 @@
     <Content Include="Views\Services\Edit.cshtml" />
     <Content Include="Views\Account\user.cshtml" />
     <Content Include="Views\Account\popupAccount.cshtml" />
-    <Content Include="Views\Services\Edit1.cshtml" />
+    <Content Include="Views\BaiVietMVC\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

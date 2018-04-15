@@ -39,8 +39,7 @@ namespace NERA_WEB_APP.Controllers
             newObj.Item_Id = id;
             newObj.Item_Name = Obj.Item_Name;
             newObj.Enable = true;
-
-            newObj.Item_Type = "DV";
+            newObj.Item_Type = "DV".ToString();
             newObj.Language = Request.Form["Language"];
             newObj.Meta_Desc = Request.Form["MetaDesc"];
             newObj.Meta_Key = Request.Form["MetaKey"];
@@ -61,16 +60,18 @@ namespace NERA_WEB_APP.Controllers
         [HttpPost]
         public ActionResult Edit(Cs_Menu_item menu)
         {
-           
+            
+            menu.Item_Type = "DV".ToString();
             menu.Language = Request.Form["Language"];
             menu.Meta_Desc = Request.Form["MetaDesc"];
             menu.Meta_Key = Request.Form["MetaKey"];
             menu.Item_Content = Request.Unvalidated["Item_Content"];
             db.Entry(menu).State = EntityState.Modified;
-            UpdateModel(menu);
-            return View(menu);
+            db.SaveChanges();
+            return RedirectToAction("Index");
 
         }
+
         public JsonResult showDV()
         {
             var hienthi = (from i in db.Cs_Menu_item where i.Item_Type == "DV" select i).ToList();
@@ -89,24 +90,24 @@ namespace NERA_WEB_APP.Controllers
             db.SaveChanges();
             return Json(menuItem);
         }
-        public ActionResult Edit1(int id)
-        {
-            var obj = db.Cs_Menu_item.Find(id);
-            return View(obj);
-        }
+        //public ActionResult Edit1(int id)
+        //{
+        //    var obj = db.Cs_Menu_item.Find(id);
+        //    return View(obj);
+        //}
 
-        [CustomAuthorize(Roles = "Mod,Admin")]
-        [HttpPost]
-        public ActionResult Edit1(Cs_Menu_item menu)
-        {
-            menu.Language = Request.Form["Language"];
-            menu.Meta_Desc = Request.Form["MetaDesc"];
-            menu.Meta_Key = Request.Form["MetaKey"];
-            menu.Item_Content = Request.Unvalidated["Item_Content"];
-            UpdateModel(menu);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //[CustomAuthorize(Roles = "Mod,Admin")]
+        //[HttpPost]
+        //public ActionResult Edit1(Cs_Menu_item menu)
+        //{
+        //    menu.Language = Request.Form["Language"];
+        //    menu.Meta_Desc = Request.Form["MetaDesc"];
+        //    menu.Meta_Key = Request.Form["MetaKey"];
+        //    menu.Item_Content = Request.Unvalidated["Item_Content"];
+        //    UpdateModel(menu);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
 
     }
