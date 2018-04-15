@@ -5,20 +5,20 @@
 }
 @section jsFooter{
     <script>
-        $(document).ready(function () {
-            $('#btnselect').on('click', function (e) {
-                e.preventDefault();
-                var finder = new CKFinder();
+        //$(document).ready(function () {
+        //    $('#btnselect').on('click', function (e) {
+        //        e.preventDefault();
+        //        var finder = new CKFinder();
 
-                finder.selectActionFunction = function (url) {
-                    $('.txtAnh').val(url);
-                    $('#imgslide').attr('src', url);
-                    $('.txtAnh').trigger('change');
-                };
-                finder.popup();
+        //        finder.selectActionFunction = function (url) {
+        //            $('.txtAnh').val(url);
+        //            $('#imgslide').attr('src', url);
+        //            $('.txtAnh').trigger('change');
+        //        };
+        //        finder.popup();
 
-            })
-        })
+        //    })
+        //})
     </script>
 }
 
@@ -63,13 +63,12 @@
                 <td></td>
                 <td><input type="text" class="form-control  name item-type" ng-model="CreateItem.Image_Title" /></td>
                 <td>
-                    <input  hidden type="text" class="txtAnh" ng-change ng-model="CreateItem.Image_URL" value="{{CreateItem.Image_URL}}" />    
-                    <img src="{{CreateItem.Image_URL}}" id="imgslide" style="height:100px; width:100px;" />
-                    <a href="#" id="btnselect" onclick="selectImg('imgslide')" >Chọn</a>
+                    <img ng-src="CreateItem.Image_URL" id="imgslide" style="height:100px; width:100px;" />
+                    <a href="#" ng-click="onSelectImg('txtAnh')">Chọn</a>
                 </td>
-                
+
                 <td>
-                    <input type="text" class="form-control  link item-type txtAnh" ng-change ng-model="CreateItem.Image_Link" value="{{CreateItem.Image_Link}}">
+                    <input type="text" class="form-control  link item-type txtAnh" ng-change ng-model="CreateItem.Image_Link" />
 
                 </td>
                 <td>

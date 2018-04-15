@@ -10,7 +10,7 @@ using System.Web.Security;
 
 namespace NERA_WEB_APP.Controllers
 {
-    [CustomAuthorize(Roles = "Mod,Admin")]
+    [AllowAnonymous]
     public class ChatboxController : Controller
     {
         // GET: Chatbox
@@ -93,8 +93,7 @@ namespace NERA_WEB_APP.Controllers
             LST = LST.Skip(pageIndex * pageSize).Take(pageSize);
             return Json(new object[] { LST.ToList(),totalRows }, JsonRequestBehavior.AllowGet);
         }
-
-
+        [AllowAnonymous]
         public void addData(CS_ChatBox_Info cs)
         {
             CS_ChatBox_Info cscb = new CS_ChatBox_Info();

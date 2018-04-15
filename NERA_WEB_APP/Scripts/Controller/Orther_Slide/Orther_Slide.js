@@ -8,7 +8,14 @@
     function clearAllControl() {
         $scope.CreateItem = {};
     }
+    $scope.onSelectImg = function (id) {
+        var finder = new CKFinder();
 
+        finder.selectActionFunction = function (url) {
+            $scope.CreateItem.Image_URL = url;
+        };
+        finder.popup();
+    }
     $scope.onCreateSlide = function (Item) {
         var obj = {
             Tbl_Id: 0,
