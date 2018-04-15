@@ -1,5 +1,6 @@
 ﻿app.controller("Orther_Slide", function ($scope, $http) {
-    $scope.CreateItem.Image_URL = '~/Content/images/no-image-available.png';
+    $scope.CreateItem = {};
+    $scope.Image_URL = '/Content/images/no-image-available.png';
     $scope.List = "";
     this.IsEditing = false;
     this.EditId = -1;
@@ -11,7 +12,7 @@
         var finder = new CKFinder();
 
         finder.selectActionFunction = function (url) {
-            $scope.CreateItem.Image_URL = url;
+            $scope.Image_URL = url;
         };
         finder.popup();
     }
@@ -19,7 +20,7 @@
         var obj = {
             Tbl_Id: 0,
             Image_Title: $scope.CreateItem.Image_Title,
-            Image_URL: $scope.CreateItem.Image_URL,
+            Image_URL: $scope.Image_URL,
             Image_Link: $scope.CreateItem.Image_Link,
             Image_Orde: $scope.CreateItem.Image_Orde,
             Enable: $scope.CreateItem.Enable,

@@ -890,6 +890,7 @@
     <Content Include="Scripts\Controller\BaiViet\ckeditor\skins\bootstrapck\scss\config\_config.scss" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\skins\bootstrapck\scss\config\_defaults.scss" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\skins\bootstrapck\scss\dialog\dialog.scss" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Controller\BaiViet\BaiVietInsertUpdate.js" />
     <Content Include="Scripts\Controller\BaiViet\BaiVietListController.js" />
