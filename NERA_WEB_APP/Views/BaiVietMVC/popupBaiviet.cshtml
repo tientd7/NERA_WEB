@@ -1,0 +1,83 @@
+﻿
+
+
+
+<section>
+    <div class="container popup-box" style="max-width:60%;">
+        <div>
+            <h2>
+                Thêm bài viết mới
+            </h2>
+        </div>
+
+        <div class="row form-horizontal">
+            <div class="btn-close btn-close-popup" style="right:8px;">
+                <button id="btn-close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+            </div>
+                <label>Tiêu đề bài viết</label>
+                <input type="text" class="form-control" ng-model="Item.Item_Name" />
+            </div>
+            <div class="form-group">
+                <label>Nội dung bài viết</label>
+                <textarea type="Text" class="form-control" id="Post_Content" name="Post_Content" value=""></textarea>
+            </div>
+            <div class="form-group">
+                <label>Miêu tả</label>
+                <textarea class="form-control" ng-model="Item.Meta_Desc"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Từ khóa</label>
+                <textarea class="form-control" ng-model="Item.Meta_Key"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Enable</label>
+                <select class="form-control" ng-model="Item.Item_Type" style="width:150px;">
+                    <option value="">Mục thêm</option>
+                    <option value="SP">True</option>
+                    <option value="DV">False</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>ID Item</label>
+                <input type="text" class="form-control" ng-model="Item.Item_Name" />
+            </div>
+
+            <div class="form-group">
+                <label>Người tạo</label>
+                <input type="text" class="form-control" ng-model="Item.Item_Name" />
+            </div>
+
+            <div class="form-group">
+                <label>Ngày tạo</label>
+                <input type="date" class="form-control" ng-model="Item.Item_Name" />
+            </div>
+            <div class="form-group">
+                <label>Người sửa</label>
+                <input type="text" class="form-control" ng-model="Item.Item_Name" />
+            </div>
+            <div class="form-group">
+                <label>Ngày sửa</label>
+                <input type="date" class="form-control" ng-model="Item.Item_Name" />
+            </div>
+            <div class="form-group">
+                <label>Ngôn ngữ</label>
+                <select class="form-control" ng-model="Item.Language" style="width:150px;">
+                    <option value="">Chọn ngôn ngữ</option>
+                    <option value="VI">Việt nam</option>
+                    <option value="EN">English</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Ảnh</label>
+                <input type="text" class="form-control " id="txtPost_content" /> <button class="btn" id="btnselect">Thêm ảnh</button>
+            </div>
+
+            <div class="form-group" style="border:0px;">
+                <button type="button" ng-click="Create(Item)" class="btn btn-add btn-success">Thêm mới</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

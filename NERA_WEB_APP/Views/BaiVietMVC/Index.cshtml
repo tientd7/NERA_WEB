@@ -1,92 +1,202 @@
 ﻿@model IEnumerable<NERA_WEB_APP.Models.CS_Post_Info>
 
 @{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
     ViewBag.Title = "Index";
 }
+@section jsFooter{
+    <script>
+        $(document).ready(function () {
 
-<h2>Index</h2>
+            var editor = CKEDITOR.replace('Post_Content',
+                {
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Post_Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Post_Content)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Meta_Desc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Meta_Key)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Enable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Item_ID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Create_By)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Create_Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Update_By)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Update_Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Language)
-        </th>
-        <th></th>
-    </tr>
+                    customConfig: '/Scripts/Controller/BaiViet/ckeditor/ckeditor.js',
+                    cloudServices_tokenUrl: '/Scripts/Controller/BaiViet/ckeditor/config.js',
+                }, {
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Post_Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Post_Content)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Meta_Desc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Meta_Key)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Enable)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Item_ID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Create_By)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Create_Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Update_By)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Update_Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Language)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Post_Id }) |
-            <a href="/BaiVietMVC/delete?Post_Id=@item.Post_Id">xoa</a>
-        </td>
-    </tr>
+                    htmlEncodeOutput: true
+                });
+
+
+
+
+        })
+    </script>
 }
 
-</table
+    <section class="container">
+        <fieldset>
+            <legend style="position:relative;">
+                <span style="text-align:left;">
+                    <h3 class="title-page">
+                        Danh sách bài viết
+                    </h3>
+                </span>
+                <span style="position: absolute; right: 0; top: 25px;">
+                    <h4>
+                        @Html.ActionLink("Thêm mới", "Create")
+                    </h4>
+
+                </span>
+
+
+            </legend>
+        </fieldset>
+        <div class=" table-wrapper container">
+            <table class="table table-striped" ng-controller="BaiVietMVC">
+                <tr  class="title-name-column" >
+                    <th>
+                        Tiêu đề bài viết
+                    </th>
+                    <th style="width:150px">
+                        Miêu tả
+                    </th>
+                    <th style="width:150px">
+                        Từ khóa
+                    </th>
+                    <th>
+                        Enable
+                    </th>
+                    <th>
+                        ID Item
+                    </th>
+                    <th>
+                        Ngày tạo
+                    </th>                
+                    <th>
+                        Ngày sửa
+                    </th>
+                    <th>
+                        Ngôn ngữ
+                    </th>
+
+                    <th>Giá </th>
+                    <th>Đã Thuê</th>
+                    <th>Chức năng</th>
+                </tr>
+
+                @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Post_Title)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Meta_Desc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Meta_Key)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Enable)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Item_ID)
+                    </td>
+                  
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Create_Date)
+                    </td>
+      
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Update_Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Language)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dathue)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { Post_Id = item.Post_Id }) <br />
+                        @Html.ActionLink("Details", "Details", new { Post_Id = item.Post_Id }) <br />
+                        <a href="#" ng-click="delete(@item.Post_Id)">Delete </a>
+
+                    </td>
+                </tr>
+        }
+
+
+
+            </table>
+        </div>
+        @* pagination  *@
+        <div class="pagination-wrapper-page" style="height:50px; width:100%;">
+            <div class="pagination-wrapper">
+                <ul class="pager">
+                    <li class="page-item"><a class="page-item-link" href="#" ng-click="onStart()"><<</a></li>
+                    <li class="page-item"><a class="page-item-link" href="#" ng-click="onPrevious()"><</a></li>
+                    <li class="page-item">
+                        <ul class="pagination" ng-repeat="item in Paging">
+                            <li class="page-item" ng-class="item.disable"><a class="page-link" href="#" ng-click="onPage(item.pageIndex)">{{item.pageIndex + 1}}</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="page-item"><a class="page-item-link" href="#" ng-click="onNext()">></a></li>
+                    <li class="page-item"><a class="page-item-link" href="#" ng-click="onEnd()">>></a></li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+@Html.Partial("~/Views/BaiVietMVC/popupBaiviet.cshtml")
+<script src="~/Scripts/jquery/dialog.js"></script>
+@section JavaScript{
+    <script src="~/Scripts/Controller/BaiViet/BaiVietMVC.js"></script>
+}
+<script>
+    $(function ($scope) {
+        $scope.totalRows = 101;
+        $scope.pageSize = 20;
+        $scope.pageIndex = 0;
+        $scope.Paging = [];
+        var filter1 = null;
+        var order1 = 'NAME';
+        var desc1 = true;
+
+        var numOfPages = Math.ceil($scope.totalRows / $scope.pageSize);
+        setPageIndex(0);
+        $scope.onStart = function () {
+            setPageIndex(0);
+        };
+        $scope.onNext = function () {
+            setPageIndex($scope.pageIndex + 1);
+        }
+        $scope.onPrevious = function () {
+            setPageIndex($scope.pageIndex - 1);
+        }
+        $scope.onEnd = function () {
+            setPageIndex(numOfPages - 1);
+        }
+        $scope.onPage = function (id) {
+            setPageIndex(id);
+        }
+        function setPageIndex(i) {
+            $scope.pageIndex = i;
+            numOfPages = Math.ceil($scope.totalRows / $scope.pageSize);
+            startPaging();
+            $scope.Paging[$scope.pageIndex]['disable'] = 'disabled';
+        }
+        function startPaging() {
+            $scope.Paging = [];
+            for (i = 0; i < numOfPages; i++) {
+                var item = {};
+                item['pageIndex'] = i;
+                item['disable'] = '';
+                $scope.Paging.push(item);
+            }
+        }
+        //#endregion Paging
+
+        //#region filter
+    });
+
+</script>

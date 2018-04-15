@@ -24,6 +24,9 @@ namespace NERA_WEB_APP.Models.Maps
             this.Property(t => t.Update_By).HasColumnName("Update_By");
             this.Property(t => t.Update_Date).HasColumnName("Update_Date");
             this.Property(t => t.Language).HasColumnName("Language");
+            this.Property(t => t.Gia).HasColumnName("Gia");
+            this.Property(t => t.Dathue).HasColumnName("Dathue");
+           
         }
     }
 }

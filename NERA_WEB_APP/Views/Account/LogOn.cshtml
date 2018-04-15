@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "LogOn";
+}
+@{
+
+    var userName = HttpContext.Current.User.Identity.Name;
+
+}
+<div class="container">
+    @if (!String.IsNullOrEmpty(userName))
+    {
+        <div class="alert alert-success">
+            <h4>
+                Đăng nhập thành công
+            </h4>
+        </div>
+    }
+    else
+    {<div class="alert alert-info">
+        <h4>
+            Bạn phải đăng nhập mới có thể thao tác hành động này!.
+        </h4>
+    </div>
+    }
+</div>

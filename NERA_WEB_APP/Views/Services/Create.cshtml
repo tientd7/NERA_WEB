@@ -1,0 +1,138 @@
+﻿@model NERA_WEB_APP.Models.Cs_Menu_item
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Create";
+}
+@section jsFooter{
+    <script>
+        $(document).ready(function () {
+
+            var editor = CKEDITOR.replace('Item_Content',
+                {
+                    enterMode: CKEDITOR.ENTER_BR,
+                    shiftEnterMode: CKEDITOR.ENTER_P,
+                    customConfig: '/Scripts/Controller/BaiViet/ckeditor/ckeditor.js',
+                    cloudServices_tokenUrl: '/Scripts/Controller/BaiViet/ckeditor/config.js',
+                }, {
+
+                    htmlEncodeOutput: true,
+                    breakAfterClose: true
+
+
+                });
+
+
+
+
+        })
+    </script>
+}
+<section class="container">
+    <fieldset>
+        <legend style="position:relative;">
+            <span style="text-align:left;">
+                <h3 class="title-page">
+                   Thêm dịch vụ mới
+                </h3>
+            </span>
+
+
+        </legend>
+    </fieldset>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal container" style="max-width:1000px;">
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group col-md-12" style="margin-left:0; margin-right:0;">
+                <div class="col-md-12">
+                    <label style="font-size:18px;">Tên dịch vụ</label>
+                </div>
+
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Item_Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Item_Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-left:0; margin-right:0;">
+                <div class="col-md-6">
+                    <div class="col-md-12">
+                        @Html.Label("Miêu tả", htmlAttributes: new { @class = "", @style = "font-size:18px;" })
+                    </div>
+
+                    <div class="col-md-12">
+                        @*@Html.EditorFor(model => model.Meta_Desc, new { htmlAttributes = new { @class = "form-control" } })*@
+                        <textarea rows="3" class="form-control" name="MetaDesc" style="width:100%;"></textarea>
+                        @Html.ValidationMessageFor(model => model.Meta_Desc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-12">
+                        @Html.Label("Từ khóa", htmlAttributes: new { @class = "", @style = "font-size:18px;" })
+                    </div>
+
+                    <div class="col-md-12">
+                        @*@Html.EditorFor(model => model.Meta_Key, new { htmlAttributes = new { @class = "form-control" } })*@
+                        <textarea rows="3" class="form-control" name="MetaKey" style="width:100%;"></textarea>
+                        @Html.ValidationMessageFor(model => model.Meta_Key, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group" style="margin-left:0; margin-right:0;">
+                <div class="col-md-3">
+                    <div style="padding-left:20px; margin-bottom:10px;">
+                        <label style="font-size:18px;">Enable</label>
+
+                        @Html.EditorFor(model => model.Enable)
+                        @Html.ValidationMessageFor(model => model.Enable, "", new { @class = "text-danger" })
+                    </div>
+
+
+                </div>
+                <div class="col-md-3">
+                    <div class=" col-md-12">
+                        <label style="font-size:18px;">Ngôn ngữ</label>
+                    </div>
+                    <div class="col-md-12">
+                        <select class="form-control" name="Language" style="width:150px;">
+                            <option value="VI">Việt nam</option>
+                            <option value="EN">English</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-left:0; margin-right:0; padding:0;">
+                    <div class="col-md-12">
+                        <label style="font-size:18px;">Nội dung bài viết</label>
+                    </div>
+                    <div class="col-md-12">
+                        @Html.TextAreaFor(model => model.Item_Content, new { htmlAttributes = new { @class = "", @id = "Item_Content" }, id = "Item_Content" })
+                        @Html.ValidationMessageFor(model => model.Item_Content, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="submit" value="Thêm mới" class="btn btn-success" />
+                    </div>
+                </div>
+                <div>
+                    <h4> @Html.ActionLink("Quay Lại", "Index")
+                </div>
+            </div>
+        </div>
+    }
+
+
+
+</section>
+

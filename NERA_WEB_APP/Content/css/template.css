@@ -442,7 +442,7 @@ Form Style
     }
 
 textarea.form-control {
-    height: 250px;
+    height: 100px;
 }
 
 
@@ -502,6 +502,7 @@ section {
             font-weight: 900;
             text-transform: uppercase;
             color: #fff;
+            font-size:40px;
         }
 
 /*--------------------------- 
@@ -593,7 +594,7 @@ section {
 
 .topbar-right {
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 60% 40%;
     padding: 15px 18px;
     position: relative;
 }
@@ -787,8 +788,8 @@ POPUP FEATURE
     position: absolute;
     top: 20px;
     right: 0;
-    padding: 40px;
-    height: 210px;
+    padding: 40px 0px 40px 40px;
+    height: 150px;
 }
 
 .txt-search {
@@ -846,7 +847,7 @@ FOOTER WIDGET SECTION
 
 
 .links-item-footer-wrapper {
-    background: #343434;
+    background: #0c0c0c;
     text-align: center;
     padding: 20px 0;
 }

@@ -43,6 +43,15 @@ NAVIGATION
     font-family: 'Montserrat', sans-serif;
 }
 
+@media only screen and (max-width:1070px) {
+    .navbar-default .navbar-nav > li > a {
+        font-size: 13px;
+        padding: 15px 20px;
+    }
+}
+
+
+
 .navbar-nav > li > a {
     text-transform: uppercase;
 }
@@ -225,11 +234,10 @@ NAVIGATION
     span.nav-menu {
         float: right;
         display: block;
-        margin-left:2px;
+        margin-left: 2px;
     }
 
     .btn-search {
-       
         display: block;
         float: right;
         margin-top: 10px;

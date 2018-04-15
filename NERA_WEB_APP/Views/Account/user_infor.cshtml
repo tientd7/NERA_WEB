@@ -1,0 +1,230 @@
+﻿
+@{
+    ViewBag.Title = "Thông tin cá nhân";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
+@Html.Partial("~/Views/Shared/pages/breadcrumb/breadcrumb.cshtml")
+
+<section id="page-infor-user" ng-controller="UserController">
+    <div class="infor-user-wrapper container">
+        <div class="row">
+            <div class="avatar-user col-sm-2">
+                <div class="ic-update-avatar-wrapper">
+                    <button type="button" class="btn-update-avatar">
+                        <i class="fa fa-pencil"></i>
+                    </button>
+
+                </div>
+
+                <img src="~/Media/images/about-thumb.jpg" class="img-thumbnail" alt="">
+            </div>
+            <div class="infor-user infor-user-intro col-sm-5 form-horizontal">
+                <div class="btn-update-infor-wrapper">
+                    <button type="button" class="btn-update-infor" ng-show="isExistingInfor" ng-click="getInforUser()">
+                        <i class="fa fa-pencil"></i>
+                    </button>
+                </div>
+                <fieldset>
+                    <legend>
+                        <h2>Giới thiệu</h2>
+                    </legend>
+                </fieldset>
+
+                <div class="item-infor">
+                    <span ng-show="isExistingInfor">
+                        Họ tên : Nguyễn văn a
+                    </span>
+
+                    <div class="form-group" ng-hide="isExistingInfor">
+                        <label class="control-label col-sm-3 ">Họ tên</label>
+                        <div class="col-sm-8">
+                            <input value="Nguyễn văn a" class="form-control" />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="item-infor">
+                    <span ng-show="isExistingInfor">
+                        Ngày sinh: 2/2/1992
+                    </span>
+
+                    <div class="form-group" ng-hide="isExistingInfor">
+                        <label class="col-sm-3 control-label">Ngày sinh</label>
+                        <div class="col-sm-8">
+                            <input value="" type="date" class="form-control" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="item-infor">
+                    <span ng-show="isExistingInfor">
+                        Giới tính : Nam
+                    </span>
+
+                    <div class="form-group" ng-hide="isExistingInfor">
+                        <label class="col-sm-3 control-label">Giới tính</label>
+                        <div class="col-sm-8">
+                            <select class="form-control">
+                                <option value="">Chọn giới tính</option>
+                                <option value="Nam">Nam</option>
+                                <option value="Nữ">Nứ</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-infor">
+                    <span ng-show="isExistingInfor">
+                        Số điện thoại : 0987654321
+                    </span>
+
+                    <div class="form-group" ng-hide="isExistingInfor">
+                        <label class="col-sm-3 control-label">Số điện thoại</label>
+                        <div class="col-sm-8">
+                            <input value="0987654321" type="number" class="form-control col-sm-10" />
+                        </div>
+                    </div>
+                </div>
+                <div class="item-infor">
+                    <span ng-show="isExistingInfor">
+                        Địa chỉ : Hoàng mai, TP Hà Nội
+                    </span>
+
+                    <div class="form-group" ng-hide="isExistingInfor">
+                        <label class="col-sm-3 control-label">Địa chỉ</label>
+                        <div class="col-sm-8">
+                            <input value="Hoàng mai, Hà nội" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-infor">
+                    <span ng-show="isExistingInfor">
+                        Tỉnh thành : TP Hà Nội
+                    </span>
+
+                    <div class="form-group" ng-hide="isExistingInfor">
+                        <label class="col-sm-3 control-label">Tỉnh thành</label>
+                        <div class="col-sm-8">
+                            <select class="form-control">
+                                <option value="">Tỉnh thành phố</option>
+                                <option value="Hà nội">Hà nội</option>
+                                <option value="Tp Hồ chí minh">TP Hồ chí minh</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group item-infor" ng-hide="isExistingInfor">
+                    <div class="btn-group col-sm-offset-3">
+                        <button class="btn btn-info btn-save" ng-click="save()">Lưu</button>
+                        <button class="btn btn-info btn-back" ng-click="cancel()">Quay lại</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="infor-user infor-user-acc col-sm-5 form-horizontal">
+                <fieldset>
+                    <legend>
+                        <h2>Tài khoản</h2>
+                    </legend>
+                </fieldset>
+
+                <div ng-show="isExistingPass">
+                    <div>
+                        <span>
+                            Tên tài khoản : nguyenvana
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            Mật khẩu : <a href="" ng-click="changepass()">Đổi mật khẩu</a>
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            Email: Nguyenvana@gmail.com
+                        </span>
+                    </div>
+                </div>
+            
+
+                <div ng-hide="isExistingPass">
+                    <div class="item-pass">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Tài khoản</label>
+                            <div class="col-sm-8">
+                                <input type="text" value="nguyenvana" class="form-control" placeholder="username" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-pass">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Mật khẩu cũ</label>
+                            <div class="col-sm-8">
+                                <input type="password" value="" class="form-control" placeholder="old password" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-pass">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Mật khẩu mới</label>
+                            <div class="col-sm-8">
+                                <input type="password" value="" class="form-control" placeholder="new password" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-pass">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Xác nhận mật khẩu mới</label>
+                            <div class="col-sm-8">
+                                <input type="password" value="" class="form-control" placeholder="confirm password" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group item-pass">
+                        <div class="btn-group col-sm-offset-3">
+                            <button class="btn btn-info btn-save" ng-click="save()">Lưu</button>
+                            <button class="btn btn-info btn-back" ng-click="cancel()">Quay lại</button>
+                        </div>
+
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+
+    </div>
+
+    <div class="box-message container">
+        <div>
+            <h4 style="font-weight:500; color:#111010;">
+                Tin nhắn thông báo
+            </h4>
+        </div>
+        <div class=" table-wrapper container">
+            <table class="table table-bordered table-hover">
+                <tr class="title-name-column">
+                    <td style="width:50px;">STT</td>
+                    <td>Lời nhắn</td>
+                </tr>
+                <tr class="tr-show-data">
+                    <td>1</td>
+                    <td>Lời nhắn 1</td>
+                </tr>
+                <tr class="tr-show-data">
+                    <td>2</td>
+                    <td>Lời nhắn 2</td>
+                </tr>
+            </table>
+            @*<textarea rows="5" placeholder="Nhận tin nhấn của người quản trị hệ thống" style="width:100%;" readonly=""></textarea>*@
+        </div>
+    </div>
+
+</section>
+
+@section JavaScript{
+    <script src="~/Scripts/Controller/Account/User.js"></script>
+}

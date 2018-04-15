@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace NERA_WEB_APP.Models
 {
-    public class CS_Menu_Item
+    public class Cs_Menu_item
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Item_Id { get; set; }
@@ -16,6 +17,7 @@ namespace NERA_WEB_APP.Models
         public string Meta_Desc { get; set; }
         public string Meta_Key { get; set; }
         public string Language { get; set; }
-
+        [AllowHtml]
+        public string Item_Content { get; set; }
     }
 }

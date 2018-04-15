@@ -1,35 +1,194 @@
 ﻿
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section jsFooter{
+    <script>
+        //$(document).ready(function () {
+        //    $('#btnselect').on('click', function (e) {
+        //        e.preventDefault();
+        //        var finder = new CKFinder();
+
+        //        finder.selectActionFunction = function (url) {
+        //            $('.txtAnh').val(url);
+        //            $('#imgslide').attr('src', url);
+        //            $('.txtAnh').trigger('change');
+        //        };
+        //        finder.popup();
+
+        //    })
+        //})
+    </script>
 }
 
-<div id="content" ng-controller="Orther_Slide"></div>
-<h2>Orther_Slide</h2>
-<table class="table table-striped">
-    <tr>
-        <th>Id</th>
-        <th>Image_Title</th>r
-        <th>Image_URL</th>
-        <th>Image_Link</th>
-        <th>Image_Order</th>
-        <th>Enable</th>
-        <th>Slide_Type</th>
-        <th>Language</th>
-    </tr>
-    <tr data-ng-repeat="Item in List">
-        <td>{{Item.Tbl_Id}}</td>
-        <td>{{Item.Image_Title}}</td>
-        <td>{{Item.Image_URL}}</td>
-        <td>{{Item.Image_Link}}</td>
-        <td>{{Item.Image_Orde}}</td>
-        <td>{{Item.Enable}}</td>
-        <td>{{Item.Slide_Type}}</td>
-        <td>{{Item.Language}}</td>
 
-    </tr>
 
-</table>
 
+<div class="container" id="content" ng-controller="Orther_Slide">
+
+
+    <fieldset>
+        <legend style="position:relative;">
+            <span style="text-align:left;">
+                <h3 class="title-page">
+                    Quản lý slides
+                </h3>
+            </span>
+
+            <span style="text-align:right; position:absolute; right:0; bottom:0;">
+                <h4>
+                    @*<a href="#" class="btn-show-popup btn-add-pro">Thêm mới</a>*@
+                    <a href="#" class="btn-add-data" >Thêm mới</a>
+                </h4>
+            </span>
+
+
+        </legend>
+    </fieldset>
+    <div class="table-wrapper container">
+        <table class="table table-striped  table-wrapper">
+            <tr class="title-name-column">
+                <td>Id</td>
+                <td>Tiêu đề ảnh</td>
+                <td>Nguồn ảnh</td>
+                <td style="width:200px;  display:block;">Link</td>
+                <td>Ngôn ngữ</td>
+                <td>Vị trí hiện ảnh</td>
+                <td>Ưu tiên</td>
+                <td>Enable</td>
+                <td style="width:100px;">Chức năng</td>
+            </tr>
+            <tr class="tr-add-data">
+                <td></td>
+                <td><input type="text" class="form-control  name item-type" ng-model="CreateItem.Image_Title" /></td>
+                <td>
+                    <img ng-src="CreateItem.Image_URL" id="imgslide" style="height:100px; width:100px;" />
+                    <a href="#" ng-click="onSelectImg('txtAnh')">Chọn</a>
+                </td>
+
+                <td>
+                    <input type="text" class="form-control  link item-type txtAnh" ng-change ng-model="CreateItem.Image_Link" />
+
+                </td>
+                <td>
+                    <select class="form-control item-type" ng-model="CreateItem.Language" style="width:150px;">
+                        <option value="">Chọn ngôn ngữ</option>
+                        <option value="VI">Việt nam</option>
+                        <option value="EN">English</option>
+                    </select>
+                </td>
+                <td>
+                    <select class="form-control item-type" ng-model="CreateItem.Slide_Type" style="width:150px;">
+                        <option value="">Vị trí</option>
+                        <option value="0">Slide main</option>
+                        <option value="1">Slide phản hồi</option>
+                    </select>
+                </td>
+
+                <td>
+                    <input type="text" class="form-control item-type" ng-model="CreateItem.Image_Order" />
+
+                </td>
+                <td><input type="checkbox" ng-model="CreateItem.Enable" /></td>
+                <td>
+                    <button type="button" style="font-size:30px; padding:5px 35px; background:none; border:none;" value="Thêm" ng-click="onCreateSlide(CreateItem)">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </button>
+                </td>
+            </tr>
+            <tr dir-paginate='Item in ListSlide | itemsPerPage:5'>
+                <td>{{Item.Tbl_Id}}</td>
+                <td>
+                    <div ng-show="getStatusSlide(Item.Tbl_Id)">
+                        {{Item.Image_Title}}
+                    </div>
+                    <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Image_Title" />
+                </td>
+                <td>
+                    <div ng-show="getStatusSlide(Item.Tbl_Id)">
+
+                        <img src="{{Item.Image_URL}}" style="height:100px; width:100px;" />
+                    </div>
+                    <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Image_URL" />
+                </td>
+                <td>
+                    <div ng-show="getStatusSlide(Item.Tbl_Id)" style="width:200px; display:block; word-wrap: break-word;">
+                        {{Item.Image_Link}}
+
+                    </div>
+                    <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Image_Link" />
+                </td>
+                <td>
+                    <div ng-show="getStatusSlide(Item.Tbl_Id)">
+                        {{Item.Language}}
+                    </div>
+                    <select class="form-control" ng-model="Item.Language" style="width:150px;" ng-hide="getStatusSlide(Item.Tbl_Id)">
+                        <option value="">Chọn ngôn ngữ</option>
+                        <option value="VI">Việt nam</option>
+                        <option value="EN">English</option>
+                    </select>
+
+                </td>
+                <td>
+                    <div ng-show="getStatusSlide(Item.Tbl_Id)">
+                        {{Item.Slide_Type}}
+                    </div>
+                    <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Slide_Type" />
+                </td>
+
+                <td>
+                    <div ng-show="getStatusSlide(Item.Tbl_Id)">
+                        {{Item.Image_Order}}
+                    </div>
+                    <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Image_Order" />
+                </td>
+                <td>
+                    <input type="checkbox" ng-disabled="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Enable" />
+                </td>
+                <td>
+                    <div class="btn-group-wrapper" style="text-align:center;">
+                        <button ng-show="getStatusSlide(Item.Tbl_Id)" type="button" class="icon-action" ng-click="onEditSlide(Item.Tbl_Id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                        <button ng-hide="getStatusSlide(Item.Tbl_Id)" type="button" class="icon-action" ng-click="onSaveSlide(Item)"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                        <button ng-hide="getStatusSlide(Item.Tbl_Id)" type="button" class="icon-action" ng-click="onCancelSlide()"><i class="fa fa-ban" aria-hidden="true"></i></button>
+                        <button ng-show="getStatusSlide(Item.Tbl_Id)" type="button" class="icon-action" ng-click="onDeleteSlide(Item.Tbl_Id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+        <div class="container" style="max-width:500px;">
+            <div class="alert alert-noti-success">
+                <h3 class="alert-add-success" style="color:#fff;">
+                    Thêm thành công
+                </h3>
+                <h3 class="alert-update-success" style="color:#fff;">
+                    Sửa thành công
+                </h3>
+
+            </div>
+            <div class="alert alert-delete-success" style="text-align:center; background:#13cb71;display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);">
+                <h3 style="color:#fff;">
+                    Xóa thành công
+                </h3>
+            </div>
+        </div>
+
+        @*<div class="container" style="max-width:500px;">
+                <div class="alert alert-delete-success" style="text-align:center; background:#13cb71;display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);">
+                    <h3 style="color:#fff;">
+                        Xóa thành công
+                    </h3>
+                </div>
+            </div>*@
+        <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
+    </div>
+
+</div>
+
+
+<script src="~/Scripts/dirPagination.js"></script>
+<script src="~/Scripts/jquery/dialog.js"></script>
 
 @section JavaScript{
 

@@ -1,0 +1,180 @@
+﻿
+@{
+    ViewBag.Title = "Hóa đơn";
+}
+@{
+
+    var userName = HttpContext.Current.User.Identity.Name;
+
+}
+@Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
+
+
+<section class="sortby-wrapper breadcrumb-wrapper">
+
+    <div class="breadcrumb-wrapper">
+        <span>
+            <a href="/Home/Index">Trang chủ </a>
+            &nbsp;
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            &nbsp;
+            @ViewBag.Title
+        </span>
+    </div>
+
+</section>
+
+<section class="container" id="main-page-order">
+
+
+    @Html.Partial("~/Views/Product/popupProduct.cshtml")
+
+    @* tạo vòng lặp
+        show thông tin sản phẩm *@
+    <fieldset>
+        <legend style="position:relative;">
+            <span style="text-align:left;">
+                <h3>
+                    Danh sách hóa đơn
+                </h3>
+            </span>
+
+            @if (!String.IsNullOrEmpty(userName))
+            {
+                <span style="text-align:right; position:absolute; right:0; bottom:0;">
+                    <h4>
+                        <a href="#" class="btn-show-popup btn-add-pro">Thêm mới</a>
+                    </h4>
+                </span>
+            }
+
+        </legend>
+    </fieldset>
+    <div class="page-wrapper page-order" dir-paginate='itemsPerPage:5'>
+
+        <div class="wrapper-item-order row" style="display:block;">
+            <div class="wrapper-item-order-header col-sm-12">
+                <div class="order-info-header">
+                    <div class="bill-number">
+                        <span>Số hóa đơn : #33 </span>
+                    </div>
+                    <div class="set-day">
+                        <span>Ngày đặt phòng : 1/4/2018 </span>
+                        --
+                        <span>Ngày kết thúc : 1/4/2018 </span>
+                    </div>
+                </div>
+                <div class="link-item-detail">
+                    <a href="/Customer/detailOrder">Chi tiết</a>
+                </div>
+            </div>
+            <div class="wrapper-item-order-content">
+                <div class="col-sm-3">
+                    <h4>
+                        Tên hợp đồng
+                    </h4>
+                </div>
+                <div class="col-sm-3">
+                    <h4>
+                        Tên phòng đặt
+                    </h4>
+                </div>
+                <div class="col-sm-3">
+                    <h4>
+                        Đơn giá
+                    </h4>
+                </div>
+                <div class="col-sm-3">
+                    <h4>
+                        Tổng tiền
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper-item-order row" style="display:block;">
+            <div class="wrapper-item-order-header col-sm-12">
+                <div class="order-info-header">
+                    <div class="bill-number">
+                        <span>Số hóa đơn : #33 </span>
+                    </div>
+                    <div class="set-day">
+                        <span>Ngày đặt phòng : 1/4/2018 </span>
+                        --
+                        <span>Ngày kết thúc : 1/4/2018 </span>
+                    </div>
+                </div>
+                <div class="link-item-detail">
+                    <a href="/Customer/detailOrder">Chi tiết</a>
+                </div>
+            </div>
+            <div class="wrapper-item-order-content">
+                <div class="col-sm-3">
+                    <h4>
+                        Tên hợp đồng
+                    </h4>
+                </div>
+                <div class="col-sm-3">
+                    <h4>
+                        Tên phòng đặt
+                    </h4>
+                </div>
+                <div class="col-sm-3">
+                    <h4>
+                        Đơn giá
+                    </h4>
+                </div>
+                <div class="col-sm-3">
+                    <h4>
+                        Tổng tiền
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper-item-order row" style="display:block;">
+            <div class="wrapper-item-order-header col-sm-12">
+                <div class="order-info-header">
+                    <div class="bill-number">
+                        <span>Số hóa đơn : #33 </span>
+                    </div>
+                    <div class="set-day">
+                        <span>Ngày đặt phòng : 1/4/2018 </span>
+                        --
+                        <span>Ngày kết thúc : 1/4/2018 </span>
+                    </div>
+                </div>
+                <div class="link-item-detail">
+                    <a href="#">Chi tiết</a>
+                </div>
+            </div>
+            <div class="wrapper-item-order-content">
+                <div class="col-sm-3">
+                    <h4>
+                        Tên hợp đồng
+                    </h4>
+                </div>
+                <div class="col-sm-3">
+                    <h4>
+                        Tên phòng đặt
+                    </h4>
+                </div>
+                <div class="col-sm-3">
+                    <h4>
+                        Đơn giá
+                    </h4>
+                </div>
+                <div class="col-sm-3">
+                    <h4>
+                        Tổng tiền
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
+
+
+</section>

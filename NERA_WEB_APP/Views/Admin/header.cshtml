@@ -1,0 +1,251 @@
+﻿@{
+
+    var userName = HttpContext.Current.User.Identity.Name;
+
+}
+
+<header class="header">
+    <nav class="top-bar">
+        <div>
+            <!-- desktop-->
+            <div class="row header-top-desktop">
+                <div class="col-sm-3 col-xs-12">
+                    <div class="call-to-action">
+                        <h1>
+                            <a href="/Admin/Index" class="logo-page" title="neraland.com.vn Home">
+                                <img src="~/Media/images/logo/logoNerahome.jpg" class="img-logo-page"  id="img-logo-page" />
+                            </a>
+
+                        </h1>
+                    </div><!-- /.call-to-action -->
+                </div><!-- /.col-sm-6 -->
+
+                <div class="col-sm-6 col-xs-12">
+                    <div class="slogan text-center">
+                        <h1>
+                            <span>
+                                Khẩu hiệu website
+                            </span>
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="col-sm-3 hidden-xs">
+                    <div class="topbar-right">
+                        <div class="user-acc-box">
+                           
+                            @if (String.IsNullOrEmpty(userName))
+                            {
+                                <a href="#" class="user-account btn-link-login">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    Đăng nhập
+
+                                </a>
+                            }
+                            else
+                            {
+                                <div>
+                                    <div>
+                                        <a href="/Account/user_infor" class="user-account btn-link-infor-user" style="text-transform:uppercase;">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            @userName
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="/Account/LogOut">Đăng xuất</a>
+                                    </div>
+
+                                </div>
+                            }
+
+
+                        </div>
+                        <div class="lang-support pull-right">
+                            @*<div>
+
+                                    <select class="lang-select">
+
+                                        <option value="vietnam" data-class="flag-vietnam">VietNam</option>
+                                        <option value="united-kingdom" data-class="flag-uk">English</option>
+                                    </select>
+                                </div>*@
+
+                            <div class="language-select">
+                                <div class="select-country">
+                                    <span class="country country-active selected-vn">Vietnam</span>
+                                    <span class="country country-active selected-en" style="display:none;">English</span>
+                                    <span class="country country-noactive  country-vietnam">
+                                        Vietnam <img class="img-flags" src="~/Media/images/flags/vietnam.svg" />
+                                    </span>
+                                    <span class="country country-noactive country-england">
+                                        English  <img class="img-flags" src="~/Media/images/flags/united-kingdom.svg" />
+                                    </span>
+
+                                </div>
+                                <div class="flag">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wt">
+                        <span>
+                            <i class="fa fa-briefcase"></i>
+                            Thời gian làm việc từ 8h đến 22h hàng ngày
+                        </span>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- mobile-->
+            <div class="row header-top-mobile">
+                <div class="logo-acc-mb">
+
+                    <div class="call-to-action">
+                        <a href="/Admin/Index" class="logo-page" title="neraland.com.vn Home">
+                            <img src="~/Media/images/logo/logoNerahome.jpg" class="img-logo-page"  id="img-logo-page" />
+                        </a>
+                    </div>
+                    <div class="acc-lang-wt">
+                        <div class="topbar-right">
+                            <div class="user-acc-box">
+
+                                @if (String.IsNullOrEmpty(userName))
+                                {
+                                    <a href="#" class="user-account btn-link-login">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        Đăng nhập
+
+                                    </a>
+                                }
+                                else
+                                {
+                                    <div>
+                                        <div>
+                                            <a href="/Account/user_infor" class="user-account btn-link-infor-user" style="text-transform:uppercase;">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                                @userName
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a href="/Account/LogOut">Đăng xuất</a>
+                                        </div>
+
+                                    </div>
+                                }
+
+
+                            </div>
+                            <div class="lang-support pull-right">
+                                <div class="language-select" style="left: 10px;">
+                                    <div class="select-country">
+                                        <span class="country country-active selected-vn">Vietnam</span>
+                                        <span class="country country-active selected-en" style="display:none;">English</span>
+                                        <span class="country country-noactive  country-vietnam">
+                                            Vietnam <img class="img-flags" src="~/Media/images/flags/vietnam.svg" />
+                                        </span>
+                                        <span class="country country-noactive country-england">
+                                            English  <img class="img-flags" src="~/Media/images/flags/united-kingdom.svg" />
+                                        </span>
+
+                                    </div>
+                                    <div class="flag">
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="wt">
+                            <span>
+                                <i class="fa fa-briefcase"></i>
+                                Thời gian làm việc từ 8h đến 22h hàng ngày
+                            </span>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                <div class="slogan-mb">
+                    <div class="slogan text-center col-sm-12">
+                        <h1>
+                            <span>
+                                Khẩu hiệu website
+                            </span>
+                        </h1>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </nav><!-- /.top-bar -->
+
+    <div class="mainnav">
+
+        <nav class="navbar navbar-default" role="navigation">
+
+            <button type="button" class="navbar-toggle collapsed">
+                <span class="sr-only">Toggle navigation</span>
+
+                <i class="fa fa-bars"></i>
+                <span class="nav-menu">Menu</span>
+            </button>
+
+            <span class="btn-search"><input type="text" /><a href="#search"><i class="fa fa-search"></i></a></span>
+
+            <div class="collapse navbar-collapse navbar-collapse">
+
+
+
+                <ul class="nav navbar-nav hidden-sm">
+                    <li><a href="/BaiVietMVC/Index">Quản lý bài viết</a></li>
+                    <li><a href="/Services/Index">Quản lý dịch vụ</a></li>
+                    <li><a href="/Product/Index">Quản lý sản phẩm</a></li>
+
+
+                    @*<li class="dropdown">
+                            <a href="#">Sản phẩm <b class="caret"></b></a>
+
+                            <div class="submenu-wrapper submenu-wrapper-topbottom">
+                                <div class="submenu-inner  submenu-inner-topbottom">
+                                    <ul class="dropdown-menu" ng-controller="ProductCtrl">
+                                        @if (String.IsNullOrEmpty(userName))
+                                        {
+                                            <li ng-repeat="i in ItemSPEnable "><a href="/Product/product?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li ng-repeat="i in ItemSPEnable "><a href="/BaiVietMVC/Index?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
+                                        }
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </li>*@
+
+                    <li><a href="/Orther_Slide/Index">Quản lý slides</a></li>
+                    <li><a href="/Chatbox/Index">Quản lý tin nhắn khách hàng</a></li>
+                    <li><a href="/Account/user">Quản lý người dùng</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+
+        </nav>
+    </div>
+</header>
+
+<script src="~/Scripts/jquery/language.js"></script>
+<script src="~/Scripts/jquery/dialog.js"></script>
+
+@section JavaScript{
+    <script src="~/Scripts/Controller/Product/product.js"></script>
+}
+

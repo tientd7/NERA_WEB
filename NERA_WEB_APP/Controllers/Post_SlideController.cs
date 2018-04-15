@@ -17,11 +17,6 @@ namespace NERA_WEB_APP.Controllers
             return View();
         }
 
-      
-
-
-
-
         public JsonResult AllSlide()
         {
             var LST = from obj in db.CS_Post_Slides select obj;
@@ -36,11 +31,11 @@ namespace NERA_WEB_APP.Controllers
         {
             CS_Post_Slides newObj = new CS_Post_Slides();
             int id = new App_Auto_NumberController().GenID("CS_Posts_Slides.Post_Id");
-            newObj.Post_Id = Obj.Post_Id;
+            newObj.Post_Id = id;
             newObj.Tbl_Id = Obj.Tbl_Id;
             newObj.Image_Title = Obj.Image_Title;
             newObj.Image_Url = Obj.Image_Url;
-            newObj.Image_Link = Obj.Image_Link;
+            newObj.Image_Link = Request.Form["LinkAnh"];
             newObj.Image_Order = Obj.Image_Order;
             newObj.Enable = Obj.Enable;
             newObj.Language = Obj.Language;
@@ -49,10 +44,11 @@ namespace NERA_WEB_APP.Controllers
             return Json(newObj);
 
         }
+
         [HttpPost]
         public JsonResult Detail(int Id)
         {
-            var obj = db.CS_Post_Slides.Find(Id);
+            var obj = db.CS_Post_Slides.Where(i => i.Post_Id == Id).FirstOrDefault();
             return Json(obj, JsonRequestBehavior.AllowGet);
         }
         public ActionResult Edit(int id)
@@ -63,19 +59,28 @@ namespace NERA_WEB_APP.Controllers
         [HttpPost]
         public JsonResult Edit(CS_Post_Slides Slide)
         {
-           
-            db.Entry(Slide).State = EntityState.Modified;
+            String er = "";
+            try
+            {
 
-            db.SaveChanges();
-            return Json(Slide);
+                db.Entry(Slide).State = EntityState.Modified;
+
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                er = e.StackTrace; ;
+            }
+            return Json(er);
         }
+
         [HttpPost]
         public JsonResult Delete(int Post_Id)
         {
             String er = "";
             try
             {
-                var de = db.CS_Post_Slides.Find(Post_Id);
+                var de = db.CS_Post_Slides.Where(i => i.Post_Id == Post_Id).FirstOrDefault();
                 db.CS_Post_Slides.Remove(de);
                 db.SaveChanges();
             }

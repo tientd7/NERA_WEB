@@ -1286,21 +1286,25 @@ Offcanvas Style For Customization
     padding: 15px;
 }
 
-    .newsletter-form .row input.col-sm-9 {
+    .newsletter-form .row .form-group input.form-control {
+        height: 35px;
+        width: 195px;
+        border-radius: 0px;
+    }
+    .newsletter-form .row .form-group input.col-sm-9 {
         outline: none;
         border: none;
-       font-style:italic;
+        font-style: italic;
     }
 
-    .newsletter-form .row button.btn.col-sm-3 {
+    .newsletter-form .row .form-group button.btn.col-sm-3 {
         outline: none;
         border-radius: 0px;
-        padding: 3px;
+        padding: 4.7px;
         background: #1a8ae1;
         color: #fff;
-       
     }
 
-    .newsletter-form .row button.btn.col-sm-3:hover{
-        background:#0272c6;
-    }
+        .newsletter-form .row .form-group button.btn.col-sm-3:hover {
+            background: #0272c6;
+        }

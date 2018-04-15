@@ -24,7 +24,7 @@
 }
 
 
-@media only screen and (max-width : 992px) {
+@media only screen and (max-width : 890px) {
     .header-top-desktop {
         display: none;
     }
@@ -62,7 +62,7 @@
 
 
     .slogan-mb .slogan h1 {
-        font-size: 2.3em;
+        font-size: 2.8em;
     }
 }
 
@@ -94,7 +94,7 @@
 
 @media only screen and (max-width : 500px) {
     .call-to-action h1 {
-        font-size: 1.7em;
+        font-size: 2em;
     }
 
     .slogan-mb .slogan h1 {
@@ -102,7 +102,7 @@
     }
 
     .user-account {
-        font-size: .8em;
+        font-size: .9em;
     }
 
     div.lang-select {
@@ -130,9 +130,13 @@
         padding: 10px 0 4px 0px;
         background: #1a8ae1;
     }
+        .page-title-section .page-header {
+            margin: 10px;
+        }
 
         .page-title-section .page-header h1 {
             font-size: 25px;
+            line-height:0px;
         }
 
     .breadcrumb-mb span {
@@ -140,7 +144,7 @@
     }
 }
 
-@media only screen and (max-width : 992px) {
+@media only screen and (max-width : 991px) {
     #box-search {
         display: none;
     }
@@ -158,6 +162,7 @@
 
     .breadcrumb-mb {
         display: block;
+        margin-bottom: 10px;
     }
 
     .breadcrumb {
@@ -280,11 +285,45 @@
 }
 
 /* Large devices (large desktops) */
-@media (min-width: 1200px) {
+@media (max-width: 900px) {
+    .testimonial-wrap {
+        top: -25px;
+        background: #fff;
+        margin-bottom: -52px;
+        height: 380px;
+    }
+    .slideshow-fb-img .item img {
+        width: 100%;
+        height: 380px;
+    }
+
+    #maps, #slideshow-fb {
+        height: 380px;
+    }
+
+    .title-feedback {
+        
+        left: 50%;
+        position: absolute;
+        z-index: 1000;
+        transform: translate(-50%,50%);
+        color: #fff;
+    }
+
+        .title-feedback span {
+            font-size: 15px;
+            font-weight: 500;
+        }
 }
 
 
 @media (max-width: 767px) {
+    .testimonial-wrap {
+        top: -25px;
+        background: #fff;
+        margin-bottom: -52px;
+        height:auto;
+    }
     #slideshow-maps {
         width: 100%;
         display: grid;
@@ -295,7 +334,7 @@
     }
     .slideshow-fb-img .item img {
         width: 100%;
-        height: 250px;
+        height: 300px;
     }
 
     .title-feedback {
@@ -313,7 +352,7 @@
         }
 
     #slideshow-fb, #maps {
-        height: 250px;
+        height: 300px;
     }
 
 

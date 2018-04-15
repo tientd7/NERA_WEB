@@ -19,6 +19,17 @@ namespace NERA_WEB_APP
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+
+            bundles.Add(new ScriptBundle("~/bundles/scripts")
+          .Include("~/Scripts/Controller/Filter/CustomFilter.js")
+          .IncludeDirectory("~/Scripts/Controller/Account", "*.js", true)
+          .IncludeDirectory("~/Scripts/Controller/chatbox", "*.js", true)
+          .IncludeDirectory("~/Scripts/Controller/Orther_Slide", "*.js", true)
+          .IncludeDirectory("~/Scripts/Controller/Post_Slide", "*.js", true)
+          .IncludeDirectory("~/Scripts/Controller/Product", "*.js", true)
+           .Include("~/Scripts/Controller/Product/product.js")
+        );
+
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));

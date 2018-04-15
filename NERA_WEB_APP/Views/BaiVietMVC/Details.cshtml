@@ -1,0 +1,127 @@
+﻿@model NERA_WEB_APP.Models.PostDetailViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = Model.Post_Title;
+    ViewBag.DESC = Model.Meta_Desc;
+    ViewBag.Keyword = Model.Meta_Key;
+}
+
+@Html.Partial("~/Views/Shared/pages/page_title_section/page_title_section.cshtml")
+<div class="container breadcrumb">
+    <span>
+        <a href="/Admin/Index">
+            Trang chủ
+        </a>
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+        @ViewBag.Title
+    </span>
+</div>
+<section class="details-product-wrap section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="img-thumb col-sm-12">
+                    <img class="img-responsive col-sm-12"  id="img-content" style="width: 457px;height: 567px;" src="~/Media/images/images (2).jpg"  alt="Căn hộ neraland">
+
+                    <div class="col-sm-12 slide-img-product">
+                        @*<div>
+                            <img src="~/Media/images/featurebg.png" class="img-thumbnail" alt="">
+                            <div class="arrow arrow-left">
+                                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                            </div>
+                        </div>*@
+                        @{
+                            if (ViewBag.listImg == null)
+                            {
+                               
+                            }
+                            else
+                            {
+                                foreach (var i in ViewBag.listImg)
+                                {
+                                    <div class="wrapper-img" style="cursor:pointer">
+
+                                        <img src="@i.Image_Url" class="img-thumbnail" alt="">
+
+                                    </div>
+                                }
+                            }
+                        }
+                        @*<div>
+                            <img src="~/Media/images/featurebg.png" class="img-thumbnail" alt="">
+                            <div class="arrow arrow-right">
+                                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                            </div>
+                        </div>*@
+                    </div>
+                </div>
+
+            </div><!-- /.col -->
+
+            <div class="col-sm-7 infor-details-pro">
+                <div>
+
+                    <div>
+                        <span>Mã sản phẩm :</span>
+                        #@Model.Post_Id
+                    </div>
+                    <div>
+                        <h2>
+                            <span>Tên sản phẩm :</span>
+                            @Model.Post_Title
+                        </h2>
+
+                    </div>
+
+                    <div>
+                        <span style="font-size: 20px;">
+                            300.000 vnd
+                        </span>
+                    </div>
+                    <div style="margin-bottom: 5px;">
+                        <span>
+                            Đánh giá
+                        </span>
+                    </div>
+                    <div>
+                        <h4>
+                            <span>Mô tả:</span>
+                            @Html.Raw(Model.Post_Content)
+                        </h4>
+                    </div>
+                </div>
+                @*<div class="state-detail-product">
+                    <button type="button" class="btn">
+                        Đăng ký thuê nhà
+                    </button>
+                </div>*@
+
+            </div>
+
+        </div><!--/.details-product-wrap-content  -->
+
+    </div><!--/.col-->
+
+</section>
+
+<script>
+    var images = $(".wrapper-img").find('img').map(function () {
+        return $(this).attr('src')
+    }).get();
+
+    var wrapperImg = $('.wrapper-img');
+    var imgSlide = wrapperImg.find('img');
+
+    imgSlide.click(function () {
+        var src = $(this).attr('src');
+        $('#img-content').attr('src', src);
+    });
+
+
+    if ($(".wrapper-img").eq(1)) {
+        var getsrcSlideCenter = $(".wrapper-img").eq(1).find('img').attr('src');
+        $('#img-content').attr('src', getsrcSlideCenter);
+    }
+
+</script>

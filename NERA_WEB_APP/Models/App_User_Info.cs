@@ -20,4 +20,10 @@ namespace NERA_WEB_APP.Models
         public int Quyen_Id { get; set; }
         public string Quyen_Name { get; set; }
     }
+
+    public class App_Auto_Number
+    {
+        public string Refer_Key { set; get; }
+        public int Refer_Value { set; get; }
+    }
 }
