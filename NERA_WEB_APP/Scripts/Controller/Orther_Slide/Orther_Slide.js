@@ -4,7 +4,7 @@
     this.IsEditing = false;
     this.EditId = -1;
     getAllDataSlide();
-
+    $scope.CreateItem.Image_URL = '~/Content/images/no-image-available.png';
     function clearAllControl() {
         $scope.CreateItem = {};
     }

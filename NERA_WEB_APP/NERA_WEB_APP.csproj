@@ -234,6 +234,7 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\template.css" />
     <Content Include="Content\images\ng-loader.gif" />
+    <Content Include="Content\images\no-image-available.png" />
     <Content Include="DB\NerahomeWebDB_Script.sql" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

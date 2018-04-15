@@ -39,7 +39,7 @@
             <span style="text-align:right; position:absolute; right:0; bottom:0;">
                 <h4>
                     @*<a href="#" class="btn-show-popup btn-add-pro">Thêm mới</a>*@
-                    <a href="#" class="btn-add-data">Thêm mới</a>
+                    <a href="#" class="btn-add-data" >Thêm mới</a>
                 </h4>
             </span>
 
@@ -65,9 +65,9 @@
                 <td>
                     <input  hidden type="text" class="txtAnh" ng-change ng-model="CreateItem.Image_URL" value="{{CreateItem.Image_URL}}" />    
                     <img src="{{CreateItem.Image_URL}}" id="imgslide" style="height:100px; width:100px;" />
-                    <a href="#" id="btnselect">Chọn</a>
+                    <a href="#" id="btnselect" onclick="selectImg('imgslide')" >Chọn</a>
                 </td>
-
+                
                 <td>
                     <input type="text" class="form-control  link item-type txtAnh" ng-change ng-model="CreateItem.Image_Link" value="{{CreateItem.Image_Link}}">
 
