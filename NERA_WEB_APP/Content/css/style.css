@@ -1193,7 +1193,7 @@ div .alert.alert-danger {
 
 /*POPUP*/
 .popup-box {
-    display: none;
+  
     height: 600px;
     position: fixed;
     background: #fff;
