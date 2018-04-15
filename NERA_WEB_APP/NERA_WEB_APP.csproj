@@ -177,6 +177,7 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\Orther_SlideController.cs" />
     <Compile Include="Controllers\Post_SlideController.cs" />
+    <Compile Include="Controllers\Post_SlideNewController.cs" />
     <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -1481,6 +1482,7 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Content\fonts\" />
     <Folder Include="Views\App_Auto_Number\" />
+    <Folder Include="Views\Post_SlideNew\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
