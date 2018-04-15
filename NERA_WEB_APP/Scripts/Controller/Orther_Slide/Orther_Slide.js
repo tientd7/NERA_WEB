@@ -1,14 +1,20 @@
 ﻿app.controller("Orther_Slide", function ($scope, $http) {
-
+    $scope.CreateItem.Image_URL = 'http://www.brother.com.vn/AP/Handlers/ApHandler.ashx?m=rs&guid=8d068527-2779-4f00-8a1a-8f9cc59e3f39&pr=100';
     $scope.List = "";
     this.IsEditing = false;
     this.EditId = -1;
     getAllDataSlide();
-
     function clearAllControl() {
         $scope.CreateItem = {};
     }
+    $scope.onSelectImg = function (id) {
+        var finder = new CKFinder();
 
+        finder.selectActionFunction = function (url) {
+            $scope.CreateItem.Image_URL = url;
+        };
+        finder.popup();
+    }
     $scope.onCreateSlide = function (Item) {
         var obj = {
             Tbl_Id: 0,
