@@ -1,26 +1,18 @@
-﻿app.controller("Orther_Slide", function ($scope, $http) {
-    $scope.CreateItem = {};
-    $scope.Image_URL = '/Content/images/no-image-available.png';
+﻿app.controller("Tariff_Index_Controller", function ($scope, $http) {
+
     $scope.List = "";
     this.IsEditing = false;
     this.EditId = -1;
-    getAllDataSlide();
+    getAllData();
     function clearAllControl() {
         $scope.CreateItem = {};
     }
-    $scope.onSelectImg = function (id) {
-        var finder = new CKFinder();
 
-        finder.selectActionFunction = function (url) {
-            $scope.Image_URL = url;
-        };
-        finder.popup();
-    }
-    $scope.onCreateSlide = function (Item) {
+    $scope.onCreate = function (Item) {
         var obj = {
             Tbl_Id: 0,
             Image_Title: $scope.CreateItem.Image_Title,
-            Image_URL: $scope.Image_URL,
+            Image_URL: $scope.CreateItem.Image_URL,
             Image_Link: $scope.CreateItem.Image_Link,
             Image_Orde: $scope.CreateItem.Image_Orde,
             Enable: $scope.CreateItem.Enable,
@@ -30,7 +22,7 @@
         var config = {
             item: Item
         };
-        $http.post('/Orther_Slide/Insert', config).then(function (data) {
+        $http.post('/Tariff/Insert', config).then(function (data) {
             setTimeout(function () {
                 $('.img-preload').fadeIn(200);
             });
@@ -46,24 +38,22 @@
                 $('.alert-noti-success').fadeOut(500);
 
                 //reload
-           
-                $scope.showDV();
 
+                $scope.showDV();
             }, 1500);
-            $scope.CreateItem.Image_URL = '~/Content/images/no-image-available.png';
-            getAllDataSlide();
+            getAllData();
         }, function (error) {
             console.log(error);
         });
         clearAllControl();
     };
 
-    $scope.onEditSlide = function (id) {
+    $scope.onEdit = function (id) {
         this.EditId = id;
         this.IsEditing = true;
     };
 
-    $scope.onCancelSlide = function () {
+    $scope.onCancel = function () {
         var ok = confirm("Bạn có muốn hủy thêm thông tin này?");
         if (ok == true) {
             this.IsEditing = false;
@@ -71,13 +61,13 @@
 
     };
 
-    $scope.onDeleteSlide = function (id) {
+    $scope.onDelete = function (id) {
         var ok = confirm("Bạn có muốn xóa thông tin này?");
         var config = {
             Delete_Id: id
         };
         if (ok == true) {
-            $http.post('/Orther_Slide/Delete', config)
+            $http.post('/Tariff/Delete', config)
                 .success(function (data) {
                     setTimeout(function () {
                         $('.img-preload').fadeIn(200);
@@ -96,7 +86,7 @@
                         $('.alert-delete-success').fadeOut(500);
 
                     }, 1500);
-                    getAllDataSlide();
+                    getAllData();
                 })
                 .error(function (error) {
                     console.log(error);
@@ -105,7 +95,7 @@
 
     };
 
-    $scope.onSaveSlide = function (item) {
+    $scope.onSave = function (item) {
         //var obj = {
         //    Tbl_Id: item.Tbl_Id,
         //    Image_Title: item.Image_Title,
@@ -122,7 +112,7 @@
         var config = {
             Slide: item
         };
-        $http.post('/Orther_Slide/Update', config)
+        $http.post('/Tariff/Update', config)
             .then(function (data, status, headers, config) {
                 setTimeout(function () {
                     $('.img-preload').fadeIn(200);
@@ -141,21 +131,21 @@
                     $scope.hienthisanpham();
                     $scope.showDV();
                 }, 1500);
-                getAllDataSlide();
+                getAllData();
             },
             function (error) {
                 console.log(error);
             });
     };
 
-    $scope.getStatusSlide = function (id) {
+    $scope.getStatus = function (id) {
         if (this.IsEditing)
             if (this.EditId === id)
                 return false;
         return true;
     };
-    function getAllDataSlide() {
-        $http.get('/Orther_Slide/GetData')
+    function getAllData() {
+        $http.get('/Tariff/GetData')
             .success(function (data) {
                 $scope.ListSlide = data;
             })

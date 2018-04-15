@@ -178,6 +178,7 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\Orther_SlideController.cs" />
     <Compile Include="Controllers\Post_SlideController.cs" />
+    <Compile Include="Controllers\Post_SlideNewController.cs" />
     <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
@@ -234,6 +235,7 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\template.css" />
     <Content Include="Content\images\ng-loader.gif" />
+    <Content Include="Content\images\no-image-available.png" />
     <Content Include="DB\NerahomeWebDB_Script.sql" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -888,6 +890,7 @@
     <Content Include="Scripts\Controller\BaiViet\ckeditor\skins\bootstrapck\scss\config\_config.scss" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\skins\bootstrapck\scss\config\_defaults.scss" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\skins\bootstrapck\scss\dialog\dialog.scss" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Controller\BaiViet\BaiVietInsertUpdate.js" />
     <Content Include="Scripts\Controller\BaiViet\BaiVietListController.js" />
@@ -1544,6 +1547,7 @@
     <Content Include="Scripts\Controller\Post_Slide\Update.js" />
     <Content Include="Scripts\Controller\Product\addNewProduct.js" />
     <Content Include="Scripts\Controller\Service\Service.js" />
+    <Content Include="Scripts\Controller\Tariff\Tariff.js" />
     <Content Include="Scripts\dirPagination.js" />
     <Content Include="Scripts\editor\editor.js" />
     <Content Include="Scripts\Controller\Product\product.js" />
@@ -1665,6 +1669,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\fonts\" />
     <Folder Include="Views\App_Auto_Number\" />
+    <Folder Include="Views\Post_SlideNew\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
