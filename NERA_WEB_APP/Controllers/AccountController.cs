@@ -27,6 +27,7 @@ namespace NERA_WEB_APP.Controllers
 
         public ActionResult user()
         {
+            
             return View();
         }
 
@@ -59,39 +60,42 @@ namespace NERA_WEB_APP.Controllers
         }
 
         #region signup
-        //[HttpPost]
-        //[CustomAuthorize(Roles = "Admin")]
-        //public ActionResult SignUp(SignUpModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        // Attempt to register the user
-        //        Nera_User user = new Nera_User();
-        //        user.UserName = model.UserName;
-        //        user.PasswordHash = MD5_Hash(model.Password);
-        //        user.Email = model.Email;
-        //        user.RoleId = 2;//Tạm để mặc định là mod
-        //        user.FirstName = "Test first name";
-        //        user.LastName = "Test last name";
-        //        user.IsEnable = true;
-        //        try
-        //        {
-        //            db.Nera_Users.Add(user);
-        //            db.SaveChanges();
-        //            signIn(user, false);
-        //            return RedirectToAction("Index", "Home");
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //        }
-        //    }
+        ////[HttpPost]
+        ////[CustomAuthorize(Roles = "Admin")]
+        ////public ActionResult SignUp(SignUpModel model)
+        ////{
+        ////    if (ModelState.IsValid)
+        ////    {
+        ////        // Attempt to register the user
+        ////        Nera_User user = new Nera_User();
+        ////        user.UserName = model.UserName;
+        ////        user.PasswordHash = MD5_Hash(model.Password);
+        ////        user.Email = model.Email;
+        ////        user.RoleId = 2;//Tạm để mặc định là mod
+        ////        user.FirstName = "Test first name";
+        ////        user.LastName = "Test last name";
+        ////        user.IsEnable = true;
+        ////        try
+        ////        {
+        ////            db.Nera_Users.Add(user);
+        ////            db.SaveChanges();
+        ////            signIn(user, false);
+        ////            return RedirectToAction("Index", "Home");
+        ////        }
+        ////        catch (Exception ex)
+        ////        {
+        ////        }
+        ////    }
 
-        //    // If we got this far, something failed, redisplay form
-        //    return View(model);
-        //}
+        ////    // If we got this far, something failed, redisplay form
+        ////    return View(model);
+        ////}
 
         #endregion
 
+
+
+        #region json signup
         [HttpPost]
         [CustomAuthorize(Roles = "Admin")]
         public JsonResult SignUp(SignUpModel model)
@@ -163,6 +167,8 @@ namespace NERA_WEB_APP.Controllers
 
         }
 
+        #endregion
+
 
 
 
@@ -222,6 +228,9 @@ namespace NERA_WEB_APP.Controllers
             if (ModelState.IsValid)
             {
 
+           
+
+
                 Nera_User user = checkUser(model.UserName, model.Password, ref message);
                 if (!String.IsNullOrEmpty(message))
                 {
@@ -236,15 +245,13 @@ namespace NERA_WEB_APP.Controllers
                 signIn(user, model.RememberMe);
                 //services.SignIn(model.UserName, model.RememberMe);
                 //ViewData["Role"] = user.Role.RoleCode;
+                return Json("login success!");
             }
 
             // If we got this far, something failed, redisplay form
-            return Json("Login success!");
+            return Json("Login failed!");
         }
 
-
-
-        // lỗi đăng nhập
 
         [HttpPost]
         [AllowAnonymous]
@@ -254,6 +261,8 @@ namespace NERA_WEB_APP.Controllers
             if (ModelState.IsValid)
             {
                 String message = "";
+      
+                
                 Nera_User user = checkUser(model.UserName, model.Password, ref message);
                 if (!String.IsNullOrEmpty(message))
                 {

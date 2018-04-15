@@ -42,6 +42,7 @@ app.controller("AccountController", function ($scope, $http) {
                 }
             }).success(function (data, status) {
                 $scope.user = data;
+                debugger;
                 if ($scope.user == 'user error'.toString()) {
                     setTimeout(function () {
                         $('.alert-username').fadeIn(500);

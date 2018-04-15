@@ -59,7 +59,7 @@
 
     //#endregion filter
 
-    $scope.data;
+    $scope.Item;
     $filter.data = false;
     $scope.addData = function (Item) {
         $http.post('/Chatbox/addData', { cs: Item })
@@ -76,9 +76,8 @@
                     $('.alert-noti-success-msg-box').fadeOut(3000);
                 }, 2000);
 
-                $scope.data = data;
-                console.log("success" + data);
-                $scope.data = null;
+                $scope.Item = data;
+                $scope.Item = null;
             }).error(function (error) {
                 console.log('error' + error);
             })
