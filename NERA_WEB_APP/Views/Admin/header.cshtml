@@ -1,6 +1,6 @@
 ﻿@{
 
-    var userName = HttpContext.Current.User.Identity.Name;
+    var firstname = HttpContext.Current.User.Identity.Name;
 
 }
 
@@ -13,7 +13,7 @@
                     <div class="call-to-action">
                         <h1>
                             <a href="/Admin/Index" class="logo-page" title="neraland.com.vn Home">
-                                <img src="~/Media/images/logo/logoNerahome.jpg" class="img-logo-page"  id="img-logo-page" />
+                                <img src="~/Media/images/logo/logoNerahome.jpg" class="img-logo-page" id="img-logo-page" />
                             </a>
 
                         </h1>
@@ -33,8 +33,8 @@
                 <div class="col-sm-3 hidden-xs">
                     <div class="topbar-right">
                         <div class="user-acc-box">
-                           
-                            @if (String.IsNullOrEmpty(userName))
+
+                            @if (String.IsNullOrEmpty(firstname))
                             {
                                 <a href="#" class="user-account btn-link-login">
                                     <i class="fa fa-user" aria-hidden="true"></i>
@@ -44,18 +44,23 @@
                             }
                             else
                             {
-                                <div>
+                                var username = Request.Cookies["username"].Value;
+                                if (!String.IsNullOrEmpty(username.ToString()))
+                                {
                                     <div>
-                                        <a href="/Account/user_infor" class="user-account btn-link-infor-user" style="text-transform:uppercase;">
-                                            <i class="fa fa-user" aria-hidden="true"></i>
-                                            @userName
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="/Account/LogOut">Đăng xuất</a>
-                                    </div>
+                                        <div>
+                                            <a href="/Account/user_infor/@username" class="user-account btn-link-infor-user" style="text-transform:uppercase;">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                                @firstname
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a href="/Account/LogOut">Đăng xuất</a>
+                                        </div>
 
-                                </div>
+                                    </div>
+                                }
+
                             }
 
 
@@ -106,14 +111,14 @@
 
                     <div class="call-to-action">
                         <a href="/Admin/Index" class="logo-page" title="neraland.com.vn Home">
-                            <img src="~/Media/images/logo/logoNerahome.jpg" class="img-logo-page"  id="img-logo-page" />
+                            <img src="~/Media/images/logo/logoNerahome.jpg" class="img-logo-page" id="img-logo-page" />
                         </a>
                     </div>
                     <div class="acc-lang-wt">
                         <div class="topbar-right">
                             <div class="user-acc-box">
 
-                                @if (String.IsNullOrEmpty(userName))
+                                @if (String.IsNullOrEmpty(firstname))
                                 {
                                     <a href="#" class="user-account btn-link-login">
                                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -123,18 +128,22 @@
                                 }
                                 else
                                 {
-                                    <div>
+                                    var username = Request.Cookies["username"].Value;
+                                    if (!String.IsNullOrEmpty(username.ToString()))
+                                    {
                                         <div>
-                                            <a href="/Account/user_infor" class="user-account btn-link-infor-user" style="text-transform:uppercase;">
-                                                <i class="fa fa-user" aria-hidden="true"></i>
-                                                @userName
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <a href="/Account/LogOut">Đăng xuất</a>
-                                        </div>
+                                            <div>
+                                                <a href="/Account/user_infor/@username" class="user-account btn-link-infor-user" style="text-transform:uppercase;">
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                    @firstname
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="/Account/LogOut">Đăng xuất</a>
+                                            </div>
 
-                                    </div>
+                                        </div>
+                                    }
                                 }
 
 

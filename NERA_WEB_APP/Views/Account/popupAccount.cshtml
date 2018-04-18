@@ -1,11 +1,6 @@
 ﻿
 
 
-
-
-
-
-
 <section>
 
     <div class="container" style="max-width:500px;">
@@ -58,7 +53,7 @@
                     <label>Confirm password</label>
                     <input type="password" class="form-control item" id="confirmpassowrd" ng-model="_user.ConfirmPassword" value="{{_user.ConfirmPassword}}" />
                     <span class="alert alert-danger alert-error-confrimpassword">
-                        {{pass_error}}
+                        {{confirm_pass_error}}
                     </span>
                 </div>
             </div>
@@ -111,10 +106,10 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                @*<div class="col-sm-6">
                     <label>Enable</label>
                     <input type="checkbox" ng-model="_user.IsEnable" class="item" value="{{_user.IsEnable}}" />
-                </div>
+                </div>*@
 
 
             </div>

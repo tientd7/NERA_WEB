@@ -13,7 +13,6 @@ $('.btn-link-login').click(function () {
 })
 
 $('.btn-show-popup').click(function () {
-    alert('sfsdf');
     $('.popup-box').show().focus();
     $('.popup-box').addClass('box-dialog-keyframes');
     $('.popup-box').removeClass('active-hide');
