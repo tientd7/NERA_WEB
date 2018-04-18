@@ -260,6 +260,7 @@ app.controller("AccountController", function ($scope, $http) {
     // sửa thông tin thành viên
 
     $scope.updateRole_User = function (user) {
+        debugger;
         $http.post("/Account/updateRole_User", { user: user })
             .success(function (data, status) {
                 // jquery

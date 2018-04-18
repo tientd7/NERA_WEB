@@ -37,7 +37,7 @@ NAVIGATION
 
 .navbar-default .navbar-nav > li > a {
     padding: 15px 22px;
-    color: #333;
+    color: #fff;
     font-size: 14px;
     font-weight: 400;
     font-family: 'Montserrat', sans-serif;
@@ -103,13 +103,16 @@ NAVIGATION
     -o-transition: all 0.5s;
     transition: all 0.5s;
 }
+.navbar-default {
+    background: #343434;
+}
 
 @media only screen and (max-width : 767px) {
 }
 
 .navbar-default .navbar-toggle {
     border-color: transparent;
-    color: #7b8a97;
+    color: #fff;
 }
 
     .navbar-default .navbar-toggle:hover,

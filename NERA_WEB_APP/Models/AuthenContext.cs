@@ -89,6 +89,21 @@ namespace NERA_WEB_APP.Models
         public Nera_Role Nera_Role { get; set; }
     }
 
+    public class NeraViewModel
+    {
+        public int UserId { set; get; }
+        public string UserName { set; get; }
+        public string FirstName { set; get; }
+        public string LastName { set; get; }
+        public string PasswordHash { set; get; }
+        public String Email { set; get; }
+        public string PhoneNumber { set; get; }      
+        public int RoleId { set; get; }
+        public string RoleName { set; get; }
+        public string RoleCode { set; get; }
+
+    }
+
     public class changePass
     {
         public string UserName { get; set; }

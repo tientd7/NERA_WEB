@@ -9,19 +9,21 @@
 
 }
 <div class="container">
-    @if (!String.IsNullOrEmpty(userName))
-    {
-        <div class="alert alert-success">
-            <h4>
-                Đăng nhập thành công
-            </h4>
-        </div>
-    }
-    else
-    {<div class="alert alert-info">
-        <h4>
-            Bạn phải đăng nhập mới có thể thao tác hành động này!.
-        </h4>
+    <div class="alert alert-info" style="height:200px; margin-bottom:-30px;text-align:center; position:relative;">
+        @if (!String.IsNullOrEmpty(userName))
+        {
+            <div class="alert alert-success">
+                <h4>
+                    Đăng nhập thành công
+                </h4>
+            </div>
+        }
+        else
+        {<div class="" style="position:absolute; top:50%; left: 50%; transform: translate(-50%,-50%);">
+                <h4 style="font-weight:bold; font-size:19px;">
+                    Bạn phải đăng nhập mới có thể thao tác hành động này!.
+                </h4>
+            </div>
+        }
     </div>
-    }
 </div>
