@@ -1221,18 +1221,34 @@ Offcanvas Style For Customization
         background: #1a8ae1;
         outline: none;
     }
-
-#offcanvasMenu li a {
-    position: relative;
-    display: block;
-    padding: 20px;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 14px;
-    font-weight: 500;
-    box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
+#offcanvasMenu li{
+    position:relative;
+    cursor:pointer;
 }
+
+
+
+    #offcanvasMenu li span {
+        font-size: 20px;
+        color: #fff;
+        position: absolute;
+        right: 20px;
+        top: 19px;
+        cursor: pointer;
+    }
+
+    #offcanvasMenu li a {
+       
+        position: relative;
+        display: block;
+        padding: 20px;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
+    }
 
     #offcanvasMenu li a .fa {
         position: absolute;
@@ -1247,12 +1263,12 @@ Offcanvas Style For Customization
     padding-left: 30px;
 }
 
-#offcanvasMenu li a:hover,
-#offcanvasMenu li.active a {
-    background: #1a8ae1;
-    color: #fff;
-    text-decoration: none;
-}
+    #offcanvasMenu li a:hover,
+    #offcanvasMenu li.active a {
+        background: #1a8ae1;
+        color: #fff;
+        text-decoration: none;
+    }
 
 #offcanvasMenu > li ul {
     display: none;

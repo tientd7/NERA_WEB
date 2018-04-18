@@ -4,31 +4,12 @@
             <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="off-canvas-close-btn">&times;</button>
         </div>
         <ul id="offcanvasMenu" class="list-unstyled visible-xs visible-sm">
-            <li><a href="/Home/Index">Trang chủ</a></li>
-            <li><a href="/Home/Introduce">Giới thiệu</a></li>
-            <li>
-                <a href="#">
-                    Dịch vụ &amp; Tiện ích
-                </a>
-
-                <ul ng-controller="ServiceController">
-
-                    <li><a href="/Price/listPrice">Bảng giá dịch vụ</a></li>
-                    <li ng-repeat="i in ItemDVEnable "><a href="/Services/details?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
-
-                </ul>
-            </li>
-            <li>
-                <a href="#">
-                    Dự án
-                </a>
-                <ul ng-controller="ProductCtrl">
-                    <li ng-repeat="i in ItemSPEnable "><a href="/Product/product?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
-                </ul>
-            </li>
-            <li><a href="/Home/Event">Tin tức &amp; Sự kiện</a></li>
-            <li><a href="/Home/Nha_dau_tu">Nhà đầu tư</a></li>
-            <li><a href="/Home/recruit">Tuyển dụng</a></li>
+            <li><a href="/BaivietMVC/Index">Quản lý bài viết</a></li>
+            <li><a href="/Services/Index">Quản lý dịch vụ</a></li>
+            <li><a href="/Product/Index">Quản lý sản phẩm</a></li>
+            <li><a href="/Orther_Slide/Index">Quản lý slide</a></li>
+            <li><a href="/Chatbox/Index">Quản lý tin nhắn khách hàng</a></li>
+            <li><a href="/Account/user">Quản lý người dùng</a></li>
 
         </ul>
         <div class="offcanvas-widgets hidden-sm hidden-xs">
@@ -52,5 +33,3 @@
         </div>
     </div><!-- .offcanvas-menu -->
 </div>
-<script src="~/Scripts/Controller/Service/Service.js"></script>
-<script src="~/Scripts/Controller/Product/product.js"></script>
