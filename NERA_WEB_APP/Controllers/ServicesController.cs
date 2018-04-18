@@ -38,6 +38,7 @@ namespace NERA_WEB_APP.Controllers
             return Json(menu, JsonRequestBehavior.AllowGet);
         }
 
+        [CustomAuthorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
