@@ -6,10 +6,11 @@
 app.controller("AccountController", function ($scope, $http) {
     $scope.UserName;
     $scope.Password;
-    $scope.pass = null;
-    $scope.user_error;
     $scope.pass_error_min_length;
     $scope.pass_error;
+    $scope.user_error;
+    $scope.pass_error_min_length;
+    $scope.confirm_pass_error;
     $scope.role_code_error;
     $scope.message;
     $scope.user;
@@ -38,7 +39,7 @@ app.controller("AccountController", function ($scope, $http) {
                 url: '/Account/LogOn',
                 method: 'POST',
                 data: {
-                    model: $scope.user
+                    user: $scope.user
                 }
             }).success(function (data, status) {
                 $scope.user = data;
@@ -91,7 +92,7 @@ app.controller("AccountController", function ($scope, $http) {
 
     $scope.isExisting = true;
     $scope.id;
-   
+
     $scope.cancel = function () {
         var ok = confirm("Bạn có muốn hủy sửa thông tin này?");
         if (ok == true) {
@@ -167,20 +168,31 @@ app.controller("AccountController", function ($scope, $http) {
             }, 2000);
 
         } else {
+
             $http.post('/Account/SignUp', { model: _user })
                 .success(function (data, status) {
                     console.log(data);
-                    if (data == "username error".toString()) {
+
+                    if (data == "existed_username".toString()) {
+                        $('.alert-noti-error').show();
+                        $scope.user_error = "Tài khoản này đã tồn tại.";
+                    }
+                    else if (data == "username_error".toString()) {
+
                         $('.alert-noti-error').show();
                         $scope.user_error = "Tài khoản phải lớn hơn 5 ký tự.";
+
                     }
-                    else if (data == "error min length".toString()) {
+                    else if (data == "error_min_length".toString()) {
+
                         $('.alert-noti-password').show();
                         $scope.pass_error_min_length = "Mật khẩu phải lớn hơn 6 ký tự.";
+
                     }
-                    else if (data == "password incorrect".toString()) {
+                    else if (data == "confirm_password_incorrect".toString()) {
+
                         $('.alert-error-confrimpassword').show();
-                        $scope.pass_error = "Xác nhận mật khẩu không trùng nhau.";
+                        $scope.confirm_pass_error = "Xác nhận mật khẩu không trùng nhau.";
                     }
                     else if (data == "rolecodenull".toString()) {
                         $('.alert-null-error-rolecode').show();
@@ -229,26 +241,47 @@ app.controller("AccountController", function ($scope, $http) {
     //    }
     //}
     // hiện chi tiết thông tin cá nhân
-    $scope._user = null;
+    $scope.user = null;
+    
     $scope.getDetailsUser = function (id) {
+        debugger;
         this.id = id;
         if (this.id != null) {
             this.isExisting = false;
         }
-        $http.get("/Account/getdetailUser", { id: id })
-            .success(function (data, status) {
-                $scope._user = data;
-            }).error(function (error) {
-                console.log(error);
-            })
+        //$http.get("/Account/getdetailUser", { id: id })
+        //    .success(function (data, status) {
+        //        $scope.user = data;
+        //    }).error(function (error) {
+        //        console.log(error);
+        //    })
     }
 
     // sửa thông tin thành viên
-    
-    $scope.update = function (user) {
-        $http.post("/Account/updateUser", { user: user })
+
+    $scope.updateRole_User = function (user) {
+        debugger;
+        $http.post("/Account/updateRole_User", { user: user })
             .success(function (data, status) {
-                console.log(data);
+                // jquery
+                setTimeout(function () {
+                    $('.img-preload').fadeIn(200);
+                });
+                setTimeout(function () {
+                    $('.img-preload').fadeOut(200);
+                }, 800);
+                setTimeout(function () {
+                    $('.alert-update-success').fadeIn(500);
+                    $('.alert-noti-success').fadeIn(500);
+                }, 801);
+                setTimeout(function () {
+                    $('.alert-update-success').fadeOut(500);
+                    $('.alert-noti-success').fadeOut(500);
+
+                    //reload
+                    $scope.showData();
+                }, 1500);
+                
             }).error(function (error) {
                 console.log(error);
             })
@@ -278,7 +311,7 @@ app.controller("AccountController", function ($scope, $http) {
 
                     }, 1500);
 
-                   
+
                 }).error(function (error) {
                     console.log(error);
                 })
@@ -286,7 +319,38 @@ app.controller("AccountController", function ($scope, $http) {
     }
 
 
+    // reset password
+    $scope.resetPassword = function (id) {
+        var ok = confirm("Bạn có muốn reset password cho tài khoản này?");
+        if (ok == true) {
+            $http.post("/Account/resetPassword", { id: id })
+                .success(function (data, status) {
+                    // jquery
+                    setTimeout(function () {
+                        $('.img-preload').fadeIn(200);
+                    });
+                    setTimeout(function () {
+                        $('.img-preload').fadeOut(200);
+                    }, 800);
+                    setTimeout(function () {
+                        $('.alert-update-success').fadeIn(500);
+                        $('.alert-noti-success').fadeIn(500);
+                    }, 801);
+                    setTimeout(function () {
+                        $('.alert-update-success').fadeOut(500);
+                        $('.alert-noti-success').fadeOut(500);
 
-   
+                        //reload
+
+                    }, 1500);
+
+                }).error(function (error) {
+                    console.log(error);
+                });
+        }
+
+    }
+
+
 
 })

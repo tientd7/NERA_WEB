@@ -11,6 +11,7 @@
         <legend style="position:relative;">
             <span style="text-align:left;">
                 <h3 class="title-page">
+                   
                     Quản lý người dùng
                 </h3>
             </span>
@@ -37,15 +38,15 @@
                 <td>Phone</td>
                 <td>Role</td>
                 <td>Enable</td>
-                <td style="width:100px;">Action</td>
+                <td style="width:120px;">Action</td>
             </tr>
 
 
             <tr class="tr-show-data" dir-paginate='user in LstUsers | itemsPerPage:5'>
                 <td>
 
-                    <span ng-show="isExisting"> {{user.Nera_User.UserName}}</span>
-                    <input ng-hide="isExisting" ng-model="user.Nera_User.UserName" value="{{user.Nera_User.UserName}}" class="form-control" />
+                    <span> {{user.Nera_User.UserName}}</span>
+                   
                 </td>
                 <td>
                     <span ng-show="isExisting"> {{user.Nera_User.FirstName}}</span>
@@ -65,8 +66,23 @@
                     <input ng-hide="isExisting" type="text" ng-model="user.Nera_User.PhoneNumber" value="{{user.Nera_User.PhoneNumber}}" class="form-control" />
                 </td>
                 <td>
-                    <span ng-show="isExisting"> {{user.Nera_Role.RoleName}}</span>
-                    <input ng-hide="isExisting" type="text" ng-model="user.Nera_Role.RoleName" value="{{user.Nera_Role.RoleName}}" class="form-control" />
+                    <span> {{user.Nera_Role.RoleName}}</span>
+                    @*<select ng-hide="isExisting" class="form-control  select-category-role item" id="select-category-role" ng-model="user.Nera_Role.RoleName" style="width:160px;">
+                        <option value="" class="item"> Chọn quyền hạn </option>
+                        <option value="Quản trị hệ thống" class="item" selected>Quản trị hệ thống</option>
+                        <option value="Nhân viên" class="item">Nhân viên</option>
+                    </select>*@
+                    @*<select class="form-control  select-category-role item" ng-hide="isExisting" id="select-category-role" ng-show="user.Nera_Role.RoleName == 'Mod'" ng-model="user.Nera_Role.RoleName" style="width:160px;">
+                        <option value="" class="item"> Chọn quyền hạn </option>
+                        <option value="Admin" class="item">Quản trị hệ thống</option>
+                        <option value="Mod" class="item" selected>Nhân viên</option>
+                    </select>
+                    <select class="form-control  select-category-role item" ng-hide="isExisting" id="select-category-role" ng-show="user.Nera_Role.RoleName == ''" ng-model="user.Nera_Role.RoleName" style="width:160px;">
+                        <option value="" class="item" selected> Chọn quyền hạn </option>
+                        <option value="Admin" class="item">Quản trị hệ thống</option>
+                        <option value="Mod" class="item" >Nhân viên</option>
+                    </select>*@
+                    @*<input ng-hide="isExisting" type="text" ng-model="user.Nera_Role.RoleName" value="{{user.Nera_Role.RoleName}}" class="form-control" />*@
                 </td>
                 <td>
                     <input type="checkbox" ng-model="user.Nera_User.IsEnable" ng-disabled="isExisting" />
@@ -74,10 +90,11 @@
 
                 <td style="text-align:center;">
                     <div class="btn-group-wrapper" style="text-align:center;">
-                        <button ng-show="isExisting" type="button" class="icon-action" ng-click="getDetailsUser(user.Nera_User.UserId)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                        <button ng-show="isExisting" type="button" class="icon-action" ng-click="delete(user.Nera_Role.RoleId)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                        <button ng-hide="isExisting" type="button" class="icon-action" ng-click="update(Item)"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-                        <button ng-hide="isExisting" type="button" class="icon-action" ng-click="cancel()"><i class="fa fa-ban" aria-hidden="true"></i></button>
+                        <button ng-show="isExisting" type="button" class="icon-action" title="details" ng-click="getDetailsUser(user.Nera_User.UserId)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                        <button ng-show="isExisting" type="button" class="icon-action" title="delete" ng-click="delete(user.Nera_Role.RoleId)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                        <button ng-hide="isExisting" type="button" class="icon-action" title="update" ng-click="updateRole_User(user)"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                        <button ng-hide="isExisting" type="button" class="icon-action" title="cancel" ng-click="cancel()"><i class="fa fa-ban" aria-hidden="true"></i></button>
+                       <button type="button" class="icon-action" title="reset password" ng-click="resetPassword(user.Nera_User.UserId)" ><i class="fa fa-unlock" aria-hidden="true"></i></button>
                     </div>
                 </td>
             </tr>

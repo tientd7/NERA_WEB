@@ -1,4 +1,4 @@
-﻿
+﻿@model NERA_WEB_APP.Models.Nera_User
 @{
     ViewBag.Title = "Thông tin cá nhân";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
@@ -21,7 +21,7 @@
             </div>
             <div class="infor-user infor-user-intro col-sm-5 form-horizontal">
                 <div class="btn-update-infor-wrapper">
-                    <button type="button" class="btn-update-infor" ng-show="isExistingInfor" ng-click="getInforUser()">
+                    <button type="button" class="btn-update-infor" ng-show="isExistingInfor" ng-click="getInforUser(@Model.UserId)">
                         <i class="fa fa-pencil"></i>
                     </button>
                 </div>
@@ -33,13 +33,16 @@
 
                 <div class="item-infor">
                     <span ng-show="isExistingInfor">
-                        Họ tên : Nguyễn văn a
+                        Họ tên : @Model.FirstName @Model.LastName
                     </span>
 
                     <div class="form-group" ng-hide="isExistingInfor">
                         <label class="control-label col-sm-3 ">Họ tên</label>
-                        <div class="col-sm-8">
-                            <input value="Nguyễn văn a" class="form-control" />
+                        <div class="col-sm-4">
+                            <input value="{{user.FirstName}}" ng-model="user.FirstName" class="form-control" placeholder="first name" />
+                        </div>
+                        <div class="col-sm-4">
+                            <input value="{{user.LastName}}" ng-model="user.LastName" class="form-control" placeholder="last name" />
                         </div>
                     </div>
 
@@ -76,13 +79,13 @@
 
                 <div class="item-infor">
                     <span ng-show="isExistingInfor">
-                        Số điện thoại : 0987654321
+                        Số điện thoại : @Model.PhoneNumber
                     </span>
 
                     <div class="form-group" ng-hide="isExistingInfor">
                         <label class="col-sm-3 control-label">Số điện thoại</label>
                         <div class="col-sm-8">
-                            <input value="0987654321" type="number" class="form-control col-sm-10" />
+                            <input value="{{user.PhoneNumber}}" ng-model="user.PhoneNumber" type="number" class="form-control col-sm-10" />
                         </div>
                     </div>
                 </div>
@@ -94,7 +97,7 @@
                     <div class="form-group" ng-hide="isExistingInfor">
                         <label class="col-sm-3 control-label">Địa chỉ</label>
                         <div class="col-sm-8">
-                            <input value="Hoàng mai, Hà nội" class="form-control"/>
+                            <input value="Hoàng mai, Hà nội" class="form-control" />
                         </div>
                     </div>
                 </div>
@@ -117,7 +120,7 @@
 
                 <div class="form-group item-infor" ng-hide="isExistingInfor">
                     <div class="btn-group col-sm-offset-3">
-                        <button class="btn btn-info btn-save" ng-click="save()">Lưu</button>
+                        <button class="btn btn-info btn-save" ng-click="save(user)">Lưu</button>
                         <button class="btn btn-info btn-back" ng-click="cancel()">Quay lại</button>
                     </div>
 
@@ -135,28 +138,33 @@
                 <div ng-show="isExistingPass">
                     <div>
                         <span>
-                            Tên tài khoản : nguyenvana
+                            Tên tài khoản : @Model.UserName
                         </span>
                     </div>
                     <div>
                         <span>
-                            Mật khẩu : <a href="" ng-click="changepass()">Đổi mật khẩu</a>
+                            Mật khẩu : <a href="" ng-click="getpass(@Model.UserId)">Đổi mật khẩu</a>
                         </span>
                     </div>
                     <div>
                         <span>
-                            Email: Nguyenvana@gmail.com
+                            Email: @Model.Email
                         </span>
                     </div>
                 </div>
-            
+
 
                 <div ng-hide="isExistingPass">
                     <div class="item-pass">
                         <div class="form-group">
                             <label class="control-label col-sm-3">Tài khoản</label>
                             <div class="col-sm-8">
-                                <input type="text" value="nguyenvana" class="form-control" placeholder="username" />
+                                @{var username = Request.Cookies["username"].Value;
+                                    if (!String.IsNullOrEmpty(username.ToString()))
+                                    {
+                                        <input type="text" value="@username" class="form-control" placeholder="username" readonly />
+                                    }
+                                    }
                             </div>
                         </div>
                     </div>
@@ -164,15 +172,22 @@
                         <div class="form-group">
                             <label class="control-label col-sm-3">Mật khẩu cũ</label>
                             <div class="col-sm-8">
-                                <input type="password" value="" class="form-control" placeholder="old password" />
+                                <input type="password" value="" ng-model="u.oldPassword" class="form-control" placeholder="old password" />
+                                <div class="alert alert-danger alert-password " style=" width:100%;padding: 6px; top:0; font-size:14px;">
+                                    Mật khẩu cũ không đúng
+                                </div>
                             </div>
+                           
                         </div>
                     </div>
                     <div class="item-pass">
                         <div class="form-group">
                             <label class="control-label col-sm-3">Mật khẩu mới</label>
                             <div class="col-sm-8">
-                                <input type="password" value="" class="form-control" placeholder="new password" />
+                                <input type="password" value="" ng-model="u.newPassword" class="form-control" placeholder="new password" />
+                                <span class="alert alert-danger alert-noti-password" style=" width:100%;padding: 6px; top:0; font-size:14px;">
+                                    {{pass_error_min_length}}
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -180,19 +195,31 @@
                         <div class="form-group">
                             <label class="control-label col-sm-3">Xác nhận mật khẩu mới</label>
                             <div class="col-sm-8">
-                                <input type="password" value="" class="form-control" placeholder="confirm password" />
+                                <input type="password" value="" ng-model="u.confirmPassword" class="form-control" placeholder="confirm password" />
+                                <span class="alert alert-danger alert-error-confrimpassword" style=" width:100%;padding: 6px; top:0; font-size:14px;">
+                                    {{confirm_pass_error}}
+                                </span>
                             </div>
                         </div>
                     </div>
                     <div class="form-group item-pass">
                         <div class="btn-group col-sm-offset-3">
-                            <button class="btn btn-info btn-save" ng-click="save()">Lưu</button>
+                            <button class="btn btn-info btn-save" ng-click="changePass(u)">Lưu</button>
                             <button class="btn btn-info btn-back" ng-click="cancel()">Quay lại</button>
                         </div>
 
                     </div>
                 </div>
-             
+
+            </div>
+        </div>
+
+        @* alert thông bao *@
+        <div class="container" style="max-width:500px;">
+            <div class="alert alert-noti-success">
+                <h3 class="alert-update-success" style="color:#fff;">
+                    Thay đổi thành công
+                </h3>
             </div>
         </div>
 

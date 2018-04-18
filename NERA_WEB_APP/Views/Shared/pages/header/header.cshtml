@@ -1,7 +1,4 @@
-﻿@{
-    var userName = HttpContext.Current.User.Identity.Name;
-
-}
+﻿
 
 <header class="header">
     <nav class="top-bar">
@@ -20,11 +17,22 @@
                     <div class="slogan text-center">
                         <h1>
                             <span>
-                                Khẩu hiệu Neraland
+                           
+                                    <span>Khẩu hiệu Neraland</span>
+                             
+
                             </span>
+
+
                         </h1>
+
+
                     </div>
+
+
                 </div>
+
+
 
                 <div class="col-sm-3 hidden-xs">
                     <div class="topbar-right">
@@ -149,7 +157,7 @@
                                 <div class="language-select" style="left: 10px;">
                                     <div class="select-country">
                                         <span class="country country-active selected-vn">Vietnam</span>
-                                        <span class="country country-active selected-en" style="display:none;">English</span>
+                                        <span class="country country-active selected-en" if;">English</span>
                                         <span class="country country-noactive  country-vietnam">
                                             Vietnam <img class="img-flags" src="~/Media/images/flags/vietnam.svg" />
                                         </span>
@@ -213,7 +221,7 @@
 
                 <ul class="nav navbar-nav hidden-sm">
                     <li><a href="/Home/Introduce">Giới thiệu</a></li>
-                    <li><a href="/Home/project">Dự án</a></li>
+                   
 
                     <!-- Services -->
                     <li class="dropdown">
@@ -234,7 +242,7 @@
                     <!-- /Services -->
 
                     <li class="dropdown">
-                        <a href="#">Sản phẩm <b class="caret"></b></a>
+                        <a href="#">Dự án <b class="caret"></b></a>
 
                         <div class="submenu-wrapper submenu-wrapper-topbottom">
                             <div class="submenu-inner  submenu-inner-topbottom">
@@ -262,6 +270,6 @@
 <script src="~/Scripts/jquery/dialog.js"></script>
 
 @section JavaScript{
-    
+
 }
 

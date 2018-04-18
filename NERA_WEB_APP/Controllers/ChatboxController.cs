@@ -10,7 +10,7 @@ using System.Web.Security;
 
 namespace NERA_WEB_APP.Controllers
 {
-    [AllowAnonymous]
+    [CustomAuthorize(Roles ="Admin,Mod")]
     public class ChatboxController : Controller
     {
         // GET: Chatbox

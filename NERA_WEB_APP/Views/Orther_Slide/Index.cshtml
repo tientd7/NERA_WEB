@@ -39,7 +39,7 @@
             <span style="text-align:right; position:absolute; right:0; bottom:0;">
                 <h4>
                     @*<a href="#" class="btn-show-popup btn-add-pro">Thêm mới</a>*@
-                    <a href="#" class="btn-add-data">Thêm mới</a>
+                    <a href="#" class="btn-add-data" >Thêm mới</a>
                 </h4>
             </span>
 
@@ -63,8 +63,8 @@
                 <td></td>
                 <td><input type="text" class="form-control  name item-type" ng-model="CreateItem.Image_Title" /></td>
                 <td>
-                    <img ng-src="CreateItem.Image_URL" id="imgslide" style="height:100px; width:100px;" />
-                    <a href="#" ng-click="onSelectImg('txtAnh')">Chọn</a>
+                    
+                    <a href="#" ng-click="onSelectImg('txtAnh')"><img src='{{Image_URL}}' style="height:100px; width:100px;" /></a>
                 </td>
 
                 <td>
