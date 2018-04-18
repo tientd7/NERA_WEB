@@ -128,21 +128,6 @@ app.controller("ProductCtrl", function ($scope, $http) {
                 $('.popup-box').removeClass('box-dialog-keyframes');
                 $('.popup-box').addClass('active-hide');
 
-
-                //if (data != "") {
-
-                //    if (data.Item_Type == "DV") {
-                //        window.location.href = '/Product/services';
-                //    }
-                //    else if (data.Item_Type == "SP") {
-                //        window.location.href = '/Product/product';
-                //    }
-
-                //}
-                //else {
-                //    console.log('Form data not Saved!');
-
-                //}
             }).error(function (error, status, headers, config) {
                 $scope.message = 'Unexpected Error while saving data!!' + data.errors;
                 console.log(error);

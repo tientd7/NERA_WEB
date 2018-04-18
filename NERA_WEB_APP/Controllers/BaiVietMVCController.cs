@@ -78,6 +78,7 @@ namespace NERA_WEB_APP.Controllers
             newObj.Post_Title = objInfo.Post_Title;
             newObj.Gia = objInfo.Gia;
             newObj.Dathue = objInfo.Dathue;
+            newObj.Avatar = Request.Form["avatar"];
             db.CS_Post_Info.Add(newObj);
             insertSlides(id, slides);
             db.SaveChanges();
@@ -130,6 +131,7 @@ namespace NERA_WEB_APP.Controllers
             post.Meta_Desc = Request.Form["MetaDesc"];
             post.Meta_Key = Request.Form["MetaKey"];
             post.Item_ID = Convert.ToInt32(Request.Form["Item_Id"]);
+            post.Avatar = Request.Form["avatar"];
             db.Entry(post).State = EntityState.Modified;
             deleteSlides(post.Post_Id);
             insertSlides(post.Post_Id, slides);

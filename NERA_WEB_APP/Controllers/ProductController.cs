@@ -28,18 +28,6 @@ namespace NERA_WEB_APP.Controllers
         {
             return View();
         }
-
-
-        //lấy danh sách sản phẩm có trong bảng MenuItem 
-        //public JsonResult showSP()
-        //{
-        //    db.Configuration.ProxyCreationEnabled = false;
-        //    db.Configuration.LazyLoadingEnabled = false;
-        //    var show = from i in db.CS_Menu_Item where i.Item_Type == "SP" select i;
-        //    return new JsonResult { Data = show, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-        //}
-
-        // hiển thị tất cả sản phẩm
         public JsonResult hienthisanpham()
         {
             var hienthi = (from i in db.Cs_Menu_item where i.Item_Type == "SP" select i).ToList();
@@ -60,8 +48,6 @@ namespace NERA_WEB_APP.Controllers
             var detail = db.CS_Post_Info.Where(x => x.Post_Id == id).FirstOrDefault();
             ViewBag.listImg =(
                 from i in db.CS_Post_Slides
-                //join postinfor in db.CS_Post_Info on i.Post_Id equals postinfor.Post_Id
-                //join menu in db.Cs_Menu_item on Convert.ToInt32(postinfor.Item_ID) equals Convert.ToInt32(menu.Item_Id)
                 select i).Take(3);
                 
             return View(detail);

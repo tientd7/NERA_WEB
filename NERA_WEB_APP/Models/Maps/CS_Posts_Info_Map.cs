@@ -26,7 +26,9 @@ namespace NERA_WEB_APP.Models.Maps
             this.Property(t => t.Language).HasColumnName("Language");
             this.Property(t => t.Gia).HasColumnName("Gia");
             this.Property(t => t.Dathue).HasColumnName("Dathue");
-           
+            this.Property(t => t.Avatar).HasColumnName("Avatar");
+
+
         }
     }
 }

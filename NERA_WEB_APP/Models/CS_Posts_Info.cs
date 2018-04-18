@@ -26,7 +26,7 @@ namespace NERA_WEB_APP.Models
         public string Language { get; set; }     
         public Int32 Gia { get; set; }
         public bool Dathue { get; set; }
-
+        public string Avatar { get; set; }
 
 
          
@@ -54,6 +54,8 @@ namespace NERA_WEB_APP.Models
             this.Language = post.Language;
             this.Dathue = post.Dathue;
             this.Gia = post.Gia;
+            this.Avatar = post.Avatar;
+            
         }
         public int Post_Id { set; get; }
         public string Post_Title { get; set; }
@@ -73,5 +75,6 @@ namespace NERA_WEB_APP.Models
         public virtual Cs_Menu_item Cs_Menu_Item { get; set; }
         public bool Dathue { set; get; }
         public int Gia { set; get; }
+        public string Avatar { get; set; }
     }
 }
