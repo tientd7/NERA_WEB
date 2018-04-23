@@ -197,6 +197,7 @@
     <Compile Include="Models\APP_Quyen_Info.cs" />
     <Compile Include="Models\APP_SYS_Parrams.cs" />
     <Compile Include="Models\App_User_Info.cs" />
+    <Compile Include="Models\APP_User_Message.cs" />
     <Compile Include="Models\APP_User_Permission.cs" />
     <Compile Include="Models\AuthenContext.cs" />
     <Compile Include="Models\CS_ChatBox_Info.cs" />
@@ -212,6 +213,7 @@
     <Compile Include="Models\Maps\APP_Quyen_Info_Map.cs" />
     <Compile Include="Models\Maps\APP_SYS_Parrams_Map.cs" />
     <Compile Include="Models\Maps\APP_User_Info_Map.cs" />
+    <Compile Include="Models\Maps\App_User_Message.cs" />
     <Compile Include="Models\Maps\APP_User_Permission_Map.cs" />
     <Compile Include="Models\Maps\CS_ChatBox_Info_Map.cs" />
     <Compile Include="Models\Maps\CS_Menu_Item_Map.cs" />

@@ -46,6 +46,8 @@ namespace NERA_WEB_APP.Controllers
         public ActionResult details(int id)
         {
             var detail = db.CS_Post_Info.Where(x => x.Post_Id == id).FirstOrDefault();
+            Session["Post_Id"] = detail.Post_Id;
+            Session["Post_Title"] = detail.Post_Title;
             ViewBag.listImg =(
                 from i in db.CS_Post_Slides
                 join slidepost in db.CS_Post_Info
@@ -178,6 +180,27 @@ namespace NERA_WEB_APP.Controllers
             db.SaveChanges();
             return View(newObj);
         }
+        [AllowAnonymous]
+        [HttpPost]
+        public JsonResult CreateUse(APP_User_Message obj)
+        {
+            APP_User_Message newobj = new APP_User_Message();
+            int id = new App_Auto_NumberController().GenID("APP_User_Message.message_id");
+            newobj.message_id = id;
+            newobj.cus_name = obj.cus_name;
+            newobj.cus_phone = obj.cus_phone;
+            newobj.Item_Id = Convert.ToInt32(Session["id"]);
+            newobj.Post_Id =Convert.ToInt32(Session["Post_Id"]);
+            newobj.Post_Title =Convert.ToString(Session["Post_Title"]);
+            newobj.create_date = DateTime.Now;
+            newobj.unread = true;
+            newobj.read_date = DateTime.Now;
+            db.APP_User_Message.Add(newobj);
+            db.SaveChanges();
+            return Json("");
+
+        }
+
     }
 
 }

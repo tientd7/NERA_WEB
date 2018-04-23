@@ -63,7 +63,7 @@ app.controller("ProductCtrl", function ($scope, $http) {
 
 
 
-    
+
 
 
 
@@ -115,7 +115,7 @@ app.controller("ProductCtrl", function ($scope, $http) {
                 setTimeout(function () {
                     $('.alert-add-success').fadeIn(500);
                     $('.alert-noti-success').fadeIn(500);
-                },801);
+                }, 801);
                 setTimeout(function () {
                     $('.alert-add-success').fadeOut(500);
                     $('.alert-noti-success').fadeOut(500);
@@ -183,19 +183,19 @@ app.controller("ProductCtrl", function ($scope, $http) {
 
     this.id = null;
     $scope.get = function (id) {
-        this.id = id; 
+        this.id = id;
         if (this.id != null) {
             this.isExisting = false;
-        }  
+        }
     }
 
     $scope.cancel = function () {
-        var ok = confirm("Bạn có muốn hủy sửa thông tin này?");   
+        var ok = confirm("Bạn có muốn hủy sửa thông tin này?");
         if (ok == true) {
             this.isExisting = true;
             $scope.hienthisanpham();
         }
-       
+
     }
 
     // update
@@ -263,85 +263,15 @@ app.controller("ProductCtrl", function ($scope, $http) {
                 })
         }
 
+
+        $scope.CreateUser = function (user) {
+            $http.post('/Product/CreateUse', { obj: user })
+                .success(function (data) {
+                })
+    };
+
     }
 
-    //$scope.listpost = null;
-    //$scope.listImg = null;
-    //$scope.getlistPost = function () {
-    //    $http.get('/Product/getDetails')
-    //        .success(function (data) {
-    //            $scope.listpost = data;
-    //            $scope.listImg = data.map(x => x.Slides);
-    //            for (var i in $scope.listImg) {
-    //                console.log($scope.listImg[i]);
-    //            }
-    //            console.log('success' + data);
-    //        }).error(function (error) {
-    //            console.log(error);
-    //        })
-    //}
-});
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-//app.directive('ckeditor', function () {
-//        return {
-//            require: '?ngModel',
-//            link: function (scope, element, attrs, ngModel) {
-//                var ckeditor = CKEDITOR.replace(element[0], {
-
-//                });
-//                if (!ngModel) {
-//                    return;
-//                }
-//                ckeditor.on('instanceReady', function () {
-//                    ckeditor.setData(ngModel.$viewValue);
-//                });
-//                ckeditor.on('pasteState', function () {
-//                    scope.$apply(function () {
-//                        ngModel.$setViewValue(ckeditor.getData());
-//                    });
-//                });
-//                ngModel.$render = function (value) {
-//                    ckeditor.setData(ngModel.$viewValue);
-//                };
-//            }
-//        };
-//    });
-
-
-//    directive('ckeditor', function () {
-//    return {
-//        require: '?ngModel',
-//        link: function (scope, element, attrs, ngModel) {
-//            var ckeditor = CKEDITOR.replace(element[0], {
-
-//            });
-//            if (!ngModel) {
-//                return;
-//            }
-//            ckeditor.on('instanceReady', function () {
-//                ckeditor.setData(ngModel.$viewValue);
-//            });
-//            ckeditor.on('pasteState', function () {
-//                scope.$apply(function () {
-//                    ngModel.$setViewValue(ckeditor.getData());
-//                });
-//            });
-//            ngModel.$render = function (value) {
-//                ckeditor.setData(ngModel.$viewValue);
-//            };
-//        }
-//    };
-//});
