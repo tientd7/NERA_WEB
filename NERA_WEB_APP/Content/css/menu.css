@@ -7,11 +7,14 @@ NAVIGATION
 .mainnav {
     position: relative;
 }
-
+.navbar-nav{
+    margin-left:90px;
+    text-align:left;
+}
 @media(min-width:767px) {
     .navbar-nav {
-        float: none;
-        text-align: center;
+        margin-left: 90px;
+        text-align: left;
     }
 
         .navbar-nav > li {
@@ -35,45 +38,90 @@ NAVIGATION
     margin: 0;
 }
 
-.navbar-default .navbar-nav > li > a {
-    padding: 15px 22px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 400;
-    font-family: 'Montserrat', sans-serif;
+.border-right {
+    right: -0.5px;
+    position: absolute;
+    border-right: 1px dotted #fff;
+    z-index: 1111;
+    height: 30px;
+    top: 50%;
+    transform: translate(0,-50%);
 }
 
-@media only screen and (max-width:1070px) {
+.navbar-default .navbar-nav > li > a {
+    font-weight: 700;
+    padding: 15px 22px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+.menu-item-last{
+    border-right:none;
+}
+
+@media only screen and (max-width:1261px) {
+    .navbar-default .navbar-nav-mb > li > a {
+        font-size: 13px;
+        padding: 15px 17px;
+    }
+}
+
+@media only screen and (max-width:1201px) {
+    .navbar-default .navbar-nav-mb > li > a {
+        font-size: 12px;
+        padding: 15px 10px;
+    }
+}
+@media only screen and (max-width:1117px) {
+    .navbar-default .navbar-nav-mb > li > a {
+        font-size: 11px;
+        padding: 15px 10px;
+    }
+}
+/*@media only screen and (max-width:1070px) {
     .navbar-default .navbar-nav > li > a {
         font-size: 13px;
         padding: 15px 20px;
     }
+}*/
+.navbar-nav > li {  
+    margin-left: -3.5px;
 }
 
-
+.navbar-nav > li:hover {
+    /*background-color: #1a8ae1;*/
+}
 
 .navbar-nav > li > a {
     text-transform: uppercase;
+    
 }
 
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-    color: #fff;
-    background-color: #1a8ae1;
-}
+    
+
+    .navbar-default .navbar-nav > li > a:hover,
+    .navbar-default .navbar-nav > li > a:focus {
+        color: #dddddd;
+        background-color: #343434;
+    }
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-    color: #1a8ae1;
+    color: #dddddd;
+    /*color: #1a8ae1;*/
     background-color: transparent;
 }
 
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
-    color: #fff;
-    background-color: #1a8ae1;
+    /*color: #fff;
+    background-color: #1a8ae1;*/
+    color: #dddddd;
+    background-color: #343434;
 }
 
 .navbar-default .navbar-nav > li:focus {
@@ -93,7 +141,7 @@ NAVIGATION
     position: absolute;
     left: 0;
     display: block;
-    margin: 0;
+    margin: 0 0 0 30px;
     padding: 9px 18px;
     background-color: transparent;
     background-image: none;
@@ -234,6 +282,10 @@ NAVIGATION
 
 @media screen and (max-width:991px) {
 
+    button.navbar-toggle{
+        margin-left:0;
+    }
+
     span.nav-menu {
         float: right;
         display: block;
@@ -281,15 +333,18 @@ DROPDOWN CSS
     box-shadow: none;
     padding: 0;
 }
+    .dropdown-menu li {
+        position:relative;
+    }
 
-.nav.navbar-nav li ul.dropdown-menu li a {
-    padding: 8px 20px;
-    font-weight: 500;
-    line-height: 20px;
-    color: #343434;
-    text-transform: uppercase;
-    font-size: 11px;
-}
+    .nav.navbar-nav li ul.dropdown-menu li a {
+        padding: 8px 20px;
+        font-weight: 500;
+        line-height: 20px;
+        color: #343434;
+        text-transform: uppercase;
+        font-size: 11px;
+    }
 
     .nav.navbar-nav li ul.dropdown-menu li a:hover,
     .nav.navbar-nav li ul.dropdown-menu li a:focus {
@@ -454,3 +509,26 @@ li.dropdown:hover > .submenu-sub-wrapper {
 li.dropdown.menu-animating > .submenu-sub-wrapper {
     overflow: hidden;
 }
+
+
+.dropdown-menu-level-3 {
+    position: absolute;
+    right: -215px;
+    top: 0;
+    display:none;
+}
+
+.dropdown-menu li:hover .dropdown-menu-level-3 {
+    display:block;
+}
+
+.nav.navbar-nav li ul.dropdown-menu li .dropdown-menu-level-3 li a {
+    line-height: 20px;
+    background: #888;
+    display: block;
+    padding: 8px 20px;
+    background:#fff;
+}
+    .nav.navbar-nav li ul.dropdown-menu li .dropdown-menu-level-3 li a:hover {
+        background: #1a8ae1;
+    }

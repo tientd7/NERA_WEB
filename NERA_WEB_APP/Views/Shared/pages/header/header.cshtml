@@ -17,9 +17,9 @@
                     <div class="slogan text-center">
                         <h1>
                             <span>
-                           
-                                    <span>Khẩu hiệu Neraland</span>
-                             
+
+                                <span> </span>
+
 
                             </span>
 
@@ -101,7 +101,7 @@
                     <div class="wt">
                         <span>
                             <i class="fa fa-briefcase"></i>
-                            Thời gian làm việc từ 8h đến 22h hàng ngày
+                            Thời gian làm việc: 8h - 22h
                         </span>
                     </div>
 
@@ -177,7 +177,7 @@
                         <div class="wt">
                             <span>
                                 <i class="fa fa-briefcase"></i>
-                                Thời gian làm việc từ 8h đến 22h hàng ngày
+                                Thời gian làm việc: 8h - 22h
                             </span>
                         </div>
                     </div>
@@ -190,7 +190,7 @@
                     <div class="slogan text-center col-sm-12">
                         <h1>
                             <span>
-                                Khẩu hiệu website
+
                             </span>
                         </h1>
                     </div>
@@ -220,8 +220,58 @@
 
 
                 <ul class="nav navbar-nav hidden-sm">
-                    <li><a href="/Home/Introduce">Giới thiệu</a></li>
-                   
+                    <li>
+                        <a href="/Home/Introduce">Giới thiệu</a>
+                        <span class="border-right"></span>
+                    </li>
+
+                    <!-- Project -->
+                    <li class="dropdown">
+                        <a href="#">Dự án <b class="caret"></b></a>
+
+                        <div class="submenu-wrapper submenu-wrapper-topbottom">
+                            <div class="submenu-inner  submenu-inner-topbottom">
+                                <ul class="dropdown-menu" ng-controller="ProductCtrl">
+                                    <li>
+                                        <a href="/Home/Introduce">Giới thiệu</a>
+                                        <ul class="dropdown-menu-level-3">
+                                            <li>
+                                                <a href="#">Dự án Dự án Dự án Dự án Dự án</a>
+
+                                            </li>
+                                            <li>
+                                                <a href="#">Dự án</a>
+
+                                            </li>
+                                            <li>
+                                                <a href="#">Dự án</a>
+
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li ng-repeat="i in ItemSPEnable ">
+                                        <a href="/Product/product?id={{i.Item_Id}}">{{i.Item_Name}}</a>
+                                        @*<ul class="dropdown-menu-level-3">
+                                            <li>
+                                                <a href="#">Dự án</a>
+
+                                            </li>
+                                            <li>
+                                                <a href="#">Dự án</a>
+
+                                            </li>
+                                            <li>
+                                                <a href="#">Dự án</a>
+
+                                            </li>
+                                        </ul>*@
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="border-right"></span>
+                    </li>
+
 
                     <!-- Services -->
                     <li class="dropdown">
@@ -236,30 +286,26 @@
 
                                 </ul>
                             </div>
+
                         </div>
-
-                    </li>
-                    <!-- /Services -->
-
-                    <li class="dropdown">
-                        <a href="#">Dự án <b class="caret"></b></a>
-
-                        <div class="submenu-wrapper submenu-wrapper-topbottom">
-                            <div class="submenu-inner  submenu-inner-topbottom">
-                                <ul class="dropdown-menu" ng-controller="ProductCtrl">
-                                    <li ng-repeat="i in ItemSPEnable "><a href="/Product/product?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
+                        <span class="border-right"></span>
                     </li>
 
                     @*<li><a href="/Home/Utility">Tiện ích</a> </li>*@
                     <!-- /Blog -->
-                    <li><a href="/Home/Event">Tin tức &amp; Sự kiện</a></li>
+                    <li>
+                        <a href="/Home/Event">Tin tức &amp; Sự kiện</a>
+                        <span class="border-right"></span>
+                    </li>
                     @*<li><a href="/Home/Tamnhin">Tin tức </a></li>*@
-                    <li><a href="/Home/Nha_dau_tu">Nhà đầu tư </a></li>
-                    <li><a href="/Home/recruit">Tuyển dụng</a></li>
+                    <li>
+                        <a href="/Home/Nha_dau_tu">Nhà đầu tư </a>
+                        <span class="border-right"></span>
+                    </li>
+                    <li>
+                        <a href="/Home/recruit" class="menu-item-last" style="border:none;">Tuyển dụng</a>
+
+                    </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
 

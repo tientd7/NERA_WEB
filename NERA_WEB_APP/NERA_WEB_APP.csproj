@@ -32,20 +32,23 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CKFinder, Version=2.6.0.2792, Culture=neutral, PublicKeyToken=579e7adc719a1423, processorArchitecture=MSIL">
@@ -841,7 +844,6 @@
     <Content Include="Scripts\Controller\BaiViet\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Scripts\Controller\BaiViet\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Scripts\Controller\BaiViet\ckfinder\userfiles\.htaccess" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\CHANGES.md" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\LICENSE.md" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\plugins\btgrid\.gitignore" />
@@ -892,6 +894,7 @@
     <Content Include="Scripts\Controller\BaiViet\ckeditor\skins\bootstrapck\scss\config\_config.scss" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\skins\bootstrapck\scss\config\_defaults.scss" />
     <Content Include="Scripts\Controller\BaiViet\ckeditor\skins\bootstrapck\scss\dialog\dialog.scss" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Controller\BaiViet\BaiVietInsertUpdate.js" />
@@ -1564,6 +1567,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jquery\language.js" />
+    <Content Include="Scripts\jquery\search.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\js\classie.js" />
     <Content Include="Scripts\js\flickerPhoto.min.js" />

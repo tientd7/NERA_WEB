@@ -50,6 +50,9 @@ namespace NERA_WEB_APP.Controllers
             Session["Post_Title"] = detail.Post_Title;
             ViewBag.listImg =(
                 from i in db.CS_Post_Slides
+                join slidepost in db.CS_Post_Info
+                on i.Post_Id equals slidepost.Post_Id
+                where i.Post_Id == id
                 select i).Take(3);
                 
             return View(detail);
