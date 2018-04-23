@@ -198,6 +198,17 @@ namespace NERA_WEB_APP.Controllers
 
         }
 
+        public ActionResult ThueNha()
+        {
+            return View();
+        }
+
+        public JsonResult HienThi()
+        {
+            var lstKH = (from obj in db.APP_User_Message select obj).ToList(); 
+            return new JsonResult { Data = lstKH, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
     }
 
 }

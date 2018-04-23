@@ -1,0 +1,43 @@
+﻿
+
+<section class="container">
+    <h3 class="title-page">Danh sách</h3>
+
+    <form>
+        <div ng-controller="ProductCtrl">
+            <table class="table-wrapper table-bordered table-hover container">
+                <tr class="title-name-column">
+                   
+                    <th>Họ tên</th>
+                    <th>Số điện thoại</th>
+                    <th>Post_Id</th>
+                    <th>Tên Bài Viết</th>
+                    <th>Id Sản phẩm</th>
+                    <th>Ngày Đăng Ký</th>
+                    <th>Chưa Duyệt</th>
+                    <th>Ngày Đọc</th>
+                <tr ng-repeat="a in ListKH">
+                    <td>{{a.cus_name}}</td>
+                    <td>{{a.cus_phone}}</td>
+                    <td>{{a.Post_Id}}</td>
+                    <td>{{a.Post_Title}}</td>
+                    <td>{{a.Item_Id}}</td>
+                    <td>{{a.create_date |mydate| date: 'dd-MM-yyyy'}}</td>
+                    <td>{{a.unread}}</td>
+                    <td>{{a.read_date |mydate| date: 'dd-MM-yyyy'}}</td>
+                </tr>
+            </table>
+
+
+        </div>
+    </form>
+    </section>
+
+@section JavaScript{
+<script src="~/Scripts/Controller/Product/product.js"></script>
+
+}
+
+
+
+

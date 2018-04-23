@@ -1667,6 +1667,7 @@
     <Content Include="Views\Tariff\Index.cshtml" />
     <Content Include="Views\Services\details.cshtml" />
     <Content Include="Views\Shared\pages\menu_off_canvas\menu_off_canvas _admin.cshtml" />
+    <Content Include="Views\Product\ThueNha.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

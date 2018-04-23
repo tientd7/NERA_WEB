@@ -262,15 +262,28 @@ app.controller("ProductCtrl", function ($scope, $http) {
                     console.log(error);
                 })
         }
-
-
-        $scope.CreateUser = function (user) {
-            $http.post('/Product/CreateUse', { obj: user })
-                .success(function (data) {
-                })
-    };
-
     }
+
+
+    $scope.CreateUser = function (user) {
+        $http.post('/Product/CreateUse', { obj: user })
+            .success(function (data) {
+                console.log(data)
+
+            })
+    };
+    $scope.ListKh;
+    $scope.Hienthi = function () {
+        alert("321")
+        $http.get('/Product/HienThi')
+            .success(function (data, status) {
+            $scope.ListKh = data;
+        }).error(function (error, status) {
+            console.log("error :" + error + status);
+            })   
+    };
+    $scope.Hienthi();
+    })
 
 
 
