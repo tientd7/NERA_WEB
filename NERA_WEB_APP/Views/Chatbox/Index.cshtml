@@ -14,23 +14,31 @@
                     <option value="Create_date">Ngày Viết</option>
                 </select>*@
             <table class="table-wrapper table-bordered table-hover container">
-                <tr  class="title-name-column" >
+                <tr class="title-name-column">
                     <th>STT</th>
                     <th ng-click="sort('Request_Name')">Họ tên</th>
                     <th ng-click="sort('Request_Phone')">Số điện thoại</th>
                     <th class="lbl-content">Nội dung</th>
-                    <th ng-click="sort('Unread')">Chưa duyệt</th>
                     <th ng-click="sort('Create_date')">Ngày nhận</th>
+                    <th ng-click="sort('Unread')">Duyệt</th>
+
                 </tr>
-                <tr dir-paginate="a in data | itemsPerPage:5 | orderBy : sortColumn:reserveSort">
+                <tr dir-paginate="item in data | itemsPerPage:5 | orderBy : sortColumn:reserveSort">
                     <td>{{$index}}</td>
-                    <td>{{a.Request_Name}}</td>
-                    <td>{{a.Request_Phone}}</td>
-                    <td>{{a.Request_Content}}</td>
-                    <td>
-                        <input type="checkbox" ng-model="a.Unread" />
+                    <td>{{item.Request_Name}}</td>
+                    <td>{{item.Request_Phone}}</td>
+                    <td>{{item.Request_Content}}</td>
+                    <td>{{item.Create_date |mydate| date:"dd/MM/yyyy"}}</td>
+                    <td style="position:relative;">
+                        <div class="turn">
+                            <div class="turn-on" ng-hide="item.Unread">
+
+                            </div>
+                        </div>
+                        
+                        <input type="checkbox" ng-model="item.Unread" class="check-read" ng-click="updateUnread(item.Chat_Id,item.Unread)" ng-disabled="item.Unread" />
                     </td>
-                    <td>{{a.Create_date |mydate| date: 'dd-MM-yyyy'}}</td>
+
                 </tr>
             </table>
 

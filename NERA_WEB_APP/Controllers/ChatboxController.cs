@@ -93,6 +93,7 @@ namespace NERA_WEB_APP.Controllers
             LST = LST.Skip(pageIndex * pageSize).Take(pageSize);
             return Json(new object[] { LST.ToList(),totalRows }, JsonRequestBehavior.AllowGet);
         }
+
         [AllowAnonymous]
         public void addData(CS_ChatBox_Info cs)
         {
@@ -109,6 +110,34 @@ namespace NERA_WEB_APP.Controllers
             db.SaveChanges();
             //return Json(cscb);
 
+        }
+
+        private void updateChatbox(CS_ChatBox_Info csInfor)
+        {
+            CS_ChatBox_Info newInfor = new CS_ChatBox_Info();
+            newInfor.Unread = false;
+            db.Entry(newInfor).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+        }
+
+
+        public JsonResult update(CS_ChatBox_Info item)
+        {
+            
+            item.Create_date = DateTime.Now;
+            db.Entry(item).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+            return Json("");
+        }
+
+        public JsonResult updateUnread(int id,bool unread)
+        {
+
+            var data = db.CS_ChatBox_Info.Where(i => i.Chat_Id == id).FirstOrDefault();
+            data.Unread = unread;          
+            db.Entry(data).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+            return Json("");
         }
 
 

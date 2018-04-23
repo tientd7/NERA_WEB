@@ -41,7 +41,7 @@
         @Model.Post_Title
     </span>
 </div>
-<section class="details-product-wrap section-padding" ng-controller="ProductCtrl">
+<section class="details-product-wrap" ng-controller="ProductCtrl">
     @Html.Partial("~/Views/Product/popupUserInfor.cshtml")
     <div class="container">
         <div class="row">
@@ -124,12 +124,20 @@
                             @Model.Meta_Desc
                         </h4>
                     </div>
+
+                    <div class="_state-detail-product">
+                        <button type="button" class="btn btn-show-popup">
+                            Đăng ký thuê nhà
+                        </button>
+                    </div>
                 </div>
-                <div class="state-detail-product">
+
+
+                @*<div class="state-detail-product">
                     <button type="button" class="btn btn-show-popup">
                         Đăng ký thuê nhà
                     </button>
-                </div>
+                </div>*@
 
             </div>
 

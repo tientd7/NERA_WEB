@@ -84,6 +84,14 @@
     };
     $scope.getData = $scope.getData || GetAllData();
 
+
+
+
+
+
+
+    $scope.isUnread = false;
+
     function GetAllData() {
         //debugger;
         var config = {
@@ -107,6 +115,24 @@
         });
     };
 
+
+
+
+
+    $scope.item = null;
+
+    $scope.updateUnread = function (id,unread) {
+
+        $http.post("/Chatbox/updateUnread", { id: id, unread: unread })
+            .success(function (data) {
+                GetAllData();
+            }).error(function (error) {
+                console.log(error);
+            });
+    }
+
+
+    // sắp xếp
     $scope.sortColumn = 'name';
     $scope.reserveSort = false;
     $scope.sort = function (item) {

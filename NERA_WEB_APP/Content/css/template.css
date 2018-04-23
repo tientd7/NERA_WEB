@@ -514,7 +514,6 @@ section {
 
 /*top-bar*/
 .top-bar {
-    padding: 10px 0;
 }
 
     .top-bar .social-links i {
@@ -528,7 +527,6 @@ section {
 /*call-to-action*/
 
 .call-to-action {
-    padding: 15px 18px;
      font-family: 'Montserrat', sans-serif;
 }
 .call-to-action  h1{
@@ -595,7 +593,7 @@ section {
 .topbar-right {
     display: grid;
     grid-template-columns: 60% 40%;
-    padding: 15px 18px;
+    padding: 26px 18px 0px 15px;
     position: relative;
 }
 
@@ -782,30 +780,6 @@ POPUP FEATURE
 }
 
 
-#box-search {
-    float: right;
-    width: 28%;
-    position: absolute;
-    top: 20px;
-    right: 0;
-    padding: 40px 0px 40px 40px;
-    height: 150px;
-}
-
-.txt-search {
-    outline: none;
-    border: none;
-    border-radius: 30px;
-    z-index: 1;
-    width: 70%;
-    padding-left: 3%;
-}
-
-.work-time {
-    margin-top: 20px;
-    text-align: center;
-    color: #fff;
-}
 
 /* ------------------------------------------------------------------
 FOOTER WIDGET SECTION
