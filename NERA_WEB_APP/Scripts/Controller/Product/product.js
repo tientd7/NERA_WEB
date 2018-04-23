@@ -3,7 +3,6 @@
 
 app.controller("ProductCtrl", function ($scope, $http) {
 
-
     $scope.isExisting = true;
 
 
@@ -60,12 +59,6 @@ app.controller("ProductCtrl", function ($scope, $http) {
     };
     // chạy hàm
     $scope.productEnable();
-
-
-
-
-
-
 
     // lấy ảnh
     $scope.listImg;
@@ -272,17 +265,22 @@ app.controller("ProductCtrl", function ($scope, $http) {
 
             })
     };
+
     $scope.ListKh;
     $scope.Hienthi = function () {
-        alert("321")
+       
         $http.get('/Product/HienThi')
             .success(function (data, status) {
-            $scope.ListKh = data;
-        }).error(function (error, status) {
-            console.log("error :" + error + status);
-            })   
+                $scope.ListKh = data;
+                console.log($scope.ListKh);
+            }).error(function (error, status) {
+                console.log("error :" + error + status);
+            }); 
     };
     $scope.Hienthi();
+
+
+
     })
 
 

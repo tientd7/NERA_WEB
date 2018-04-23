@@ -16,15 +16,15 @@
                     <th>Ngày Đăng Ký</th>
                     <th>Chưa Duyệt</th>
                     <th>Ngày Đọc</th>
-                <tr ng-repeat="a in ListKH">
-                    <td>{{a.cus_name}}</td>
-                    <td>{{a.cus_phone}}</td>
-                    <td>{{a.Post_Id}}</td>
-                    <td>{{a.Post_Title}}</td>
-                    <td>{{a.Item_Id}}</td>
-                    <td>{{a.create_date |mydate| date: 'dd-MM-yyyy'}}</td>
-                    <td>{{a.unread}}</td>
-                    <td>{{a.read_date |mydate| date: 'dd-MM-yyyy'}}</td>
+                <tr ng-repeat="item in ListKh">
+                    <td>{{item.cus_name}}</td>
+                    <td>{{item.cus_phone}}</td>
+                    <td>{{item.Post_Id}}</td>
+                    <td>{{item.Post_Title}}</td>
+                    <td>{{item.Item_Id}}</td>
+                    <td>{{item.create_date |mydate| date: 'dd-MM-yyyy'}}</td>
+                    <td>{{item.unread}}</td>
+                    <td>{{item.read_date |mydate| date: 'dd-MM-yyyy'}}</td>
                 </tr>
             </table>
 
