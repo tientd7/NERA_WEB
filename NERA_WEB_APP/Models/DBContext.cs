@@ -25,6 +25,7 @@ namespace NERA_WEB_APP.Models
             modelBuilder.Configurations.Add(new CS_Tariff_Manager_Map());
             modelBuilder.Configurations.Add(new Cs_Price_Info_Map());
             modelBuilder.Configurations.Add(new Cs_Tariff_Price_Map());
+            modelBuilder.Configurations.Add(new App_User_Message());
         }
         public DbSet<APP_AUTO_NUMBER> App_Auto_numbers { set; get; }
         public DbSet<App_User_Info> App_User_Info { set; get; }
@@ -47,6 +48,8 @@ namespace NERA_WEB_APP.Models
         public DbSet<CS_Tariff_Manager> CS_Tariff_Managers { set; get; }
         public DbSet<Cs_Price_Info> CS_Price_Infos { set; get; }
         public DbSet<Cs_Tariff_Price> CS_Tariff_Prices { set; get; }
+
+        public DbSet<APP_User_Message> APP_User_Message { set; get; }
 
     }
 }
