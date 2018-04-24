@@ -1164,10 +1164,10 @@ a.link-detail:hover{
     display: block;
     transition: all linear 0.2s;
 }
-.ng-hide:not(.ng-hide-animate) {
+.turn .ng-hide:not(.ng-hide-animate) {
     display: block !important;
 }
-.ng-hide {
+.turn .ng-hide {
     cursor: pointer;
     height: 20px;
     width: 50px;

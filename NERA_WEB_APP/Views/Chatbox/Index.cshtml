@@ -20,6 +20,7 @@
                     <th ng-click="sort('Request_Phone')">Số điện thoại</th>
                     <th class="lbl-content">Nội dung</th>
                     <th ng-click="sort('Create_date')">Ngày nhận</th>
+                    <th ng-click="sort('Read_date')">Ngày đọc</th>
                     <th ng-click="sort('Unread')">Duyệt</th>
 
                 </tr>
@@ -29,14 +30,20 @@
                     <td>{{item.Request_Phone}}</td>
                     <td>{{item.Request_Content}}</td>
                     <td>{{item.Create_date |mydate| date:"dd/MM/yyyy"}}</td>
+                    <td ng-if="item.Read_date != null">
+
+                        {{item.Read_date |mydate| date:"dd/MM/yyyy"}}
+                    </td>
+                    <td ng-if="item.Read_date == null">
+                    </td>
                     <td style="position:relative;">
                         <div class="turn">
                             <div class="turn-on" ng-hide="item.Unread">
 
                             </div>
                         </div>
-                        
-                        <input type="checkbox" ng-model="item.Unread" class="check-read" ng-click="updateUnread(item.Chat_Id,item.Unread)" ng-disabled="item.Unread" />
+
+                        <input type="checkbox" ng-model="item.Unread" class="check-read" ng-click="update(item.Chat_Id,item.Unread)" ng-disabled="item.Unread" />
                     </td>
 
                 </tr>

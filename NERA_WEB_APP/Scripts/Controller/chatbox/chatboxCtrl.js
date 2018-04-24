@@ -121,9 +121,9 @@
 
     $scope.item = null;
 
-    $scope.updateUnread = function (id,unread) {
+    $scope.update = function (id,unread) {
 
-        $http.post("/Chatbox/updateUnread", { id: id, unread: unread })
+        $http.post("/Chatbox/update", { id: id, unread: unread })
             .success(function (data) {
                 GetAllData();
             }).error(function (error) {

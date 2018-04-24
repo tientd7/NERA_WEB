@@ -16,7 +16,7 @@
                     <th>Ngày Đăng Ký</th>
                     <th>Chưa Duyệt</th>
                     <th>Ngày Đọc</th>
-                <tr ng-repeat="item in ListKh">
+                <tr dir-paginate="item in ListKh | itemsPerPage:5">
                     <td>{{item.cus_name}}</td>
                     <td>{{item.cus_phone}}</td>
                     <td>{{item.Post_Id}}</td>
@@ -32,6 +32,7 @@
         </div>
     </form>
     </section>
+
 
 @section JavaScript{
 <script src="~/Scripts/Controller/Product/product.js"></script>

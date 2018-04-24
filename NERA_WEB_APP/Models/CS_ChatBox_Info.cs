@@ -17,5 +17,6 @@ namespace NERA_WEB_APP.Models
         public string Request_Content { get; set; }
         public bool Unread { get; set; }
         public DateTime? Create_date { get; set; }
+        public DateTime? Read_date { get; set; }
     }
 }

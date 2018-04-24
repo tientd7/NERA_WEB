@@ -18,6 +18,7 @@ namespace NERA_WEB_APP.Models.Maps
             this.Property(t => t.Request_Content).HasColumnName("Request_Content");
             this.Property(t => t.Unread).HasColumnName("Unread");
             this.Property(t => t.Create_date).HasColumnName("Create_date");
+            this.Property(t => t.Read_date).HasColumnName("Read_date");
 
         }
 
