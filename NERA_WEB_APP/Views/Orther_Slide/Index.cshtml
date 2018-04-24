@@ -60,42 +60,47 @@
                 <td style="width:100px;">Chức năng</td>
             </tr>
             <tr class="tr-add-data">
-                <td></td>
-                <td><input type="text" class="form-control  name item-type" ng-model="CreateItem.Image_Title" /></td>
-                <td>
-                    
-                    <a href="#" ng-click="onSelectImg('txtAnh')"><img src='{{Image_URL}}' style="height:100px; width:100px;" /></a>
-                </td>
+               
+                    <td></td>
+                    <td><input type="text" class="form-control  name item-type item-in" ng-model="CreateItem.Image_Title" /></td>
+                    <td>
 
-                <td>
-                    <input type="text" class="form-control  link item-type txtAnh" ng-change ng-model="CreateItem.Image_Link" />
+                        <a href="#" ng-click="onSelectImg('txtAnh')"><img src='{{Image_URL}}' style="height:100px; width:100px;" /></a>
+                    </td>
 
-                </td>
-                <td>
-                    <select class="form-control item-type" ng-model="CreateItem.Language" style="width:150px;">
-                        <option value="">Chọn ngôn ngữ</option>
-                        <option value="VI">Việt nam</option>
-                        <option value="EN">English</option>
-                    </select>
-                </td>
-                <td>
-                    <select class="form-control item-type" ng-model="CreateItem.Slide_Type" style="width:150px;">
-                        <option value="">Vị trí</option>
-                        <option value="0">Slide main</option>
-                        <option value="1">Slide phản hồi</option>
-                    </select>
-                </td>
+                    <td>
+                        <input type="text" class="form-control link item-type txtAnh item-in" ng-change ng-model="CreateItem.Image_Link" />
 
-                <td>
-                    <input type="text" class="form-control item-type" ng-model="CreateItem.Image_Order" />
+                    </td>
+                    <td>
+                        <select class="form-control item-type item-in" ng-model="CreateItem.Language" style="width:150px;">
+                            <option value="">Chọn ngôn ngữ</option>
+                            <option value="VI">Việt nam</option>
+                            <option value="EN">English</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-control item-type item-in" ng-model="CreateItem.Slide_Type" style="width:150px;">
+                            <option value="">Vị trí</option>
+                            <option value="0">Slide main</option>
+                            <option value="1">Slide phản hồi</option>
+                        </select>
+                    </td>
 
-                </td>
-                <td><input type="checkbox" ng-model="CreateItem.Enable" /></td>
-                <td>
-                    <button type="button" style="font-size:30px; padding:5px 35px; background:none; border:none;" value="Thêm" ng-click="onCreateSlide(CreateItem)">
-                        <i class="fa fa-plus" aria-hidden="true"></i>
-                    </button>
-                </td>
+                    <td>
+                        <input type="text" class="form-control item-type item-in" ng-model="CreateItem.Image_Order" />
+
+                    </td>
+                    <td><input type="checkbox" class="item-checkbox" ng-model="CreateItem.Enable" /></td>
+                    <td  class="action-add-wrapper">
+                        <button type="button" class="_btn btn-create-data-item" value="Thêm" ng-click="onCreateSlide(CreateItem)">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </button>
+
+                        <button id="btn-close" class="_btn btn-close-wrapper-add-data"><i class="fa fa-minus" aria-hidden="true"></i></button>
+
+                    </td>
+               
             </tr>
             <tr dir-paginate='Item in ListSlide | itemsPerPage:5'>
                 <td>{{Item.Tbl_Id}}</td>

@@ -76,6 +76,13 @@ $('.btn-add-data').click(function () {
     $('.tr-add-data td input.name').focus();
 })
 
+// đóng form
+$('.btn-close-wrapper-add-data').click(function () {
+    $('.tr-add-data').hide();
+    $('.item-in').val("");
+    $('.item-checkbox').removeAttr("checked",false);
+})
+
 
 
 // Chatbox

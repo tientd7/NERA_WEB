@@ -1536,6 +1536,7 @@ table {
 }
 
 
+
 .tr-add-data {
     display: none;
 }
@@ -1546,11 +1547,36 @@ table {
         border: 1px solid rgba(0, 0, 0, .5);
     }
 
-
-/* PAGINATION*/
-.pagination-wrapper-page {
+.action-add-wrapper {
     position: relative;
+    width: 100px;
 }
+.btn-create-data-item {
+    padding: 5px 35px;
+    background: none;
+    border: none;
+}
+
+.btn-close-wrapper-add-data {
+    position: absolute;
+    top: 12px;
+    right: 0;
+}
+#btn-close.btn-close-wrapper-add-data i {
+    font-size: 30px;
+}
+
+._btn i {
+    font-size: 30px;
+}
+
+    ._btn i:hover{
+        color:#000;
+    }
+    /* PAGINATION*/
+    .pagination-wrapper-page {
+        position: relative;
+    }
 
 .pagination-wrapper {
     position: absolute;

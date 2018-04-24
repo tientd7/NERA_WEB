@@ -39,29 +39,30 @@
 
             <tr class="tr-add-data">
                 <td style="width:100px;">
-                    <input type="text" class="form-control name item-type" ng-model="Item.Item_Name" />
+                    <input type="text" class="form-control name item-type  item-in" ng-model="Item.Item_Name" />
                 </td>
                 <td>
                     <input type="text" class="form-control des item-type " ng-model="Item.Meta_Desc" />
                 </td>
                 <td>
-                    <input type="text" class="form-control keys item-type" ng-model="Item.Meta_Key" />
+                    <input type="text" class="form-control keys item-type  item-in" ng-model="Item.Meta_Key" />
                 </td>
 
                 <td style="width:100px;">
-                    <select class="form-control select-lang item" ng-model="Item.Language" style="width:150px;">
+                    <select class="form-control select-lang item  item-in" ng-model="Item.Language" style="width:150px;">
                         <option value="">Chọn ngôn ngữ</option>
                         <option value="VI">Việt nam</option>
                         <option value="EN">English</option>
                     </select>
                 </td>
                 <td style="width:50px;">
-                    <input type="checkbox" ng-model="Item.Enable" />
+                    <input type="checkbox" class="item-checkbox" ng-model="Item.Enable" />
                 </td>
-                <td style="width:100px;">
-                    <button type="button" style="font-size:30px; padding:5px 35px; background:none; border:none;" value="Thêm" ng-click="Create(Item)">
+                <td class="action-add-wrapper">
+                    <button type="button" class="_btn btn-create-data-item" value="Thêm" ng-click="Create(Item)">
                         <i class="fa fa-plus" aria-hidden="true"></i>
                     </button>
+                    <button id="btn-close" class="_btn btn-close-wrapper-add-data"><i class="fa fa-minus" aria-hidden="true"></i></button>
                 </td>
             </tr>
 
