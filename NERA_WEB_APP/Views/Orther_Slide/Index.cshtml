@@ -64,7 +64,6 @@
                     <td></td>
                     <td><input type="text" class="form-control  name item-type item-in" ng-model="CreateItem.Image_Title" /></td>
                     <td>
-
                         <a href="#" ng-click="onSelectImg('txtAnh')"><img src='{{Image_URL}}' style="height:100px; width:100px;" /></a>
                     </td>
 
@@ -82,8 +81,8 @@
                     <td>
                         <select class="form-control item-type item-in" ng-model="CreateItem.Slide_Type" style="width:150px;">
                             <option value="">Vị trí</option>
-                            <option value="0">Slide main</option>
-                            <option value="1">Slide phản hồi</option>
+                            <option value="Slide main">Slide main</option>
+                            <option value="Slide feedback">Slide feedback</option>
                         </select>
                     </td>
 
@@ -115,7 +114,8 @@
 
                         <img src="{{Item.Image_URL}}" style="height:100px; width:100px;" />
                     </div>
-                    <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Image_URL" />
+                    <a href="#" ng-click="onSelectImg('txtAnh')" ng-hide="getStatusSlide(Item.Tbl_Id)"><img src='{{Item.Image_URL}}' style="height:100px; width:100px;" /></a>
+                    <input class="form-control" type="hidden" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Image_URL"  />
                 </td>
                 <td>
                     <div ng-show="getStatusSlide(Item.Tbl_Id)" style="width:200px; display:block; word-wrap: break-word;">
@@ -139,14 +139,19 @@
                     <div ng-show="getStatusSlide(Item.Tbl_Id)">
                         {{Item.Slide_Type}}
                     </div>
-                    <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Slide_Type" />
+                    <select class="form-control item-type item-in" ng-model="Item.Slide_Type" ng-hide="getStatusSlide(Item.Tbl_Id)" style="width:150px;">
+                        <option value="">Vị trí</option>
+                        <option value="Slide main">Slide main</option>
+                        <option value="Slide feedback">Slide feedback</option>
+                    </select>
+                   
                 </td>
 
                 <td>
                     <div ng-show="getStatusSlide(Item.Tbl_Id)">
                         {{Item.Image_Order}}
                     </div>
-                    <input class="form-control" type="text" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Image_Order" />
+                    <input class="form-control" type="number" min="1" ng-hide="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Image_Order" />
                 </td>
                 <td>
                     <input type="checkbox" ng-disabled="getStatusSlide(Item.Tbl_Id)" ng-model="Item.Enable" />

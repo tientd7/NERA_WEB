@@ -17,21 +17,11 @@
                     <div class="slogan text-center">
                         <h1>
                             <span>
-
                                 <span> </span>
-
-
                             </span>
-
-
                         </h1>
-
-
                     </div>
-
-
                 </div>
-
 
 
                 <div class="col-sm-3 hidden-xs">
@@ -70,15 +60,7 @@
 
                         </div>
                         <div class="lang-support pull-right">
-                            @*<div>
-
-                                    <select class="lang-select">
-
-                                        <option value="vietnam" data-class="flag-vietnam">VietNam</option>
-                                        <option value="united-kingdom" data-class="flag-uk">English</option>
-                                    </select>
-                                </div>*@
-
+ 
                             <div class="language-select">
                                 <div class="select-country">
                                     <span class="country country-active selected-vn">Vietnam</span>
@@ -157,7 +139,7 @@
                                 <div class="language-select" style="left: 10px;">
                                     <div class="select-country">
                                         <span class="country country-active selected-vn">Vietnam</span>
-                                        <span class="country country-active selected-en" if;">English</span>
+                                        <span class="country country-active selected-en">English</span>
                                         <span class="country country-noactive  country-vietnam">
                                             Vietnam <img class="img-flags" src="~/Media/images/flags/vietnam.svg" />
                                         </span>
@@ -250,7 +232,7 @@
                                         </ul>
                                     </li>
                                     <li ng-repeat="i in ItemSPEnable ">
-                                        <a href="/Product/product?id={{i.Item_Id}}">{{i.Item_Name}}</a>
+                                        <a href="/Product/product?id={{i.Item_Id}}">{{i.Item_Name}} {{i.Item_Id}}</a>
                                         @*<ul class="dropdown-menu-level-3">
                                             <li>
                                                 <a href="#">Dự án</a>
