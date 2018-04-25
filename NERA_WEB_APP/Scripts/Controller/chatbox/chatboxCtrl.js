@@ -85,13 +85,6 @@
     $scope.getData = $scope.getData || GetAllData();
 
 
-
-
-
-
-
-    $scope.isUnread = false;
-
     function GetAllData() {
         //debugger;
         var config = {
@@ -106,7 +99,7 @@
         };
         $http.post('/Chatbox/GetData', config
         ).then(function (data, status, headers, config) {
-            $scope.data = data.data[0];
+            $scope.data = data.data[0];           
             $scope.totalRows = data.data[1];
         }, function (error) {
             $scope.message = 'Unexpected Error while loading data!!';
@@ -116,13 +109,10 @@
     };
 
 
-
-
-
     $scope.item = null;
-
+ 
     $scope.update = function (id,unread) {
-
+        this.isUnread = this.isUnread ? false : true;
         $http.post("/Chatbox/update", { id: id, unread: unread })
             .success(function (data) {
                 GetAllData();
@@ -131,13 +121,16 @@
             });
     }
 
+    
 
     // sắp xếp
+    $scope.updown =true;
     $scope.sortColumn = 'name';
     $scope.reserveSort = false;
     $scope.sort = function (item) {
         $scope.reserveSort = ($scope.sortColumn == item) ? !$scope.reserveSort : false;
         $scope.sortColumn = item;
+        this.updown = this.updown ? false : true;
     }
 
 })

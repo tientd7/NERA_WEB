@@ -94,6 +94,8 @@ namespace NERA_WEB_APP.Controllers
             return Json(new object[] { LST.ToList(),totalRows }, JsonRequestBehavior.AllowGet);
         }
 
+
+
         [AllowAnonymous]
         public void addData(CS_ChatBox_Info cs)
         {

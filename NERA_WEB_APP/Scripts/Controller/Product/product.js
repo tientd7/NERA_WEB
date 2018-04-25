@@ -281,6 +281,20 @@ app.controller("ProductCtrl", function ($scope, $http) {
 
 
 
+
+
+
+    // sắp xếp
+    $scope.updown = true;
+    $scope.sortColumn = 'name';
+    $scope.reserveSort = false;
+    $scope.sort = function (item) {
+        $scope.reserveSort = ($scope.sortColumn == item) ? !$scope.reserveSort : false;
+        $scope.sortColumn = item;
+        this.updown = this.updown ? false : true;
+    }
+
+
     })
 
 

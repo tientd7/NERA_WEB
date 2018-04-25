@@ -29,11 +29,31 @@
     <div class="table-wrapper container">
         <table class="talble table-bordered table-wrapper">
             <tr  class="title-name-column">
-                <td class="name" style="width:200px;">Tên sản phẩm</td>
-                <td class="des">Miêu tả</td>
-                <td class="key">Từ khóa</td>
-                <td class="language" style="width:100px;">Ngôn ngữ</td>
-                <td class="enalbe" style="width:50px;">Enable</td>
+                <td class="name" style="width:200px;" ng-click="sort('Item_Name')">
+                    Tên sản phẩm
+                    <i class="fa fa-angle-down" ng-show="updown" aria-hidden="true"></i>
+                    <i class="fa fa-angle-up" ng-hide="updown" aria-hidden="true"></i>
+                </td>
+                <td class="des" ng-click="sort('Meta_Desc')">
+                    Miêu tả
+                    <i class="fa fa-angle-down" ng-show="updown" aria-hidden="true"></i>
+                    <i class="fa fa-angle-up" ng-hide="updown" aria-hidden="true"></i>
+                </td>
+                <td class="key" ng-click="sort('Meta_Key')">
+                    Từ khóa
+                    <i class="fa fa-angle-down" ng-show="updown" aria-hidden="true"></i>
+                    <i class="fa fa-angle-up" ng-hide="updown" aria-hidden="true"></i>
+                </td>
+                <td class="language" style="width:110px;" ng-click="sort('Language')">
+                    Ngôn ngữ
+                    <i class="fa fa-angle-down" ng-show="updown" aria-hidden="true"></i>
+                    <i class="fa fa-angle-up" ng-hide="updown" aria-hidden="true"></i>
+                </td>
+                <td class="enalbe" style="width:110px;" ng-click="sort('Enable')">
+                    Enable
+                    <i class="fa fa-angle-down" ng-show="updown" aria-hidden="true"></i>
+                    <i class="fa fa-angle-up" ng-hide="updown" aria-hidden="true"></i>
+                </td>
                 <td class="action" style="width:100px;">Chức năng</td>
             </tr>
 
@@ -66,7 +86,7 @@
                 </td>
             </tr>
 
-            <tr class="tr-show-data" dir-paginate='Item in ItemSP | itemsPerPage:5'>
+            <tr class="tr-show-data" dir-paginate='Item in ItemSP | itemsPerPage:5 | orderBy : sortColumn:reserveSort'>
                 <td style="padding:10px;">
                     <span ng-show="isExisting">{{Item.Item_Name}}</span>
 

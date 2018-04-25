@@ -1158,11 +1158,11 @@ a.link-detail:hover{
 .turn-on {
     cursor: pointer;
     height: 20px;
-    width: 20px;
+    width: 50px;
+    background: #0ddb95;
     border-radius: 10px;
-    background: #d71515;
-    display: block;
     transition: all linear 0.2s;
+    
 }
 .turn .ng-hide:not(.ng-hide-animate) {
     display: block !important;
@@ -1170,9 +1170,10 @@ a.link-detail:hover{
 .turn .ng-hide {
     cursor: pointer;
     height: 20px;
-    width: 50px;
-    background: #0ddb95;
+    width: 20px;
     border-radius: 10px;
+    background: #d71515;
+    display: block;
     transition: all linear 0.2s;
 }
 
