@@ -13,15 +13,47 @@
             <table class="table-wrapper table-bordered table-hover container">
                 <tr class="title-name-column">
 
-                    <th>Họ tên</th>
-                    <th>Số điện thoại</th>
-                    <th>Post_Id</th>
-                    <th>Tên Bài Viết</th>
-                    <th>Id Sản phẩm</th>
-                    <th>Ngày Đăng Ký</th>
-                    <th>Ngày Đọc</th>
-                    <th>Duyệt</th>
-                <tr dir-paginate="item in ListKh | itemsPerPage:5">
+                    <th  ng-click="sort('cus_name')">
+                        Họ tên
+                        <i class="fa fa-angle-down" ng-show="updown" aria-hidden="true"></i>
+                        <i class="fa fa-angle-up" ng-hide="updown" aria-hidden="true"></i>
+                    </th>
+                    <th  ng-click="sort('cus_phone')">
+                        Số điện thoại
+                        <i class="fa fa-angle-down" ng-show="updown" aria-hidden="true"></i>
+                        <i class="fa fa-angle-up" ng-hide="updown" aria-hidden="true"></i>
+                    </th>
+                    <th  ng-click="sort('Post_Id')">
+                        Post_Id
+                        <i class="fa fa-angle-down" ng-show="updown" aria-hidden="true"></i>
+                        <i class="fa fa-angle-up" ng-hide="updown" aria-hidden="true"></i>
+                    </th>
+                    <th  ng-click="sort('Post_Title')">
+                        Tên Bài Viết
+                        <i class="fa fa-angle-down" ng-show="updown" aria-hidden="true"></i>
+                        <i class="fa fa-angle-up" ng-hide="updown" aria-hidden="true"></i>
+                    </th>
+                    <th  ng-click="sort('Item_Id')">
+                        Id Sản phẩm
+                        <i class="fa fa-angle-down" ng-show="updown" aria-hidden="true"></i>
+                        <i class="fa fa-angle-up" ng-hide="updown" aria-hidden="true"></i>
+                    </th>
+                    <th  ng-click="sort('create_date')">
+                        Ngày Đăng Ký
+                        <i class="fa fa-angle-down" ng-show="updown" aria-hidden="true"></i>
+                        <i class="fa fa-angle-up" ng-hide="updown" aria-hidden="true"></i>
+                    </th>
+                    <th  ng-click="sort('read_date')">
+                        Ngày Đọc
+                        <i class="fa fa-angle-down" ng-show="updown" aria-hidden="true"></i>
+                        <i class="fa fa-angle-up" ng-hide="updown" aria-hidden="true"></i>
+                    </th>
+                    <th  ng-click="sort('unread')">
+                        Duyệt
+                        <i class="fa fa-angle-down" ng-show="updown" aria-hidden="true"></i>
+                        <i class="fa fa-angle-up" ng-hide="updown" aria-hidden="true"></i>
+                    </th>
+                <tr dir-paginate="item in ListKh | itemsPerPage:5 | orderBy : sortColumn:reserveSort">
                     <td>{{item.cus_name}}</td>
                     <td>{{item.cus_phone}}</td>
                     <td>{{item.Post_Id}}</td>
