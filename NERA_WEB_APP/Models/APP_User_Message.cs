@@ -23,7 +23,7 @@ namespace NERA_WEB_APP.Models
 
         public bool unread { get; set; }
 
-        public DateTime read_date { get; set; }
+        public DateTime? read_date { get; set; }
 
     }
 }

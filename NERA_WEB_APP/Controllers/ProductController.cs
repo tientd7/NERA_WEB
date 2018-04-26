@@ -17,6 +17,7 @@ namespace NERA_WEB_APP.Controllers
         {
             Session["id"] = id;
             var hienthi = (from i in db.CS_Post_Info where i.Item_ID == id && i.Enable == true select i).ToList();
+
             ViewBag.MenuName = db.Cs_Menu_item.Where(i => i.Item_Id == id).Select(i => i.Item_Name).FirstOrDefault();
             //ViewBag.MenuName = from name in db.Cs_Menu_item where name.Item_Id == id select name.Item_Name;
             return View(hienthi);
@@ -41,14 +42,26 @@ namespace NERA_WEB_APP.Controllers
             return new JsonResult { Data = hienthi, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
+        // hien thi danh sach bai viet theo san pham
+        public JsonResult lstBaiviet(int id)
+        {
+            var hienthi = (from i in db.CS_Post_Info where i.Item_ID == id select i).ToList();
+            return Json(hienthi, JsonRequestBehavior.AllowGet);
+        }
+
 
         // chi tiet 
         public ActionResult details(int id)
         {
             var detail = db.CS_Post_Info.Where(x => x.Post_Id == id).FirstOrDefault();
+            Session["Item_id"] = detail.Item_ID;
+
             Session["Post_Id"] = detail.Post_Id;
             Session["Post_Title"] = detail.Post_Title;
-            ViewBag.listImg =(
+            var nameProject = db.Cs_Menu_item.Where(x => x.Item_Id == detail.Item_ID).FirstOrDefault();
+            Session["Item_Name"] = nameProject.Item_Name;
+
+            ViewBag.listImg = (
                 from i in db.CS_Post_Slides
                 join slidepost in db.CS_Post_Info
                 on i.Post_Id equals slidepost.Post_Id
@@ -189,27 +202,37 @@ namespace NERA_WEB_APP.Controllers
             newobj.message_id = id;
             newobj.cus_name = obj.cus_name;
             newobj.cus_phone = obj.cus_phone;
-            newobj.Item_Id = Convert.ToInt32(Session["id"]);
+            newobj.Item_Id = Convert.ToInt32(Session["Item_id"]);
             newobj.Post_Id =Convert.ToInt32(Session["Post_Id"]);
             newobj.Post_Title =Convert.ToString(Session["Post_Title"]);
             newobj.create_date = DateTime.Now;
             newobj.unread = true;
-            newobj.read_date = DateTime.Now;
             db.APP_User_Message.Add(newobj);
             db.SaveChanges();
             return Json("");
 
         }
-
+        [CustomAuthorize(Roles = "Admin")]
         public ActionResult ThueNha()
         {
             return View();
         }
-
+        [CustomAuthorize(Roles = "Admin")]
         public JsonResult HienThi()
         {
             var lstKH = (from obj in db.APP_User_Message select obj).ToList(); 
             return new JsonResult { Data = lstKH, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+        [CustomAuthorize(Roles = "Admin")]
+        public JsonResult updateUnread(int id, bool unread)
+        {
+
+            var data = db.APP_User_Message.Where(i => i.message_id == id).FirstOrDefault();
+            data.unread = unread;
+            data.read_date = DateTime.Now;
+            db.Entry(data).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+            return Json("");
         }
 
     }

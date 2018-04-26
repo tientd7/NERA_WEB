@@ -1,5 +1,5 @@
 ﻿
-
+@model NERA_WEB_APP.Models.CS_Post_Info
 
 <section>
 
@@ -15,13 +15,10 @@
     </div>
 
 
-    <div class="container popup-box " style="max-width:60%;" ng-app="ProductCtrl">
+    <div class="container popup-box popup-customer-infor" style="max-width:60%;" ng-app="ProductCtrl">
         <div>
             <h2 class="title-add">
-                Thêm mới
-            </h2>
-            <h2 class="title-update" style="display:none;">
-                Sửa thông tin
+                Đăng ký thuê nhà
             </h2>
         </div>
 
@@ -29,32 +26,63 @@
             <div class="btn-close btn-close-popup" style="right:8px;">
                 <button id="btn-close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
             </div>
-            <div class="form-group">
-                <label>Họ tên</label>
-                <input type="text" class="form-control txt-name" ng-model="user.cus_name" />
-                <span class="alert alert-danger alert-noti-error">
-                    Họ tên không được để trống!
-                </span>
-            </div>
-            <div class="form-group">
+
+            <div class="form-group col-sm-6 project-infor-wrapper">
                 <div class="form-group col-sm-4">
-                    <label>Số điện thoại</label>
-                    <input type="number" class="form-control txt-name" ng-model="user.cus_phone" />
+                    <div class="form-group" style="padding-left:0;">
+                        <img src="@Model.Avatar" style="height:100px; width:100px;" />
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <div class="form-group">
+                        <label>Tên dự án</label>
+                        <div>
+                            @Session["Item_Name"]
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Tên sản phẩm</label>
+                        <div>
+                            @Model.Post_Title
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <div class="form-group" style="padding:0;">
+                        <label>Mô tả</label>
+                        <div>
+                            @Model.Meta_Desc
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="form-group" style="border:0px;">
-                <button type="button" ng-click="CreateUser(user)" class="btn btn-add btn-success">Thêm mới</button>
-                @*<button type="button" ng-click="CreateNewServices(Item)" class="btn btn-add btn-success">Thêm mới dichj vuj</button>*@
-                <button type="button" ng-click="update(Item)" class="btn btn-update btn-success">Update</button>
+            <div class="form-group col-sm-6 customer-infor-wrapper">
+                <div class="form-group">
+                    <label>Họ tên</label>
+                    <input type="text" class="form-control txt-name" ng-model="user.cus_name" />
+                    <span class="alert alert-danger alert-noti-error">
+                        Họ tên không được để trống!
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại</label>
+                    <input type="number" class="form-control" ng-model="user.cus_phone" />
+                </div>
+                <div class="form-group" style="border:0px;">
+                    <button type="button" ng-click="CreateUser(user)" class="btn btn-add btn-success">Đăng ký</button>
+                </div>
             </div>
+
+
+            
         </div>
     </div>
 </section>
 @section JavaScript{
 
-<script src="~/Scripts/Controller/Product/product.js"></script>
-    
+    <script src="~/Scripts/Controller/Product/product.js"></script>
+
 }
 
 

@@ -57,8 +57,25 @@ app.controller("ProductCtrl", function ($scope, $http) {
             console.log("error :" + error);
         })
     };
+
     // chạy hàm
     $scope.productEnable();
+
+
+    // các bài viết trong sản phẩm
+    $scope.ItemlstBaiViet;
+    $scope.lstBaiviet = function (id) {
+
+        $http.post("/Product/lstBaiviet", { id: id })
+            .success(function (data, status) {
+                $scope.ItemlstBaiViet = data;
+            }).error(function (error) {
+                console.log(error);
+            })
+
+
+    }
+
 
     // lấy ảnh
     $scope.listImg;
@@ -261,8 +278,31 @@ app.controller("ProductCtrl", function ($scope, $http) {
     $scope.CreateUser = function (user) {
         $http.post('/Product/CreateUse', { obj: user })
             .success(function (data) {
-                console.log(data)
+                // jquery
+                setTimeout(function () {
+                    $('.img-preload').fadeIn(200);
+                });
+                setTimeout(function () {
+                    $('.img-preload').fadeOut(200);
+                }, 800);
+                setTimeout(function () {
+                    $('.alert-add-success').fadeIn(500);
+                    $('.alert-noti-success').fadeIn(500);
+                }, 801);
+                setTimeout(function () {
+                    $('.alert-add-success').fadeOut(500);
+                    $('.alert-noti-success').fadeOut(500);
 
+                    //reload
+                   
+                }, 1500);
+
+                $('.popup-box').removeClass('box-dialog-keyframes');
+                $('.popup-box').addClass('active-hide');
+                $scope.user = data;
+                $scope.user = null;
+            }).error(function (error) {
+                console.log(error);
             })
     };
 
@@ -279,7 +319,14 @@ app.controller("ProductCtrl", function ($scope, $http) {
     };
     $scope.Hienthi();
 
-
+    $scope.updateUnread = function (id, unread) {
+        $http.post("/Product/updateUnread", { id: id, unread: unread })
+            .success(function (data) {
+                $scope.Hienthi();
+            }).error(function (error) {
+                console.log(error);
+            });
+    }
 
 
 

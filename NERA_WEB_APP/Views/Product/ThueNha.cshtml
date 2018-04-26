@@ -4,7 +4,9 @@
 }
 
 <section class="container">
-    <h3 class="title-page">Danh sách</h3>
+    <h3 class="title-page">
+        Danh sách khách hàng đặt hàng
+    </h3>
 
     <form>
         <div ng-controller="ProductCtrl">
@@ -17,8 +19,8 @@
                     <th>Tên Bài Viết</th>
                     <th>Id Sản phẩm</th>
                     <th>Ngày Đăng Ký</th>
-                    <th>Chưa Duyệt</th>
                     <th>Ngày Đọc</th>
+                    <th>Duyệt</th>
                 <tr dir-paginate="item in ListKh | itemsPerPage:5">
                     <td>{{item.cus_name}}</td>
                     <td>{{item.cus_phone}}</td>
@@ -26,17 +28,41 @@
                     <td>{{item.Post_Title}}</td>
                     <td>{{item.Item_Id}}</td>
                     <td>{{item.create_date |mydate| date: 'dd-MM-yyyy'}}</td>
-                    <td>{{item.unread}}</td>
-                    <td>{{item.read_date |mydate| date: 'dd-MM-yyyy'}}</td>
+                    <td ng-if="item.read_date != null">
+
+                        {{item.read_date |mydate| date:"dd/MM/yyyy"}}
+                    </td>
+                    <td ng-if="item.read_date == null"></td>
+
+                    <td style="position:relative;">
+                        <div ng-show="item.unread == false">
+                            <div class="turn">
+                                <div class="turn-on" ng-hide="item.unread">
+
+                                </div>
+                            </div>
+                            <input type="checkbox" ng-model="item.unread" class="check-read" ng-disabled="true" />
+                        </div>
+
+                        <div ng-show="item.unread == true">
+                            <div class="turn">
+                                <div class="turn-on" ng-hide="item.unread">
+
+                                </div>
+                            </div>
+                            <input type="checkbox" ng-model="item.unread" class="check-read" ng-click="updateUnread(item.message_id,item.unread)" ng-disabled="false" />
+                        </div>
+                    </td>
                 </tr>
             </table>
 
 
         </div>
     </form>
+    <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
 </section>
 
-
+<script src="~/Scripts/dirPagination.js"></script>
 @section JavaScript{
     <script src="~/Scripts/Controller/Product/product.js"></script>
 

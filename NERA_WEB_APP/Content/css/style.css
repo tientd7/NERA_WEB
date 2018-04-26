@@ -699,7 +699,7 @@ TESTIMONIAL
 .sortby-wrapper.breadcrumb-wrapper {
     display: grid;
     grid-template-columns: 50% 50%;
-    padding: 10px;
+    padding: 10px 50px;
 }
 
 .breadcrumb-wrapper {
@@ -1341,25 +1341,45 @@ div .alert.alert-danger {
 
 /*POPUP*/
 .popup-box {
-  
+    border:2px solid #eee;
     height: 600px;
     position: fixed;
-    background: #fff;
-    z-index: 1000;
+    
+    z-index: 10000;
     left: 50%;
     top: -230%;
     transform: translate(-50%,-50%);
     overflow: auto;
-    background: #eee;
+    background: #fdfcfc;
+    border-radius:3px;
+}
+    .popup-box.popup-customer-infor{
+        height:auto;
+        padding: 20px 0; 
+    }
+    .popup-customer-infor {
+      
+    }
+
+
+.popup-box.popup-customer-infor .row {
+    padding-bottom: 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.popup-customer-infor .row .project-infor-wrapper {
+    border-right: 1px solid #eee;
 }
 
-.title-add, .title-update, .title-details {
-    margin: 20px;
+        .title-add, .title-update, .title-details {
+            margin: 20px;
+        }
+.popup-box.popup-customer-infor .row .form-group {
+    padding-left: 10px;
+    margin: 10px 0px;
 }
-
 .popup-box .row .form-group {
     padding-left: 20px;
-    border: 1px solid #eee;
     margin: 20px 0px;
 }
 
@@ -1368,8 +1388,9 @@ div .alert.alert-danger {
     margin: 0px;
 }
 
-    .popup-box .row .form-group {
-    }
+
+.popup-box .row .form-group {
+}
 
         .popup-box .row .form-group .col-sm-6 {
             padding-left: 0px;

@@ -90,3 +90,14 @@ $('.btn-close-wrapper-add-data').click(function () {
 $('.action-box span').click(function () {
     $('.message-box').toggle(200);
 });
+
+
+// menu
+
+$('.dropdown-menu li').mouseover(function () {   
+    $(this).addClass('active');
+})
+
+$('.dropdown-menu li').mouseleave(function () {
+    $(this).removeClass('active');
+})

@@ -172,7 +172,7 @@
                         <div class="wt">
                             <span>
                                 <i class="fa fa-briefcase"></i>
-                                Thời gian làm việc: 8h - 22h 
+                                Thời gian làm việc: 8h - 22h
                             </span>
                         </div>
                     </div>
@@ -221,32 +221,19 @@
                         <a href="/Services/Index">Quản lý dịch vụ</a>
                         <span class="border-right"></span>
                     </li>
-                    <li>
-                        <a href="/Product/Index">Quản lý Dự án</a>
+                    <li class="dropdown">
+                        <a href="/Product/Index">Quản lý Dự án <b class="caret"></b></a>
+
+                        <div class="submenu-wrapper submenu-wrapper-topbottom">
+                            <div class="submenu-inner  submenu-inner-topbottom">
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Product/Index">Quản lý Dự án</a></li>
+                                    <li><a href="/Product/Thuenha">Quản lý khách hàng đặt phòng</a></li>
+                                </ul>
+                            </div>
+                        </div>
                         <span class="border-right"></span>
                     </li>
-
-
-                    @*<li class="dropdown">
-                            <a href="#">Sản phẩm <b class="caret"></b></a>
-
-                            <div class="submenu-wrapper submenu-wrapper-topbottom">
-                                <div class="submenu-inner  submenu-inner-topbottom">
-                                    <ul class="dropdown-menu" ng-controller="ProductCtrl">
-                                        @if (String.IsNullOrEmpty(userName))
-                                        {
-                                            <li ng-repeat="i in ItemSPEnable "><a href="/Product/product?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
-                                        }
-                                        else
-                                        {
-                                            <li ng-repeat="i in ItemSPEnable "><a href="/BaiVietMVC/Index?id={{i.Item_Id}}">{{i.Item_Name}}</a></li>
-                                        }
-
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </li>*@
 
                     <li>
                         <a href="/Orther_Slide/Index">Quản lý slides</a>

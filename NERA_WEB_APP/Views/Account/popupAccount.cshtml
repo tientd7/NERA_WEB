@@ -107,9 +107,9 @@
                     </div>
                 </div>
                 @*<div class="col-sm-6">
-                    <label>Enable</label>
-                    <input type="checkbox" ng-model="_user.IsEnable" class="item" value="{{_user.IsEnable}}" />
-                </div>*@
+                <label>Enable</label>
+                <input type="checkbox" ng-model="_user.IsEnable" class="item" value="{{_user.IsEnable}}" />
+            </div>*@
 
 
             </div>
@@ -117,6 +117,15 @@
             <div class="form-group" style="border:0px;">
                 <button type="button" ng-click="signUp(_user)" class="btn btn-add btn-success">Thêm mới</button>
                 <button type="button" ng-click="update(Item)" class="btn btn-update btn-success">Update</button>
+            </div>
+            <div class="container" style="max-width:500px;">
+                <div class="alert alert-noti-success">
+                    <h3 class="alert-add-success" style="color:#fff;">
+                        Đăng ký thành công
+                    </h3>
+                   
+
+                </div>
             </div>
         </div>
     </div>

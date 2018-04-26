@@ -344,13 +344,27 @@ DROPDOWN CSS
         color: #343434;
         text-transform: uppercase;
         font-size: 11px;
+        position:relative;
     }
+        .nav.navbar-nav li ul.dropdown-menu li a .fa-caret-right{
+            position:absolute;
+            right:20px;
+            top:50%;
+            transform:translate(0,-50%);
+            display:none;
 
-    .nav.navbar-nav li ul.dropdown-menu li a:hover,
-    .nav.navbar-nav li ul.dropdown-menu li a:focus {
-        color: #fff;
-        background-color: #1a8ae1;
-    }
+        }
+
+        .nav.navbar-nav li ul.dropdown-menu li a:hover .fa-caret-right {
+            display: inline-block;
+        }
+
+
+        .nav.navbar-nav li ul.dropdown-menu li a:hover,
+        .nav.navbar-nav li ul.dropdown-menu li a:focus {
+            color: #fff !important;
+            background-color: #1a8ae1;
+        }
 
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
@@ -388,7 +402,7 @@ li.dropdown > .submenu-wrapper {
     z-index: 999;
     pointer-events: none;
     top: 50px;
-    /* Will change on theme specific */;
+    /* Will change on theme specific */
 }
 
 
@@ -513,8 +527,9 @@ li.dropdown.menu-animating > .submenu-sub-wrapper {
 
 .dropdown-menu-level-3 {
     position: absolute;
-    right: -215px;
+    left:100%;
     top: 0;
+    width:200px;
     display:none;
 }
 

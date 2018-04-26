@@ -60,7 +60,7 @@
 
                         </div>
                         <div class="lang-support pull-right">
- 
+
                             <div class="language-select">
                                 <div class="select-country">
                                     <span class="country country-active selected-vn">Vietnam</span>
@@ -213,40 +213,17 @@
 
                         <div class="submenu-wrapper submenu-wrapper-topbottom">
                             <div class="submenu-inner  submenu-inner-topbottom">
-                                <ul class="dropdown-menu" ng-controller="ProductCtrl">
-                                    <li>
-                                        <a href="/Home/Introduce">Giới thiệu</a>
+                                <ul class="dropdown-menu" ng-controller="ProductCtrl">                                  
+                                    <li ng-repeat="i in ItemSPEnable">
+                                        <a href="/Product/product?id={{i.Item_Id}}" ng-mouseover="lstBaiviet(i.Item_Id)">
+                                            {{i.Item_Name}}
+                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                        </a>
                                         <ul class="dropdown-menu-level-3">
-                                            <li>
-                                                <a href="#">Dự án Dự án Dự án Dự án Dự án</a>
-
-                                            </li>
-                                            <li>
-                                                <a href="#">Dự án</a>
-
-                                            </li>
-                                            <li>
-                                                <a href="#">Dự án</a>
-
+                                            <li ng-repeat="itemBV in ItemlstBaiViet">
+                                                <a href="/Product/details?id={{itemBV.Post_Id}}">{{itemBV.Post_Title}}</a>
                                             </li>
                                         </ul>
-                                    </li>
-                                    <li ng-repeat="i in ItemSPEnable ">
-                                        <a href="/Product/product?id={{i.Item_Id}}">{{i.Item_Name}} {{i.Item_Id}}</a>
-                                        @*<ul class="dropdown-menu-level-3">
-                                            <li>
-                                                <a href="#">Dự án</a>
-
-                                            </li>
-                                            <li>
-                                                <a href="#">Dự án</a>
-
-                                            </li>
-                                            <li>
-                                                <a href="#">Dự án</a>
-
-                                            </li>
-                                        </ul>*@
                                     </li>
                                 </ul>
                             </div>
